@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CP370-CP330 Project")]
+[assembly: AssemblyTitle("Project")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CP370-CP330 Project")]
+[assembly: AssemblyProduct("Project")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("38d5a898-2dca-4c85-b32a-4fbbbb1e118c")]
+[assembly: Guid("9735e09c-813b-4b6d-bcd4-a818e730603b")]
 
 // Version information for an assembly consists of the following four values:
 //

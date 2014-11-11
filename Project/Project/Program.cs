@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CP370_CP330_Project
+namespace Project
 {
     class Program
     {
