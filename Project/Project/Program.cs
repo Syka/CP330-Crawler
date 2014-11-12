@@ -16,7 +16,7 @@ namespace Project
         static void TestClass()
         {
             //testing the commiting and shit.
-            Console.WriteLine("LESS SPACESHIPS!");
+            Console.WriteLine("SPACESHIPS ARE A LIE!");
         }
     }
 }
