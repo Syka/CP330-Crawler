@@ -16,17 +16,40 @@ namespace Project
     }
 
     public class Ogre : Monsters
-    { 
-    
+    {
+        //Ogre's Specific traits
+        public Ogre()
+        { 
+        
+        }
     }
 
     public class Troll : Monsters
     {
+        //Troll's Specific traits
 
+        public Troll()
+        {
+
+        }
     }
 
     public class Spirit : Monsters
-    { 
-    
+    {
+        //Spirit's Specific traits
+
+        public Spirit()
+        { 
+        
+        }
+    }
+
+    public class Swamphag : Monsters 
+    {
+        //Swamphag's Specific traits    -- Boss
+        public Swamphag()
+        { 
+        
+        }
     }
 }

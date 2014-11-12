@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    //Holds all the traits all heros will have
+       //Holds all the traits all heros will have
     public abstract class Heros
     {
         public Heros()
@@ -16,7 +16,11 @@ namespace Project
     }
 
     public class hero1 : Heros
-    { 
-    
+    {
+        //hero1's Specific traits.
+        public hero1()
+        { 
+        
+        }
     }
 }
