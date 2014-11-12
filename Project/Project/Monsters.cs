@@ -6,7 +6,27 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    class Monsters
+    //Holds the traits all Monsters Have
+    public abstract class Monsters
     {
+        public Monsters()
+        {
+    
+        }
+    }
+
+    public class Ogre : Monsters
+    { 
+    
+    }
+
+    public class Troll : Monsters
+    {
+
+    }
+
+    public class Spirit : Monsters
+    { 
+    
     }
 }
