@@ -21,6 +21,8 @@ namespace Project
             //Loot
 
             //Inventory
+
+            //Weapons
         }
 
     }
