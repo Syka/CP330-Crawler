@@ -19,6 +19,8 @@ namespace Project
             Console.WriteLine("You Enter the dark Dungeon");
             Console.ReadLine();
 
+            
+
             //Need a loop here
 
             //Show map
