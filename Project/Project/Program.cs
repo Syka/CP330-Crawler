@@ -10,6 +10,16 @@ namespace Project
     {
         static void Main()
         {
+            //Intro
+            Console.WriteLine("We follow our faithful Mute Protangnist as he enters the treachous Dungeon");
+            Console.WriteLine("---------------------------------------");
+            Console.WriteLine("Press Any Key to Continue...");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("You Enter the dark Dungeon");
+            Console.ReadLine();
+
+
             //Movement
 
             //Events
