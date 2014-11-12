@@ -12,4 +12,8 @@ namespace Project
         {
         }
     }
+    class Weapons
+    {
+
+    }
 }
