@@ -8,18 +8,10 @@ namespace Project
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("SPACESHIP!");
-            TestClass();
-            Console.ReadLine();
+
         }
 
-        static void TestClass()
-        {
-            //testing the commiting and shit.
-            Console.WriteLine("SPACESHIPS ARE A LIE!");
-            
-        }
     }
 }
