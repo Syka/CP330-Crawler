@@ -10,7 +10,17 @@ namespace Project
     {
         static void Main()
         {
+            //Movement
 
+            //Events
+            
+            //Characters
+
+            //Enemies
+
+            //Loot
+
+            //Inventory
         }
 
     }
