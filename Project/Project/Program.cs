@@ -11,5 +11,10 @@ namespace Project
         static void Main(string[] args)
         {
         }
+
+        static void TestClass()
+        {
+            //testing the commiting and shit.
+        }
     }
 }
