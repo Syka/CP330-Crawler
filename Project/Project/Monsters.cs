@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
+    //Holds the traits all Monsters Have
     public abstract class Monsters
     {
         public Monsters()
