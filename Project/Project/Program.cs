@@ -11,13 +11,15 @@ namespace Project
         static void Main(string[] args)
         {
             Console.WriteLine("SPACESHIP!");
+            TestClass();
+            Console.ReadLine();
         }
 
         static void TestClass()
         {
             //testing the commiting and shit.
             Console.WriteLine("SPACESHIPS ARE A LIE!");
-            Console.ReadLine();
+            
         }
     }
 }
