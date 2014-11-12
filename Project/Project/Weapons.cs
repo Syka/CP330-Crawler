@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    class Program
+    class Weapons
     {
-        static void Main(string[] args)
-        {
-        }
     }
-   
 }
