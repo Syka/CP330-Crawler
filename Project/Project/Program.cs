@@ -17,6 +17,7 @@ namespace Project
         {
             //testing the commiting and shit.
             Console.WriteLine("SPACESHIPS ARE A LIE!");
+            Console.ReadLine();
         }
     }
 }
