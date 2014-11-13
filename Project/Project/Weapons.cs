@@ -15,19 +15,18 @@ namespace Project
     public interface WeaponBehaviour
     {
         void useWeapon();
-        void weaponDamage();
+        int weaponDamage = 0;
+
     }
     public class AxeBehaviour : WeaponBehaviour
     {
         public void useWeapon()
         {
             Console.WriteLine("You Swing with the Axe");
-        }
-
-        public void weaponDamage()
-        {
             
         }
+
+        
     }
     public class SwordBehaviour : WeaponBehaviour
     {
