@@ -11,7 +11,7 @@ namespace Project
         public void OpeningCrawl()
         {
             //Creates the Header Graphic
-            Console.SetWindowSize(150, 60);
+            Console.SetWindowSize(97, 60);
             Console.WriteLine(" _____                                         _____  _  _                        _           ||");
             Console.WriteLine("|  __ \\                                       / ____|| || |_                     | |          ||");
             Console.WriteLine("| |  | |_   _ _ __   __ _  ___  ___  _ __    | |   |_  __  _|  _ __ __ ___      _| | ___ _ __ ||");
