@@ -25,7 +25,7 @@ namespace Project
             refresh();
         }
         public void generate()
-        {
+        {            
             mask = new string[mapSize, mapSize];
             events = new string[mapSize, mapSize];
             for (int i = 0; i < mask.GetLength(0); i++)
@@ -164,6 +164,21 @@ namespace Project
                 } Console.WriteLine(Environment.NewLine);
             } Console.WriteLine(message);
         }
-        public void refresh() { Console.Clear(); display("mask"); }
+        public void refresh() { ClearLine(); display("mask"); }
+
+        static void ClearLine()
+        {
+            Console.SetCursorPosition(0, 11);
+            for (int i = 0; i < 50; i++)
+            {
+                //Console.WriteLine("{0}", i);
+                Console.Write(new string(' ', Console.WindowWidth));
+
+            }
+            Console.SetCursorPosition(0, 0);
+            Console.SetCursorPosition(0, 11);
+        }
     }
+
+    
 }

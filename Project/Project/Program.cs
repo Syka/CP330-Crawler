@@ -29,6 +29,17 @@ namespace Project
             ClearLine();
             Console.WriteLine("You Enter the dark Dungeon");
             Console.ReadLine();
+            ClearLine();
+
+            Map map = new Map(10);
+            while (!map.dead)
+            {
+                map.movement();
+            }
+            Console.Clear();
+            Console.WriteLine("GAME OVER");
+            Console.ReadLine();
+            
 
 
 
@@ -55,14 +66,15 @@ namespace Project
         }
         static void ClearLine()
         {
-            Console.SetCursorPosition(0, Console.CursorTop - 4);
+            Console.SetCursorPosition(0, 11);
             for (int i = 0; i < 50; i++)
             {
                 //Console.WriteLine("{0}", i);
                 Console.Write(new string(' ', Console.WindowWidth));
                
-            }                      
-            Console.SetCursorPosition(0, Console.CursorTop -50);
+            }
+            Console.SetCursorPosition(0,0);
+            Console.SetCursorPosition(0, 11);
         }
 
     }
