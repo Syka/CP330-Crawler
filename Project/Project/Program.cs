@@ -10,6 +10,8 @@ namespace Project
     {
         static void Main()
         {
+           
+
             //Intro
             Console.WriteLine("We follow our faithful Mute Protangnist as he enters the treachous Dungeon");
             Console.WriteLine("---------------------------------------");
