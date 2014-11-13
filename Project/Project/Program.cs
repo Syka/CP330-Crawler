@@ -10,18 +10,27 @@ namespace Project
     {
         static void Main()
         {
-           
+            //Map Initialzer
+
+            //Character Initializer
+
 
             //Intro
+            Intro Start = new Intro();
+            Start.OpeningCrawl();
+
+            Console.SetCursorPosition(10, Console.CursorTop - 1);
+            ClearLine();
+
             Console.WriteLine("We follow our faithful Mute Protangnist as he enters the treachous Dungeon");
             Console.WriteLine("---------------------------------------");
-            Console.WriteLine("Press Any Key to Continue...");
-            Console.ReadKey();
-            Console.Clear();
+            Console.WriteLine("Press Any Enter to Continue...");
+            Console.ReadLine();
+            ClearLine();
             Console.WriteLine("You Enter the dark Dungeon");
             Console.ReadLine();
 
-            
+
 
             //Need a loop here
 
@@ -31,7 +40,7 @@ namespace Project
             //Movement
 
             //Events
-            
+
             //Characters
 
             //Enemies
@@ -44,7 +53,17 @@ namespace Project
 
             //Map
         }
+        static void ClearLine()
+        {
+            Console.SetCursorPosition(0, Console.CursorTop - 4);
+            for (int i = 0; i < 50; i++)
+            {
+                //Console.WriteLine("{0}", i);
+                Console.Write(new string(' ', Console.WindowWidth));
+               
+            }                      
+            Console.SetCursorPosition(0, Console.CursorTop -50);
+        }
 
     }
-   
 }

@@ -41,11 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Heros.cs" />
-    <Compile Include="Monsters.cs" />
+    <Compile Include="Intro.CS" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Weapons.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
