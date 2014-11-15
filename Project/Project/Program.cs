@@ -19,25 +19,28 @@ namespace Project
             Intro Start = new Intro();
             Start.OpeningCrawl();
 
-            Console.SetCursorPosition(10, Console.CursorTop - 1);
-            ClearLine();
+            //Console.SetCursorPosition(10, Console.CursorTop - 1);
+            //ClearLine();
 
-            Console.WriteLine("We follow our faithful Mute Protangnist as he enters the treachous Dungeon");
-            Console.WriteLine("---------------------------------------");
-            Console.WriteLine("Press Any Enter to Continue...");
-            Console.ReadLine();
-            ClearLine();
-            Console.WriteLine("You Enter the dark Dungeon");
-            Console.ReadLine();
-            ClearLine();
+            WriteTextBox("We follow our faithful Mute Protangnist as he enters the treachous Dungeon");
+            //Console.WriteLine("---------------------------------------");
+            //Console.WriteLine("Press Any Enter to Continue...");
+            //Console.ReadLine();
+            ////ClearLine();
+            ////Console.WriteLine("What Race are you young Adventurer?");           
 
-            Map map = new Map(10);
-            while (!map.dead)
-            {
-                map.movement();
-            }
-            Console.Clear();
-            Console.WriteLine("GAME OVER");
+            //ClearLine();
+            //Console.WriteLine("You Enter the dark Dungeon");
+            //Console.ReadLine();
+            //ClearLine();
+
+            //Map map = new Map(10);
+            //while (!map.dead)
+            //{
+            //    map.movement();
+            //}
+            //Console.Clear();
+            //Console.WriteLine("GAME OVER");
             Console.ReadLine();
             
 
@@ -70,11 +73,39 @@ namespace Project
             for (int i = 0; i < 50; i++)
             {
                 //Console.WriteLine("{0}", i);
-                Console.Write(new string(' ', Console.WindowWidth));
+                Console.Write(new string(' ', Console.WindowWidth-30));
                
             }
             Console.SetCursorPosition(0,0);
             Console.SetCursorPosition(0, 11);
+        }
+ static void WriteTextBox(string value)
+        {
+            Console.SetCursorPosition(0, 41);
+            int myLimit = 51;
+            string sentence = value;
+            string[] words = sentence.Split(' ');
+
+            StringBuilder newSentence = new StringBuilder();
+
+
+            string line = "";
+            foreach (string word in words)
+            {
+                if ((line + word).Length > myLimit)
+                {
+                    newSentence.AppendLine(line);
+                    line = "";
+                }
+
+                line += string.Format("{0} ", word);
+            }
+
+            if (line.Length > 0)
+                newSentence.AppendLine(line);
+
+            Console.WriteLine(newSentence.ToString());
+            Console.SetCursorPosition(7, 59);
         }
 
     }
