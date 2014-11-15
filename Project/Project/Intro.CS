@@ -32,7 +32,7 @@ namespace Project
              //Creating Vertical Bar
             Console.SetCursorPosition(51, 6);
             Console.Write("┬");            
-            for (int j = 1; j < 48; j++)
+            for (int j = 1; j < 53; j++)
             {
                 Console.SetCursorPosition(51, 6 + j);
                 Console.WriteLine("│");
@@ -47,13 +47,17 @@ namespace Project
                 Console.Write("─");
             }
             //Creating input box
+            Console.SetCursorPosition(51, 58);
+            Console.Write("┤");
             Console.SetCursorPosition(0, 58);
             for (int j = 0; j < 51; j++)
             {
                 Console.Write("─");                
             }
             Console.SetCursorPosition(0, 59);
-            Console.Write("Input: ");        
+            Console.Write("Input: ");  
+      
+            
         }
     }
 }

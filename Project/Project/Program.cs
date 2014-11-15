@@ -18,17 +18,18 @@ namespace Project
             //Intro
             Intro Start = new Intro();
             Start.OpeningCrawl();
-            GameOver End = new GameOver();            
+            GameOver End = new GameOver();
 
-            WriteTextBox("We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine+"Press Any Enter to Continue..." );            
-            WriteTextBox("");
-            Console.ReadLine();
-            //ClearLine(); "Press Any Enter to Continue...
-            //Console.WriteLine("What Race are you young Adventurer?");           
+            WriteTextBox("Press Enter To Start");
+            Console.ReadKey();
 
-            ClearLine();            
+
+            WriteTextBox(" We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine+" Press Any Key" );
+            ClearTextbox();
+            WriteTextBox("What Race are you?" + Environment.NewLine + "Elf,Human or Orc?");
             Console.ReadLine();
-            ClearLine();
+
+            //Console.WriteLine("What Race are you young Adventurer?");
 
             //Map map = new Map(10);
             //while (!map.dead)
@@ -45,8 +46,7 @@ namespace Project
                 case ConsoleKey.N:
                     Environment.Exit(0);
                     break;
-            }
-            
+            }           
 
 
 
@@ -71,17 +71,13 @@ namespace Project
 
             //Map
         }
-        static void ClearLine()
+        static void ClearTextbox()
         {
-            Console.SetCursorPosition(0, 11);
-            for (int i = 0; i < 50; i++)
+            Console.SetCursorPosition(0, 41);
+            for (int i = 0; i < 12; i++)
             {
-                //Console.WriteLine("{0}", i);
-                Console.Write(new string(' ', Console.WindowWidth-30));
-               
+                Console.WriteLine("                                                   ");
             }
-            Console.SetCursorPosition(0,0);
-            Console.SetCursorPosition(0, 11);
         }
  static void WriteTextBox(string value)
         {
