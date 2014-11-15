@@ -19,7 +19,8 @@ namespace Project
             //Console.ForegroundColor = ConsoleColor.Black;
             //Console.BackgroundColor = ConsoleColor.White;
             //Console.Clear();
-
+            Console.Clear();
+            Console.SetCursorPosition(0, 0);
             Console.WriteLine(" ┌─────────────────────────────────────────────────────────────────────────────────────────────┐");
             Console.WriteLine(" │   ___                                 _____  ____                  __                       │");
             Console.WriteLine(" │  / _ \\__ _____  ___ ____ ___  ___    / ___/_/ / /________ __    __/ /__ ____                │");
@@ -52,45 +53,7 @@ namespace Project
                 Console.Write("─");                
             }
             Console.SetCursorPosition(0, 59);
-            Console.Write("Input: ");
-
-            
-
-            
-
-
-
-
-
-
-
-                #region Loading Bar
-            //    //This is the Loading Bar
-            //    Console.Write("Loading: ");
-            //for (int i = 99; i < 101; i++)
-            //{
-                
-            //    if (i < 10)
-            //    {
-            //        Console.Write("{0}", i);
-            //        Console.Write("\b");
-            //        System.Threading.Thread.Sleep(100);
-            //    }
-            //    else if (i < 100)
-            //    {
-            //        Console.Write("{0}", i);
-            //        Console.Write("\b");
-            //        Console.Write("\b");
-            //        System.Threading.Thread.Sleep(100);
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("Complete");
-            //        Console.WriteLine("Press Enter To begin your Journey");
-            //        Console.ReadLine();
-            //    }
-            //};
-            #endregion
+            Console.Write("Input: ");        
         }
     }
 }

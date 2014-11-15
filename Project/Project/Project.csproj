@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameOver.cs" />
     <Compile Include="Heros.cs" />
     <Compile Include="Intro.CS" />
     <Compile Include="Map_Movement.cs" />

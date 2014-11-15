@@ -18,30 +18,34 @@ namespace Project
             //Intro
             Intro Start = new Intro();
             Start.OpeningCrawl();
+            GameOver End = new GameOver();            
 
-            //Console.SetCursorPosition(10, Console.CursorTop - 1);
-            //ClearLine();
+            WriteTextBox("We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine+"Press Any Enter to Continue..." );            
+            WriteTextBox("");
+            Console.ReadLine();
+            //ClearLine(); "Press Any Enter to Continue...
+            //Console.WriteLine("What Race are you young Adventurer?");           
 
-            WriteTextBox("We follow our faithful Mute Protangnist as he enters the treachous Dungeon");
-            //Console.WriteLine("---------------------------------------");
-            //Console.WriteLine("Press Any Enter to Continue...");
-            //Console.ReadLine();
-            ////ClearLine();
-            ////Console.WriteLine("What Race are you young Adventurer?");           
-
-            //ClearLine();
-            //Console.WriteLine("You Enter the dark Dungeon");
-            //Console.ReadLine();
-            //ClearLine();
+            ClearLine();            
+            Console.ReadLine();
+            ClearLine();
 
             //Map map = new Map(10);
             //while (!map.dead)
             //{
             //    map.movement();
-            //}
-            //Console.Clear();
-            //Console.WriteLine("GAME OVER");
-            Console.ReadLine();
+            //}            
+            End.Died();
+            ConsoleKeyInfo Input = Console.ReadKey();
+            switch (Input.Key)
+            {
+                case ConsoleKey.Y:
+                    Main();
+                    break;
+                case ConsoleKey.N:
+                    Environment.Exit(0);
+                    break;
+            }
             
 
 
