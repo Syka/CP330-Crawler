@@ -6,72 +6,103 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    
+
     class SelectWeapon
     {
-        int WeaponDamage = 0;
+
     }
 
     public interface WeaponBehaviour
     {
         void useWeapon();
-        int weaponDamage = 0;
+
 
     }
+    //Axe
     public class AxeBehaviour : WeaponBehaviour
     {
+        int weaponDamage = 5;
+        int weaponDurability = 6;
+
         public void useWeapon()
         {
-            Console.WriteLine("You Swing with the Axe");
-            
+            if (weaponDurability > 0)
+            {
+                Console.WriteLine("You Swing with the Axe");
+                //Weapons Damage
+                weaponDamage = 5;
+                //Weapons Durability
+                weaponDurability = weaponDurability - 2;
+            }
+            else
+            {
+                Console.WriteLine("Your Weapon Broke");
+
+            }
+
         }
 
-        
+
     }
+
+    //Sword
     public class SwordBehaviour : WeaponBehaviour
     {
-        public void useWeapon()
-        {
-            Console.WriteLine("You Slice with the Sword");
-        }
-    }
+        int weaponDamage = 3;
+        int weaponDurability = 4;
 
-    public class LongSwordBehaviour : WeaponBehaviour
-    {
         public void useWeapon()
         {
-            Console.WriteLine("You Slice with the Long Sword");
-        }
-    }
+            if (weaponDurability > 0)
+            {
+                Console.WriteLine("You Swing with the Sword");
+                weaponDamage = 3;
+                weaponDurability = weaponDurability - 2;
+            }
+            else
+            {
+                Console.WriteLine("Your Weapon Broke");
 
-    public class BowAndArrow : WeaponBehaviour
-    {
-        public void useWeapon()
-        {
-            Console.WriteLine("You fire an Arrow");
+            }
         }
-    }
-    public class KnifeBehaviour : WeaponBehaviour
-    {
-        public void useWeapon()
-        {
-            Console.WriteLine("You Stab with the Knife");
-        }
-    }
-    public class Mace : WeaponBehaviour
-    {
-        public void useWeapon()
-        {
-            Console.WriteLine("You Swing the Mace");
-        }
-    }
-    public class BattleHammer : WeaponBehaviour
-    {
-        public void useWeapon()
-        {
-            Console.WriteLine("You Smash the BattleHammer");
-        }
-    }
 
-    
+        public class LongSwordBehaviour : WeaponBehaviour
+        {
+            public void useWeapon()
+            {
+                Console.WriteLine("You Slice with the Long Sword");
+            }
+        }
+
+        public class BowAndArrow : WeaponBehaviour
+        {
+            public void useWeapon()
+            {
+                Console.WriteLine("You fire an Arrow");
+            }
+        }
+        public class KnifeBehaviour : WeaponBehaviour
+        {
+            public void useWeapon()
+            {
+                Console.WriteLine("You Stab with the Knife");
+            }
+        }
+        public class Mace : WeaponBehaviour
+        {
+            public void useWeapon()
+            {
+                Console.WriteLine("You Swing the Mace");
+            }
+        }
+        public class BattleHammer : WeaponBehaviour
+        {
+            public void useWeapon()
+            {
+                Console.WriteLine("You Smash the BattleHammer");
+            }
+        }
+
+
+    }
 }
