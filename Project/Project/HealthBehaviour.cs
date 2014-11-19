@@ -13,41 +13,50 @@ namespace Project
 
     public class HighHealth : IHealthBehaviour
     {
+        public int valueHealth;
         public void Health()
         {
-            //Health = 20
+            valueHealth = 20;
         }
     }
 
     public class MedHealth : IHealthBehaviour
     {
+        public int valueHealth;
+
         public void Health()
-        { 
-            //Health = 15
+        {
+            valueHealth = 10;
         }
     }
 
     public class LowHealth : IHealthBehaviour
-    { 
+    {
+        public int valueHealth;
+
         public void Health()
         {
-            //Health 10
+            valueHealth = 10;
         }
     }
 
     public class HeroHealthHigh : IHealthBehaviour
     {
+        public int valueHealth;
+
         public void Health()
         { 
-            //Health 25
+            valueHealth = 25;
         }
     }
 
     public class HeroHealthLow : IHealthBehaviour
     {
+        public int valueHealth;
+
         public void Health()
         {
-            //Health 15
+            valueHealth = 15;
         }
 
     }
