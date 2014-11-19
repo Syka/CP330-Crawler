@@ -9,9 +9,11 @@ namespace Project
     //Holds the traits all Monsters Have
     public abstract class Monsters
     {
+        //implements the Health interface
+        public IHealthBehaviour mHealthBehaviour;
         public Monsters()
         {
-    
+            //damamge interface for all monsters to have the same damage
         }
     }
 
@@ -19,8 +21,8 @@ namespace Project
     {
         //Ogre's Specific traits
         public Ogre()
-        { 
-        
+        {
+            mHealthBehaviour = new HighHealth();
         }
     }
 
@@ -30,7 +32,7 @@ namespace Project
 
         public Troll()
         {
-
+            mHealthBehaviour = new MedHealth();
         }
     }
 
@@ -39,8 +41,8 @@ namespace Project
         //Spirit's Specific traits
 
         public Spirit()
-        { 
-        
+        {
+            mHealthBehaviour = new LowHealth();
         }
     }
 
@@ -48,8 +50,10 @@ namespace Project
     {
         //Swamphag's Specific traits    -- Boss
         public Swamphag()
-        { 
-        
+        {
+            mHealthBehaviour = new HighHealth();
         }
+
+        //public override void "Damage interface"
     }
 }
