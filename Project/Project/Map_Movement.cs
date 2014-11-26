@@ -135,18 +135,22 @@ namespace Map_Movement
                 if (events[r, c].Equals(enemy))
                 {
                     mask[r, c] = onEnemy;
+                    //trigger fight
                 }
                 if (events[r, c].Equals(boss))
                 {
                     mask[r, c] = onBoss;
+                    //trigger fight
                 }
                 if (events[r, c].Equals(trapdoor))
                 {
                     mask[r, c] = onTrap;
+                    //trigger something
                 }
                 if (events[r, c].Equals(chest))
                 {
                     mask[r, c] = onChest;
+                    //trigger loot
                 }
                 refresh();
             }
