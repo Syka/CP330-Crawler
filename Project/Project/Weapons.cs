@@ -107,5 +107,23 @@ namespace Project
 
 
     }
+
+
+    //Bowstaff
+    public class Bowstaff : WeaponBehaviour
+    {
+
+        int damage = 6;
+
+        public void useWeapon()
+        {
+            Console.WriteLine("You swing with the Axe!");
+            damage = 6;
+
+
+        }
+
+
+    }
     
 }
