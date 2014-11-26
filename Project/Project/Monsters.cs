@@ -11,9 +11,11 @@ namespace Project
     {
         //implements the Health interface
         public IHealthBehaviour mHealthBehaviour;
+        //implements the Weapon Damage interface
+        //public WeaponBehaviour mWeaponBehaviour
         public Monsters()
         {
-            //damamge interface for all monsters to have the same damage
+
         }
     }
 
@@ -23,6 +25,7 @@ namespace Project
         public Ogre()
         {
             mHealthBehaviour = new HighHealth();
+            //mWeaponBehaviour = new ***();
         }
     }
 
@@ -33,6 +36,7 @@ namespace Project
         public Troll()
         {
             mHealthBehaviour = new MedHealth();
+            //mWeaponBehaviour = new ***();
         }
     }
 
@@ -43,6 +47,7 @@ namespace Project
         public Spirit()
         {
             mHealthBehaviour = new LowHealth();
+            //mWeaponBehaviour = new ***();
         }
     }
 
@@ -52,8 +57,8 @@ namespace Project
         public Swamphag()
         {
             mHealthBehaviour = new HighHealth();
+            //mWeaponBehaviour = new ***();
         }
-
-        //public override void "Damage interface"
+        
     }
 }
