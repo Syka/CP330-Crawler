@@ -4,52 +4,67 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project
+namespace gameWorldGen
 {
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool test = false;
+            Map map = new Map(15);
+            while (!test)
+            {
+                map.movement();
+            }
+            Console.ReadLine();
+        }
+    }
     public class Map
     {
-        public bool win = false, dead = false;
+        static int pRow = 0, pCol = 0, _pRow, _pCol, size = 0;
         static string[,] mask, events;
-        static int pRow = 0, _pRow = 0, pCol = 0, _pCol = 0, mapSize = 0;
-        static string
-            message = "Welcome to C# Crawler! Press the arrow keys to move!",
-            player = " <x> ", unexplored = " [ ] ", explored = "  .  ",
-            onEnemy = "{ E }", enemy = " {E} ", onEnemyDef = "-{E}-", enemyDef = " -E- ",
-            onBoss = "{ B }", boss = " {B} ", onBossDef = "-{B}-", bossDef = " -B- ",
-            onTrapdoor = "{ T }", trapdoor = " {T} ";
+        static string player = " {X} ", unexplored = " [ ] ", explored = "  .  ",
+                        enemy = " {E} ", onEnemy = "{ E }", enemyDef = "-{E}-",
+                        boss = " {B} ", onBoss = "{ B }", bossDef = "-{B}-",
+                        trapdoor = " {T} ", onTrap = "{ T }", trapDef = "-{T}-",
+                        chest = " {C} ", onChest = "{ C }", chestOpen = "-{C}-";
+        static string message = "";
 
-        public Map(int size)
+        public Map(int s)
         {
-            mapSize = size; generate();
-            populate(6, enemy); populate(2, trapdoor); populate(1, boss);
+            size = s;
+            mask = new string[size, size]; 
+            events = new string[size, size];
+            generate();
+            mask[pRow, pCol] = player;
             refresh();
         }
         public void generate()
         {
-            mask = new string[mapSize, mapSize];
-            events = new string[mapSize, mapSize];
-            for (int i = 0; i < mask.GetLength(0); i++)
+            for (int i = 0; i < size; i++)
             {
-                for (int j = 0; j < mask.GetLength(1); j++)
+                for (int j = 0; j < size; j++)
                 {
                     mask[i, j] = unexplored;
                     events[i, j] = unexplored;
                 }
             }
-            mask[pRow, pCol] = player;
+            populate(5, enemy, new Random());
+            populate(2, trapdoor, new Random());
+            populate(2, chest, new Random());
+            populate(1, boss, new Random());
         }
-        public void populate(int num, string type)
+        public void populate(int n, string type, Random rand)
         {
-            Random rand = new Random();
-            for (int i = 0; i < num; i++)
+            for (int i = 0; i < n; i++)
             {
-                int r = rand.Next(0, mapSize - 1);
-                int c = rand.Next(0, mapSize - 1);
-                while (events[r, c].Equals(enemy) || events[r, c].Equals(trapdoor)
-                    || events[r, c].Equals(boss) || (r == 0 && c == 0))
+                int r = rand.Next(0, size);
+                int c = rand.Next(0, size);
+                while(mask[r, c].Equals(player) || events[r, c].Equals(enemy) || events[r, c].Equals(trapdoor) 
+                    || events[r, c].Equals(chest) || events[r, c].Equals(boss))
                 {
-                    r = rand.Next(0, mapSize - 1);
-                    c = rand.Next(0, mapSize - 1);
+                    r = rand.Next(0, size);
+                    c = rand.Next(0, size);
                 }
                 events[r, c] = type;
             }
@@ -57,113 +72,101 @@ namespace Project
         public void movement()
         {
             _pRow = pRow; _pCol = pCol;
-            postEventListen(pRow, pCol);
-            ConsoleKeyInfo key_press = Console.ReadKey();
-            switch (key_press.Key)
+            ConsoleKeyInfo keyPress = Console.ReadKey();
+            postEvent(pRow, pCol);
+            switch (keyPress.Key)
             {
                 case ConsoleKey.Escape: Environment.Exit(1); break;
                 case ConsoleKey.UpArrow: try { pRow -= 1; mask[pRow, pCol] = player; }
-                    catch { pRow += 1; mask[pRow, pCol] = player; } break;
+                                            catch { pRow += 1; mask[pRow, pCol] = player; } break;
                 case ConsoleKey.LeftArrow: try { pCol -= 1; mask[pRow, pCol] = player; }
-                    catch { pCol += 1; mask[pRow, pCol] = player; } break;
-                case ConsoleKey.DownArrow: try { pRow += 1; mask[pRow, pCol] = player; }
-                    catch { pRow -= 1; mask[pRow, pCol] = player; } break;
+                                            catch { pCol += 1; mask[pRow, pCol] = player; } break;
                 case ConsoleKey.RightArrow: try { pCol += 1; mask[pRow, pCol] = player; }
-                    catch { pCol -= 1; mask[pRow, pCol] = player; } break;
-            } eventListen(pRow, pCol); refresh();
+                                            catch { pCol -= 1; mask[pRow, pCol] = player; } break;
+                case ConsoleKey.DownArrow: try { pRow += 1; mask[pRow, pCol] = player; }
+                                            catch { pRow -= 1; mask[pRow, pCol] = player; } break;
+            }
+            onEvent(pRow, pCol);
         }
-        public void eventListen(int r, int c)
+        public void postEvent(int r, int c)
         {
-            refresh();
-            if (events[r, c].Equals(enemy))
+            try
             {
-                mask[r, c] = onEnemy;
-                message = "You have encountered an enemy! \nWill you fight it? (Y / N)";
-                refresh(); scenario(enemy, r, c);
-            }
-            else if (events[r, c].Equals(enemyDef))
-            {
-                mask[r, c] = onEnemyDef;
-                message = "You have defeated this enemy!";
-            }
-            if (events[r, c].Equals(trapdoor))
-            {
-                mask[r, c] = onTrapdoor;
-                message = "You have fallen through a trapdoor and lost health! \nClimb out? (Y / N)";
-                refresh(); scenario(trapdoor, r, c);
-            }
-            if (events[r, c].Equals(boss))
-            {
-                mask[r, c] = onBoss;
-                message = "You have encountered the boss of the dungeon! \nWill you fight it? (Y / N)";
-                refresh(); scenario(boss, r, c);
-            }
-            else if (events[r, c].Equals(bossDef))
-            {
-                mask[r, c] = onBossDef;
-                message = "You have defeated the dungeon boss!";
-            }
-            if (events[r, c].Equals(unexplored)
-                || events[r, c].Equals(explored)) { message = "You explore more of the dungeon..."; }
-        }
-        public void postEventListen(int r, int c)
-        {
-            refresh();
-            if (events[r, c].Equals(unexplored)
-                || mask[r, c].Equals(unexplored)) { mask[r, c] = explored; }
-            if (events[r, c].Equals(enemy)) { mask[r, c] = enemy; }
-            else if (events[r, c].Equals(enemyDef)) { mask[r, c] = enemyDef; }
-            if (events[r, c].Equals(trapdoor)) { mask[r, c] = trapdoor; }
-            if (events[r, c].Equals(boss)) { mask[r, c] = boss; }
-            else if (events[r, c].Equals(bossDef)) { mask[r, c] = bossDef; }
-        }
-        public void scenario(string type, int r, int c) //PLACEHOLDER FOR THE FIGHTING / SCENARIO SYSTEM
-        {
-            if (type.Equals(enemy))
-            {
-                if (Console.ReadLine().ToUpper().Equals("Y")) { events[r, c] = enemyDef; mask[r, c] = onEnemyDef; }
-                else
+                if (events[r, c].Equals(unexplored))
                 {
-                    events[r, c] = enemy; mask[r, c] = enemy;
-                    pRow = _pRow; pCol = _pCol; mask[pRow, pCol] = player;
-                    eventListen(pRow, pCol);
+                    mask[r, c] = explored;
+                }
+                if (events[r, c].Equals(enemy))
+                {
+                    mask[r, c] = enemy;
+                }
+                else if (events[r, c].Equals(enemyDef))
+                {
+                    mask[r, c] = enemyDef;
+                }
+                if (events[r, c].Equals(boss))
+                {
+                    mask[r, c] = boss;
+                }
+                else if (events[r, c].Equals(bossDef))
+                {
+                    mask[r, c] = bossDef;
+                }
+                if (events[r, c].Equals(trapdoor))
+                {
+                    mask[r, c] = trapdoor;
+                }
+                else if (events[r, c].Equals(trapDef))
+                {
+                    mask[r, c] = trapDef;
+                }
+                if (events[r, c].Equals(chest))
+                {
+                    mask[r, c] = chest;
+                }
+                else if (events[r, c].Equals(chestOpen))
+                {
+                    mask[r, c] = chestOpen;
                 }
             }
-            else if (type.Equals(boss))
-            {
-                if (Console.ReadLine().ToUpper().Equals("Y")) { events[r, c] = bossDef; mask[r, c] = onBossDef; }
-                else
-                {
-                    events[r, c] = boss; mask[r, c] = boss;
-                    pRow = _pRow; pCol = _pCol; mask[pRow, pCol] = player;
-                    eventListen(pRow, pCol);
-                }
-            }
-            else if (type.Equals(trapdoor))
-            {
-                if (Console.ReadLine().ToUpper().Equals("Y"))
-                {
-                    events[r, c] = trapdoor; mask[r, c] = trapdoor;
-                    pRow = _pRow; pCol = _pCol; mask[pRow, pCol] = player;
-                    eventListen(pRow, pCol);
-                }
-                else { dead = true; }
-            }
+            catch { }
         }
-        public void display(string type)
+        public void onEvent(int r, int c)
         {
-            for (int i = 0; i < mapSize; i++)
+            try
             {
-                for (int j = 0; j < mapSize; j++)
+                if (events[r, c].Equals(enemy))
                 {
-                    switch (type)
-                    {
-                        case "mask": Console.Write(mask[i, j]); break;
-                        default: Console.Write(events[i, j]); break;
-                    }
-                } Console.WriteLine(Environment.NewLine);
-            } Console.WriteLine(message);
+                    mask[r, c] = onEnemy;
+                }
+                if (events[r, c].Equals(boss))
+                {
+                    mask[r, c] = onBoss;
+                }
+                if (events[r, c].Equals(trapdoor))
+                {
+                    mask[r, c] = onTrap;
+                }
+                if (events[r, c].Equals(chest))
+                {
+                    mask[r, c] = onChest;
+                }
+                refresh();
+            }
+            catch { }
         }
-        public void refresh() { Console.Clear(); display("mask"); }
+        public void refresh()
+        {
+            Console.Clear();
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    Console.Write(mask[i, j]);
+                }
+                Console.WriteLine(Environment.NewLine);
+            }
+            Console.WriteLine(message);
+        }
     }
 }
