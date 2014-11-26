@@ -23,7 +23,6 @@ namespace Project
             WriteTextBox("Press Enter To Start");
             Console.ReadKey();
 
-            
             WriteTextBox(" We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine+" Press Any Key" );
             ClearTextbox();
             WriteTextBox("What Race are you?" + Environment.NewLine + "Elf, Human or Orc?");
