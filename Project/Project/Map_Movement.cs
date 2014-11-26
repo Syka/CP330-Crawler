@@ -168,6 +168,7 @@ namespace Project
 
         static void ClearLine()
         {
+            Console.BackgroundColor = ConsoleColor.Blue;
             Console.SetCursorPosition(0, 11);
             for (int i = 0; i < 20; i++)
             {

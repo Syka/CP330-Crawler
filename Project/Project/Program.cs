@@ -15,10 +15,10 @@ namespace Project
             //Character Initializer
 
 
-            //Intro
+            //Render the Gui
             Intro Start = new Intro();
-            Start.OpeningCrawl();
-            GameOver End = new GameOver();
+            Start.ScreenRender();
+            
 
             WriteTextBox("Press Enter To Start");
             Console.ReadKey();
@@ -31,11 +31,12 @@ namespace Project
 
             //Console.WriteLine("What Race are you young Adventurer?");
 
-            //Map map = new Map(10);
-            //while (!map.dead)
-            //{
-            //    map.movement();
-            //}            
+            Map map = new Map(10);
+            while (!map.dead)
+            {
+                map.movement();
+            }
+            GameOver End = new GameOver();
             End.Died();
             ConsoleKeyInfo Input = Console.ReadKey();
             switch (Input.Key)
@@ -73,10 +74,11 @@ namespace Project
         }
         static void ClearTextbox()
         {
+            //Console.BackgroundColor = ConsoleColor.Blue; --Uncomment to Debug Textbox Size
             Console.SetCursorPosition(0, 41);
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 17; i++)
             {
-                Console.WriteLine("                                                   ");
+                Console.WriteLine("                                                      ");
             }
         }
  static void WriteTextBox(string value)

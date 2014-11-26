@@ -8,7 +8,7 @@ namespace Project
 {
     class Intro
     {
-        public void OpeningCrawl()
+        public void ScreenRender()
         {
             //Creates the Header Graphic
             //Header starts at 0,0
@@ -30,27 +30,27 @@ namespace Project
             Console.WriteLine(" └─────────────────────────────────────────────────────────────────────────────────────────────┘");
 
              //Creating Vertical Bar
-            Console.SetCursorPosition(51, 6);
+            Console.SetCursorPosition(54, 6);
             Console.Write("┬");            
-            for (int j = 1; j < 53; j++)
+            for (int j = 1; j < 54; j++)
             {
-                Console.SetCursorPosition(51, 6 + j);
+                Console.SetCursorPosition(54, 6 + j);
                 Console.WriteLine("│");
             }
 
             //Creating Horizontal Bar under the Map
-            Console.SetCursorPosition(51, 40);
+            Console.SetCursorPosition(54, 40);
             Console.Write("┤");
             Console.SetCursorPosition(0, 40);
-            for (int j = 0; j < 51; j++)
+            for (int j = 0; j < 54; j++)
             {
                 Console.Write("─");
             }
             //Creating input box
-            Console.SetCursorPosition(51, 58);
+            Console.SetCursorPosition(54, 58);
             Console.Write("┤");
             Console.SetCursorPosition(0, 58);
-            for (int j = 0; j < 51; j++)
+            for (int j = 0; j < 54; j++)
             {
                 Console.Write("─");                
             }
