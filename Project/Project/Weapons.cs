@@ -89,5 +89,22 @@ namespace Project
 
 
     }
+
+    //Fish
+    public class Fish : WeaponBehaviour
+    {
+
+        int damage = 3;
+
+        public void useWeapon()
+        {
+            Console.WriteLine("You swing with the Axe!");
+            damage = 3;
+
+
+        }
+
+
+    }
     
 }
