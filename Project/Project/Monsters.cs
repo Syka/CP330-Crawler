@@ -25,7 +25,7 @@ namespace Project
         public Ogre()
         {
             mHealthBehaviour = new HighHealth();
-            mWeaponBehaviour = new Sword();
+            mWeaponBehaviour = new Axe();
         }
     }
 
@@ -47,7 +47,7 @@ namespace Project
         public Spirit()
         {
             mHealthBehaviour = new LowHealth();
-            mWeaponBehaviour = new Sword();
+            mWeaponBehaviour = new Fish();
         }
     }
 
