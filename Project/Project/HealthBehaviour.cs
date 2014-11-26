@@ -27,7 +27,7 @@ namespace Project
         public void Health()
         {
             valueHealth = 10;
-        }
+        }   
     }
 
     public class LowHealth : IHealthBehaviour
