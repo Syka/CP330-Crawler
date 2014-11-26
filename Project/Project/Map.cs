@@ -169,15 +169,20 @@ namespace Project
         }
         public void refresh()
         {
-            Console.Clear();
-            for (int i = 0; i < sizeX; i++)
+            Console.SetCursorPosition(0, 7);
+            for (int i = 0; i < 40; i++)
             {
-                for (int j = 0; j < sizeY; j++)
-                {
-                    Console.Write(mask[i, j]);
-                }
-                Console.WriteLine(Environment.NewLine);
+                Console.WriteLine("");
             }
+            Console.SetCursorPosition(0, 7);
+                for (int i = 0; i < sizeX; i++)
+                {
+                    for (int j = 0; j < sizeY; j++)
+                    {
+                        Console.Write(mask[i, j]);
+                    }
+                    Console.WriteLine(Environment.NewLine);
+                }
             Console.WriteLine(message);
         }
     }

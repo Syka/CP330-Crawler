@@ -30,27 +30,27 @@ namespace Project
             Console.WriteLine(" └─────────────────────────────────────────────────────────────────────────────────────────────┘");
 
              //Creating Vertical Bar
-            Console.SetCursorPosition(54, 6);
+            Console.SetCursorPosition(55, 6);
             Console.Write("┬");            
-            for (int j = 1; j < 54; j++)
+            for (int j = 1; j < 55; j++)
             {
-                Console.SetCursorPosition(54, 6 + j);
+                Console.SetCursorPosition(55, 6 + j);
                 Console.WriteLine("│");
             }
 
             //Creating Horizontal Bar under the Map
-            Console.SetCursorPosition(54, 40);
+            Console.SetCursorPosition(55, 40);
             Console.Write("┤");
             Console.SetCursorPosition(0, 40);
-            for (int j = 0; j < 54; j++)
+            for (int j = 0; j < 55; j++)
             {
                 Console.Write("─");
             }
             //Creating input box
-            Console.SetCursorPosition(54, 58);
+            Console.SetCursorPosition(55, 58);
             Console.Write("┤");
             Console.SetCursorPosition(0, 58);
-            for (int j = 0; j < 54; j++)
+            for (int j = 0; j < 55; j++)
             {
                 Console.Write("─");                
             }
