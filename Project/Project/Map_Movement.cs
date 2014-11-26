@@ -8,7 +8,7 @@ namespace Map_Movement
 {
     public class Map
     {
-        static int pRow = 0, pCol = 0, _pRow, _pCol, size = 0;
+        static int pRow = 0, pCol = 0, _pRow, _pCol, sizeX = 0, sizeY = 0;
         static string[,] mask, events;
         static string player = " {X} ", unexplored = " [ ] ", explored = "  .  ",
                         enemy = " {E} ", onEnemy = "{ E }", enemyDef = "-{E}-",
@@ -17,20 +17,20 @@ namespace Map_Movement
                         chest = " {C} ", onChest = "{ C }", chestOpen = "-{C}-";
         static string message = "";
 
-        public Map(int s)
+        public Map(int sx, int sy)
         {
-            size = s;
-            mask = new string[size, size];
-            events = new string[size, size];
+            sizeX = sx; sizeY = sy;
+            mask = new string[sx, sy];
+            events = new string[sx, sy];
             generate();
             mask[pRow, pCol] = player;
             refresh();
         }
         public void generate()
         {
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < sizeX; i++)
             {
-                for (int j = 0; j < size; j++)
+                for (int j = 0; j < sizeY; j++)
                 {
                     mask[i, j] = unexplored;
                     events[i, j] = unexplored;
@@ -45,13 +45,13 @@ namespace Map_Movement
         {
             for (int i = 0; i < n; i++)
             {
-                int r = rand.Next(0, size);
-                int c = rand.Next(0, size);
+                int r = rand.Next(0, sizeX);
+                int c = rand.Next(0, sizeY);
                 while (mask[r, c].Equals(player) || events[r, c].Equals(enemy) || events[r, c].Equals(trapdoor)
                     || events[r, c].Equals(chest) || events[r, c].Equals(boss))
                 {
-                    r = rand.Next(0, size);
-                    c = rand.Next(0, size);
+                    r = rand.Next(0, sizeX);
+                    c = rand.Next(0, sizeY);
                 }
                 events[r, c] = type;
             }
@@ -135,18 +135,22 @@ namespace Map_Movement
                 if (events[r, c].Equals(enemy))
                 {
                     mask[r, c] = onEnemy;
+                    //trigger fight
                 }
                 if (events[r, c].Equals(boss))
                 {
                     mask[r, c] = onBoss;
+                    //trigger fight
                 }
                 if (events[r, c].Equals(trapdoor))
                 {
                     mask[r, c] = onTrap;
+                    //trigger something
                 }
                 if (events[r, c].Equals(chest))
                 {
                     mask[r, c] = onChest;
+                    //trigger loot
                 }
                 refresh();
             }
@@ -155,9 +159,9 @@ namespace Map_Movement
         public void refresh()
         {
             Console.Clear();
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < sizeX; i++)
             {
-                for (int j = 0; j < size; j++)
+                for (int j = 0; j < sizeY; j++)
                 {
                     Console.Write(mask[i, j]);
                 }
