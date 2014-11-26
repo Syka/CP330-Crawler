@@ -46,6 +46,23 @@ namespace Project
 
 
     }
+
+    //Knife
+    public class Knife : WeaponBehaviour
+    {
+
+        int damage = 2;
+
+        public void useWeapon()
+        {
+            Console.WriteLine("You swing with the Axe!");
+            damage = 2;
+
+
+        }
+
+
+    }
     
     
 }
