@@ -23,26 +23,31 @@ namespace Project
             WriteTextBox("Press Enter To Start");
             Console.ReadKey();
 
-
             WriteTextBox(" We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine+" Press Any Key" );
             ClearTextbox();
-            WriteTextBox("What Race are you?" + Environment.NewLine + "Elf,Human or Orc?");
+            WriteTextBox("What Race are you?" + Environment.NewLine + "Elf, Human or Orc?");
             Console.ReadLine();
 
             //Console.WriteLine("What Race are you young Adventurer?");
+            Map map = new Map(6, 19);
 
-            GameOver End = new GameOver();
-            End.Died();
-            ConsoleKeyInfo Input = Console.ReadKey();
-            switch (Input.Key)
+            bool dead = false;
+            while(!dead)
             {
-                case ConsoleKey.Y:
-                    Main();
-                    break;
-                case ConsoleKey.N:
-                    Environment.Exit(0);
-                    break;
-            }           
+                map.movement();
+            }
+            //GameOver End = new GameOver();
+            //End.Died();
+            //ConsoleKeyInfo Input = Console.ReadKey();
+            //switch (Input.Key)
+            //{
+            //    case ConsoleKey.Y:
+            //        Main();
+            //        break;
+            //    case ConsoleKey.N:
+            //        Environment.Exit(0);
+            //        break;
+            //}           
 
 
 
@@ -67,6 +72,7 @@ namespace Project
             
 
             //Map
+
         }
         static void ClearTextbox()
         {
@@ -77,7 +83,7 @@ namespace Project
                 Console.WriteLine("                                                      ");
             }
         }
- static void WriteTextBox(string value)
+        static void WriteTextBox(string value)
         {
             Console.SetCursorPosition(0, 41);
             int myLimit = 51;
