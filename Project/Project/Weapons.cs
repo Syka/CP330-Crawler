@@ -72,6 +72,22 @@ namespace Project
 
 
     }
-    
+
+    //Mace
+    public class Mace : WeaponBehaviour
+    {
+
+        int damage = 4;
+
+        public void useWeapon()
+        {
+            Console.WriteLine("You swing with the Axe!");
+            damage = 4;
+
+
+        }
+
+
+    }
     
 }
