@@ -12,10 +12,10 @@ namespace Project
         //implements the Health interface
         public IHealthBehaviour hHealthBehaviour;
         //Implements using a weapon
-
+        public WeaponBehaviour hWeaponBehaviour;
         public Heros()
         { 
-            //Chosen weapon to be placed here.
+ 
         }
     }
 
