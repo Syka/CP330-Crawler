@@ -11,10 +11,11 @@ namespace Project
     //Sword-----------damage = 5
     //Axe-------------damage = 8
     //Knife-----------damage = 2
-    //Mace
-    //Fish
-    //Bowstaff
-    //Saestus
+    //Mace------------damage = 4
+    //Fish------------damage = 3
+    //Bowstaff--------damage = 6
+    //Caestus---------damage = 1
+    //Quarterstaff----damage = 7
 
     public interface WeaponBehaviour
     {
