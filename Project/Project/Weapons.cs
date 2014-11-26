@@ -6,51 +6,46 @@ using System.Threading.Tasks;
 
 namespace Project
 {
+
+    public interface WeaponBehaviour
+    {
+        void useWeapon();
+    }
+
+
+    //Sword
+    public class Sword : WeaponBehaviour
+    {
+        
+        int damage = 5;
+
+        public void useWeapon()
+        {
+            Console.WriteLine("You slash with the Sword!");
+            damage = 5;
+
+
+        }
+
+
+    }
+
+    //Axe
+    public class Axe : WeaponBehaviour
+    {
+
+        int damage = 8;
+
+        public void useWeapon()
+        {
+            Console.WriteLine("You swing with the Axe!");
+            damage = 8;
+
+
+        }
+
+
+    }
     
-    //public interface WeaponBehaviour
-    //{
-        
-    //}
-
-    //public class Sword : WeaponBehaviour
-    //{
-    //    int durability = 8;
-    //    int damage = 5;
-
-    //    public void useWeapon()
-    //    {
-            
-            
-
-    //    }
-        
-
-    //}
-
-    //public class Sword : WeaponBehaviour
-    //{
-    //    int durability = 8;
-    //    int damage = 5;
-
-    //    public void useWeapon()
-    //    {
-    //        Console.WriteLine("Sword Durability: {0}", durability);
-    //        if (durability > 0)
-    //        {
-    //            Console.WriteLine("You slash with the sword!");
-    //            durability = durability - 2;
-    //            damage = 5;
-    //        }
-
-    //        else
-    //        {
-    //            Console.WriteLine("Your Sword broke!!!");
-    //        }
-
-
-    //    }
-
-
-    //}
     
 }
