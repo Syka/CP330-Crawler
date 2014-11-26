@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Map_Movement
+namespace Project
 {
     public class Map
     {
