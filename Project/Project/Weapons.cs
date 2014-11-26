@@ -7,6 +7,15 @@ using System.Threading.Tasks;
 namespace Project
 {
 
+    //List of Weapons to use
+    //Sword-----------damage = 5
+    //Axe-------------damage = 8
+    //Knife-----------damage = 2
+    //Mace
+    //Fish
+    //Bowstaff
+    //Saestus
+
     public interface WeaponBehaviour
     {
         void useWeapon();
