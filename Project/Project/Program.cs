@@ -25,7 +25,7 @@ namespace Project
 
 
             WriteTextBox(" We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine+" Press Any Key" );
-            ClearTextbox();
+
             WriteTextBox("What Race are you?" + Environment.NewLine + "Elf,Human or Orc?");
             Console.ReadLine();
 
@@ -70,17 +70,16 @@ namespace Project
 
             //Map
         }
-        static void ClearTextbox()
+
+
+ static void WriteTextBox(string value)
         {
-            //Console.BackgroundColor = ConsoleColor.Blue; --Uncomment to Debug Textbox Size
+            Console.BackgroundColor = ConsoleColor.Blue; //Uncomment to Debug Textbox Size
             Console.SetCursorPosition(0, 41);
             for (int i = 0; i < 17; i++)
             {
                 Console.WriteLine("                                                      ");
             }
-        }
- static void WriteTextBox(string value)
-        {
             Console.SetCursorPosition(0, 41);
             int myLimit = 51;
             string sentence = value;
