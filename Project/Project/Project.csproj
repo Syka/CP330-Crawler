@@ -45,7 +45,7 @@
     <Compile Include="HealthBehaviour.cs" />
     <Compile Include="Heros.cs" />
     <Compile Include="Intro.CS" />
-    <Compile Include="Map_Movement.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="Monsters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

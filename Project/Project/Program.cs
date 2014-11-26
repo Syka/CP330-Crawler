@@ -23,28 +23,31 @@ namespace Project
             WriteTextBox("Press Enter To Start");
             Console.ReadKey();
 
-
             WriteTextBox(" We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine+" Press Any Key" );
-
-            WriteTextBox("What Race are you?" + Environment.NewLine + "Elf,Human or Orc?");
+            ClearTextbox();
+            WriteTextBox("What Race are you?" + Environment.NewLine + "Elf, Human or Orc?");
             Console.ReadLine();
 
             //Console.WriteLine("What Race are you young Adventurer?");
+            Map map = new Map(17, 11);
 
-            GameOver End = new GameOver();
-            End.Died();
-            ConsoleKeyInfo Input = Console.ReadKey();
-            switch (Input.Key)
+            bool dead = false;
+            while(!dead)
             {
-                case ConsoleKey.Y:
-                    Main();
-                    break;
-                case ConsoleKey.N:
-                    Environment.Exit(0);
-                    break;
-           
-                    
-            }           
+                map.movement();
+            }
+            //GameOver End = new GameOver();
+            //End.Died();
+            //ConsoleKeyInfo Input = Console.ReadKey();
+            //switch (Input.Key)
+            //{
+            //    case ConsoleKey.Y:
+            //        Main();
+            //        break;
+            //    case ConsoleKey.N:
+            //        Environment.Exit(0);
+            //        break;
+            //}           
 
 
 
@@ -69,17 +72,19 @@ namespace Project
             
 
             //Map
+
         }
-
-
- static void WriteTextBox(string value)
+        static void ClearTextbox()
         {
-            Console.BackgroundColor = ConsoleColor.Blue; //Uncomment to Debug Textbox Size
+            //Console.BackgroundColor = ConsoleColor.Blue; --Uncomment to Debug Textbox Size
             Console.SetCursorPosition(0, 41);
             for (int i = 0; i < 17; i++)
             {
                 Console.WriteLine("                                                      ");
             }
+        }
+        static void WriteTextBox(string value)
+        {
             Console.SetCursorPosition(0, 41);
             int myLimit = 51;
             string sentence = value;
@@ -106,6 +111,5 @@ namespace Project
             Console.WriteLine(newSentence.ToString());
             Console.SetCursorPosition(7, 59);
         }
-
     }
 }

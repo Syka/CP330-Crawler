@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Map_Movement
+namespace Project
 {
     public class Map
     {
         static int pRow = 0, pCol = 0, _pRow, _pCol, sizeX = 0, sizeY = 0;
-        static string[,] mask, events;
+        static string[,] mask, events, lvl_1, lvl_2, lvl_3;
         static string player = " {X} ", unexplored = " [ ] ", explored = "  .  ",
                         enemy = " {E} ", onEnemy = "{ E }", enemyDef = "-{E}-",
                         boss = " {B} ", onBoss = "{ B }", bossDef = "-{B}-",
                         trapdoor = " {T} ", onTrap = "{ T }", trapDef = "-{T}-",
-                        chest = " {C} ", onChest = "{ C }", chestOpen = "-{C}-";
+                        chest = " {C} ", onChest = "{ C }", chestOpen = "-{C}-",
+                        door = " {D} ", onDoor = "{ D }";
         static string message = "";
 
         public Map(int sx, int sy)
@@ -36,10 +37,11 @@ namespace Map_Movement
                     events[i, j] = unexplored;
                 }
             }
-            populate(5, enemy, new Random());
-            populate(2, trapdoor, new Random());
+            populate(6, enemy, new Random());
+            populate(3, trapdoor, new Random());
             populate(2, chest, new Random());
             populate(1, boss, new Random());
+            populate(1, door, new Random());
         }
         public void populate(int n, string type, Random rand)
         {
@@ -48,7 +50,7 @@ namespace Map_Movement
                 int r = rand.Next(0, sizeX);
                 int c = rand.Next(0, sizeY);
                 while (mask[r, c].Equals(player) || events[r, c].Equals(enemy) || events[r, c].Equals(trapdoor)
-                    || events[r, c].Equals(chest) || events[r, c].Equals(boss))
+                    || events[r, c].Equals(chest) || events[r, c].Equals(boss)|| events[r, c].Equals(door))
                 {
                     r = rand.Next(0, sizeX);
                     c = rand.Next(0, sizeY);
@@ -125,6 +127,10 @@ namespace Map_Movement
                 {
                     mask[r, c] = chestOpen;
                 }
+                if (events[r, c].Equals(door))
+                {
+                    mask[r, c] = door;
+                }
             }
             catch { }
         }
@@ -152,21 +158,31 @@ namespace Map_Movement
                     mask[r, c] = onChest;
                     //trigger loot
                 }
+                if (events[r, c].Equals(door))
+                {
+                    mask[r, c] = onDoor;
+                    //deny player to next level if they haven't defeated the boss
+                }
                 refresh();
             }
             catch { }
         }
         public void refresh()
         {
-            Console.Clear();
-            for (int i = 0; i < sizeX; i++)
+            Console.SetCursorPosition(0, 7);
+            for (int i = 0; i < 40; i++)
             {
-                for (int j = 0; j < sizeY; j++)
-                {
-                    Console.Write(mask[i, j]);
-                }
-                Console.WriteLine(Environment.NewLine);
+                Console.WriteLine("");
             }
+            Console.SetCursorPosition(0, 7);
+                for (int i = 0; i < sizeX; i++)
+                {
+                    for (int j = 0; j < sizeY; j++)
+                    {
+                        Console.Write(mask[i, j]);
+                    }
+                    Console.WriteLine(Environment.NewLine);
+                }
             Console.WriteLine(message);
         }
     }
