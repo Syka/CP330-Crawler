@@ -143,4 +143,21 @@ namespace Project
 
 
     }
+
+    //Quarterstaff
+    public class Quarterstaff : WeaponBehaviour
+    {
+
+        int damage = 7;
+
+        public void useWeapon()
+        {
+            Console.WriteLine("You swing with the Axe!");
+            damage = 7;
+
+
+        }
+
+
+    }
 }
