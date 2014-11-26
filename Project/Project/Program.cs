@@ -31,11 +31,6 @@ namespace Project
 
             //Console.WriteLine("What Race are you young Adventurer?");
 
-            Map map = new Map(10);
-            while (!map.dead)
-            {
-                map.movement();
-            }
             GameOver End = new GameOver();
             End.Died();
             ConsoleKeyInfo Input = Console.ReadKey();
