@@ -56,8 +56,6 @@ namespace Project
             }
             Console.SetCursorPosition(0, 59);
             Console.Write("Input: ");  
-      
-            
         }
     }
 }
