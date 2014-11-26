@@ -8,47 +8,56 @@ namespace Project
 {
     class Intro
     {
-        public void OpeningCrawl()
+        public void ScreenRender()
         {
             //Creates the Header Graphic
+            //Header starts at 0,0
+            //Header ends at 7,97
             Console.SetWindowSize(97, 60);
-            Console.WriteLine(" _____                                         _____  _  _                        _           ||");
-            Console.WriteLine("|  __ \\                                       / ____|| || |_                     | |          ||");
-            Console.WriteLine("| |  | |_   _ _ __   __ _  ___  ___  _ __    | |   |_  __  _|  _ __ __ ___      _| | ___ _ __ ||");
-            Console.WriteLine("| |  | | | | | '_ \\ / _` |/ _ \\/ _ \\| '_ \\   | |    _| || |_  | '__/ _` \\ \\ /\\ / / |/ _ \\ '__|||");
-            Console.WriteLine("| |__| | |_| | | | | (_| |  __/ (_) | | | |  | |___|_  __  _| | | | (_| |\\ V  V /| |  __/ |   ||");
-            Console.WriteLine("|_____/ \\__,_|_| |_|\\__, |\\___|\\___/|_| |_|   \\_____||_||_|   |_|  \\__,_| \\_/\\_/ |_|\\___|_|   ||");
-            Console.WriteLine("                     __/ |                                                                    ||");
-            Console.WriteLine("                     |___/                                                                    ||");
+            //Width 95, Height 60
+            //59 is the max lines up/down 
+            //Console.ForegroundColor = ConsoleColor.Black;
+            //Console.BackgroundColor = ConsoleColor.White;
+            //Console.Clear();
+            Console.Clear();
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine(" ┌─────────────────────────────────────────────────────────────────────────────────────────────┐");
+            Console.WriteLine(" │   ___                                 _____  ____                  __                       │");
+            Console.WriteLine(" │  / _ \\__ _____  ___ ____ ___  ___    / ___/_/ / /________ __    __/ /__ ____                │");
+            Console.WriteLine(" │ / // / // / _ \\/ _ `/ -_) _ \\/ _ \\  / /__/_  . __/ __/ _ `/ |/|/ / / -_) __/                │");
+            Console.WriteLine(" │/____/\\_,_/_//_/\\_, /\\__/\\___/_//_/  \\___/_    __/_/  \\_,_/|__,__/_/\\__/_/                   │");
+            Console.WriteLine(" │               /___/                      /_/_/                                              │");
+            Console.WriteLine(" └─────────────────────────────────────────────────────────────────────────────────────────────┘");
 
-            Console.WriteLine("================================================================================================");
-
-            Console.WriteLine(Environment.NewLine + Environment.NewLine);
-            //This is the Loading Bar
-            Console.Write("Loading: ");
-            for (int i = 99; i < 101; i++)
+             //Creating Vertical Bar
+            Console.SetCursorPosition(54, 6);
+            Console.Write("┬");            
+            for (int j = 1; j < 54; j++)
             {
-                
-                if (i < 10)
-                {
-                    Console.Write("{0}", i);
-                    Console.Write("\b");
-                    System.Threading.Thread.Sleep(100);
-                }
-                else if (i < 100)
-                {
-                    Console.Write("{0}", i);
-                    Console.Write("\b");
-                    Console.Write("\b");
-                    System.Threading.Thread.Sleep(100);
-                }
-                else
-                {
-                    Console.WriteLine("Complete");
-                    Console.WriteLine("Press Enter To begin your Journey");
-                    Console.ReadLine();
-                }
-            };
+                Console.SetCursorPosition(54, 6 + j);
+                Console.WriteLine("│");
+            }
+
+            //Creating Horizontal Bar under the Map
+            Console.SetCursorPosition(54, 40);
+            Console.Write("┤");
+            Console.SetCursorPosition(0, 40);
+            for (int j = 0; j < 54; j++)
+            {
+                Console.Write("─");
+            }
+            //Creating input box
+            Console.SetCursorPosition(54, 58);
+            Console.Write("┤");
+            Console.SetCursorPosition(0, 58);
+            for (int j = 0; j < 54; j++)
+            {
+                Console.Write("─");                
+            }
+            Console.SetCursorPosition(0, 59);
+            Console.Write("Input: ");  
+      
+            
         }
     }
 }
