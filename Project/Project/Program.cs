@@ -26,7 +26,7 @@ namespace Project
             
             WriteTextBox(" We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine+" Press Any Key" );
             ClearTextbox();
-            WriteTextBox("What Race are you?" + Environment.NewLine + "Elf,Human or Orc?");
+            WriteTextBox("What Race are you?" + Environment.NewLine + "Elf, Human or Orc?");
             Console.ReadLine();
 
             //Console.WriteLine("What Race are you young Adventurer?");
