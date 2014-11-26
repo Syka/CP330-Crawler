@@ -36,7 +36,7 @@ namespace Project
         public Troll()
         {
             mHealthBehaviour = new MedHealth();
-            mWeaponBehaviour = new Sword();
+            mWeaponBehaviour = new Mace();
         }
     }
 
@@ -47,7 +47,7 @@ namespace Project
         public Spirit()
         {
             mHealthBehaviour = new LowHealth();
-            mWeaponBehaviour = new Fish();
+            mWeaponBehaviour = new Caestus();
         }
     }
 
@@ -57,7 +57,7 @@ namespace Project
         public Swamphag()
         {
             mHealthBehaviour = new HighHealth();
-            mWeaponBehaviour = new Sword();
+            mWeaponBehaviour = new Quarterstaff();
         }
         
     }
