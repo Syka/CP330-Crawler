@@ -29,7 +29,7 @@ namespace Project
             Console.ReadLine();
 
             //Console.WriteLine("What Race are you young Adventurer?");
-            Map map = new Map(6, 19);
+            Map map = new Map(17, 11);
 
             bool dead = false;
             while(!dead)
@@ -111,6 +111,5 @@ namespace Project
             Console.WriteLine(newSentence.ToString());
             Console.SetCursorPosition(7, 59);
         }
-
     }
 }

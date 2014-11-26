@@ -11,10 +11,11 @@ namespace Project
     //Sword-----------damage = 5
     //Axe-------------damage = 8
     //Knife-----------damage = 2
-    //Mace
-    //Fish
-    //Bowstaff
-    //Saestus
+    //Mace------------damage = 4
+    //Fish------------damage = 3
+    //Bowstaff--------damage = 6
+    //Caestus---------damage = 1
+    //Quarterstaff----damage = 7
 
     public interface WeaponBehaviour
     {
@@ -106,5 +107,57 @@ namespace Project
 
 
     }
-    
+
+
+    //Bowstaff
+    public class Bowstaff : WeaponBehaviour
+    {
+
+        int damage = 6;
+
+        public void useWeapon()
+        {
+            Console.WriteLine("You swing with the Axe!");
+            damage = 6;
+
+
+        }
+
+
+    }
+
+
+    //Caestus
+    public class Caestus : WeaponBehaviour
+    {
+
+        int damage = 1;
+
+        public void useWeapon()
+        {
+            Console.WriteLine("You swing with the Axe!");
+            damage = 1;
+
+
+        }
+
+
+    }
+
+    //Quarterstaff
+    public class Quarterstaff : WeaponBehaviour
+    {
+
+        int damage = 7;
+
+        public void useWeapon()
+        {
+            Console.WriteLine("You swing with the Axe!");
+            damage = 7;
+
+
+        }
+
+
+    }
 }
