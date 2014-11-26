@@ -125,5 +125,22 @@ namespace Project
 
 
     }
-    
+
+
+    //Caestus
+    public class Caestus : WeaponBehaviour
+    {
+
+        int damage = 1;
+
+        public void useWeapon()
+        {
+            Console.WriteLine("You swing with the Axe!");
+            damage = 1;
+
+
+        }
+
+
+    }
 }
