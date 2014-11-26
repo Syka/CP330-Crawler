@@ -27,7 +27,7 @@ namespace Project
 
     }
 
-    public class Sword : WeaponBehaviour
+    public class AXE : WeaponBehaviour
     {
         int durability = 8;
         int damage = 5;
