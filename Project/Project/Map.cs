@@ -125,7 +125,6 @@ namespace Project
             ConsoleKeyInfo keyPress = Console.ReadKey();
             Program prog = new Program();
             prog.ClearTextbox();
-            prog.WriteTextBox("You carefully explore more of the dungeon...");
             mask[pRow, pCol] = explored;
             reveal(pRow, pCol);
             switch (keyPress.Key)
