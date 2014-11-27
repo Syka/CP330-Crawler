@@ -29,7 +29,7 @@ namespace Project
             Console.ReadLine();
 
             //Console.WriteLine("What Race are you young Adventurer?");
-            Map map = new Map(17, 11);
+            Map map = new Map();
 
             bool dead = false;
             while(!dead)
