@@ -16,16 +16,18 @@ namespace Project
 
 
             //Render the Gui
+            Program prog = new Program();
             Intro Start = new Intro();
             Start.ScreenRender();
             
 
-            WriteTextBox("Press Enter To Start");
+            prog.WriteTextBox("Press Enter To Start");
             Console.ReadKey();
 
-            WriteTextBox(" We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine+" Press Any Key" );
-            ClearTextbox();
-            WriteTextBox("What Race are you?" + Environment.NewLine + "Elf, Human or Orc?");
+            prog.WriteTextBox("We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine + " Press Any Key" );
+            Console.ReadKey();
+            prog.ClearTextbox();
+            prog.WriteTextBox(" What Race are you?" + Environment.NewLine + " Elf, Human or Orc?");
             Console.ReadLine();
 
             //Console.WriteLine("What Race are you young Adventurer?");
@@ -74,7 +76,7 @@ namespace Project
             //Map
 
         }
-        static void ClearTextbox()
+        public void ClearTextbox()
         {
             //Console.BackgroundColor = ConsoleColor.Blue; --Uncomment to Debug Textbox Size
             Console.SetCursorPosition(0, 41);
@@ -83,7 +85,7 @@ namespace Project
                 Console.WriteLine("                                                      ");
             }
         }
-        static void WriteTextBox(string value)
+        public void WriteTextBox(string value)
         {
             Console.SetCursorPosition(0, 41);
             int myLimit = 51;
