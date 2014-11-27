@@ -251,7 +251,7 @@ namespace Project
                     case "-{E}-":
                         mask[r, c] = onEnemyDef;
                         prog.ClearTextbox();
-                        prog.WriteTextBox(" You stand over the corpse of your foe, laugh and move on.");
+                        prog.WriteTextBox(" You stand over the corpse of your foe and laugh.");
                         break;
                     case " {B} ":
                         mask[r, c] = onBoss;
@@ -261,7 +261,7 @@ namespace Project
                     case "-{B}-":
                         mask[r, c] = onBossDef;
                         prog.ClearTextbox();
-                        prog.WriteTextBox(" You stand over the corpse of the boss, laugh and move on.");
+                        prog.WriteTextBox(" You stand over the corpse of the boss and laugh.");
                         break;
                     case " {T} ":
                         mask[r, c] = onTrap;
@@ -273,7 +273,7 @@ namespace Project
                     case "-{T}-":
                         mask[r, c] = onTrapDef; 
                         prog.ClearTextbox();
-                        prog.WriteTextBox(" You stand over the disarmed trapdoor, silently sob to yourself and move on.");
+                        prog.WriteTextBox(" You stand over the disarmed trapdoor and silently sob to yourself.");
                         break;
                     case " {C} ":
                         mask[r, c] = onChest;
@@ -286,7 +286,7 @@ namespace Project
                     case "-{C}-":
                         mask[r, c] = onChestOpen;
                         prog.ClearTextbox();
-                        prog.WriteTextBox(" You stand over the boring opened chest and move on.");
+                        prog.WriteTextBox(" You stand over the opened chest and get bored.");
                         break;
                     case " {D} ":
                         mask[r, c] = onDoor;
