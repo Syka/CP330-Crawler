@@ -27,7 +27,7 @@ namespace Project
             reveal(pRow, pCol);
             refresh();
         }
-        public void generate()
+        static void generate()
         {
             for (int i = 0; i < 17; i++)
             {
@@ -45,7 +45,7 @@ namespace Project
             else if(lvl_1_Def && lvl_2_Def && !lvl_3_Def)
                 level_3();
         }
-        public void level_1()
+        static void level_1()
         {
             //The stupidest bit of code ever
             put(0, 0, unexplored);  put(0, 1, unexplored);  put(0, 2, unexplored);  put(0, 3, unexplored);  put(0, 4, unexplored);  put(0, 5, bound);       put(0, 6, bound);       put(0, 7, unexplored);  put(0, 8, enemy);       put(0, 9, unexplored);  put(0, 10, bound);
@@ -67,7 +67,7 @@ namespace Project
             put(16, 0, chest);      put(16, 1, bound);      put(16, 2, unexplored); put(16, 3, enemy);      put(16, 4, bound);      put(16, 5, bound);      put(16, 6, door);       put(16, 7, boss);       put(16, 8, unexplored); put(16, 9, unexplored); put(16, 10, unexplored);
             setPlayer(0, 0);
         }
-        public void level_2()
+        static void level_2()
         {
             put(0, 0, chest);       put(0, 1, unexplored);  put(0, 2, bound);       put(0, 3, unexplored);  put(0, 4, chest);       put(0, 5, bound);       put(0, 6, chest);       put(0, 7, trapdoor);    put(0, 8, bound);       put(0, 9, unexplored);  put(0, 10, trapdoor);
             put(1, 0, chest);       put(1, 1, unexplored);  put(1, 2, bound);       put(1, 3, unexplored);  put(1, 4, bound);       put(1, 5, bound);       put(1, 6, bound);       put(1, 7, unexplored);  put(1, 8, bound);       put(1, 9, unexplored);  put(1, 10, unexplored);
@@ -88,7 +88,7 @@ namespace Project
             put(16, 0, chest);      put(16, 1, unexplored); put(16, 2, bound);      put(16, 3, chest);      put(16, 4, trapdoor);   put(16, 5, bound);      put(16, 6, unexplored); put(16, 7, unexplored); put(16, 8, bound);      put(16, 9, unexplored); put(16, 10, chest);
             setPlayer(16, 6);
         }
-        public void level_3()
+        static void level_3()
         {
             put(0, 0, bound);       put(0, 1, bound);       put(0, 2, bound);       put(0, 3, bound);       put(0, 4, bound);       put(0, 5, bound);       put(0, 6, bound);       put(0, 7, bound);       put(0, 8, bound);       put(0, 9, bound);       put(0, 10, bound);
             put(1, 0, bound);       put(1, 1, bound);       put(1, 2, bound);       put(1, 3, bound);       put(1, 4, bound);       put(1, 5, chest);       put(1, 6, bound);       put(1, 7, bound);       put(1, 8, bound);       put(1, 9, bound);       put(1, 10, bound);
@@ -109,15 +109,11 @@ namespace Project
             put(16, 0, bound);      put(16, 1, bound);      put(16, 2, bound);      put(16, 3, bound);      put(16, 4, bound);      put(16, 5, bound);      put(16, 6, bound);      put(16, 7, bound);      put(16, 8, bound);      put(16, 9, bound);      put(16, 10, bound);
             setPlayer(4, 5);
         }
-        public void put(int r, int c, string type)
+        static void put(int r, int c, string type)
         {
             events[r, c] = type;
-            switch (type)
-            {
-                case " {C} ": unknown[r, c] = undiscovered; break;
-                case " {T} ": unknown[r, c] = undiscovered; break;
-                case " {D} ": unknown[r, c] = undiscovered; break;
-            }
+            if (type.Equals(chest) || type.Equals(trapdoor) || type.Equals(door))
+                unknown[r, c] = undiscovered;
         }
         public void movement()
         {
@@ -182,19 +178,19 @@ namespace Project
             reveal(pRow, pCol);
             onEvent(pRow, pCol);
         }
-        public void setPlayer(int r, int c)
+        static void setPlayer(int r, int c)
         {
             pRow = r; pCol = c;
             mask[r, c] = player;
         }
-        public bool checkBound(int r, int c)
+        static bool checkBound(int r, int c)
         {
             if (mask[r, c].Equals(bound))
                 return true;
             else
                 return false;
         }
-        public void reveal(int r, int c)
+        static void reveal(int r, int c)
         {
             postEvent(r - 1, c);
             postEvent(r - 1, c + 1);
@@ -205,7 +201,7 @@ namespace Project
             postEvent(r, c - 1);
             postEvent(r - 1, c - 1);
         }
-        public void postEvent(int r, int c)
+        static void postEvent(int r, int c)
         {
             try
             {
@@ -234,7 +230,7 @@ namespace Project
             }
             catch { }
         }
-        public void onEvent(int r, int c)
+        static void onEvent(int r, int c)
         {
             try
             {
@@ -246,7 +242,7 @@ namespace Project
                         prog.ClearTextbox();
                         prog.WriteTextBox(" Will you fight the enemy? (Y / N)");
                         //trigger fight
-                        //events[r, c] = enemyDef;
+                        events[r, c] = enemyDef;
                         break;
                     case "-{E}-":
                         mask[r, c] = onEnemyDef;
@@ -256,7 +252,7 @@ namespace Project
                     case " {B} ":
                         mask[r, c] = onBoss;
                         //trigger fight
-                        //events[r, c] = bossDef;
+                        events[r, c] = bossDef;
                         break;
                     case "-{B}-":
                         mask[r, c] = onBossDef;
@@ -327,7 +323,7 @@ namespace Project
             else
                 return "face";
         }
-        public void refresh()
+        static void refresh()
         {
             Console.SetCursorPosition(0, 7);
             for (int i = 0; i < 40; i++)
