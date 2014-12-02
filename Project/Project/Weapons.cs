@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+//This is the weapons section of the Dungeon C#rawler, included are the list of weapons to be used in the game. 
+//Each weapon has it's damage counter included inside each weapons. The system takes the weapon which then sets 
+//the damage to a current value.
 namespace Project
 {
 
@@ -20,19 +24,34 @@ namespace Project
     public interface WeaponBehaviour
     {
         void useWeapon();
+        
     }
 
 
     //Sword
+    //Sword will set damage to 5, this will then be used in the future when attacking an enemy.
     public class Sword : WeaponBehaviour
     {
-        
-        int damage = 5;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You slash with the Sword!");
-            damage = 5;
+
+            //Random Generator for Sword
+            if (random.Next(0, 2)== 0)
+            {
+                damage = 5;
+                Console.WriteLine("You slash with the Sword! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your sword misses!");
+                Console.ReadLine();
+            }
+            
 
 
         }
@@ -41,6 +60,7 @@ namespace Project
     }
 
     //Axe
+    //Axe will set damage to 8, this will then be used in the future when attacking an enemy.
     public class Axe : WeaponBehaviour
     {
 
@@ -58,6 +78,7 @@ namespace Project
     }
 
     //Knife
+    //Knife will set damage to 2, this will then be used in the future when attacking an enemy.
     public class Knife : WeaponBehaviour
     {
 
@@ -75,6 +96,7 @@ namespace Project
     }
 
     //Mace
+    //Mace will set damage to 4, this will then be used in the future when attacking an enemy.
     public class Mace : WeaponBehaviour
     {
 
@@ -92,6 +114,7 @@ namespace Project
     }
 
     //Fish
+    //Fish will set damage to 3, this will then be used in the future when attacking an enemy.
     public class Fish : WeaponBehaviour
     {
 
@@ -110,6 +133,7 @@ namespace Project
 
 
     //Bowstaff
+    //Bowstaff will set damage to 6, this will then be used in the future when attacking an enemy.
     public class Bowstaff : WeaponBehaviour
     {
 
@@ -128,6 +152,7 @@ namespace Project
 
 
     //Caestus
+    //Caestus will set damage to 1, this will then be used in the future when attacking an enemy.
     public class Caestus : WeaponBehaviour
     {
 
@@ -145,6 +170,7 @@ namespace Project
     }
 
     //Quarterstaff
+    //Quarterstaff will set damage to 7, this will then be used in the future when attacking an enemy.
     public class Quarterstaff : WeaponBehaviour
     {
 
