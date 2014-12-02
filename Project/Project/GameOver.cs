@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+//The standard class from when the character has died in the game and must start over.
 namespace Project
 {
     class GameOver
