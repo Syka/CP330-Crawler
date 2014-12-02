@@ -10,44 +10,69 @@ namespace Project
     {
         static void Main()
         {
+
+
             //Map Initialzer
 
             //Character Initializer
 
 
             //Render the Gui
+            Program prog = new Program();
             Intro Start = new Intro();
             Start.ScreenRender();
+            bool Win = false;
             
 
-            WriteTextBox("Press Enter To Start");
+            prog.WriteTextBox("Press Enter To Start");
             Console.ReadKey();
 
-            WriteTextBox(" We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine+" Press Any Key" );
-            ClearTextbox();
-            WriteTextBox("What Race are you?" + Environment.NewLine + "Human or Orc?");
+            prog.WriteTextBox("We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine + " Press Any Key" );
+            Console.ReadKey();
+            prog.ClearTextbox();
+            prog.WriteTextBox(" What Race are you?" + Environment.NewLine + " Elf, Human or Orc?");
             Console.ReadLine();
 
+
             //Console.WriteLine("What Race are you young Adventurer?");
-            Map map = new Map(17, 11);
+            Map map = new Map();
 
             bool dead = false;
             while(!dead)
             {
                 map.movement();
             }
+
+            //Win Circumstances
             //GameOver End = new GameOver();
-            //End.Died();
-            //ConsoleKeyInfo Input = Console.ReadKey();
-            //switch (Input.Key)
+            //if(Win==true)
             //{
-            //    case ConsoleKey.Y:
-            //        Main();
-            //        break;
-            //    case ConsoleKey.N:
-            //        Environment.Exit(0);
-            //        break;
-            //}           
+            //    End.Victory();
+            //    ConsoleKeyInfo Input = Console.ReadKey();
+            //    switch (Input.Key)
+            //    {
+            //        case ConsoleKey.Y:
+            //            Main();
+            //            break;
+            //        case ConsoleKey.N:
+            //            Environment.Exit(0);
+            //            break;
+            //    }   
+            //}
+            //else
+            //{                
+            //    End.Died();
+            //    ConsoleKeyInfo Input = Console.ReadKey();
+            //    switch (Input.Key)
+            //    {
+            //        case ConsoleKey.Y:
+            //            Main();
+            //            break;
+            //        case ConsoleKey.N:
+            //            Environment.Exit(0);
+            //            break;
+            //    }           
+            //}      
 
 
 
@@ -74,7 +99,7 @@ namespace Project
             //Map
 
         }
-        static void ClearTextbox()
+        public void ClearTextbox()
         {
             //Console.BackgroundColor = ConsoleColor.Blue; --Uncomment to Debug Textbox Size
             Console.SetCursorPosition(0, 41);
@@ -83,7 +108,7 @@ namespace Project
                 Console.WriteLine("                                                      ");
             }
         }
-        static void WriteTextBox(string value)
+        public void WriteTextBox(string value)
         {
             Console.SetCursorPosition(0, 41);
             int myLimit = 51;
