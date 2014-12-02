@@ -95,6 +95,7 @@ namespace Project
         }
         public void WriteTextBox(string value)
         {
+            ClearTextbox();
             Console.SetCursorPosition(0, 41);
             int myLimit = 51;
             string sentence = value;
