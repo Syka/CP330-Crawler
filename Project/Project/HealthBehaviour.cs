@@ -57,15 +57,4 @@ namespace Project
         }
     }
 
-    public class HeroHealthLow : IHealthBehaviour
-    {
-        public int valueHealth;
-        Random randomHealth = new Random();
-        public int Health()
-        {
-            int valueHealth = 15 + randomHealth.Next(0,10);
-            return valueHealth;
-        }
-
-    }
 }
