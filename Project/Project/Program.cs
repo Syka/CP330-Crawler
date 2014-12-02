@@ -10,6 +10,8 @@ namespace Project
     {
         static void Main()
         {
+
+
             //Map Initialzer
 
             //Character Initializer
@@ -19,6 +21,7 @@ namespace Project
             Program prog = new Program();
             Intro Start = new Intro();
             Start.ScreenRender();
+            bool Win = false;
             
 
             prog.WriteTextBox("Press Enter To Start");
@@ -30,6 +33,7 @@ namespace Project
             prog.WriteTextBox(" What Race are you?" + Environment.NewLine + " Elf, Human or Orc?");
             Console.ReadLine();
 
+
             //Console.WriteLine("What Race are you young Adventurer?");
             Map map = new Map();
 
@@ -38,18 +42,37 @@ namespace Project
             {
                 map.movement();
             }
+
+            //Win Circumstances
             //GameOver End = new GameOver();
-            //End.Died();
-            //ConsoleKeyInfo Input = Console.ReadKey();
-            //switch (Input.Key)
+            //if(Win==true)
             //{
-            //    case ConsoleKey.Y:
-            //        Main();
-            //        break;
-            //    case ConsoleKey.N:
-            //        Environment.Exit(0);
-            //        break;
-            //}           
+            //    End.Victory();
+            //    ConsoleKeyInfo Input = Console.ReadKey();
+            //    switch (Input.Key)
+            //    {
+            //        case ConsoleKey.Y:
+            //            Main();
+            //            break;
+            //        case ConsoleKey.N:
+            //            Environment.Exit(0);
+            //            break;
+            //    }   
+            //}
+            //else
+            //{                
+            //    End.Died();
+            //    ConsoleKeyInfo Input = Console.ReadKey();
+            //    switch (Input.Key)
+            //    {
+            //        case ConsoleKey.Y:
+            //            Main();
+            //            break;
+            //        case ConsoleKey.N:
+            //            Environment.Exit(0);
+            //            break;
+            //    }           
+            //}      
 
 
 
