@@ -16,7 +16,7 @@ namespace Project
             Console.SetWindowSize(97, 60);
             //Width 95, Height 60
             //59 is the max lines up/down 
-            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.BackgroundColor = ConsoleColor.Black;
             //Console.Clear();
             Console.Clear();
