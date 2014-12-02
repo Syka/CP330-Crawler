@@ -31,7 +31,7 @@ namespace Project
                 setLvl(3);
             reveal(pRow, pCol);
             hero1 HeroHealth = new hero1();
-            int Health = HeroHealth.hHealthBehaviour.Health();
+            int Health = HeroHealth.hHealthBehaviour.Health();            
             InfoPane(Health,"Sword",5);
             refresh();
         }
