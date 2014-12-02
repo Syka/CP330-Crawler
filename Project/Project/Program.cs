@@ -3,30 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Threading;
 namespace Project
 {
     class Program
     {
         static void Main()
-        {  
-  
-            
-            
-            
+        {
+   
             //Render the Gui
             Program prog = new Program();
             Intro Start = new Intro();
             Start.ScreenRender();
 
-            
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Music.wav");
+            player.Play();
             //Waiting to start game
             prog.WriteTextBox("Press Enter To Start");
             Console.ReadKey();
-            
+
+            prog.WriteTextBox("Please Select a Weapon: " + Environment.NewLine + "[1]Sword" + Environment.NewLine + "[2]Axe" + Environment.NewLine + "[3]Knife" 
+                + Environment.NewLine+ "[4]Mace" + Environment.NewLine + "[5]Fish" + Environment.NewLine+"[6]Bowstaff" 
+                + Environment.NewLine+ "[7]Caestus" + Environment.NewLine+ "[8]Quarterstaff");
+            Console.ReadKey();
+
             //Starts the map
             Map map = new Map();
-
+            
             bool dead = false;
             while(!dead)
             {
