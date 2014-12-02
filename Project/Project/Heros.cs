@@ -25,6 +25,7 @@ namespace Project
         public hero1()
         {
             hHealthBehaviour = new HeroHealthHigh();
+           // hWeaponBehaviour= new "weapon choice variable"
         }
     }
     public class hero2 : Heros 
@@ -33,6 +34,7 @@ namespace Project
         public hero2()
         {
             hHealthBehaviour = new HeroHealthLow();
+            //hWeaponBehaviour = new "weapon choice variable"
         }
     }
 }
