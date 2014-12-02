@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
+using System.IO;
+using System.Resources;
 
 
 //The standard class from when the character has died in the game and must start over.
@@ -19,7 +22,11 @@ namespace Project
             Console.WriteLine("                               / ___/__ ___ _  ___   / __ \\_  _____ ____");
             Console.WriteLine("                              / (_ / _ `/  ' \\/ -_) / /_/ / |/ / -_) __/");
             Console.WriteLine("                              \\___/\\_,_/_/_/_/\\__/  \\____/|___/\\__/_/  ");
-            Console.Write(Environment.NewLine+"                                   Would You Like to Continue?(Y/N)");      
+            Console.Write(Environment.NewLine+"                                   Would You Like to Continue?(Y/N)");
+
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Death.wav");
+            player.Play();
+
         }
         public void Victory()
         {
@@ -33,7 +40,9 @@ namespace Project
             Console.WriteLine("                                 \\_/   |_| \\___| \\__| \\___/ |_|    \\__, |");
             Console.WriteLine("                                                                   |___/ ");
 
-            Console.Write(Environment.NewLine + "                                   Would You Like to Continue?(Y/N)");   
+            Console.Write(Environment.NewLine + "                                   Would You Like to Continue?(Y/N)");
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/VictoryFanfare.wav");
+            player.Play();
         }
     }
 

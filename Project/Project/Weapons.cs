@@ -24,6 +24,7 @@ namespace Project
     public interface WeaponBehaviour
     {
         void useWeapon();
+        
     }
 
 
@@ -31,13 +32,26 @@ namespace Project
     //Sword will set damage to 5, this will then be used in the future when attacking an enemy.
     public class Sword : WeaponBehaviour
     {
-        
-        int damage = 5;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You slash with the Sword!");
-            damage = 5;
+
+            //Random Generator for Sword
+            if (random.Next(0, 2)== 0)
+            {
+                damage = 5;
+                Console.WriteLine("You slash with the Sword! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your attack misses!");
+                Console.ReadLine();
+            }
+            
 
 
         }
@@ -50,12 +64,26 @@ namespace Project
     public class Axe : WeaponBehaviour
     {
 
-        int damage = 8;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You swing with the Axe!");
-            damage = 8;
+
+            //Random Generator for Axe
+            if (random.Next(0, 2) == 0)
+            {
+                damage = 8;
+                Console.WriteLine("You swing with the Axe! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your attack misses!");
+                Console.ReadLine();
+            }
+
 
 
         }
@@ -68,12 +96,26 @@ namespace Project
     public class Knife : WeaponBehaviour
     {
 
-        int damage = 2;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You swing with the Axe!");
-            damage = 2;
+
+            //Random Generator for Axe
+            if (random.Next(0, 2) == 0)
+            {
+                damage = 2;
+                Console.WriteLine("You stab with the Knife! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your attack misses!");
+                Console.ReadLine();
+            }
+
 
 
         }
@@ -86,12 +128,26 @@ namespace Project
     public class Mace : WeaponBehaviour
     {
 
-        int damage = 4;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You swing with the Axe!");
-            damage = 4;
+
+            //Random Generator for Axe
+            if (random.Next(0, 2) == 0)
+            {
+                damage = 4;
+                Console.WriteLine("You swing with your knife! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your attack misses!");
+                Console.ReadLine();
+            }
+
 
 
         }
@@ -104,12 +160,26 @@ namespace Project
     public class Fish : WeaponBehaviour
     {
 
-        int damage = 3;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You swing with the Axe!");
-            damage = 3;
+
+            //Random Generator for Axe
+            if (random.Next(0, 2) == 0)
+            {
+                damage = 3;
+                Console.WriteLine("You slap with the Fish! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your attack misses!");
+                Console.ReadLine();
+            }
+
 
 
         }
@@ -123,12 +193,26 @@ namespace Project
     public class Bowstaff : WeaponBehaviour
     {
 
-        int damage = 6;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You swing with the Axe!");
-            damage = 6;
+
+            //Random Generator for Axe
+            if (random.Next(0, 2) == 0)
+            {
+                damage = 6;
+                Console.WriteLine("You swing with the Bowstaff! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your attack misses!");
+                Console.ReadLine();
+            }
+
 
 
         }
@@ -142,12 +226,26 @@ namespace Project
     public class Caestus : WeaponBehaviour
     {
 
-        int damage = 1;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You swing with the Axe!");
-            damage = 1;
+
+            //Random Generator for Axe
+            if (random.Next(0, 2) == 0)
+            {
+                damage = 1;
+                Console.WriteLine("You punch with your Caestus! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your attack misses!");
+                Console.ReadLine();
+            }
+
 
 
         }
@@ -160,12 +258,26 @@ namespace Project
     public class Quarterstaff : WeaponBehaviour
     {
 
-        int damage = 7;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You swing with the Axe!");
-            damage = 7;
+
+            //Random Generator for Axe
+            if (random.Next(0, 2) == 0)
+            {
+                damage = 7;
+                Console.WriteLine("You stab with the QuarterStaff! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your attack misses!");
+                Console.ReadLine();
+            }
+
 
 
         }

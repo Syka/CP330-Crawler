@@ -3,40 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Threading;
 namespace Project
 {
     class Program
     {
         static void Main()
         {
-
-
-            //Map Initialzer
-
-            //Character Initializer
-
-
+   
             //Render the Gui
             Program prog = new Program();
             Intro Start = new Intro();
             Start.ScreenRender();
-            bool Win = false;
-            
 
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Music.wav");
+            player.Play();
+            //Waiting to start game
             prog.WriteTextBox("Press Enter To Start");
             Console.ReadKey();
-
-            prog.WriteTextBox("We follow our faithful Mute Protangnist as he enters the treachous Dungeon" + Environment.NewLine + " Press Any Key" );
-            Console.ReadKey();
-            prog.ClearTextbox();
-            prog.WriteTextBox(" What Race are you?" + Environment.NewLine + " Elf, Human or Orc?");
-            Console.ReadLine();
-
-
-            //Console.WriteLine("What Race are you young Adventurer?");
+            
+            //Starts the map
             Map map = new Map();
-
+            
             bool dead = false;
             while(!dead)
             {
@@ -45,7 +33,7 @@ namespace Project
 
             //Win Circumstances
             //GameOver End = new GameOver();
-            //if(Win==true)
+            //if (Win == true)
             //{
             //    End.Victory();
             //    ConsoleKeyInfo Input = Console.ReadKey();
@@ -57,10 +45,10 @@ namespace Project
             //        case ConsoleKey.N:
             //            Environment.Exit(0);
             //            break;
-            //    }   
+            //    }
             //}
             //else
-            //{                
+            //{
             //    End.Died();
             //    ConsoleKeyInfo Input = Console.ReadKey();
             //    switch (Input.Key)
@@ -71,32 +59,8 @@ namespace Project
             //        case ConsoleKey.N:
             //            Environment.Exit(0);
             //            break;
-            //    }           
+            //    }
             //}      
-
-
-
-            //Need a loop here
-
-            //Show map
-
-
-            //Movement
-
-            //Events
-
-            //Characters
-
-            //Enemies
-
-            //Loot
-
-            //Inventory
-
-            //Weapons
-            
-
-            //Map
 
         }
         public void ClearTextbox()
@@ -107,6 +71,7 @@ namespace Project
             {
                 Console.WriteLine("                                                      ");
             }
+            Console.SetCursorPosition(7, 59);
         }
         public void WriteTextBox(string value)
         {
