@@ -75,7 +75,7 @@ namespace Project
             if (random.Next(0, 2) == 0)
             {
                 damage = 8;
-                Console.WriteLine("You slash with the Axe! Causing {0} damage!", damage);
+                Console.WriteLine("You swing with the Axe! Causing {0} damage!", damage);
                 Console.ReadLine();
             }
             else
@@ -107,7 +107,7 @@ namespace Project
             if (random.Next(0, 2) == 0)
             {
                 damage = 2;
-                Console.WriteLine("You slash with the Knife! Causing {0} damage!", damage);
+                Console.WriteLine("You stab with the Knife! Causing {0} damage!", damage);
                 Console.ReadLine();
             }
             else
@@ -128,12 +128,26 @@ namespace Project
     public class Mace : WeaponBehaviour
     {
 
-        int damage = 4;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You swing with the Axe!");
-            damage = 4;
+
+            //Random Generator for Axe
+            if (random.Next(0, 2) == 0)
+            {
+                damage = 4;
+                Console.WriteLine("You swing with your knife! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your attack misses!");
+                Console.ReadLine();
+            }
+
 
 
         }
@@ -146,12 +160,26 @@ namespace Project
     public class Fish : WeaponBehaviour
     {
 
-        int damage = 3;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You swing with the Axe!");
-            damage = 3;
+
+            //Random Generator for Axe
+            if (random.Next(0, 2) == 0)
+            {
+                damage = 3;
+                Console.WriteLine("You slap with the Fish! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your attack misses!");
+                Console.ReadLine();
+            }
+
 
 
         }
