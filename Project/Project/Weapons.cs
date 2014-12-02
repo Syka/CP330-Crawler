@@ -23,7 +23,7 @@ namespace Project
 
     public interface WeaponBehaviour
     {
-        void useWeapon();
+        int useWeapon();
         
     }
 
@@ -36,7 +36,7 @@ namespace Project
         int damage;
 
 
-        public void useWeapon()
+        public int useWeapon()
         {
 
             //Random Generator for Sword
@@ -51,6 +51,7 @@ namespace Project
                 Console.WriteLine("Your attack misses!");
                 Console.ReadLine();
             }
+            return damage;
             
 
 
@@ -68,7 +69,7 @@ namespace Project
         int damage;
 
 
-        public void useWeapon()
+        public int useWeapon()
         {
 
             //Random Generator for Axe
@@ -83,7 +84,7 @@ namespace Project
                 Console.WriteLine("Your attack misses!");
                 Console.ReadLine();
             }
-
+            return damage;
 
 
         }
@@ -100,7 +101,7 @@ namespace Project
         int damage;
 
 
-        public void useWeapon()
+        public int useWeapon()
         {
 
             //Random Generator for Axe
@@ -115,7 +116,7 @@ namespace Project
                 Console.WriteLine("Your attack misses!");
                 Console.ReadLine();
             }
-
+            return damage;
 
 
         }
@@ -132,7 +133,7 @@ namespace Project
         int damage;
 
 
-        public void useWeapon()
+        public int useWeapon()
         {
 
             //Random Generator for Axe
@@ -147,7 +148,7 @@ namespace Project
                 Console.WriteLine("Your attack misses!");
                 Console.ReadLine();
             }
-
+            return damage;
 
 
         }
@@ -164,7 +165,7 @@ namespace Project
         int damage;
 
 
-        public void useWeapon()
+        public int useWeapon()
         {
 
             //Random Generator for Axe
@@ -179,7 +180,7 @@ namespace Project
                 Console.WriteLine("Your attack misses!");
                 Console.ReadLine();
             }
-
+            return damage;
 
 
         }
@@ -197,7 +198,7 @@ namespace Project
         int damage;
 
 
-        public void useWeapon()
+        public int useWeapon()
         {
 
             //Random Generator for Axe
@@ -212,7 +213,7 @@ namespace Project
                 Console.WriteLine("Your attack misses!");
                 Console.ReadLine();
             }
-
+            return damage;
 
 
         }
@@ -230,7 +231,7 @@ namespace Project
         int damage;
 
 
-        public void useWeapon()
+        public int useWeapon()
         {
 
             //Random Generator for Axe
@@ -245,7 +246,7 @@ namespace Project
                 Console.WriteLine("Your attack misses!");
                 Console.ReadLine();
             }
-
+            return damage;
 
 
         }
@@ -262,7 +263,7 @@ namespace Project
         int damage;
 
 
-        public void useWeapon()
+        public int useWeapon()
         {
 
             //Random Generator for Axe
@@ -277,7 +278,7 @@ namespace Project
                 Console.WriteLine("Your attack misses!");
                 Console.ReadLine();
             }
-
+            return damage;
 
 
         }

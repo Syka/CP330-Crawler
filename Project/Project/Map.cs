@@ -266,33 +266,36 @@ namespace Project
                 {
                     case " {E} ":
                         mask[r, c] = onEnemy;
-                         mask[r, c] = onEnemy;                     
+                        mask[r, c] = onEnemy;                     
                         //trigger fight
                         Random rngEnemy = new Random();
-                        int randomizer = rngEnemy.Next(0, 3);
                         int eHealth = 0;
+                        int eWeaponDamage = 0;
                         string monsterName="";
-                        if (randomizer == 0)
+                        if (rngEnemy.Next(0, 4) == 0)
                         {
                             Ogre enemy1 = new Ogre();
                             eHealth = enemy1.mHealthBehaviour.Health();
-                            monsterName = " Ogre ";
+                            eWeaponDamage = enemy1.mWeaponBehaviour.useWeapon();
+                            monsterName = "Ogre";
                         }
-                        else if (randomizer == 1)
+                        else if (rngEnemy.Next(0, 4) == 0)
                         {
                             Troll enemy2 = new Troll();
                             eHealth = enemy2.mHealthBehaviour.Health();
-                            monsterName = " Troll ";
+                            eWeaponDamage = enemy2.mWeaponBehaviour.useWeapon();
+                            monsterName = "Troll";
                         }
-                        else if (randomizer == 2)
+                        else if (rngEnemy.Next(0, 4) == 0)
                         {
                             Spirit enemy3 = new Spirit();
                             eHealth = enemy3.mHealthBehaviour.Health();
-                            monsterName = " Spirit ";
+                            eWeaponDamage = enemy3.mWeaponBehaviour.useWeapon();
+                            monsterName = "Spirit";
                         }
                         
                         prog.ClearTextbox();
-                        prog.WriteTextBox("The"+ monsterName + "  has " + eHealth + "hp, Will you fight the enemy? (Y / N)"); 
+                        prog.WriteTextBox("Will you fight the " + monsterName + "? (Y / N)"); 
                         events[r, c] = enemyDef;
                         
                         //trigger fight
@@ -304,8 +307,12 @@ namespace Project
                         break;
                     case " {B} ":
                         mask[r, c] = onBoss;
-                        prog.WriteTextBox("Will you fight the boss? (Y / N)");
                         //trigger fight
+                        Swamphag enemyBoss = new Swamphag();
+                        int bHealth = enemyBoss.mHealthBehaviour.Health();
+                        int bWeaponDamage = enemyBoss.mWeaponBehaviour.useWeapon();
+                        prog.ClearTextbox();
+                        prog.WriteTextBox("The Swamphag has " + bHealth + "hp, Will you fight the enemy? (Y / N)"); 
                         events[r, c] = bossDef;
                         break;
                     case "-{B}-":
