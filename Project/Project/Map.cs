@@ -286,8 +286,7 @@ namespace Project
                             eHealth = enemy3.mHealthBehaviour.Health();
                             monsterName = "Spirit";
                         }
-                        
-                        prog.ClearTextbox();
+    
                         prog.WriteTextBox("Will you fight the " + monsterName + "? (Y / N)"); 
                         events[r, c] = enemyDef;
                         
@@ -306,11 +305,11 @@ namespace Project
                         break;
                     case "-{B}-":
                         mask[r, c] = onBossDef;
-                        prog.ClearTextbox(); prog.WriteTextBox("You stand over the corpse of the boss and laugh.");
+                        prog.WriteTextBox("You stand over the corpse of the boss and laugh.");
                         break;
                     case " {T} ":
                         mask[r, c] = onTrap;
-                        prog.ClearTextbox(); prog.WriteTextBox("You fall down a trapdoor and " + randomInjury() + "! {-2 HP}");
+                        prog.WriteTextBox("You fall down a trapdoor and " + randomInjury() + "! {-2 HP}");
                         //decrease HP
                         events[r, c] = trapDef;
                         break;
@@ -322,8 +321,7 @@ namespace Project
                         mask[r, c] = onChest;
                         //trigger loot
                         prog.WriteTextBox("You open the chest and find X! Holy $%&#!");
-                        unknown[r, c] = events[r, c];
-                        events[r, c] = chestOpen;
+                        unknown[r, c] = events[r, c]; events[r, c] = chestOpen;
                         break;
                     case "-{C}-":
                         mask[r, c] = onChestOpen;
@@ -332,6 +330,7 @@ namespace Project
                     case " {D} ":
                         unknown[r, c] = events[r, c];
                         mask[r, c] = onDoor;
+                        refresh();
                         prog.WriteTextBox("Will you open the ominous door? (Y /N)");
                         ConsoleKeyInfo input = Console.ReadKey();
                         switch(input.Key)
@@ -359,6 +358,9 @@ namespace Project
                                 break;
                             case ConsoleKey.N:
                                 prog.WriteTextBox("You ignore your curiosity and move on.");
+                                break;
+                            default:
+                                prog.WriteTextBox("Will you open the ominous door? (Y /N)");
                                 break;
                         }
                         break;
