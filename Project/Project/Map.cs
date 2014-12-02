@@ -241,6 +241,7 @@ namespace Project
                         mask[r, c] = onEnemy;
                         prog.ClearTextbox();
                         prog.WriteTextBox(" Will you fight the enemy? (Y / N)");
+                        
                         //trigger fight
                         events[r, c] = enemyDef;
                         break;
@@ -339,6 +340,7 @@ namespace Project
                 }
                 Console.WriteLine(Environment.NewLine);
             }
+            Console.SetCursorPosition(7, 59);
         }
     }
 }
