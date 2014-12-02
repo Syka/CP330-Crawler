@@ -8,9 +8,8 @@ namespace Project
 {
     public class Map
     {
-        
         static int pRow = 0, pCol = 0, _pRow, _pCol;
-        static bool lvl_1_Def = false, lvl_2_Def = false, lvl_3_Def = false;
+        static bool onLvl_1 = true, onLvl_2 = false, onLvl_3 = false;
         static string[,] mask, events, unknown;
         static string player =      " {X} ", unexplored =   " [ ] ", explored =     "     ", bound =        "▓▓▓▓▓",
                         enemy =     " {E} ", onEnemy =      "{ E }", enemyDef =     "-{E}-", onEnemyDef =   "{-E-}",
@@ -18,13 +17,19 @@ namespace Project
                         trapdoor =  " {T} ", onTrap =       "{ T }", trapDef =      "-{T}-", onTrapDef =    "{-T-}",
                         chest =     " {C} ", onChest =      "{ C }", chestOpen =    "-{C}-", onChestOpen =  "{-C-}",
                         door =      " {D} ", onDoor =       "{ D }", undiscovered = " ??? ";
-
         public Map()
         {
             mask = new string[17, 11];
             events = new string[17, 11];
             unknown = new string[17, 11];
-            generate(); reveal(pRow, pCol);
+            generate();
+            if (onLvl_1)
+                setLvl(1);
+            else if (onLvl_2)
+                setLvl(2);
+            else if (onLvl_3)
+                setLvl(3);
+            reveal(pRow, pCol);
             refresh();
         }
         static void generate()
@@ -38,14 +43,25 @@ namespace Project
                     unknown[i, j] = unexplored;
                 }
             }
-            if (!lvl_1_Def)
-                level_1();
-            else if(lvl_1_Def && !lvl_2_Def)
-                level_2();
-            else if(lvl_1_Def && lvl_2_Def && !lvl_3_Def)
-                level_3();
         }
-        static void level_1()
+        static void setLvl(int l)
+        {
+            switch(l)
+            {
+                case 1: 
+                    onLvl_1 = true; onLvl_2 = false; onLvl_3 = false;
+                    lvl_1(); 
+                    break;
+                case 2: onLvl_1 = false; onLvl_2 = true; onLvl_3 = false; 
+                    lvl_2(); 
+                    break;
+                case 3: onLvl_3 = false; onLvl_2 = false; onLvl_3 = true; 
+                    lvl_3(); 
+                    break;
+            }
+            refresh();
+        }
+        static void lvl_1()
         {
             //The stupidest bit of code ever
             put(0, 0, unexplored);  put(0, 1, unexplored);  put(0, 2, unexplored);  put(0, 3, unexplored);  put(0, 4, unexplored);  put(0, 5, bound);       put(0, 6, bound);       put(0, 7, unexplored);  put(0, 8, enemy);       put(0, 9, unexplored);  put(0, 10, bound);
@@ -65,10 +81,11 @@ namespace Project
             put(14, 0, unexplored); put(14, 1, unexplored); put(14, 2, unexplored); put(14, 3, unexplored); put(14, 4, bound);      put(14, 5, bound);      put(14, 6, unexplored); put(14, 7, unexplored); put(14, 8, unexplored); put(14, 9, bound);      put(14, 10, unexplored);
             put(15, 0, enemy);      put(15, 1, bound);      put(15, 2, unexplored); put(15, 3, unexplored); put(15, 4, trapdoor);   put(15, 5, bound);      put(15, 6, bound);      put(15, 7, bound);      put(15, 8, bound);      put(15, 9, bound);      put(15, 10, unexplored);
             put(16, 0, chest);      put(16, 1, bound);      put(16, 2, unexplored); put(16, 3, enemy);      put(16, 4, bound);      put(16, 5, bound);      put(16, 6, door);       put(16, 7, boss);       put(16, 8, unexplored); put(16, 9, unexplored); put(16, 10, unexplored);
-            setPlayer(0, 0);
+            setPlayer(0, 0); reveal(pRow, pCol); refresh();
         }
-        static void level_2()
+        static void lvl_2()
         {
+            generate(); 
             put(0, 0, chest);       put(0, 1, unexplored);  put(0, 2, bound);       put(0, 3, unexplored);  put(0, 4, chest);       put(0, 5, bound);       put(0, 6, chest);       put(0, 7, trapdoor);    put(0, 8, bound);       put(0, 9, unexplored);  put(0, 10, trapdoor);
             put(1, 0, chest);       put(1, 1, unexplored);  put(1, 2, bound);       put(1, 3, unexplored);  put(1, 4, bound);       put(1, 5, bound);       put(1, 6, bound);       put(1, 7, unexplored);  put(1, 8, bound);       put(1, 9, unexplored);  put(1, 10, unexplored);
             put(2, 0, bound);       put(2, 1, unexplored);  put(2, 2, bound);       put(2, 3, unexplored);  put(2, 4, bound);       put(2, 5, door);        put(2, 6, bound);       put(2, 7, unexplored);  put(2, 8, bound);       put(2, 9, unexplored);  put(2, 10, bound);
@@ -86,10 +103,11 @@ namespace Project
             put(14, 0, bound);      put(14, 1, unexplored); put(14, 2, bound);      put(14, 3, unexplored); put(14, 4, bound);      put(14, 5, chest);      put(14, 6, bound);      put(14, 7, unexplored); put(14, 8, bound);      put(14, 9, unexplored); put(14, 10, bound);
             put(15, 0, unexplored); put(15, 1, unexplored); put(15, 2, bound);      put(15, 3, unexplored); put(15, 4, bound);      put(15, 5, bound);      put(15, 6, bound);      put(15, 7, unexplored); put(15, 8, bound);      put(15, 9, unexplored); put(15, 10, unexplored);
             put(16, 0, chest);      put(16, 1, unexplored); put(16, 2, bound);      put(16, 3, chest);      put(16, 4, trapdoor);   put(16, 5, bound);      put(16, 6, unexplored); put(16, 7, unexplored); put(16, 8, bound);      put(16, 9, unexplored); put(16, 10, chest);
-            setPlayer(16, 6);
+            setPlayer(16, 6); reveal(pRow, pCol); refresh();
         }
-        static void level_3()
+        static void lvl_3()
         {
+            generate(); 
             put(0, 0, bound);       put(0, 1, bound);       put(0, 2, bound);       put(0, 3, bound);       put(0, 4, bound);       put(0, 5, bound);       put(0, 6, bound);       put(0, 7, bound);       put(0, 8, bound);       put(0, 9, bound);       put(0, 10, bound);
             put(1, 0, bound);       put(1, 1, bound);       put(1, 2, bound);       put(1, 3, bound);       put(1, 4, bound);       put(1, 5, chest);       put(1, 6, bound);       put(1, 7, bound);       put(1, 8, bound);       put(1, 9, bound);       put(1, 10, bound);
             put(2, 0, bound);       put(2, 1, bound);       put(2, 2, bound);       put(2, 3, bound);       put(2, 4, unexplored);  put(2, 5, unexplored);  put(2, 6, unexplored);  put(2, 7, bound);       put(2, 8, bound);       put(2, 9, bound);       put(2, 10, bound);
@@ -107,7 +125,13 @@ namespace Project
             put(14, 0, bound);      put(14, 1, bound);      put(14, 2, bound);      put(14, 3, bound);      put(14, 4, unexplored); put(14, 5, boss);       put(14, 6, unexplored); put(14, 7, bound);      put(14, 8, bound);      put(14, 9, bound);      put(14, 10, bound);
             put(15, 0, bound);      put(15, 1, bound);      put(15, 2, bound);      put(15, 3, bound);      put(15, 4, bound);      put(15, 5, door);       put(15, 6, bound);      put(15, 7, bound);      put(15, 8, bound);      put(15, 9, bound);      put(15, 10, bound);
             put(16, 0, bound);      put(16, 1, bound);      put(16, 2, bound);      put(16, 3, bound);      put(16, 4, bound);      put(16, 5, bound);      put(16, 6, bound);      put(16, 7, bound);      put(16, 8, bound);      put(16, 9, bound);      put(16, 10, bound);
-            setPlayer(4, 5);
+            setPlayer(4, 5); reveal(pRow, pCol); refresh();
+        }
+        public void resetLevels()
+        {
+            onLvl_1 = true;
+            onLvl_2 = false;
+            onLvl_3 = false;
         }
         static void put(int r, int c, string type)
         {
@@ -230,7 +254,7 @@ namespace Project
             }
             catch { }
         }
-        static void onEvent(int r, int c)
+        public void onEvent(int r, int c)
         {
             try
             {
@@ -239,88 +263,90 @@ namespace Project
                 {
                     case " {E} ":
                         mask[r, c] = onEnemy;
-                        prog.ClearTextbox();
-                        prog.WriteTextBox(" Will you fight the enemy? (Y / N)");
+                        prog.WriteTextBox("Will you fight the enemy? (Y / N)");
                         
                         //trigger fight
                         events[r, c] = enemyDef;
                         break;
                     case "-{E}-":
                         mask[r, c] = onEnemyDef;
-                        prog.ClearTextbox();
-                        prog.WriteTextBox(" You stand over the corpse of your foe and laugh.");
+                        prog.WriteTextBox("You stand over the corpse of your foe and laugh.");
                         break;
                     case " {B} ":
                         mask[r, c] = onBoss;
+                        prog.WriteTextBox("Will you fight the boss? (Y / N)");
                         //trigger fight
                         events[r, c] = bossDef;
                         break;
                     case "-{B}-":
                         mask[r, c] = onBossDef;
-                        prog.ClearTextbox();
-                        prog.WriteTextBox(" You stand over the corpse of the boss and laugh.");
+                        prog.ClearTextbox(); prog.WriteTextBox("You stand over the corpse of the boss and laugh.");
                         break;
                     case " {T} ":
                         mask[r, c] = onTrap;
-                        prog.ClearTextbox();
-                        prog.WriteTextBox(" You fall down a trapdoor and " + randomInjury() + "! {-2 HP}");
+                        prog.ClearTextbox(); prog.WriteTextBox("You fall down a trapdoor and " + randomInjury() + "! {-2 HP}");
                         //decrease HP
                         events[r, c] = trapDef;
                         break;
                     case "-{T}-":
                         mask[r, c] = onTrapDef; 
-                        prog.ClearTextbox();
-                        prog.WriteTextBox(" You stand over the disarmed trapdoor and sob to yourself.");
+                        prog.WriteTextBox("You stand over the disarmed trapdoor and sob to yourself.");
                         break;
                     case " {C} ":
                         mask[r, c] = onChest;
                         //trigger loot
-                        prog.ClearTextbox();
-                        prog.WriteTextBox(" You open the chest and find X! Holy $%&#!");
+                        prog.WriteTextBox("You open the chest and find X! Holy $%&#!");
                         unknown[r, c] = events[r, c];
                         events[r, c] = chestOpen;
                         break;
                     case "-{C}-":
                         mask[r, c] = onChestOpen;
-                        prog.ClearTextbox();
-                        prog.WriteTextBox(" You stand over the opened chest and get bored.");
+                        prog.WriteTextBox("You stand over the opened chest and get bored.");
                         break;
                     case " {D} ":
                         unknown[r, c] = events[r, c];
                         mask[r, c] = onDoor;
-                        prog.ClearTextbox();
-                        prog.WriteTextBox(" Will you open the ominous door? (Y /N)");
-                        if (!lvl_1_Def)
+                        prog.WriteTextBox("Will you open the ominous door? (Y /N)");
+                        ConsoleKeyInfo input = Console.ReadKey();
+                        switch(input.Key)
                         {
-                            lvl_1_Def = true;
-                            Map map2 = new Map();
-                        }
-                        else if (lvl_1_Def && !lvl_2_Def)
-                        {
-                            lvl_2_Def = true;
-                            Map map3 = new Map();
-                        }
-                        else if (lvl_1_Def && lvl_2_Def && !lvl_3_Def)
-                        {
-                            lvl_3_Def = true;
-                            //game over
-                            GameOver End = new GameOver();
-                            End.Victory();
-                            ConsoleKeyInfo Input = Console.ReadKey();
-                            switch (Input.Key)
-                            {
-                                case ConsoleKey.Y:                                    
-                                    break;
-                                case ConsoleKey.N:
-                                    Environment.Exit(0);
-                                    break;
-                            }
+                            case ConsoleKey.Y:
+                                if (onLvl_1)
+                                {
+                                    if (checkBoss(16, 7))
+                                        setLvl(2);
+                                    else
+                                        prog.WriteTextBox("You have not defeated the boss yet.");
+                                }
+                                else if (onLvl_2)
+                                {
+                                    if (checkBoss(3, 1))
+                                        setLvl(3);
+                                    else
+                                        prog.WriteTextBox("You have not defeated the boss yet.");
+                                }
+                                else if (onLvl_3)
+                                {
+                                    GameOver end = new GameOver();
+                                    end.Victory();
+                                }
+                                break;
+                            case ConsoleKey.N:
+                                prog.WriteTextBox("You ignore your curiosity and move on.");
+                                break;
                         }
                         break;
                 }
                 refresh();
             }
             catch { }
+        }
+        static bool checkBoss(int r, int c)
+        {
+            if (events[r, c].Equals(bossDef))
+                return true;
+            else
+                return false;
         }
         static string randomInjury()
         {
