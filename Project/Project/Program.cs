@@ -40,6 +40,44 @@ namespace Project
                     prog.ClearTextbox();
                     prog.WriteTextBox("You have selected: Axe");
                     break;
+
+                case ConsoleKey.D3:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Knife");
+                    break;
+
+                case ConsoleKey.D4:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Mace");
+                    break;
+
+                case ConsoleKey.D5:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Fish");
+                    break;
+
+                case ConsoleKey.D6:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Bowstaff");
+                    break;
+
+                case ConsoleKey.D7:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Caestus");
+                    break;
+
+                case ConsoleKey.D8:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Quarterstaff");
+                    break;
+
+                default:
+                    Console.WriteLine("Please Select a Weapon!");
+                    break;
+
+                    
+                    
+
             }
 
             //Starts the map
