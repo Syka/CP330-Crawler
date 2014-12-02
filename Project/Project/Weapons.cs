@@ -39,7 +39,7 @@ namespace Project
         public void useWeapon()
         {
 
-            //Random Generator for 
+            //Random Generator for Sword
             if (random.Next(0, 2)== 0)
             {
                 damage = 5;
