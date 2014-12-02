@@ -267,23 +267,27 @@ namespace Project
                         //trigger fight
                         Random rngEnemy = new Random();
                         int eHealth = 0;
+                        int eWeaponDamage = 0;
                         string monsterName="";
                         if (rngEnemy.Next(0, 4) == 0)
                         {
                             Ogre enemy1 = new Ogre();
                             eHealth = enemy1.mHealthBehaviour.Health();
+                            eWeaponDamage = enemy1.mWeaponBehaviour.useWeapon();
                             monsterName = "Ogre";
                         }
                         else if (rngEnemy.Next(0, 4) == 0)
                         {
                             Troll enemy2 = new Troll();
                             eHealth = enemy2.mHealthBehaviour.Health();
+                            eWeaponDamage = enemy2.mWeaponBehaviour.useWeapon();
                             monsterName = "Troll";
                         }
                         else if (rngEnemy.Next(0, 4) == 0)
                         {
                             Spirit enemy3 = new Spirit();
                             eHealth = enemy3.mHealthBehaviour.Health();
+                            eWeaponDamage = enemy3.mWeaponBehaviour.useWeapon();
                             monsterName = "Spirit";
                         }
                         
@@ -300,8 +304,12 @@ namespace Project
                         break;
                     case " {B} ":
                         mask[r, c] = onBoss;
-                        prog.WriteTextBox("Will you fight the boss? (Y / N)");
                         //trigger fight
+                        Swamphag enemyBoss = new Swamphag();
+                        int bHealth = enemyBoss.mHealthBehaviour.Health();
+                        int bWeaponDamage = enemyBoss.mWeaponBehaviour.useWeapon();
+                        prog.ClearTextbox();
+                        prog.WriteTextBox("The Swamphag has " + bHealth + "hp, Will you fight the enemy? (Y / N)"); 
                         events[r, c] = bossDef;
                         break;
                     case "-{B}-":
