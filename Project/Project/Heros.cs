@@ -28,13 +28,5 @@ namespace Project
            // hWeaponBehaviour= new "weapon choice variable"
         }
     }
-    public class hero2 : Heros 
-    {
-        //hero2's specific traits
-        public hero2()
-        {
-            hHealthBehaviour = new HeroHealthLow();
-            //hWeaponBehaviour = new "weapon choice variable"
-        }
-    }
+
 }

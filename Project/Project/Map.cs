@@ -30,6 +30,9 @@ namespace Project
             else if (onLvl_3)
                 setLvl(3);
             reveal(pRow, pCol);
+            hero1 HeroHealth = new hero1();
+            int Health = HeroHealth.hHealthBehaviour.Health();
+            InfoPane(Health,"Sword",5);
             refresh();
         }
         static void generate()
@@ -267,23 +270,27 @@ namespace Project
                         //trigger fight
                         Random rngEnemy = new Random();
                         int eHealth = 0;
+                        int eWeaponDamage = 0;
                         string monsterName="";
                         if (rngEnemy.Next(0, 4) == 0)
                         {
                             Ogre enemy1 = new Ogre();
                             eHealth = enemy1.mHealthBehaviour.Health();
+                            eWeaponDamage = enemy1.mWeaponBehaviour.useWeapon();
                             monsterName = "Ogre";
                         }
                         else if (rngEnemy.Next(0, 4) == 0)
                         {
                             Troll enemy2 = new Troll();
                             eHealth = enemy2.mHealthBehaviour.Health();
+                            eWeaponDamage = enemy2.mWeaponBehaviour.useWeapon();
                             monsterName = "Troll";
                         }
                         else if (rngEnemy.Next(0, 4) == 0)
                         {
                             Spirit enemy3 = new Spirit();
                             eHealth = enemy3.mHealthBehaviour.Health();
+                            eWeaponDamage = enemy3.mWeaponBehaviour.useWeapon();
                             monsterName = "Spirit";
                         }
     
@@ -299,8 +306,12 @@ namespace Project
                         break;
                     case " {B} ":
                         mask[r, c] = onBoss;
-                        prog.WriteTextBox("Will you fight the boss? (Y / N)");
                         //trigger fight
+                        Swamphag enemyBoss = new Swamphag();
+                        int bHealth = enemyBoss.mHealthBehaviour.Health();
+                        int bWeaponDamage = enemyBoss.mWeaponBehaviour.useWeapon();
+                        prog.ClearTextbox();
+                        prog.WriteTextBox("The Swamphag has " + bHealth + "hp, Will you fight the enemy? (Y / N)"); 
                         events[r, c] = bossDef;
                         break;
                     case "-{B}-":
@@ -409,6 +420,20 @@ namespace Project
                 Console.WriteLine(Environment.NewLine);
             }
             Console.SetCursorPosition(7, 59);
+        }
+        static void InfoPane(int Health, string Weapon, int Damage)
+        {
+            Console.SetCursorPosition(59, 7);
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("                                                      ");
+            }
+            Console.SetCursorPosition(59, 7);
+            Console.WriteLine("Health: {0}",Health);
+            Console.SetCursorPosition(59, 8);
+            Console.WriteLine("Current Weapon: {0}",Weapon);
+            Console.SetCursorPosition(59, 9);
+            Console.WriteLine("Current Damage: {0}", Damage);
         }
     }
 }

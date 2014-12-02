@@ -22,10 +22,63 @@ namespace Project
             prog.WriteTextBox("Press Enter To Start");
             Console.ReadKey();
 
+            //Select weapon 
             prog.WriteTextBox("Please Select a Weapon: " + Environment.NewLine + "[1]Sword" + Environment.NewLine + "[2]Axe" + Environment.NewLine + "[3]Knife" 
                 + Environment.NewLine+ "[4]Mace" + Environment.NewLine + "[5]Fish" + Environment.NewLine+"[6]Bowstaff" 
                 + Environment.NewLine+ "[7]Caestus" + Environment.NewLine+ "[8]Quarterstaff");
-            Console.ReadKey();
+            
+            //Takes key input and assigns to weapon
+            ConsoleKeyInfo Input = Console.ReadKey();
+            switch(Input.Key)
+            {
+                case ConsoleKey.D1:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Sword");
+                    break;
+
+                case ConsoleKey.D2:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Axe");
+                    break;
+
+                case ConsoleKey.D3:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Knife");
+                    break;
+
+                case ConsoleKey.D4:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Mace");
+                    break;
+
+                case ConsoleKey.D5:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Fish");
+                    break;
+
+                case ConsoleKey.D6:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Bowstaff");
+                    break;
+
+                case ConsoleKey.D7:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Caestus");
+                    break;
+
+                case ConsoleKey.D8:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Quarterstaff");
+                    break;
+
+                default:
+                    Console.WriteLine("Please Select a Weapon!");
+                    break;
+
+                    
+                    
+
+            }
 
             //Starts the map
             Map map = new Map();
