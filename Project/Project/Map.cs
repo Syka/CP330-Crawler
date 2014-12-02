@@ -30,6 +30,9 @@ namespace Project
             else if (onLvl_3)
                 setLvl(3);
             reveal(pRow, pCol);
+            hero1 HeroHealth = new hero1();
+            int Health = HeroHealth.hHealthBehaviour.Health();
+            InfoPane(Health,"Sword",5);
             refresh();
         }
         static void generate()
@@ -408,6 +411,20 @@ namespace Project
                 Console.WriteLine(Environment.NewLine);
             }
             Console.SetCursorPosition(7, 59);
+        }
+        static void InfoPane(int Health, string Weapon, int Damage)
+        {
+            Console.SetCursorPosition(59, 7);
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("                                                      ");
+            }
+            Console.SetCursorPosition(59, 7);
+            Console.WriteLine("Health: {0}",Health);
+            Console.SetCursorPosition(59, 8);
+            Console.WriteLine("Current Weapon: {0}",Weapon);
+            Console.SetCursorPosition(59, 9);
+            Console.WriteLine("Current Damage: {0}", Damage);
         }
     }
 }
