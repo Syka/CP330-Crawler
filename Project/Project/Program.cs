@@ -10,7 +10,7 @@ namespace Project
     {
         static void Main()
         {
-            
+   
             //Render the Gui
             Program prog = new Program();
             Intro Start = new Intro();
@@ -24,7 +24,7 @@ namespace Project
             
             //Starts the map
             Map map = new Map();
-
+            
             bool dead = false;
             while(!dead)
             {

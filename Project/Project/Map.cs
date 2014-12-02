@@ -8,7 +8,7 @@ namespace Project
 {
     public class Map
     {
-        
+
         static int pRow = 0, pCol = 0, _pRow, _pCol;
         static bool lvl_1_Def = false, lvl_2_Def = false, lvl_3_Def = false;
         static string[,] mask, events, unknown;
@@ -25,6 +25,7 @@ namespace Project
             events = new string[17, 11];
             unknown = new string[17, 11];
             generate(); reveal(pRow, pCol);
+            InfoPane();
             refresh();
         }
         static void generate()
@@ -355,6 +356,18 @@ namespace Project
                 Console.WriteLine(Environment.NewLine);
             }
             Console.SetCursorPosition(7, 59);
+        }
+        static void InfoPane()
+        {
+            Console.SetCursorPosition(56, 7);
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("                                                      ");
+            }            
+                Console.SetCursorPosition(56, 7);
+                Console.WriteLine("Health:{0}","100");
+                Console.SetCursorPosition(56, 8);
+                Console.WriteLine("DPS:{0}","None");
         }
     }
 }
