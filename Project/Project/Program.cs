@@ -21,7 +21,12 @@ namespace Project
             //Waiting to start game
             prog.WriteTextBox("Press Enter To Start");
             Console.ReadKey();
-            
+
+            prog.WriteTextBox("Please Select a Weapon: " + Environment.NewLine + "[1]Sword" + Environment.NewLine + "[2]Axe" + Environment.NewLine + "[3]Knife" 
+                + Environment.NewLine+ "[4]Mace" + Environment.NewLine + "[5]Fish" + Environment.NewLine+"[6]Bowstaff" 
+                + Environment.NewLine+ "[7]Caestus" + Environment.NewLine+ "[8]Quarterstaff");
+            Console.ReadKey();
+
             //Starts the map
             Map map = new Map();
 
