@@ -8,6 +8,7 @@ namespace Project
 {
     public class Map
     {
+        
         static int pRow = 0, pCol = 0, _pRow, _pCol;
         static bool lvl_1_Def = false, lvl_2_Def = false, lvl_3_Def = false;
         static string[,] mask, events, unknown;
@@ -301,6 +302,17 @@ namespace Project
                         {
                             lvl_3_Def = true;
                             //game over
+                            GameOver End = new GameOver();
+                            End.Victory();
+                            ConsoleKeyInfo Input = Console.ReadKey();
+                            switch (Input.Key)
+                            {
+                                case ConsoleKey.Y:                                    
+                                    break;
+                                case ConsoleKey.N:
+                                    Environment.Exit(0);
+                                    break;
+                            }
                         }
                         break;
                 }

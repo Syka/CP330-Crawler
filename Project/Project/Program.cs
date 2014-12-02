@@ -35,7 +35,7 @@ namespace Project
 
             //Win Circumstances
             //GameOver End = new GameOver();
-            //if(Win==true)
+            //if (Win == true)
             //{
             //    End.Victory();
             //    ConsoleKeyInfo Input = Console.ReadKey();
@@ -47,10 +47,10 @@ namespace Project
             //        case ConsoleKey.N:
             //            Environment.Exit(0);
             //            break;
-            //    }   
+            //    }
             //}
             //else
-            //{                
+            //{
             //    End.Died();
             //    ConsoleKeyInfo Input = Console.ReadKey();
             //    switch (Input.Key)
@@ -61,7 +61,7 @@ namespace Project
             //        case ConsoleKey.N:
             //            Environment.Exit(0);
             //            break;
-            //    }           
+            //    }
             //}      
 
         }
