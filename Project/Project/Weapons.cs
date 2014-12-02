@@ -39,7 +39,7 @@ namespace Project
         public void useWeapon()
         {
 
-            //Random Generator for 
+            //Random Generator for Sword
             if (random.Next(0, 2)== 0)
             {
                 damage = 5;
@@ -48,7 +48,7 @@ namespace Project
             }
             else
             {
-                Console.WriteLine("Your sword misses!");
+                Console.WriteLine("Your attack misses!");
                 Console.ReadLine();
             }
             
@@ -64,12 +64,26 @@ namespace Project
     public class Axe : WeaponBehaviour
     {
 
-        int damage = 8;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You swing with the Axe!");
-            damage = 8;
+
+            //Random Generator for Axe
+            if (random.Next(0, 2) == 0)
+            {
+                damage = 8;
+                Console.WriteLine("You slash with the Axe! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your attack misses!");
+                Console.ReadLine();
+            }
+
 
 
         }
@@ -82,12 +96,26 @@ namespace Project
     public class Knife : WeaponBehaviour
     {
 
-        int damage = 2;
+        Random random = new Random();
+        int damage;
+
 
         public void useWeapon()
         {
-            Console.WriteLine("You swing with the Axe!");
-            damage = 2;
+
+            //Random Generator for Axe
+            if (random.Next(0, 2) == 0)
+            {
+                damage = 2;
+                Console.WriteLine("You slash with the Knife! Causing {0} damage!", damage);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Your attack misses!");
+                Console.ReadLine();
+            }
+
 
 
         }
