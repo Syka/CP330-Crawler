@@ -8,6 +8,7 @@ namespace Project
 {
     public class Map
     {
+       
         static int pRow = 0, pCol = 0, _pRow, _pCol;
         static bool lvl_1_Def = false, lvl_2_Def = false, lvl_3_Def = false;
         static string[,] mask, events, unknown;
@@ -238,10 +239,33 @@ namespace Project
                 switch(events[r, c])
                 {
                     case " {E} ":
-                        mask[r, c] = onEnemy;
-                        prog.ClearTextbox();
-                        prog.WriteTextBox(" Will you fight the enemy? (Y / N)");
+                        mask[r, c] = onEnemy;                     
                         //trigger fight
+                        Random rngEnemy = new Random();
+                        int randomizer = rngEnemy.Next(0, 3);
+                        int eHealth = 0;
+                        string monsterName="";
+                        if (randomizer == 0)
+                        {
+                            Ogre enemy1 = new Ogre();
+                            eHealth = enemy1.mHealthBehaviour.Health();
+                            monsterName = " Ogre ";
+                        }
+                        else if (randomizer == 1)
+                        {
+                            Troll enemy2 = new Troll();
+                            eHealth = enemy2.mHealthBehaviour.Health();
+                            monsterName = " Troll ";
+                        }
+                        else if (randomizer == 2)
+                        {
+                            Spirit enemy3 = new Spirit();
+                            eHealth = enemy3.mHealthBehaviour.Health();
+                            monsterName = " Spirit ";
+                        }
+                        
+                        prog.ClearTextbox();
+                        prog.WriteTextBox("The"+ monsterName + "  has " + eHealth + "hp, Will you fight the enemy? (Y / N)"); 
                         events[r, c] = enemyDef;
                         break;
                     case "-{E}-":
@@ -252,6 +276,10 @@ namespace Project
                     case " {B} ":
                         mask[r, c] = onBoss;
                         //trigger fight
+                        Swamphag enemyBoss = new Swamphag();
+                        int bHealth = enemyBoss.mHealthBehaviour.Health();
+                        prog.ClearTextbox();
+                        prog.WriteTextBox("The Swamphag has " + bHealth + "hp, Will you fight the enemy? (Y / N)"); 
                         events[r, c] = bossDef;
                         break;
                     case "-{B}-":

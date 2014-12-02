@@ -8,7 +8,7 @@ namespace Project
     //Base Health values for Heroes and Bosses
     public interface IHealthBehaviour
     {
-        void Health();
+        int Health();
         
     }
 
@@ -16,10 +16,11 @@ namespace Project
     {
         public int valueHealth;
         Random randomHealth = new Random();
-        public void Health()
+        public int Health()
         {
             
-            valueHealth = 20 + randomHealth.Next(3,10);
+            int valueHealth = 20 + randomHealth.Next(3,10);
+            return valueHealth;
         }
     }
 
@@ -27,19 +28,21 @@ namespace Project
     {
         public int valueHealth;
         Random randomHealth = new Random();
-        public void Health()
+        public int Health()
         {
-            valueHealth = 10 + randomHealth.Next(1,7);
+            int valueHealth = 10 + randomHealth.Next(1,7);
+            return valueHealth;
         }   
     }
 
-    public class LowHealth : IHealthBehaviour
+    public class  LowHealth : IHealthBehaviour
     {
         public int valueHealth;
         Random randomHealth = new Random();
-        public void Health()
+        public int Health()
         {
-            valueHealth = 10 + randomHealth.Next(0,5);
+            int valueHealth = 10 + randomHealth.Next(0,5);
+            return valueHealth;
         }
     }
 
@@ -47,9 +50,10 @@ namespace Project
     {
         public int valueHealth;
         Random randomHealth = new Random();
-        public void Health()
+        public int Health()
         { 
-            valueHealth = 25 + randomHealth.Next(5,20);
+            int valueHealth = 25 + randomHealth.Next(5,20);
+            return valueHealth;
         }
     }
 
@@ -57,9 +61,10 @@ namespace Project
     {
         public int valueHealth;
         Random randomHealth = new Random();
-        public void Health()
+        public int Health()
         {
-            valueHealth = 15 + randomHealth.Next(0,10);
+            int valueHealth = 15 + randomHealth.Next(0,10);
+            return valueHealth;
         }
 
     }
