@@ -11,20 +11,19 @@ namespace Project
         static int pRow = 0, pCol = 0, _pRow, _pCol;
         static bool lvl_1_Def = false, lvl_2_Def = false, lvl_3_Def = false;
         static string[,] mask, events, unknown;
-        static string player = " {X} ", unexplored = " [ ] ", explored = "     ", bound = "▓▓▓▓▓",
-                        enemy = " {E} ", onEnemy = "{ E }", enemyDef = "-{E}-", onEnemyDef = "{-E-}",
-                        boss = " {B} ", onBoss = "{ B }", bossDef = "-{B}-", onBossDef = "{-B-}",
-                        trapdoor = " {T} ", onTrap = "{ T }", trapDef = "-{T}-", onTrapDef = "{-T-}",
-                        chest = " {C} ", onChest = "{ C }", chestOpen = "-{C}-", onChestOpen = "{-C-}",
-                        door = " {D} ", onDoor = "{ D }", undiscovered = " ??? ";
+        static string player =      " {X} ", unexplored =   " [ ] ", explored =     "     ", bound =        "▓▓▓▓▓",
+                        enemy =     " {E} ", onEnemy =      "{ E }", enemyDef =     "-{E}-", onEnemyDef =   "{-E-}",
+                        boss =      " {B} ", onBoss =       "{ B }", bossDef =      "-{B}-", onBossDef =    "{-B-}",
+                        trapdoor =  " {T} ", onTrap =       "{ T }", trapDef =      "-{T}-", onTrapDef =    "{-T-}",
+                        chest =     " {C} ", onChest =      "{ C }", chestOpen =    "-{C}-", onChestOpen =  "{-C-}",
+                        door =      " {D} ", onDoor =       "{ D }", undiscovered = " ??? ";
 
         public Map()
         {
             mask = new string[17, 11];
             events = new string[17, 11];
             unknown = new string[17, 11];
-            generate();
-            reveal(pRow, pCol);
+            generate(); reveal(pRow, pCol);
             refresh();
         }
         static void generate()
@@ -262,14 +261,14 @@ namespace Project
                     case " {T} ":
                         mask[r, c] = onTrap;
                         prog.ClearTextbox();
-                        prog.WriteTextBox(" You fall down a trapdoor and scrape your " + randomInjury() + "! You climb out and disarm it with a rock. {-2 HP}");
+                        prog.WriteTextBox(" You fall down a trapdoor and " + randomInjury() + "! {-2 HP}");
                         //decrease HP
                         events[r, c] = trapDef;
                         break;
                     case "-{T}-":
                         mask[r, c] = onTrapDef; 
                         prog.ClearTextbox();
-                        prog.WriteTextBox(" You stand over the disarmed trapdoor and silently sob to yourself.");
+                        prog.WriteTextBox(" You stand over the disarmed trapdoor and sob to yourself.");
                         break;
                     case " {C} ":
                         mask[r, c] = onChest;
@@ -285,7 +284,10 @@ namespace Project
                         prog.WriteTextBox(" You stand over the opened chest and get bored.");
                         break;
                     case " {D} ":
+                        unknown[r, c] = events[r, c];
                         mask[r, c] = onDoor;
+                        prog.ClearTextbox();
+                        prog.WriteTextBox(" Will you open the ominous door? (Y /N)");
                         if (!lvl_1_Def)
                         {
                             lvl_1_Def = true;
@@ -311,17 +313,17 @@ namespace Project
         {
             Random rand = new Random();
             if (rand.Next(0, 6) == 0)
-                return "elbow";
+                return "scrape your elbow";
             else if (rand.Next(0, 6) == 1)
-                return "shoulder";
+                return "pull your shoulder";
             else if (rand.Next(0, 6) == 2)
-                return "funnybone";
+                return "hit your funnybone";
             else if (rand.Next(0, 6) == 3)
-                return "knee";
+                return "scrape your knee";
             else if (rand.Next(0, 6) == 4)
-                return "shin";
+                return "bruise your shin";
             else
-                return "face";
+                return "cut your face";
         }
         static void refresh()
         {
