@@ -339,10 +339,8 @@ namespace Project
                         prog.WriteTextBox("You stand over the opened chest and get bored.");
                         break;
                     case " {D} ":
-                        unknown[r, c] = events[r, c];
-                        mask[r, c] = onDoor;
-                        refresh();
-                        prog.WriteTextBox("Will you open the ominous door? (Y /N)");
+                        unknown[r, c] = events[r, c]; mask[r, c] = onDoor;
+                        refresh(); prog.WriteTextBox("Will you open the ominous door? (Y /N)");
                         ConsoleKeyInfo input = Console.ReadKey();
                         switch(input.Key)
                         {
