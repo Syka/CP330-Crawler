@@ -304,8 +304,11 @@ namespace Project
                         break;
                     case " {B} ":
                         mask[r, c] = onBoss;
-                        prog.WriteTextBox("Will you fight the boss? (Y / N)");
                         //trigger fight
+                        Swamphag enemyBoss = new Swamphag();
+                        int bHealth = enemyBoss.mHealthBehaviour.Health();
+                        prog.ClearTextbox();
+                        prog.WriteTextBox("The Swamphag has " + bHealth + "hp, Will you fight the enemy? (Y / N)"); 
                         events[r, c] = bossDef;
                         break;
                     case "-{B}-":
