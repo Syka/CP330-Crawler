@@ -20,6 +20,7 @@ namespace Project
             Console.WriteLine("                              / (_ / _ `/  ' \\/ -_) / /_/ / |/ / -_) __/");
             Console.WriteLine("                              \\___/\\_,_/_/_/_/\\__/  \\____/|___/\\__/_/  ");
             Console.Write(Environment.NewLine+"                                   Would You Like to Continue?(Y/N)");      
+
         }
         public void Victory()
         {
