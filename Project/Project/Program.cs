@@ -22,10 +22,25 @@ namespace Project
             prog.WriteTextBox("Press Enter To Start");
             Console.ReadKey();
 
+            //Select weapon 
             prog.WriteTextBox("Please Select a Weapon: " + Environment.NewLine + "[1]Sword" + Environment.NewLine + "[2]Axe" + Environment.NewLine + "[3]Knife" 
                 + Environment.NewLine+ "[4]Mace" + Environment.NewLine + "[5]Fish" + Environment.NewLine+"[6]Bowstaff" 
                 + Environment.NewLine+ "[7]Caestus" + Environment.NewLine+ "[8]Quarterstaff");
-            Console.ReadKey();
+            
+            //Takes key input and assigns to weapon
+            ConsoleKeyInfo Input = Console.ReadKey();
+            switch(Input.Key)
+            {
+                case ConsoleKey.D1:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Sword");
+                    break;
+
+                case ConsoleKey.D2:
+                    prog.ClearTextbox();
+                    prog.WriteTextBox("You have selected: Axe");
+                    break;
+            }
 
             //Starts the map
             Map map = new Map();
