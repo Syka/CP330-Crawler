@@ -263,7 +263,34 @@ namespace Project
                 {
                     case " {E} ":
                         mask[r, c] = onEnemy;
-                        prog.WriteTextBox("Will you fight the enemy? (Y / N)");
+                         mask[r, c] = onEnemy;                     
+                        //trigger fight
+                        Random rngEnemy = new Random();
+                        int randomizer = rngEnemy.Next(0, 3);
+                        int eHealth = 0;
+                        string monsterName="";
+                        if (randomizer == 0)
+                        {
+                            Ogre enemy1 = new Ogre();
+                            eHealth = enemy1.mHealthBehaviour.Health();
+                            monsterName = " Ogre ";
+                        }
+                        else if (randomizer == 1)
+                        {
+                            Troll enemy2 = new Troll();
+                            eHealth = enemy2.mHealthBehaviour.Health();
+                            monsterName = " Troll ";
+                        }
+                        else if (randomizer == 2)
+                        {
+                            Spirit enemy3 = new Spirit();
+                            eHealth = enemy3.mHealthBehaviour.Health();
+                            monsterName = " Spirit ";
+                        }
+                        
+                        prog.ClearTextbox();
+                        prog.WriteTextBox("The"+ monsterName + "  has " + eHealth + "hp, Will you fight the enemy? (Y / N)"); 
+                        events[r, c] = enemyDef;
                         
                         //trigger fight
                         events[r, c] = enemyDef;
