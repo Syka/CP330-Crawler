@@ -307,6 +307,7 @@ namespace Project
                         //trigger fight
                         Swamphag enemyBoss = new Swamphag();
                         int bHealth = enemyBoss.mHealthBehaviour.Health();
+                        int bWeaponDamage = enemyBoss.mWeaponBehaviour.useWeapon();
                         prog.ClearTextbox();
                         prog.WriteTextBox("The Swamphag has " + bHealth + "hp, Will you fight the enemy? (Y / N)"); 
                         events[r, c] = bossDef;
