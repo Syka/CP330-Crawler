@@ -150,6 +150,7 @@ namespace DungeonCrawler
                 eHealth = enemy1.HealthBehaviour.setHealth();
                 monsterName = enemy1.monsterName;
                 monsterWeapon = enemy1.WeaponBehaviour.name();
+                hero.HealthBehaviour.subHealth(rand.Next(0, enemy1.WeaponBehaviour.damage()));
             }
             else if (randomizer == 1)
             {
@@ -157,6 +158,8 @@ namespace DungeonCrawler
                 eHealth = enemy2.HealthBehaviour.setHealth();
                 monsterName = enemy2.monsterName;
                 monsterWeapon = enemy2.WeaponBehaviour.name();
+                hero.HealthBehaviour.subHealth(rand.Next(0, enemy2.WeaponBehaviour.damage()));
+
             }
             else if (randomizer == 2)
             {
@@ -164,6 +167,8 @@ namespace DungeonCrawler
                 eHealth = enemy3.HealthBehaviour.setHealth();
                 monsterName = enemy3.monsterName;
                 monsterWeapon = enemy3.WeaponBehaviour.name();
+                hero.HealthBehaviour.subHealth(rand.Next(0, enemy3.WeaponBehaviour.damage()));
+
             }
             prog.WriteTextBox("You encounter a " + monsterName + " with a " + monsterWeapon + ". Do you fight? (Y/N)");
         }
