@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameOver.cs" />
+    <Compile Include="GameOver.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="HealthBehaviour.cs" />
     <Compile Include="Heros.cs" />
     <Compile Include="Intro.CS" />
@@ -59,6 +61,12 @@
     <Content Include="Sound\Death.wav" />
     <Content Include="Sound\Music.wav" />
     <Content Include="Sound\VictoryFanfare.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UnitTestProject\UnitTestProject.csproj">
+      <Project>{71b012d4-30e4-4030-a909-a351579570bb}</Project>
+      <Name>UnitTestProject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
