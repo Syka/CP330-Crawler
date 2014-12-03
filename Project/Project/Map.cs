@@ -143,27 +143,31 @@ namespace DungeonCrawler
             int randomizer = rand.Next(0, 3);
             int eHealth = 0;
             string monsterName = "";
+            string monsterWeapon = "Default";
             if (randomizer == 0)
             {
                 Ogre enemy1 = new Ogre();
                 eHealth = enemy1.HealthBehaviour.health();
                 monsterName = enemy1.monsterName;
+                monsterWeapon = enemy1.WeaponBehaviour.name();
             }
             else if (randomizer == 1)
             {
                 Troll enemy2 = new Troll();
                 eHealth = enemy2.HealthBehaviour.health();
                 monsterName = enemy2.monsterName;
+                monsterWeapon = enemy2.WeaponBehaviour.name();
             }
             else if (randomizer == 2)
             {
                 Spirit enemy3 = new Spirit();
                 eHealth = enemy3.HealthBehaviour.health();
                 monsterName = enemy3.monsterName;
+                monsterWeapon = enemy3.WeaponBehaviour.name();
             }
 
             prog.ClearTextbox();
-            prog.WriteTextBox("You encounter a " + monsterName + ". Do you fight? (Y/N)");
+            prog.WriteTextBox("You encounter a " + monsterName + " with a " + monsterWeapon + ". Do you fight? (Y/N)");
         }
 
         public void fightTriggeredBoss()
