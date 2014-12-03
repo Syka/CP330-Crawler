@@ -170,6 +170,7 @@ namespace DungeonCrawler
                 hero.HealthBehaviour.subHealth(rand.Next(0, enemy3.WeaponBehaviour.damage()));
 
             }
+            InfoPane();
             prog.WriteTextBox("You encounter a " + monsterName + " with a " + monsterWeapon + ". Do you fight? (Y/N)");
         }
 
