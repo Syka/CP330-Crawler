@@ -10,15 +10,14 @@ namespace Project
     {
         public void ScreenRender()
         {
-            //Creates the Header Graphic
-            //Header starts at 0,0
-            //Header ends at 7,97
+            ///Creates the Header Graphic
+            ///Header starts at 0,0
+            ///Header ends at 7,97
             Console.SetWindowSize(97, 60);
-            //Width 95, Height 60
-            //59 is the max lines up/down 
+            ///Width 95, Height 60
+            ///59 is the max lines up/down 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.BackgroundColor = ConsoleColor.Black;
-            //Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Black;            
             Console.Clear();
             Console.SetCursorPosition(0, 0);
             Console.WriteLine(" ┌─────────────────────────────────────────────────────────────────────────────────────────────┐");
@@ -29,7 +28,7 @@ namespace Project
             Console.WriteLine(" │               /___/                      /_/_/                                              │");
             Console.WriteLine(" └─────────────────────────────────────────────────────────────────────────────────────────────┘");
 
-             //Creating Vertical Bar
+             ///Creating Vertical Bar
             Console.SetCursorPosition(55, 6);
             Console.Write("┬");            
             for (int j = 1; j < 55; j++)
@@ -37,7 +36,7 @@ namespace Project
                 Console.SetCursorPosition(55, 6 + j);
                 Console.WriteLine("│");
             }
-            //Creating Horizontal Bar under the Map
+            ///Creating Horizontal Bar under the Map
             Console.SetCursorPosition(55, 40);
             Console.Write("┤");
             Console.SetCursorPosition(0, 40);
@@ -45,7 +44,7 @@ namespace Project
             {
                 Console.Write("─");
             }
-            //Creating input box
+            ///Creating input box
             Console.SetCursorPosition(55, 58);
             Console.Write("┤");
             Console.SetCursorPosition(0, 58);

@@ -10,18 +10,18 @@ namespace Project
     {
         static void Main()
         {
-            //Render the GUI
+            ///Render the GUI
             Program prog = new Program();
             Intro Start = new Intro();
             Start.ScreenRender();
 
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Music.wav");
             player.Play();
-            //Waiting to start game
+            ///Waiting to start game
             prog.WriteTextBox("Press Enter To Start");
             Console.ReadKey();
 
-            //Starts the map
+            ///Starts the map
             Map map = new Map();
             
             bool dead = false;
@@ -30,40 +30,40 @@ namespace Project
                 map.movement();
             }
 
-            //Win Circumstances
-            //GameOver End = new GameOver();
-            //if (Win == true)
-            //{
-            //    End.Victory();
-            //    ConsoleKeyInfo Input = Console.ReadKey();
-            //    switch (Input.Key)
-            //    {
-            //        case ConsoleKey.Y:
-            //            Main();
-            //            break;
-            //        case ConsoleKey.N:
-            //            Environment.Exit(0);
-            //            break;
-            //    }
-            //}
-            //else
-            //{
-            //    End.Died();
-            //    ConsoleKeyInfo Input = Console.ReadKey();
-            //    switch (Input.Key)
-            //    {
-            //        case ConsoleKey.Y:
-            //            Main();
-            //            break;
-            //        case ConsoleKey.N:
-            //            Environment.Exit(0);
-            //            break;
-            //    }
-            //}      
+            ///Win Circumstances
+            ///GameOver End = new GameOver();
+            ///if (Win == true)
+            ///{
+            ///    End.Victory();
+            ///    ConsoleKeyInfo Input = Console.ReadKey();
+            ///    switch (Input.Key)
+            ///    {
+            ///        case ConsoleKey.Y:
+            ///            Main();
+            ///            break;
+            ///        case ConsoleKey.N:
+            ///            Environment.Exit(0);
+            ///            break;
+            ///    }
+            ///}
+            ///else
+            ///{
+            ///    End.Died();
+            ///    ConsoleKeyInfo Input = Console.ReadKey();
+            ///    switch (Input.Key)
+            ///    {
+            ///        case ConsoleKey.Y:
+            ///            Main();
+            ///            break;
+            ///        case ConsoleKey.N:
+            ///            Environment.Exit(0);
+            ///            break;
+            ///    }
+            ///}      
         }
         public void ClearTextbox()
         {
-            //Console.BackgroundColor = ConsoleColor.Blue; --Uncomment to Debug Textbox Size
+            ///Console.BackgroundColor = ConsoleColor.Blue; --Uncomment to Debug Textbox Size
             Console.SetCursorPosition(0, 41);
             for (int i = 0; i < 17; i++)
             {

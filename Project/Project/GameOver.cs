@@ -7,7 +7,7 @@ using System.Media;
 using System.IO;
 using System.Resources;
 
-//The standard class from when the character has died in the game and must start over.
+///The standard class from when the character has died in the game and must start over.
 namespace Project
 {
     class GameOver

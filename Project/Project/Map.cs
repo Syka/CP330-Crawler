@@ -8,7 +8,7 @@ using Project;
 namespace Project
 {
     public class Map
-    {   //All Map and player variables
+    {   ///All Map and player variables
         Program prog = new Program();
         Player hero = new Player();
         Random rand = new Random();
@@ -23,25 +23,25 @@ namespace Project
                             chest =     " {C} ", onChest =      "{ C }", chestOpen =    "-{C}-", onChestOpen =  "{-C-}",
                             door =      " {D} ", onDoor =       "{ D }", undiscovered = " ??? ";
         public Map()
-        {   //Creates new instances of Map arrays and sets player position, weapon and health
-            mask = new string[17, 11];                          //"masks" the contents of the level until explored by the player
-            events = new string[17, 11];                        //the contents of the level
-            unknown = new string[17, 11];                       //"masks" any chests, doors and trapdoors until explored by the player
+        {   ///Creates new instances of Map arrays and sets player position, weapon and health
+            mask = new string[17, 11];                          ///"masks" the contents of the level until explored by the player
+            events = new string[17, 11];                        ///the contents of the level
+            unknown = new string[17, 11];                       ///"masks" any chests, doors and trapdoors until explored by the player
             generate();
-            if (onLvl_1)        setLvl(1);                      //decides what level to create based on player progress 
+            if (onLvl_1)        setLvl(1);                      ///decides what level to create based on player progress 
             else if (onLvl_2)   setLvl(2);
             else if (onLvl_3)   setLvl(3);
-            reveal(pRow, pCol);                                 //Reveals the map around the player in a 1-block radius
+            reveal(pRow, pCol);                                 ///Reveals the map around the player in a 1-block radius
             weaponSelect();
-            InfoPane();                         //Sets info pane to display player information
-            refresh();                                          //Displays arrays to reflect the player's current progress
+            InfoPane();                         ///Sets info pane to display player information
+            refresh();                                          ///Displays arrays to reflect the player's current progress
         }
         static void setPlayer(int r, int c)
-        {   //Sets player coordinates and displays it on the Mask array
+        {   ///Sets player coordinates and displays it on the Mask array
             pRow = r; pCol = c; mask[r, c] = player;
         }
         static void generate()
-        {   //Fills null arrays with "blank" spaces
+        {   ///Fills null arrays with "blank" spaces
             for (int i = 0; i < 17; i++)
             {
                 for (int j = 0; j < 11; j++)
@@ -53,7 +53,7 @@ namespace Project
             }
         }
         static void setLvl(int l)
-        {   //Updates player progress when switching levels
+        {   ///Updates player progress when switching levels
             switch(l)
             {   case 1: onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; lvl_1(); break;
                 case 2: onLvl_1 = false; onLvl_2 = true; onLvl_3 = false; lvl_2(); break;
@@ -61,19 +61,19 @@ namespace Project
             }   refresh();
         }
         public void movement()
-        {   //Reads user input for player movement
-            _pRow = pRow; _pCol = pCol;                                     //Saves previous player coordinates
-            mask[pRow, pCol] = explored; reveal(pRow, pCol);                //Reveals Event content on the Mask array
+        {   ///Reads user input for player movement
+            _pRow = pRow; _pCol = pCol;                                     ///Saves previous player coordinates
+            mask[pRow, pCol] = explored; reveal(pRow, pCol);                ///Reveals Event content on the Mask array
             input = Console.ReadKey();
             switch (input.Key)
             {   
-                case ConsoleKey.Escape: Environment.Exit(1); break;         //Quits the game upon pressing Escape (testing purposes)
-                case ConsoleKey.UpArrow:                                    //Sets player location one block upwards
+                case ConsoleKey.Escape: Environment.Exit(1); break;         ///Quits the game upon pressing Escape (testing purposes)
+                case ConsoleKey.UpArrow:                                    ///Sets player location one block upwards
                     try {   pRow -= 1;
-                            if (checkBound(pRow, pCol))                     //If 
+                            if (checkBound(pRow, pCol))                     ///If 
                                     { pRow += 1; setPlayer(pRow, pCol); }   
                             else    { setPlayer(pRow, pCol); }}
-                    catch { pRow += 1; setPlayer(pRow, pCol); } break;      //In case the player 
+                    catch { pRow += 1; setPlayer(pRow, pCol); } break;      ///In case the player 
                 case ConsoleKey.LeftArrow: 
                     try {   pCol -= 1;
                             if (checkBound(pRow, pCol))
@@ -97,13 +97,13 @@ namespace Project
             onEvent(pRow, pCol);
         }
         static bool checkBound(int r, int c)
-        {   //
+        {   ///
             if (mask[r, c].Equals(bound))   
                     { return true; }
             else    { return false; }
         }
         static void reveal(int r, int c)
-        {   //
+        {   ///
             postEvent(r - 1, c);
             postEvent(r - 1, c + 1);
             postEvent(r, c + 1);
@@ -114,7 +114,7 @@ namespace Project
             postEvent(r - 1, c - 1);
         }
         static void postEvent(int r, int c)
-        {   //
+        {   ///
             try 
             {   
                 switch (events[r, c])
@@ -127,11 +127,11 @@ namespace Project
                     case "-{B}-":   mask[r, c] = bossDef; break;            
                     case " {T} ":   mask[r, c] = undiscovered; break;       
                     case "-{T}-":   mask[r, c] = trapDef; break;            
-                    case " {C} ":   if (unknown[r, c].Equals(undiscovered)) //
+                    case " {C} ":   if (unknown[r, c].Equals(undiscovered)) ///
                                             { mask[r, c] = undiscovered; }
                                     else    { mask[r, c] = chest; } break;
-                    case "-{C}-":   mask[r, c] = chestOpen; break;          //
-                    case " {D} ":   if (unknown[r, c].Equals(undiscovered)) //
+                    case "-{C}-":   mask[r, c] = chestOpen; break;          ///
+                    case " {D} ":   if (unknown[r, c].Equals(undiscovered)) ///
                                             { mask[r, c] = undiscovered; }
                                     else    { mask[r, c] = door; } break;
                 }
@@ -139,7 +139,7 @@ namespace Project
         }
 
         public void fightTriggered()
-        {     //is called when going over an enemy on the map and randomly picked one of 3 monsters to fight.
+        {     ///is called when going over an enemy on the map and randomly picked one of 3 monsters to fight.
             int randomizer = rand.Next(0, 3);
             int eHealth = 0;
             string monsterName = "";
@@ -184,7 +184,7 @@ namespace Project
                     case " {E} ":
                         mask[r, c] = onEnemy;
                         refresh(); prog.WriteTextBox("Will you fight the ");
-                        //trigger fight
+                        ///trigger fight
                         fightTriggered();
                         events[r, c] = enemyDef;
                         break;
@@ -194,7 +194,7 @@ namespace Project
                         break;
                     case " {B} ":
                         mask[r, c] = onBoss;
-                        //trigger fight
+                        ///trigger fight
                         fightTriggeredBoss();
                         events[r, c] = bossDef;
                         break;
@@ -205,7 +205,7 @@ namespace Project
                     case " {T} ":
                         mask[r, c] = onTrap;
                         prog.WriteTextBox("You fall down a trapdoor and " + randomInjury() + "! {-2 HP}");
-                        //decrease HP
+                        ///decrease HP
                         hero.HealthBehaviour.health();
                         events[r, c] = trapDef;
                         break;
@@ -215,7 +215,7 @@ namespace Project
                         break;
                     case " {C} ":
                         mask[r, c] = onChest;
-                        //trigger loot
+                        ///trigger loot
                         prog.WriteTextBox("You open the chest and find X! Holy $%&#!");
                         unknown[r, c] = events[r, c]; events[r, c] = chestOpen;
                         break;
@@ -258,14 +258,14 @@ namespace Project
             } catch { }
         }
         static bool checkBoss(int r, int c)
-        {   //
+        {   ///
             if (events[r, c].Equals(bossDef))
                 return true;
             else
                 return false;
         }
         public string randomInjury()
-        {   //
+        {   ///
             if (rand.Next(0, 6) == 0)       { return "scrape your elbow"; }
             else if (rand.Next(0, 6) == 1)  { return "pull your shoulder"; }
             else if (rand.Next(0, 6) == 2)  { return "hit your funnybone"; }
@@ -274,7 +274,7 @@ namespace Project
             else                            { return "cut your face"; }
         }
         static void refresh()
-        {   //
+        {   ///
             Console.SetCursorPosition(0, 7);
             for (int i = 0; i < 40; i++) 
             { 
@@ -290,12 +290,12 @@ namespace Project
         }
         public void weaponSelect()
         {
-            //Select weapon 
+            ///Select weapon 
             prog.WriteTextBox("Please Select a Weapon: " + Environment.NewLine + "1-Sword" + Environment.NewLine + "2-Axe" 
                 + Environment.NewLine + "3-Knife" + Environment.NewLine + "4-Mace" + Environment.NewLine + "5-Fish" 
                 + Environment.NewLine + "6-Bowstaff" + Environment.NewLine + "7-Caestus" + Environment.NewLine + "8-Quarterstaff");
 
-            //Takes key input and assigns to weapon
+            ///Takes key input and assigns to weapon
             input = Console.ReadKey();
             switch (input.Key)
             {
@@ -330,7 +330,7 @@ namespace Project
             prog.WriteTextBox("You have selected: " + hero.WeaponBehaviour.name().ToUpper());
         }
         public void InfoPane()
-        {   //
+        {   ///
             Console.SetCursorPosition(59, 7);
             for (int i = 0; i < 10; i++)
             {
@@ -344,17 +344,17 @@ namespace Project
             Console.WriteLine("Current Damage: {0}", hero.WeaponBehaviour.damage());
         }
         public void resetLevels()
-        {   //Resets player progress
+        {   ///Resets player progress
             onLvl_1 = true; onLvl_2 = false; onLvl_3 = false;
         }
         static void put(int r, int c, string type)
-        {   //Adds specific event types on a specific coordinate on the Event array
+        {   ///Adds specific event types on a specific coordinate on the Event array
             events[r, c] = type;
             if (type.Equals(chest) || type.Equals(trapdoor) || type.Equals(door))
-                unknown[r, c] = undiscovered;   //Chests, doors and trapdoors will also be recorded in the Unknown array
+                unknown[r, c] = undiscovered;   ///Chests, doors and trapdoors will also be recorded in the Unknown array
         }
         static void lvl_1()
-        {   //The stupidest bit of code ever
+        {   ///The stupidest bit of code ever
             put(0, 0, unexplored); put(0, 1, unexplored); put(0, 2, unexplored); put(0, 3, unexplored); put(0, 4, unexplored); put(0, 5, bound); put(0, 6, bound); put(0, 7, unexplored); put(0, 8, enemy); put(0, 9, unexplored); put(0, 10, bound);
             put(1, 0, bound); put(1, 1, unexplored); put(1, 2, unexplored); put(1, 3, bound); put(1, 4, unexplored); put(1, 5, unexplored); put(1, 6, bound); put(1, 7, unexplored); put(1, 8, bound); put(1, 9, bound); put(1, 10, bound);
             put(2, 0, bound); put(2, 1, unexplored); put(2, 2, unexplored); put(2, 3, bound); put(2, 4, bound); put(2, 5, unexplored); put(2, 6, unexplored); put(2, 7, unexplored); put(2, 8, unexplored); put(2, 9, trapdoor); put(2, 10, chest);
