@@ -147,19 +147,19 @@ namespace Project
             {
                 Ogre enemy1 = new Ogre();
                 eHealth = enemy1.HealthBehaviour.health();
-                monsterName = enemy1.HealthBehaviour.name("Ogre");
+                monsterName = enemy1.monsterName;
             }
             else if (randomizer == 1)
             {
                 Troll enemy2 = new Troll();
                 eHealth = enemy2.HealthBehaviour.health();
-                monsterName = enemy2.HealthBehaviour.name("Troll");
+                monsterName = enemy2.monsterName;
             }
             else if (randomizer == 2)
             {
                 Spirit enemy3 = new Spirit();
                 eHealth = enemy3.HealthBehaviour.health();
-                monsterName = enemy3.HealthBehaviour.name("Spirit");
+                monsterName = enemy3.monsterName;
             }
 
             prog.ClearTextbox();
@@ -172,7 +172,7 @@ namespace Project
             int bHealth = enemyBoss.HealthBehaviour.health();
 
             prog.ClearTextbox();
-            prog.WriteTextBox("You encounter a " + enemyBoss.HealthBehaviour.name("Swamphag") + ". Do you fight? (Y/N)");
+            prog.WriteTextBox("You encounter a " + enemyBoss.monsterName + ". Do you fight? (Y/N)");
         }
 
         public void onEvent(int r, int c)

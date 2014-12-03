@@ -11,6 +11,7 @@ namespace Project
     {
         public IHealthBehaviour HealthBehaviour;
         public WeaponBehaviour WeaponBehaviour;
+        public string monsterName;
         public Monsters(){}
     }
     public class Ogre : Monsters
@@ -19,7 +20,7 @@ namespace Project
         public Ogre()
         {
             HealthBehaviour = new HighHealth();
-            HealthBehaviour.name("Ogre");
+            monsterName = HealthBehaviour.name("Ogre");
             WeaponBehaviour = new Axe();
         }
     }
@@ -29,7 +30,7 @@ namespace Project
         public Troll()
         {
             HealthBehaviour = new MedHealth();
-            HealthBehaviour.name("Troll");
+            monsterName = HealthBehaviour.name("Troll");
             WeaponBehaviour = new Mace();
         }
     }
@@ -39,7 +40,7 @@ namespace Project
         public Spirit()
         {
             HealthBehaviour = new LowHealth();
-            HealthBehaviour.name("Spirit");
+            monsterName = HealthBehaviour.name("Spirit");
             WeaponBehaviour = new Caestus();
         }
     }
@@ -49,7 +50,7 @@ namespace Project
         public Swamphag()
         {
             HealthBehaviour = new HighHealth();
-            HealthBehaviour.name("Swamghag");
+            monsterName = HealthBehaviour.name("Swamghag");
             WeaponBehaviour = new Quarterstaff();
         }
     }
