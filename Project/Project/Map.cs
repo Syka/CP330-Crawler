@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Project;
+using DungeonCrawler;
 
-namespace Project
+namespace DungeonCrawler
 {
     public class Map
     {   ///All Map and player variables

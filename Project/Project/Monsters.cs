@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project
+namespace DungeonCrawler
 {
     ///Holds the traits all Monsters Have
     public abstract class Monsters
