@@ -19,13 +19,17 @@ namespace CrawlerTesting
         //[ExpectedException(typeof(OverflowException))]
         public void HealthTest()
         {
+            //Checks to make sure that the Player's Health is generated in a specific value
             Player test = new Player();
-            test.HealthBehaviour.health();
-            int PlayerHealth = test.HealthBehaviour.health();
+            for(int i=0;i<50;i++)
+            {
+                int PlayerHealth = test.HealthBehaviour.setHealth();            
             if(PlayerHealth>45 | PlayerHealth<=0)
             {
                 throw new OverflowException("Health starts at " + PlayerHealth);
             } 
+            }
+           
         }
     }
 }
