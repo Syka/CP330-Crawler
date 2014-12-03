@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Project
 {
-    //Base Health values for Heroes and Bosses
+    ///Base Health values for Heroes and Bosses
     public interface IHealthBehaviour
     {
         int health();

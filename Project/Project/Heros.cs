@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-       //Holds all the traits all heros will have
+       ///Holds all the traits all heros will have
     public abstract class Heros
     {
         
-        //implements the Health interface
+        ///implements the Health interface
         public IHealthBehaviour HealthBehaviour;
-        //Implements using a weapon
+        ///Implements using a weapon
         public WeaponBehaviour WeaponBehaviour;
         public Heros()
         { 
@@ -22,7 +22,7 @@ namespace Project
 
     public class Player : Heros
     {
-        //hero1's Specific traits.
+        ///hero1's Specific traits.
         public Player()
         {
             HealthBehaviour = new HeroHealthHigh();

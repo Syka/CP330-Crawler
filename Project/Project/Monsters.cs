@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    //Holds the traits all Monsters Have
+    ///Holds the traits all Monsters Have
     public abstract class Monsters
     {
         public IHealthBehaviour HealthBehaviour;
@@ -15,7 +15,7 @@ namespace Project
     }
     public class Ogre : Monsters
     {
-        //Ogre's Specific traits
+        ///Ogre's Specific traits
         public Ogre()
         {
             HealthBehaviour = new HighHealth();
@@ -25,7 +25,7 @@ namespace Project
     }
     public class Troll : Monsters
     {
-        //Troll's Specific traits
+        ///Troll's Specific traits
         public Troll()
         {
             HealthBehaviour = new MedHealth();
@@ -35,7 +35,7 @@ namespace Project
     }
     public class Spirit : Monsters
     {
-        //Spirit's Specific traits
+        ///Spirit's Specific traits
         public Spirit()
         {
             HealthBehaviour = new LowHealth();
@@ -45,7 +45,7 @@ namespace Project
     }
     public class Swamphag : Monsters 
     {
-        //Swamphag's Specific traits    -- Boss
+        ///Swamphag's Specific traits    -- Boss
         public Swamphag()
         {
             HealthBehaviour = new HighHealth();
