@@ -62,12 +62,6 @@
     <Content Include="Sound\Music.wav" />
     <Content Include="Sound\VictoryFanfare.wav" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CrawlerTesting\CrawlerTesting.csproj">
-      <Project>{0ddbebd4-1b2f-44c2-9547-b159c2282622}</Project>
-      <Name>CrawlerTesting</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
