@@ -172,8 +172,9 @@ namespace DungeonCrawler
         {   //is triggered when standing on a boss on the map
             Swamphag enemyBoss = new Swamphag();
             int bHealth = enemyBoss.HealthBehaviour.setHealth();
+            string bWeapon = enemyBoss.WeaponBehaviour.name();
 
-            prog.WriteTextBox("You encounter a " + enemyBoss.monsterName + ". Do you fight? (Y/N)");
+            prog.WriteTextBox("You encounter a " + enemyBoss.monsterName + " with a " + bWeapon + ". Do you fight? (Y/N)");
         }
 
         public void onEvent(int r, int c)
