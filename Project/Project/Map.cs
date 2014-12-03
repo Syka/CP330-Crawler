@@ -139,37 +139,40 @@ namespace Project
         }
 
         public void fightTriggered()
-        {
-            prog.ClearTextbox();
-            prog.WriteTextBox("Fight Triggered");
-
+        {     
             int randomizer = rand.Next(0, 3);
             int eHealth = 0;
+            string monsterName = "";
             if (randomizer == 0)
             {
                 Ogre enemy1 = new Ogre();
                 eHealth = enemy1.HealthBehaviour.health();
+                monsterName = enemy1.HealthBehaviour.name("Ogre");
             }
             else if (randomizer == 1)
             {
                 Troll enemy2 = new Troll();
                 eHealth = enemy2.HealthBehaviour.health();
+                monsterName = enemy2.HealthBehaviour.name("Ogre");
             }
             else if (randomizer == 2)
             {
                 Spirit enemy3 = new Spirit();
                 eHealth = enemy3.HealthBehaviour.health();
+                monsterName = enemy3.HealthBehaviour.name("Ogre");
             }
+
+            prog.ClearTextbox();
+            prog.WriteTextBox("You encounter a " + monsterName + ". Do you fight? (Y/N)");
         }
 
         public void fightTriggeredBoss()
         {
-            prog.ClearTextbox();
-            prog.WriteTextBox("Boss Fight Triggered");
-
             Swamphag enemyBoss = new Swamphag();
             int bHealth = enemyBoss.HealthBehaviour.health();
 
+            prog.ClearTextbox();
+            prog.WriteTextBox("You encounter a " + enemyBoss.HealthBehaviour.name("Swamphag") + ". Do you fight? (Y/N)");
         }
 
         public void onEvent(int r, int c)
