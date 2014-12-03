@@ -7,48 +7,50 @@ using System.Threading.Tasks;
 namespace Project
 {
     //Holds the traits all Monsters Have
-    public interface Monsters
+    public abstract class Monsters
     {
-        string name();
+        public IHealthBehaviour HealthBehaviour;
+        public WeaponBehaviour WeaponBehaviour;
+        public Monsters(){}
     }
     public class Ogre : Monsters
     {
         //Ogre's Specific traits
-        public string name()
+        public Ogre()
         {
-            return "Ogre";
+            HealthBehaviour = new HighHealth();
+            HealthBehaviour.name("Ogre");
+            WeaponBehaviour = new Axe();
         }
-        IHealthBehaviour health = new HighHealth();
-        WeaponBehaviour weapon = new Axe();
     }
     public class Troll : Monsters
     {
         //Troll's Specific traits
-        public string name()
+        public Troll()
         {
-            return "Troll";
+            HealthBehaviour = new MedHealth();
+            HealthBehaviour.name("Troll");
+            WeaponBehaviour = new Mace();
         }
-        IHealthBehaviour health = new MedHealth();
-        WeaponBehaviour weapon = new Mace();
     }
     public class Spirit : Monsters
     {
         //Spirit's Specific traits
-        public string name()
+        public Spirit()
         {
-            return "Spirit";
+            HealthBehaviour = new LowHealth();
+            HealthBehaviour.name("Spirit");
+            WeaponBehaviour = new Caestus();
         }
-        IHealthBehaviour health = new LowHealth();
-        WeaponBehaviour weapon = new Caestus();
     }
     public class Swamphag : Monsters 
     {
         //Swamphag's Specific traits    -- Boss
-        public string name()
+        public Swamphag()
         {
-            return "Swamphag";
+            HealthBehaviour = new HighHealth();
+            HealthBehaviour.name("Swamghag");
+            WeaponBehaviour = new Quarterstaff();
         }
-        IHealthBehaviour health = new HighHealth();
-        WeaponBehaviour weapon = new Quarterstaff();
     }
 }

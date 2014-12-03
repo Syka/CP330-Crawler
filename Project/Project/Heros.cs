@@ -26,7 +26,7 @@ namespace Project
         public Player()
         {
             HealthBehaviour = new HeroHealthHigh();
-           // hWeaponBehaviour= new "weapon choice variable"
+            HealthBehaviour.name("");
         }
     }
 

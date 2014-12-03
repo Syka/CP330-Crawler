@@ -8,14 +8,18 @@ namespace Project
     //Base Health values for Heroes and Bosses
     public interface IHealthBehaviour
     {
-        int Health();
-        
+        int health();
+        string name(string s);
     }
     public class HighHealth : IHealthBehaviour
     {
+        public string name(string s)
+        {
+            return s;
+        }
         public int valueHealth;
         Random randomHealth = new Random();
-        public int Health()
+        public int health()
         {
             int valueHealth = 20 + randomHealth.Next(3,10);
             return valueHealth;
@@ -23,9 +27,13 @@ namespace Project
     }
     public class MedHealth : IHealthBehaviour
     {
+        public string name(string s)
+        {
+            return s;
+        }
         public int valueHealth;
         Random randomHealth = new Random();
-        public int Health()
+        public int health()
         {
             int valueHealth = 10 + randomHealth.Next(1,7);
             return valueHealth;
@@ -33,9 +41,13 @@ namespace Project
     }
     public class  LowHealth : IHealthBehaviour
     {
+        public string name(string s)
+        {
+            return s;
+        }
         public int valueHealth;
         Random randomHealth = new Random();
-        public int Health()
+        public int health()
         {
             int valueHealth = 10 + randomHealth.Next(0,5);
             return valueHealth;
@@ -43,9 +55,13 @@ namespace Project
     }
     public class HeroHealthHigh : IHealthBehaviour
     {
+        public string name(string s)
+        {
+            return s;
+        }
         public int valueHealth;
         Random randomHealth = new Random();
-        public int Health()
+        public int health()
         { 
             int valueHealth = 25 + randomHealth.Next(5,20);
             return valueHealth;
