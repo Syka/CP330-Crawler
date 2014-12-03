@@ -12,6 +12,8 @@ namespace Project
         public IHealthBehaviour HealthBehaviour;
         public WeaponBehaviour WeaponBehaviour;
         public string monsterName;
+        public Random rngWep = new Random();
+        public int ranWep;
         public Monsters(){}
     }
     public class Ogre : Monsters
@@ -21,7 +23,24 @@ namespace Project
         {
             HealthBehaviour = new HighHealth();
             monsterName = HealthBehaviour.name("Ogre");
-            WeaponBehaviour = new Axe();
+            ranWep = rngWep.Next(0, 8);
+            if (ranWep==0)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep == 1)
+            { WeaponBehaviour = new Axe();}
+            else if (ranWep==2)
+            { WeaponBehaviour = new Knife();}
+            else if (ranWep==3)
+            { WeaponBehaviour = new Mace();}
+            else if (ranWep==4)
+            { WeaponBehaviour = new Fish();}
+            else if (ranWep == 5)
+            { WeaponBehaviour = new Bowstaff();}
+            else if (ranWep == 6)
+            { WeaponBehaviour = new Caestus();}
+            else if (ranWep == 7)
+            { WeaponBehaviour = new Quarterstaff(); }
+                
         }
     }
     public class Troll : Monsters
