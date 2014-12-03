@@ -167,6 +167,8 @@ namespace Project
             prog.ClearTextbox();
             prog.WriteTextBox("Boss Fight Triggered");
 
+            Swamphag enemyBoss = new Swamphag();
+            int bHealth = enemyBoss.HealthBehaviour.health();
 
         }
 
