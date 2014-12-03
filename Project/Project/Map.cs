@@ -142,12 +142,32 @@ namespace Project
         {
             prog.ClearTextbox();
             prog.WriteTextBox("Fight Triggered");
+
+            int randomizer = rand.Next(0, 3);
+            int eHealth = 0;
+            if (randomizer == 0)
+            {
+                Ogre enemy1 = new Ogre();
+                eHealth = enemy1.HealthBehaviour.health();
+            }
+            else if (randomizer == 1)
+            {
+                Troll enemy2 = new Troll();
+                eHealth = enemy2.HealthBehaviour.health();
+            }
+            else if (randomizer == 2)
+            {
+                Spirit enemy3 = new Spirit();
+                eHealth = enemy3.HealthBehaviour.health();
+            }
         }
 
         public void fightTriggeredBoss()
         {
             prog.ClearTextbox();
             prog.WriteTextBox("Boss Fight Triggered");
+
+
         }
 
         public void onEvent(int r, int c)
