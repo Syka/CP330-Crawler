@@ -346,6 +346,12 @@ namespace DungeonCrawler
             {
                 Console.WriteLine("                                                      ");
             }
+            ///Deathcheck
+            if (hero.HealthBehaviour.getHealth() < 1)
+            {
+                GameOver end = new GameOver();
+                end.Died();
+            }            
             Console.SetCursorPosition(59, 7);
             Console.WriteLine("Health: {0}", hero.HealthBehaviour.getHealth());
             Console.SetCursorPosition(59, 8);
