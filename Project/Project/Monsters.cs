@@ -50,7 +50,23 @@ namespace DungeonCrawler
         {
             HealthBehaviour = new MedHealth();
             monsterName = HealthBehaviour.name("Troll");
-            WeaponBehaviour = new Mace();
+            ranWep = rngWep.Next(0, 8);
+            if (ranWep == 0)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep == 1)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep == 2)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep == 3)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep == 4)
+            { WeaponBehaviour = new Fish(); }
+            else if (ranWep == 5)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep == 6)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep == 7)
+            { WeaponBehaviour = new Quarterstaff(); }
         }
     }
     public class Spirit : Monsters
@@ -60,7 +76,23 @@ namespace DungeonCrawler
         {
             HealthBehaviour = new LowHealth();
             monsterName = HealthBehaviour.name("Spirit");
-            WeaponBehaviour = new Caestus();
+            ranWep = rngWep.Next(0, 8);
+            if (ranWep == 0)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep == 1)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep == 2)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep == 3)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep == 4)
+            { WeaponBehaviour = new Fish(); }
+            else if (ranWep == 5)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep == 6)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep == 7)
+            { WeaponBehaviour = new Quarterstaff(); }
         }
     }
     public class Swamphag : Monsters 
