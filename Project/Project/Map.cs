@@ -139,7 +139,7 @@ namespace Project
         }
 
         public void fightTriggered()
-        {     
+        {     //is called when going over an enemy on the map and randomly picked one of 3 monsters to fight.
             int randomizer = rand.Next(0, 3);
             int eHealth = 0;
             string monsterName = "";
@@ -153,13 +153,13 @@ namespace Project
             {
                 Troll enemy2 = new Troll();
                 eHealth = enemy2.HealthBehaviour.health();
-                monsterName = enemy2.HealthBehaviour.name("Ogre");
+                monsterName = enemy2.HealthBehaviour.name("Troll");
             }
             else if (randomizer == 2)
             {
                 Spirit enemy3 = new Spirit();
                 eHealth = enemy3.HealthBehaviour.health();
-                monsterName = enemy3.HealthBehaviour.name("Ogre");
+                monsterName = enemy3.HealthBehaviour.name("Spirit");
             }
 
             prog.ClearTextbox();
