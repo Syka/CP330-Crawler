@@ -32,8 +32,6 @@ namespace Project
             else if (onLvl_2)   setLvl(2);
             else if (onLvl_3)   setLvl(3);
             reveal(pRow, pCol);                                 //Reveals the map around the player in a 1-block radius
-            Player HeroHealth = new Player();                   
-            int Health = HeroHealth.HealthBehaviour.Health();
             weaponSelect();
             InfoPane();                         //Sets info pane to display player information
             refresh();                                          //Displays arrays to reflect the player's current progress
@@ -169,7 +167,7 @@ namespace Project
                         mask[r, c] = onTrap;
                         prog.WriteTextBox("You fall down a trapdoor and " + randomInjury() + "! {-2 HP}");
                         //decrease HP
-                        hero.HealthBehaviour.Health();
+                        hero.HealthBehaviour.health();
                         events[r, c] = trapDef;
                         break;
                     case "-{T}-":
@@ -300,7 +298,7 @@ namespace Project
                 Console.WriteLine("                                                      ");
             }
             Console.SetCursorPosition(59, 7);
-            Console.WriteLine("Health: {0}", hero.HealthBehaviour.Health());
+            Console.WriteLine("Health: {0}", hero.HealthBehaviour.health());
             Console.SetCursorPosition(59, 8);
             Console.WriteLine("Current Weapon: {0}", hero.WeaponBehaviour.name().ToUpper());
             Console.SetCursorPosition(59, 9);
