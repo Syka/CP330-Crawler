@@ -167,7 +167,7 @@ namespace Project
         }
 
         public void fightTriggeredBoss()
-        {
+        {   //is triggered when standing on a boss on the map
             Swamphag enemyBoss = new Swamphag();
             int bHealth = enemyBoss.HealthBehaviour.health();
 
