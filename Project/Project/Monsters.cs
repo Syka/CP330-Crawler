@@ -7,58 +7,48 @@ using System.Threading.Tasks;
 namespace Project
 {
     //Holds the traits all Monsters Have
-    public abstract class Monsters
+    public interface Monsters
     {
-        //implements the Health interface
-        public IHealthBehaviour mHealthBehaviour;
-        //implements the Weapon Damage interface
-        public WeaponBehaviour mWeaponBehaviour;
-        public Monsters()
-        {
-
-        }
+        string name();
     }
-
     public class Ogre : Monsters
     {
         //Ogre's Specific traits
-        public Ogre()
+        public string name()
         {
-            mHealthBehaviour = new HighHealth();
-            mWeaponBehaviour = new Axe();
+            return "Ogre";
         }
+        IHealthBehaviour health = new HighHealth();
+        WeaponBehaviour weapon = new Axe();
     }
-
     public class Troll : Monsters
     {
         //Troll's Specific traits
-
-        public Troll()
+        public string name()
         {
-            mHealthBehaviour = new MedHealth();
-            mWeaponBehaviour = new Mace();
+            return "Troll";
         }
+        IHealthBehaviour health = new MedHealth();
+        WeaponBehaviour weapon = new Mace();
     }
-
     public class Spirit : Monsters
     {
         //Spirit's Specific traits
-
-        public Spirit()
+        public string name()
         {
-            mHealthBehaviour = new LowHealth();
-            mWeaponBehaviour = new Caestus();
+            return "Spirit";
         }
+        IHealthBehaviour health = new LowHealth();
+        WeaponBehaviour weapon = new Caestus();
     }
-
     public class Swamphag : Monsters 
     {
         //Swamphag's Specific traits    -- Boss
-        public Swamphag()
+        public string name()
         {
-            mHealthBehaviour = new HighHealth();
-            mWeaponBehaviour = new Quarterstaff();
+            return "Swamphag";
         }
-        
+        IHealthBehaviour health = new HighHealth();
+        WeaponBehaviour weapon = new Quarterstaff();
     }
 }

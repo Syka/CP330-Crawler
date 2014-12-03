@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 //the damage to a current value.
 namespace Project
 {
-
     //List of Weapons to use
     //Sword-----------damage = 5
     //Axe-------------damage = 8
@@ -20,269 +19,243 @@ namespace Project
     //Bowstaff--------damage = 6
     //Caestus---------damage = 1
     //Quarterstaff----damage = 7
-
     public interface WeaponBehaviour
     {
-        int useWeapon();
-        
+        string name();
+        int damage();
+        void useWeapon();
     }
-
-
     //Sword
     //Sword will set damage to 5, this will then be used in the future when attacking an enemy.
     public class Sword : WeaponBehaviour
     {
+        Program prog = new Program();
         Random random = new Random();
-        int damage;
-
-
-        public int useWeapon()
+        public int damage()
         {
-
+            return 5;
+        }
+        public string name()
+        {
+            return "Sword";
+        }
+        public void useWeapon()
+        {
             //Random Generator for Sword
-            if (random.Next(0, 2)== 0)
+            if (random.Next(0, 2) == 0)
             {
-                damage = 5;
-                Console.WriteLine("You slash with the Sword! Causing {0} damage!", damage);
-                Console.ReadLine();
+                prog.WriteTextBox("You swing with your " + name() + "! {" + damage() + " DMG}" +
+                    Environment.NewLine + "Press Enter to continue");
             }
             else
             {
-                Console.WriteLine("Your attack misses!");
-                Console.ReadLine();
+                prog.WriteTextBox("Your " + name() + " misses!" +
+                    Environment.NewLine + "Press Enter to continue");
             }
-            return damage;
-            
-
-
         }
-
-
     }
 
     //Axe
     //Axe will set damage to 8, this will then be used in the future when attacking an enemy.
     public class Axe : WeaponBehaviour
     {
-
+        Program prog = new Program();
         Random random = new Random();
-        int damage;
-
-
-        public int useWeapon()
+        public int damage()
         {
-
-            //Random Generator for Axe
+            return 8;
+        }
+        public string name()
+        {
+            return "Axe";
+        }
+        public void useWeapon()
+        {
+            //Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                damage = 8;
-                Console.WriteLine("You swing with the Axe! Causing {0} damage!", damage);
-                Console.ReadLine();
+                prog.WriteTextBox("You swing with your " + name() + "! {" + damage() + " DMG}" +
+                    Environment.NewLine + "Press Enter to continue");
             }
             else
             {
-                Console.WriteLine("Your attack misses!");
-                Console.ReadLine();
+                prog.WriteTextBox("Your " + name() + " misses!" +
+                    Environment.NewLine + "Press Enter to continue");
             }
-            return damage;
-
-
         }
-
-
     }
-
     //Knife
     //Knife will set damage to 2, this will then be used in the future when attacking an enemy.
     public class Knife : WeaponBehaviour
     {
-
+        Program prog = new Program();
         Random random = new Random();
-        int damage;
-
-
-        public int useWeapon()
+        public int damage()
         {
-
-            //Random Generator for Axe
+            return 2;
+        }
+        public string name()
+        {
+            return "Knife";
+        }
+        public void useWeapon()
+        {
+            //Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                damage = 2;
-                Console.WriteLine("You stab with the Knife! Causing {0} damage!", damage);
-                Console.ReadLine();
+                prog.WriteTextBox("You stab with your " + name() + "! {" + damage() + " DMG}" +
+                    Environment.NewLine + "Press Enter to continue");
             }
             else
             {
-                Console.WriteLine("Your attack misses!");
-                Console.ReadLine();
+                prog.WriteTextBox("Your " + name() + " misses!" +
+                    Environment.NewLine + "Press Enter to continue");
             }
-            return damage;
-
-
         }
-
-
     }
-
     //Mace
     //Mace will set damage to 4, this will then be used in the future when attacking an enemy.
     public class Mace : WeaponBehaviour
     {
-
+        Program prog = new Program();
         Random random = new Random();
-        int damage;
-
-
-        public int useWeapon()
+        public int damage()
         {
-
-            //Random Generator for Axe
+            return 4;
+        }
+        public string name()
+        {
+            return "Mace";
+        }
+        public void useWeapon()
+        {
+            //Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                damage = 4;
-                Console.WriteLine("You swing with your knife! Causing {0} damage!", damage);
-                Console.ReadLine();
+                prog.WriteTextBox("You swing with your " + name() + "! {" + damage() + " DMG}" +
+                    Environment.NewLine + "Press Enter to continue");
             }
             else
             {
-                Console.WriteLine("Your attack misses!");
-                Console.ReadLine();
+                prog.WriteTextBox("Your " + name() + " misses!" +
+                    Environment.NewLine + "Press Enter to continue");
             }
-            return damage;
-
-
         }
-
-
     }
-
     //Fish
     //Fish will set damage to 3, this will then be used in the future when attacking an enemy.
     public class Fish : WeaponBehaviour
     {
-
+        Program prog = new Program();
         Random random = new Random();
-        int damage;
-
-
-        public int useWeapon()
+        public int damage()
         {
-
-            //Random Generator for Axe
+            return 3;
+        }
+        public string name()
+        {
+            return "Fish";
+        }
+        public void useWeapon()
+        {
+            //Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                damage = 3;
-                Console.WriteLine("You slap with the Fish! Causing {0} damage!", damage);
-                Console.ReadLine();
+                prog.WriteTextBox("You slap with your " + name() + "! {" + damage() + " DMG}" +
+                    Environment.NewLine + "Press Enter to continue");
             }
             else
             {
-                Console.WriteLine("Your attack misses!");
-                Console.ReadLine();
+                prog.WriteTextBox("Your " + name() + " misses!" +
+                    Environment.NewLine + "Press Enter to continue");
             }
-            return damage;
-
-
         }
-
-
     }
-
-
     //Bowstaff
     //Bowstaff will set damage to 6, this will then be used in the future when attacking an enemy.
     public class Bowstaff : WeaponBehaviour
     {
-
+        Program prog = new Program();
         Random random = new Random();
-        int damage;
-
-
-        public int useWeapon()
+        public int damage()
         {
-
-            //Random Generator for Axe
+            return 6;
+        }
+        public string name()
+        {
+            return "Bowstaff";
+        }
+        public void useWeapon()
+        {
+            //Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                damage = 6;
-                Console.WriteLine("You swing with the Bowstaff! Causing {0} damage!", damage);
-                Console.ReadLine();
+                prog.WriteTextBox("You swing with your " + name() + "! {" + damage() + " DMG}" +
+                    Environment.NewLine + "Press Enter to continue");
             }
             else
             {
-                Console.WriteLine("Your attack misses!");
-                Console.ReadLine();
+                prog.WriteTextBox("Your " + name() + " misses!" +
+                    Environment.NewLine + "Press Enter to continue");
             }
-            return damage;
-
-
         }
-
-
     }
-
-
     //Caestus
     //Caestus will set damage to 1, this will then be used in the future when attacking an enemy.
     public class Caestus : WeaponBehaviour
     {
-
+        Program prog = new Program();
         Random random = new Random();
-        int damage;
-
-
-        public int useWeapon()
+        public int damage()
         {
-
-            //Random Generator for Axe
+            return 1;
+        }
+        public string name()
+        {
+            return "Caestus";
+        }
+        public void useWeapon()
+        {
+            //Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                damage = 1;
-                Console.WriteLine("You punch with your Caestus! Causing {0} damage!", damage);
-                Console.ReadLine();
+                prog.WriteTextBox("You punch with your " + name() + "! {" + damage() + " DMG}" +
+                    Environment.NewLine + "Press Enter to continue");
             }
             else
             {
-                Console.WriteLine("Your attack misses!");
-                Console.ReadLine();
+                prog.WriteTextBox("Your " + name() + " misses!" +
+                    Environment.NewLine + "Press Enter to continue");
             }
-            return damage;
-
-
         }
-
-
     }
-
     //Quarterstaff
     //Quarterstaff will set damage to 7, this will then be used in the future when attacking an enemy.
     public class Quarterstaff : WeaponBehaviour
     {
-
+        Program prog = new Program();
         Random random = new Random();
-        int damage;
-
-
-        public int useWeapon()
+        public int damage()
         {
-
-            //Random Generator for Axe
+            return 7;
+        }
+        public string name()
+        {
+            return "Quarterstaff";
+        }
+        public void useWeapon()
+        {
+            //Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                damage = 7;
-                Console.WriteLine("You stab with the QuarterStaff! Causing {0} damage!", damage);
-                Console.ReadLine();
+                prog.WriteTextBox("You stab with your " + name() + "! {" + damage() + " DMG}" +
+                    Environment.NewLine + "Press Enter to continue");
             }
             else
             {
-                Console.WriteLine("Your attack misses!");
-                Console.ReadLine();
+                prog.WriteTextBox("Your " + name() + " misses!" +
+                    Environment.NewLine + "Press Enter to continue");
             }
-            return damage;
-
-
         }
-
-
     }
 }

@@ -7,7 +7,6 @@ using System.Media;
 using System.IO;
 using System.Resources;
 
-
 //The standard class from when the character has died in the game and must start over.
 namespace Project
 {
@@ -44,9 +43,5 @@ namespace Project
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/VictoryFanfare.wav");
             player.Play();
         }
-    }
-
-
-
-    
+    }    
 }

@@ -11,19 +11,16 @@ namespace Project
         int Health();
         
     }
-
     public class HighHealth : IHealthBehaviour
     {
         public int valueHealth;
         Random randomHealth = new Random();
         public int Health()
         {
-            
             int valueHealth = 20 + randomHealth.Next(3,10);
             return valueHealth;
         }
     }
-
     public class MedHealth : IHealthBehaviour
     {
         public int valueHealth;
@@ -34,7 +31,6 @@ namespace Project
             return valueHealth;
         }   
     }
-
     public class  LowHealth : IHealthBehaviour
     {
         public int valueHealth;
@@ -45,7 +41,6 @@ namespace Project
             return valueHealth;
         }
     }
-
     public class HeroHealthHigh : IHealthBehaviour
     {
         public int valueHealth;
@@ -55,6 +50,9 @@ namespace Project
             int valueHealth = 25 + randomHealth.Next(5,20);
             return valueHealth;
         }
+        public int currentHealth()
+        {
+            return valueHealth;
+        }
     }
-
 }

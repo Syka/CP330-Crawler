@@ -37,7 +37,6 @@ namespace Project
                 Console.SetCursorPosition(55, 6 + j);
                 Console.WriteLine("│");
             }
-
             //Creating Horizontal Bar under the Map
             Console.SetCursorPosition(55, 40);
             Console.Write("┤");
