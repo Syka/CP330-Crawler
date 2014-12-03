@@ -137,6 +137,19 @@ namespace Project
                 }
             } catch { }
         }
+
+        public void fightTriggered()
+        {
+            prog.ClearTextbox();
+            prog.WriteTextBox("Fight Triggered");
+        }
+
+        public void fightTriggeredBoss()
+        {
+            prog.ClearTextbox();
+            prog.WriteTextBox("Boss Fight Triggered");
+        }
+
         public void onEvent(int r, int c)
         { 
             try 
@@ -147,6 +160,7 @@ namespace Project
                         mask[r, c] = onEnemy;
                         refresh(); prog.WriteTextBox("Will you fight the ");
                         //trigger fight
+                        fightTriggered();
                         events[r, c] = enemyDef;
                         break;
                     case "-{E}-":
@@ -156,7 +170,7 @@ namespace Project
                     case " {B} ":
                         mask[r, c] = onBoss;
                         //trigger fight
-                       
+                        fightTriggeredBoss();
                         events[r, c] = bossDef;
                         break;
                     case "-{B}-":
