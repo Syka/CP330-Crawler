@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DungeonCrawler;
+using Project;
 
-namespace UnitTestProject
+
+namespace CrawlerTesting
 {
     [TestClass]
     public class UnitTest1
@@ -10,7 +11,8 @@ namespace UnitTestProject
         [TestMethod]
         public void TestMethod1()
         {
-
+          
+            
         }
     }
 }

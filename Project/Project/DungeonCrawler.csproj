@@ -63,9 +63,9 @@
     <Content Include="Sound\VictoryFanfare.wav" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UnitTestProject\UnitTestProject.csproj">
-      <Project>{71b012d4-30e4-4030-a909-a351579570bb}</Project>
-      <Name>UnitTestProject</Name>
+    <ProjectReference Include="..\CrawlerTesting\CrawlerTesting.csproj">
+      <Project>{0ddbebd4-1b2f-44c2-9547-b159c2282622}</Project>
+      <Name>CrawlerTesting</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
