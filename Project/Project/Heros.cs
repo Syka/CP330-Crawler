@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project
+namespace DungeonCrawler
 {
        ///Holds all the traits all heros will have
     public abstract class Heros

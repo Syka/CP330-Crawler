@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 ///This is the weapons section of the Dungeon C#rawler, included are the list of weapons to be used in the game. 
 ///Each weapon has it's damage counter included inside each weapons. The system takes the weapon which then sets 
 ///the damage to a current value.
-namespace Project
+namespace DungeonCrawler
 {
     ///List of Weapons to use
     ///Sword-----------damage = 5

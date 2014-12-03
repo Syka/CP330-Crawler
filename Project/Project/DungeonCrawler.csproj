@@ -7,7 +7,7 @@
     <ProjectGuid>{CA1AA3BD-6A99-4CA0-87ED-4A192FEB75DA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Project</RootNamespace>
+    <RootNamespace>DungeonCrawler</RootNamespace>
     <AssemblyName>Project</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -8,7 +8,7 @@ using System.IO;
 using System.Resources;
 
 ///The standard class from when the character has died in the game and must start over.
-namespace Project
+namespace DungeonCrawler
 {
     class GameOver
     {
