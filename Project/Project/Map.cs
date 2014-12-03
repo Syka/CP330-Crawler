@@ -147,35 +147,32 @@ namespace DungeonCrawler
             if (randomizer == 0)
             {
                 Ogre enemy1 = new Ogre();
-                eHealth = enemy1.HealthBehaviour.health();
+                eHealth = enemy1.HealthBehaviour.setHealth();
                 monsterName = enemy1.monsterName;
                 monsterWeapon = enemy1.WeaponBehaviour.name();
             }
             else if (randomizer == 1)
             {
                 Troll enemy2 = new Troll();
-                eHealth = enemy2.HealthBehaviour.health();
+                eHealth = enemy2.HealthBehaviour.setHealth();
                 monsterName = enemy2.monsterName;
                 monsterWeapon = enemy2.WeaponBehaviour.name();
             }
             else if (randomizer == 2)
             {
                 Spirit enemy3 = new Spirit();
-                eHealth = enemy3.HealthBehaviour.health();
+                eHealth = enemy3.HealthBehaviour.setHealth();
                 monsterName = enemy3.monsterName;
                 monsterWeapon = enemy3.WeaponBehaviour.name();
             }
-
-            prog.ClearTextbox();
             prog.WriteTextBox("You encounter a " + monsterName + " with a " + monsterWeapon + ". Do you fight? (Y/N)");
         }
 
         public void fightTriggeredBoss()
         {   //is triggered when standing on a boss on the map
             Swamphag enemyBoss = new Swamphag();
-            int bHealth = enemyBoss.HealthBehaviour.health();
+            int bHealth = enemyBoss.HealthBehaviour.setHealth();
 
-            prog.ClearTextbox();
             prog.WriteTextBox("You encounter a " + enemyBoss.monsterName + ". Do you fight? (Y/N)");
         }
 
@@ -187,8 +184,7 @@ namespace DungeonCrawler
                 {
                     case " {E} ":
                         mask[r, c] = onEnemy;
-                        refresh(); prog.WriteTextBox("Will you fight the ");
-                        ///trigger fight
+                        refresh();
                         fightTriggered();
                         events[r, c] = enemyDef;
                         break;
@@ -198,7 +194,7 @@ namespace DungeonCrawler
                         break;
                     case " {B} ":
                         mask[r, c] = onBoss;
-                        ///trigger fight
+                        refresh();
                         fightTriggeredBoss();
                         events[r, c] = bossDef;
                         break;
@@ -207,11 +203,14 @@ namespace DungeonCrawler
                         prog.WriteTextBox("You stand over the corpse of the boss, laugh and move on.");
                         break;
                     case " {T} ":
-                        mask[r, c] = onTrap;
-                        prog.WriteTextBox("You fall down a trapdoor and " + randomInjury() + "! {-2 HP}");
-                        ///decrease HP
-                        hero.HealthBehaviour.health();
-                        events[r, c] = trapDef;
+                        mask[r, c] = onTrap; refresh();
+                        prog.WriteTextBox("You fall down a trapdoor and " + randomInjury() + "! {-2 HP}" + 
+                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                        Console.ReadLine();
+                        hero.HealthBehaviour.subHealth(2);
+                        InfoPane();
+                        events[r, c] = trapDef; setPlayer(_pRow, _pCol);
+                        postEvent(r, c);
                         break;
                     case "-{T}-":
                         mask[r, c] = onTrapDef; 
@@ -341,7 +340,7 @@ namespace DungeonCrawler
                 Console.WriteLine("                                                      ");
             }
             Console.SetCursorPosition(59, 7);
-            Console.WriteLine("Health: {0}", hero.HealthBehaviour.health());
+            Console.WriteLine("Health: {0}", hero.HealthBehaviour.getHealth());
             Console.SetCursorPosition(59, 8);
             Console.WriteLine("Current Weapon: {0}", hero.WeaponBehaviour.name().ToUpper());
             Console.SetCursorPosition(59, 9);

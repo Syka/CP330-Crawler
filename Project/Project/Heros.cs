@@ -9,7 +9,6 @@ namespace DungeonCrawler
        ///Holds all the traits all heros will have
     public abstract class Heros
     {
-        
         ///implements the Health interface
         public IHealthBehaviour HealthBehaviour;
         ///Implements using a weapon
@@ -26,6 +25,7 @@ namespace DungeonCrawler
         public Player()
         {
             HealthBehaviour = new HeroHealthHigh();
+            HealthBehaviour.setHealth();
             HealthBehaviour.name("");
         }
     }
