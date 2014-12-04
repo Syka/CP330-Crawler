@@ -15,6 +15,7 @@ namespace DungeonCrawler
         public void Died()
         {
             ClearMapBox();
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.SetCursorPosition(7, 20);
             
             Console.WriteLine("  _____                 ____      ");
@@ -26,6 +27,7 @@ namespace DungeonCrawler
             Console.WriteLine("\\___/\\_,_/_/_/_/\\__/  \\____/|___/\\__/_/  ");
             Console.SetCursorPosition(7, 24);
             Console.Write(Environment.NewLine+"           Would You Like to Continue?(Y/N)");
+            Console.BackgroundColor = ConsoleColor.Cyan;
 
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Death.wav");
             player.Play();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+
 namespace DungeonCrawler
 {
     class Program
@@ -14,14 +15,12 @@ namespace DungeonCrawler
             Program prog = new Program();
             Intro Start = new Intro();
             Start.ScreenRender();
-
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Music.wav");
             player.Play();
+
             ///Waiting to start game
             prog.WriteTextBox("Press Enter To Start");
             Console.ReadKey();
-
-
 
             ///Starts the map
             Map map = new Map();
@@ -31,37 +30,6 @@ namespace DungeonCrawler
             {
                 map.movement();
             }
-
-            ///Win Circumstances
-            ///GameOver End = new GameOver();
-            ///if (Win == true)
-            ///{
-            ///    End.Victory();
-            ///    ConsoleKeyInfo Input = Console.ReadKey();
-            ///    switch (Input.Key)
-            ///    {
-            ///        case ConsoleKey.Y:
-            ///            Main();
-            ///            break;
-            ///        case ConsoleKey.N:
-            ///            Environment.Exit(0);
-            ///            break;
-            ///    }
-            ///}
-            ///else
-            ///{
-            ///    End.Died();
-            ///    ConsoleKeyInfo Input = Console.ReadKey();
-            ///    switch (Input.Key)
-            ///    {
-            ///        case ConsoleKey.Y:
-            ///            Main();
-            ///            break;
-            ///        case ConsoleKey.N:
-            ///            Environment.Exit(0);
-            ///            break;
-            ///    }
-            ///}      
         }
         public void ClearTextbox()
         {
