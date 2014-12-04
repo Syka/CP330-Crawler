@@ -21,6 +21,8 @@ namespace DungeonCrawler
             prog.WriteTextBox("Press Enter To Start");
             Console.ReadKey();
 
+
+
             ///Starts the map
             Map map = new Map();
             
