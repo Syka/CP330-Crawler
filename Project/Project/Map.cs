@@ -228,16 +228,14 @@ namespace DungeonCrawler
                     {
                         if (checkBoss(16, 8))
                         {
-                            prog.WriteTextBox("You continue deeper into the dungeon." +
-                                Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
-                            Console.ReadLine();
+                            prog.WriteTextBox("You continue deeper into the dungeon.");
+                            System.Threading.Thread.Sleep(5000);
                             setLvl(2);
                         }
                         else
                         {
-                            prog.WriteTextBox("You have not defeated the Boss yet." +
-                                Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
-                            Console.ReadLine();
+                            prog.WriteTextBox("You have not defeated the Boss yet.");
+                            System.Threading.Thread.Sleep(5000);                           
                             setPlayer(_pRow, _pCol);
                         }
                     }
@@ -247,9 +245,8 @@ namespace DungeonCrawler
                             setLvl(3);
                         else
                         {
-                            prog.WriteTextBox("You have not defeated the Boss yet." +
-                                Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
-                            Console.ReadLine();
+                            prog.WriteTextBox("You have not defeated the Boss yet.");
+                            System.Threading.Thread.Sleep(5000);
                             setPlayer(_pRow, _pCol);
                         }
                     }
@@ -261,10 +258,9 @@ namespace DungeonCrawler
                         continueDialog();
                     }
                     break;
-                case ConsoleKey.N: 
-                    prog.WriteTextBox("You decide to explore the dungeon." + 
-                        Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
-                    Console.ReadLine();
+                case ConsoleKey.N:
+                    prog.WriteTextBox("You decide to explore the dungeon.");
+                    System.Threading.Thread.Sleep(5000);
                     setPlayer(_pRow, _pCol); postEvent(r, c);
                     break;
                 default: atDoor(r, c); break;
