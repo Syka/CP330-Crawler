@@ -437,8 +437,7 @@ namespace DungeonCrawler
                     while (monster.HealthBehaviour.getHealth() > 0 && hero.HealthBehaviour.getHealth() > 0)
                     {
 
-                        prog.MonsterHealthBox(monster.HealthBehaviour.getName() + " Health: " + monster.HealthBehaviour.getHealth());
-
+                        MonsterPane(monster);
                         fightMenu(monster, r, c);
                         if (fleed)
                         {
@@ -456,7 +455,8 @@ namespace DungeonCrawler
                         {
                             events[r, c] = bossDef;
                         }
-                        prog.MonsterHealthBox(monster.HealthBehaviour.getName() + " Health: " + monster.HealthBehaviour.getHealth());
+
+                        MonsterPane(monster);
                         prog.WriteTextBox("You have defeated the " + monster.HealthBehaviour.getName() + "!" +
                         Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                         Console.ReadLine();
@@ -524,6 +524,12 @@ namespace DungeonCrawler
                     fightMenu(monster, r, c);
                     break;
             }
+        }
+        public void MonsterPane(Monsters monster)
+        {
+            prog.MonsterHealthBox("Health: " + monster.HealthBehaviour.getHealth());
+            prog.MonsterNameBox("Enemy: " + monster.HealthBehaviour.getName());
+            prog.MonsterWeaponBox("Weapon: " + monster.WeaponBehaviour.getName());
         }
         #endregion
         #region Evan's code
