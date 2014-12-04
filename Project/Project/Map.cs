@@ -532,7 +532,8 @@ namespace DungeonCrawler
             Console.SetCursorPosition(59, 7);
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine("                                                      ");
+                Console.SetCursorPosition(58, 7 + i);
+                Console.WriteLine("                                 ");
             }
             ///Deathcheck
             if (hero.HealthBehaviour.getHealth() < 1)
