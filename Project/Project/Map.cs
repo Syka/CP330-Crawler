@@ -17,7 +17,7 @@ namespace DungeonCrawler
         ConsoleKeyInfo input;
         static string[,]    mask, events, unknown;
         static int          pRow = 0, pCol = 0, _pRow, _pCol;
-        static bool onLvl_1 = true, onLvl_2 = false, onLvl_3 = false, gameOver = false;
+        static bool onLvl_1 = true, onLvl_2 = false, onLvl_3 = false, canFlee = true, fleed = false, gameOver = false;
         static string       player =    " YOU ", unexplored =   " [ ] ", explored =     "     ", bound =        "▓▓▓▓▓",
                             enemy =     " {E} ", onEnemy =      "{ E }", enemyDef =     "-{E}-", onEnemyDef =   "{-E-}",
                             boss =      " {B} ", onBoss =       "{ B }", bossDef =      "-{B}-", onBossDef =    "{-B-}",
@@ -58,9 +58,10 @@ namespace DungeonCrawler
         public void setLvl(int l)
         {   ///Updates player progress when switching levels
             switch(l)
-            {   case 1: onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; lvl_1(); break;
-                case 2: onLvl_1 = false; onLvl_2 = true; onLvl_3 = false; lvl_2(); break;
-                case 3: onLvl_3 = false; onLvl_2 = false; onLvl_3 = true; lvl_3(); break;
+            {
+                case 1: onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; lvl_1(); canFlee = true; break;
+                case 2: onLvl_1 = false; onLvl_2 = true; onLvl_3 = false; lvl_2(); canFlee = true; break;
+                case 3: onLvl_3 = false; onLvl_2 = false; onLvl_3 = true; lvl_3(); canFlee = true; break;
             }   refresh();
         }
         public void movement()
@@ -313,7 +314,7 @@ namespace DungeonCrawler
         }
         public void resetLevels()
         {   ///Resets player progress
-            onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; gameOver = false;
+            onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; gameOver = false; canFlee = true;
         }
         static void put(int r, int c, string type)
         {   ///Adds specific Event types on a specific coordinate on the Events array
@@ -392,22 +393,26 @@ namespace DungeonCrawler
         {     ///is called when going over an enemy on the map and randomly picked one of 3 monsters to fight.
             if (rand.Next(0, 3) == 0)
             {
+                canFlee = true;
                 Ogre enemy1 = new Ogre();
                 return enemy1;
             }
             else if (rand.Next(0, 3) == 1)
             {
+                canFlee = true;
                 Troll enemy2 = new Troll();
                 return enemy2;
             }
             else
             {
+                canFlee = true;
                 Spirit enemy3 = new Spirit();
                 return enemy3;
             }
         }
         public Monsters getBoss()
         {   //is triggered when standing on a boss on the map
+            canFlee = false;
             Swamphag enemyBoss = new Swamphag();
             return enemyBoss;
         }
@@ -418,12 +423,15 @@ namespace DungeonCrawler
             switch(input.Key)
             {
                 case ConsoleKey.Y:
-                    while (monster.HealthBehaviour.getHealth() < 0 || hero.HealthBehaviour.getHealth() < 0)
-                    {
-                        //menu
-                        input = Console.ReadKey();
-                        //result
-                        InfoPane();
+                    fleed = false;
+                    while (monster.HealthBehaviour.getHealth() > 0 || hero.HealthBehaviour.getHealth() > 0)
+                    {   
+                        if (fleed)
+                        {
+                            break;
+                        }
+
+                        fightMenu(monster,r, c);
                     }
 
                     if (events[r, c].Equals(enemy))
@@ -446,6 +454,53 @@ namespace DungeonCrawler
                     setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
                     break;
                 default: triggerFight(monster, r, c); break;
+            }
+        }
+        public void fightMenu(Monsters monster, int r, int c)
+        {
+            prog.WriteTextBox("What will you do?" + Environment.NewLine + Environment.NewLine + "1-Use Weapon" + Environment.NewLine + "2-Defend" + 
+                Environment.NewLine + "3-Use Health Potion" + Environment.NewLine + "4-Flee");
+            input = Console.ReadKey();
+            switch(input.Key)
+            {
+                case ConsoleKey.D1:
+                    prog.WriteTextBox("You swing your " + hero.WeaponBehaviour.name() + " at the " + monster.HealthBehaviour.getName() + "!" + 
+                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    Console.ReadLine();
+                    fightMenu(monster, r, c);
+                    break;
+                case ConsoleKey.D2:
+                    prog.WriteTextBox("You brace yourself aganst the " + monster.HealthBehaviour.getName() + "'s attack!" + 
+                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    Console.ReadLine();
+                    fightMenu(monster, r, c);
+                    break;
+                case ConsoleKey.D3:
+                    prog.WriteTextBox("You use a health potion!" + 
+                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    Console.ReadLine();
+                    fightMenu(monster, r, c);
+                    break;
+                case ConsoleKey.D4:
+                    if (canFlee)
+                    {
+                        fleed = true;
+                        prog.WriteTextBox("You flee from the " + monster.HealthBehaviour.getName() + "!" + 
+                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                        Console.ReadLine();
+                        //fight over
+                    }
+                    else
+                    {
+                        prog.WriteTextBox("You cannot flee from the " + monster.HealthBehaviour.getName() + "!" + 
+                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                        Console.ReadLine();
+                        fightMenu(monster, r, c);
+                    }
+                    break;
+                default:
+                    fightMenu(monster, r, c);
+                    break;
             }
         }
         #endregion
