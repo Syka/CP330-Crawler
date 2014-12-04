@@ -45,7 +45,7 @@ namespace DungeonCrawler
         {
             ClearTextbox();
             Console.SetCursorPosition(0, 41);
-            int myLimit = 51;
+            int myLimit = 54;
             string sentence = value;
             string[] words = sentence.Split(' ');
 

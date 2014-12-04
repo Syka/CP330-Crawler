@@ -236,11 +236,21 @@ namespace DungeonCrawler
         {
             ///Random Generator for Caestus not needed, will always hit enemy
             
-                int dmg = random.Next(1, damage() + 1);
-                prog.WriteTextBox("You punch with your " + getName() + "! {" + dmg + " DMG}" +
-                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
-                return dmg;
-            
+                
+                if (random.Next(0, 20) == 0) // However the Caestus is secretly powerful with a 5% chance of power
+                {
+                    int dmg = random.Next(1, damage() + 1);
+                    prog.WriteTextBox("You punch with your " + getName() + "! {" + dmg + " DMG}" +
+                        Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                    return dmg;  
+                }
+                else
+                {
+                    int dmg = random.Next(1, damage() + 55);
+                    prog.WriteTextBox("A shimmering light appears! Your " + getName() + " glow! With a mighty punch you land {" + dmg + " DMG}" +
+                        Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                    return dmg; 
+                }
             
         }
     }
