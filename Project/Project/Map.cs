@@ -16,7 +16,7 @@ namespace DungeonCrawler
         ConsoleKeyInfo input;
         static string[,]    mask, events, unknown;
         static int          pRow = 0, pCol = 0, _pRow, _pCol;
-        static bool         onLvl_1 = true, onLvl_2 = false, onLvl_3 = false, fight = false;
+        static bool onLvl_1 = true, onLvl_2 = false, onLvl_3 = false, fight = false, gameOver = false;
         static string       player =    " YOU ", unexplored =   " [ ] ", explored =     "     ", bound =        "▓▓▓▓▓",
                             enemy =     " {E} ", onEnemy =      "{ E }", enemyDef =     "-{E}-", onEnemyDef =   "{-E-}",
                             boss =      " {B} ", onBoss =       "{ B }", bossDef =      "-{B}-", onBossDef =    "{-B-}",
@@ -234,21 +234,31 @@ namespace DungeonCrawler
                             setLvl(2);
                         }
                         else
+                        {
                             prog.WriteTextBox("You have not defeated the Boss yet." +
                                 Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                            Console.ReadLine();
+                            setPlayer(_pRow, _pCol);
+                        }
                     }
                     else if (onLvl_2)
                     {
                         if (checkBoss(3, 1))
                             setLvl(3);
                         else
+                        {
                             prog.WriteTextBox("You have not defeated the Boss yet." +
                                 Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                            Console.ReadLine();
+                            setPlayer(_pRow, _pCol);
+                        }
                     }
                     else if (onLvl_3)
                     {
                         GameOver end = new GameOver();
+                        gameOver = true;
                         end.Victory();
+                        continueDialog();
                     }
                     break;
                 case ConsoleKey.N: 
@@ -274,9 +284,29 @@ namespace DungeonCrawler
             else if (rand.Next(0, 6) == 4)  { return "shin"; }
             else                            { return "head"; }
         }
+        public void continueDialog()
+        {
+            prog.ClearTextbox();
+            input = Console.ReadKey();
+            switch (input.Key)
+            {
+                case ConsoleKey.Y:
+                    resetLevels();
+                    GameOver go = new GameOver();
+                    go.ClearMapBox();
+                    Map map = new Map();
+                    break;
+                case ConsoleKey.N:
+                    Environment.Exit(1);
+                    break;
+                default:
+                    continueDialog();
+                    break;
+            }
+        }
         public void resetLevels()
         {   ///Resets player progress
-            onLvl_1 = true; onLvl_2 = false; onLvl_3 = false;
+            onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; gameOver = false;
         }
         static void put(int r, int c, string type)
         {   ///Adds specific Event types on a specific coordinate on the Events array
@@ -396,18 +426,22 @@ namespace DungeonCrawler
 #region Evan's code
         static void refresh()
         {   ///
-            Console.SetCursorPosition(0, 7);
-            for (int i = 0; i < 40; i++) 
-            { 
-                Console.WriteLine(""); 
-            }   Console.SetCursorPosition(0, 7);
-            for (int i = 0; i < 17; i++)
+            if (!gameOver)
             {
-                for (int j = 0; j < 11; j++)
+                Console.SetCursorPosition(0, 7);
+                for (int i = 0; i < 40; i++)
                 {
-                    Console.Write(mask[i, j]);
-                }   Console.WriteLine(Environment.NewLine);
-            }   Console.SetCursorPosition(7, 59);
+                    Console.WriteLine("");
+                } Console.SetCursorPosition(0, 7);
+                for (int i = 0; i < 17; i++)
+                {
+                    for (int j = 0; j < 11; j++)
+                    {
+                        Console.Write(mask[i, j]);
+                    } Console.WriteLine(Environment.NewLine);
+                } Console.SetCursorPosition(7, 59);
+            }
+            else { }
         }
         public void InfoPane()
         {   ///
@@ -420,7 +454,9 @@ namespace DungeonCrawler
             if (hero.HealthBehaviour.getHealth() < 1)
             {
                 GameOver end = new GameOver();
+                gameOver = true;
                 end.Died();
+                continueDialog();
             }
             Console.SetCursorPosition(59, 7);
             Console.WriteLine("Health: {0}", hero.HealthBehaviour.getHealth());
