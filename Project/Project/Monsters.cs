@@ -24,6 +24,7 @@ namespace DungeonCrawler
             HealthBehaviour = new HighHealth();
             HealthBehaviour.setName("Dungeon Ogre");
             HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(true);
             ranWep = rngWep.Next(0, 8);
             if (ranWep==0)
             { WeaponBehaviour = new Sword(); }
@@ -51,6 +52,7 @@ namespace DungeonCrawler
             HealthBehaviour = new MedHealth();
             HealthBehaviour.setName("Troll");
             HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(true);
             ranWep = rngWep.Next(0, 8);
             if (ranWep == 0)
             { WeaponBehaviour = new Sword(); }
@@ -78,6 +80,7 @@ namespace DungeonCrawler
             HealthBehaviour = new LowHealth();
             HealthBehaviour.setName("Spirit");
             HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(true);
             ranWep = rngWep.Next(0, 8);
             if (ranWep == 0)
             { WeaponBehaviour = new Sword(); }
@@ -105,6 +108,7 @@ namespace DungeonCrawler
             HealthBehaviour = new HighHealth();
             HealthBehaviour.setName("Swamghag");
             HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(false);
             ranWep = rngWep.Next(0, 500);
             if (ranWep >= 0 && ranWep < 100)
             { WeaponBehaviour = new Sword(); }

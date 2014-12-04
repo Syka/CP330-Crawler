@@ -14,10 +14,13 @@ namespace DungeonCrawler
         int getHealth();
         void setName(string s);
         string getName();
+        void setFlee(bool f) {  }
+        bool getFLee { }
     }
     public class HighHealth : IHealthBehaviour
     {
         public string name;
+        public bool canFlee;
         public int valueHealth;
         Random randomHealth = new Random();
         public void setHealth()
@@ -44,10 +47,13 @@ namespace DungeonCrawler
         {
             return name;
         }
+        public void setFlee(bool f) { canFlee = f; }
+        public bool getFlee() { return canFlee; }
     }
     public class MedHealth : IHealthBehaviour
     {
         public string name;
+        public bool canFlee;
         public int valueHealth;
         Random randomHealth = new Random();
         public void setHealth()
@@ -74,10 +80,13 @@ namespace DungeonCrawler
         {
             return name;
         }
+        public void setFlee(bool f) { canFlee = f; }
+        public bool getFlee() { return canFlee; }
     }
     public class  LowHealth : IHealthBehaviour
     {
         public string name;
+        public bool canFlee;
         public int valueHealth;
         Random randomHealth = new Random();
         public void setHealth()
@@ -104,10 +113,13 @@ namespace DungeonCrawler
         {
             return name;
         }
+        public void setFlee(bool f) { canFlee = f; }
+        public bool getFlee() { return canFlee; }
     }
     public class HeroHealthHigh : IHealthBehaviour
     {
         public string name;
+        public bool canFlee;
         public int valueHealth;
         Random randomHealth = new Random();
         public void setHealth()
@@ -134,5 +146,7 @@ namespace DungeonCrawler
         {
             return name;
         }
+        public void setFlee(bool f) { canFlee = f; }
+        public bool getFlee() { return canFlee; }
     }
 }
