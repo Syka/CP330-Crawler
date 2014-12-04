@@ -10,13 +10,14 @@ namespace DungeonCrawler
     public class Map
     {   ///All Map and player variables
         Program prog = new Program();
+        GameOver end = new GameOver();
         Player hero = new Player();
         Random rand = new Random();
 #region David's code
         ConsoleKeyInfo input;
         static string[,]    mask, events, unknown;
         static int          pRow = 0, pCol = 0, _pRow, _pCol;
-        static bool onLvl_1 = true, onLvl_2 = false, onLvl_3 = false, fight = false, gameOver = false;
+        static bool onLvl_1 = true, onLvl_2 = false, onLvl_3 = false, fleed = false, gameOver = false;
         static string       player =    " YOU ", unexplored =   " [ ] ", explored =     "     ", bound =        "▓▓▓▓▓",
                             enemy =     " {E} ", onEnemy =      "{ E }", enemyDef =     "-{E}-", onEnemyDef =   "{-E-}",
                             boss =      " {B} ", onBoss =       "{ B }", bossDef =      "-{B}-", onBossDef =    "{-B-}",
@@ -57,9 +58,10 @@ namespace DungeonCrawler
         public void setLvl(int l)
         {   ///Updates player progress when switching levels
             switch(l)
-            {   case 1: onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; lvl_1(); break;
-                case 2: onLvl_1 = false; onLvl_2 = true; onLvl_3 = false; lvl_2(); break;
-                case 3: onLvl_3 = false; onLvl_2 = false; onLvl_3 = true; lvl_3(); break;
+            {
+                case 1: onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; lvl_1();  break;
+                case 2: onLvl_1 = false; onLvl_2 = true; onLvl_3 = false; lvl_2();  break;
+                case 3: onLvl_3 = false; onLvl_2 = false; onLvl_3 = true; lvl_3();  break;
             }   refresh();
         }
         public void movement()
@@ -96,6 +98,7 @@ namespace DungeonCrawler
                             else { setPlayer(pRow, pCol); }
                     }
                     catch { pRow -= 1; mask[pRow, pCol] = player; } break;
+                default: setPlayer(pRow, pCol); break;
             }   reveal(pRow, pCol);                                             
             onEvent(pRow, pCol);                                            ///checks if the player matches coordinates with Events content
         }
@@ -150,8 +153,8 @@ namespace DungeonCrawler
                 {
                     case " {E} ":
                         mask[r, c] = onEnemy;
+                        refresh();
                         atEnemy(r, c);              
-                        events[r, c] = enemyDef;
                         break;
                     case "-{E}-":
                         mask[r, c] = onEnemyDef;
@@ -161,7 +164,6 @@ namespace DungeonCrawler
                         mask[r, c] = onBoss;
                         refresh();
                         atBoss(r, c);
-                        events[r, c] = bossDef;
                         break;
                     case "-{B}-":
                         mask[r, c] = onBossDef;
@@ -210,11 +212,11 @@ namespace DungeonCrawler
         }
         public void atEnemy(int r, int c)
         {   ///Event triggered when the player encounters an enemy
-            fightTriggered();
+            triggerFight(getEnemy(), r, c);
         }
         public void atBoss(int r, int c)
         {   ///Event triggered when the player encounters the boss
-            fightTriggeredBoss();
+            triggerFight(getBoss(), r, c);
         }
         public void atDoor(int r, int c)
         {   ///Event triggered when the player discovers a door
@@ -228,25 +230,35 @@ namespace DungeonCrawler
                     {
                         if (checkBoss(16, 8))
                         {
-                            prog.WriteTextBox("You continue deeper into the dungeon.");
-                            System.Threading.Thread.Sleep(5000);
                             setLvl(2);
+                            prog.WriteTextBox("You continue deeper into the dungeon, complaining at their lack of elevators." +
+                                Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                            Console.ReadLine();
+                            prog.ClearTextbox();
                         }
                         else
                         {
-                            prog.WriteTextBox("You have not defeated the Boss yet.");
-                            System.Threading.Thread.Sleep(5000);                           
+                            prog.WriteTextBox("You have not defeated the Boss yet." +
+                                Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                            Console.ReadLine();
                             setPlayer(_pRow, _pCol);
                         }
                     }
                     else if (onLvl_2)
                     {
                         if (checkBoss(3, 1))
+                        {
                             setLvl(3);
+                            prog.WriteTextBox("You finally reach the Final Boss' lair, which is actually kind of cozy compared to the rest of the dungeon. " +
+                                   Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                            Console.ReadLine();
+                            prog.ClearTextbox();
+                        }
                         else
                         {
-                            prog.WriteTextBox("You have not defeated the Boss yet.");
-                            System.Threading.Thread.Sleep(5000);
+                            prog.WriteTextBox("You have not defeated the Boss yet." +
+                                Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                            Console.ReadLine();
                             setPlayer(_pRow, _pCol);
                         }
                     }
@@ -258,9 +270,10 @@ namespace DungeonCrawler
                         continueDialog();
                     }
                     break;
-                case ConsoleKey.N:
-                    prog.WriteTextBox("You decide to explore the dungeon.");
-                    System.Threading.Thread.Sleep(5000);
+                case ConsoleKey.N: 
+                    prog.WriteTextBox("You decide to explore the dungeon." + 
+                        Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    Console.ReadLine();
                     setPlayer(_pRow, _pCol); postEvent(r, c);
                     break;
                 default: atDoor(r, c); break;
@@ -288,8 +301,7 @@ namespace DungeonCrawler
             {
                 case ConsoleKey.Y:
                     resetLevels();
-                    GameOver go = new GameOver();
-                    go.ClearMapBox();
+                    end.ClearMapBox();
                     Map map = new Map();
                     break;
                 case ConsoleKey.N:
@@ -377,46 +389,116 @@ namespace DungeonCrawler
         }
         #endregion
 #region Nolan's code
-        public void fightTriggered()
+        public Monsters getEnemy()
         {     ///is called when going over an enemy on the map and randomly picked one of 3 monsters to fight.
-            int randomizer = rand.Next(0, 3);
-            int eHealth = 0;
-            string monsterName = "";
-            string monsterWeapon = "Default";
-            if (randomizer == 0)
+            if (rand.Next(0, 3) == 0)
             {
                 Ogre enemy1 = new Ogre();
-                eHealth = enemy1.HealthBehaviour.setHealth();
-                monsterName = enemy1.monsterName;
-                monsterWeapon = enemy1.WeaponBehaviour.name();
-                hero.HealthBehaviour.subHealth(rand.Next(0, enemy1.WeaponBehaviour.damage()));
+                return enemy1;
             }
-            else if (randomizer == 1)
+            else if (rand.Next(0, 3) == 1)
             {
                 Troll enemy2 = new Troll();
-                eHealth = enemy2.HealthBehaviour.setHealth();
-                monsterName = enemy2.monsterName;
-                monsterWeapon = enemy2.WeaponBehaviour.name();
-                hero.HealthBehaviour.subHealth(rand.Next(0, enemy2.WeaponBehaviour.damage()));
+                return enemy2;
             }
-            else if (randomizer == 2)
+            else
             {
                 Spirit enemy3 = new Spirit();
-                eHealth = enemy3.HealthBehaviour.setHealth();
-                monsterName = enemy3.monsterName;
-                monsterWeapon = enemy3.WeaponBehaviour.name();
-                hero.HealthBehaviour.subHealth(rand.Next(0, enemy3.WeaponBehaviour.damage()));
+                return enemy3;
             }
-            InfoPane();
-            prog.WriteTextBox("You encounter a " + monsterName + " armed with a " + monsterWeapon + ". Do you fight? (Y/N)");
         }
-        public void fightTriggeredBoss()
+        public Monsters getBoss()
         {   //is triggered when standing on a boss on the map
             Swamphag enemyBoss = new Swamphag();
-            int bHealth = enemyBoss.HealthBehaviour.setHealth();
-            string bWeapon = enemyBoss.WeaponBehaviour.name();
+            return enemyBoss;
+        }
+        public void triggerFight(Monsters monster, int r, int c)
+        {
+            prog.WriteTextBox("You have encountered a " + monster.HealthBehaviour.getName() + " armed with a " + monster.WeaponBehaviour.name() + ". Will you fight?? (Y/N)");
+            input = Console.ReadKey();
+            switch(input.Key)
+            {
+                case ConsoleKey.Y:
+                    fleed = false;
+                    while (monster.HealthBehaviour.getHealth() > 0 || hero.HealthBehaviour.getHealth() > 0)
+                    {
+                        fightMenu(monster, r, c);
+                        if (fleed)
+                        {
+                            break;
+                        }
 
-            prog.WriteTextBox("You encounter a " + enemyBoss.monsterName + " armed with a " + bWeapon + ". Do you fight? (Y/N)");
+                        
+                    }
+
+                    if (events[r, c].Equals(enemy))
+                    {
+                        events[r, c] = enemyDef;
+                    }
+                    else if (events[r, c].Equals(boss))
+                    {
+                        events[r, c] = bossDef;
+                    }
+                    prog.WriteTextBox("You have defeated the " + monster.HealthBehaviour.getName() + "!" +
+                        Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    Console.ReadLine();
+                    setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
+                    break;
+                case ConsoleKey.N:
+                    prog.WriteTextBox("You decide to fight the " + monster.HealthBehaviour.getName() + " later..." +
+                        Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    Console.ReadLine();
+                    setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
+                    break;
+                default: triggerFight(monster, r, c); break;
+            }
+        }
+        public void fightMenu(Monsters monster, int r, int c)
+        {
+            prog.WriteTextBox("What will you do?" + Environment.NewLine + Environment.NewLine + "1-Use Weapon" + Environment.NewLine + "2-Defend" + 
+                Environment.NewLine + "3-Use Health Potion" + Environment.NewLine + "4-Flee");
+            input = Console.ReadKey();
+            switch(input.Key)
+            {
+                case ConsoleKey.D1:
+                    prog.WriteTextBox("You swing your " + hero.WeaponBehaviour.name() + " at the " + monster.HealthBehaviour.getName() + "!" + 
+                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    Console.ReadLine();
+                    fightMenu(monster, r, c);
+                    break;
+                case ConsoleKey.D2:
+                    prog.WriteTextBox("You brace yourself aganst the " + monster.HealthBehaviour.getName() + "'s attack!" + 
+                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    Console.ReadLine();
+                    fightMenu(monster, r, c);
+                    break;
+                case ConsoleKey.D3:
+                    prog.WriteTextBox("You use a health potion!" + 
+                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    Console.ReadLine();
+                    fightMenu(monster, r, c);
+                    break;
+                case ConsoleKey.D4:
+                    if (monster.HealthBehaviour.getFlee())
+                    {
+                        fleed = true;
+                        prog.WriteTextBox("You flee from the " + monster.HealthBehaviour.getName() + "!" + 
+                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                        Console.ReadLine();
+                        //fight over
+                    }
+                    else
+                    {
+                        prog.WriteTextBox("You cannot flee from the " + monster.HealthBehaviour.getName() + "!" + 
+                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                        Console.ReadLine();
+                        fightMenu(monster, r, c);
+                    }
+                    break;
+                default:
+                    fightMenu(monster, r, c);
+                    break;
+            }
         }
         #endregion
 #region Evan's code
@@ -496,6 +578,30 @@ namespace DungeonCrawler
                     hero.WeaponBehaviour = new Caestus();
                     break;
                 case ConsoleKey.D8:
+                    hero.WeaponBehaviour = new Quarterstaff();
+                    break;
+                case ConsoleKey.NumPad1:
+                    hero.WeaponBehaviour = new Sword();
+                    break;
+                case ConsoleKey.NumPad2:
+                    hero.WeaponBehaviour = new Axe();
+                    break;
+                case ConsoleKey.NumPad3:
+                    hero.WeaponBehaviour = new Knife();
+                    break;
+                case ConsoleKey.NumPad4:
+                    hero.WeaponBehaviour = new Mace();
+                    break;
+                case ConsoleKey.NumPad5:
+                    hero.WeaponBehaviour = new Fish();
+                    break;
+                case ConsoleKey.NumPad6:
+                    hero.WeaponBehaviour = new Bowstaff();
+                    break;
+                case ConsoleKey.NumPad7:
+                    hero.WeaponBehaviour = new Caestus();
+                    break;
+                case ConsoleKey.NumPad8:
                     hero.WeaponBehaviour = new Quarterstaff();
                     break;
                 default:

@@ -26,7 +26,7 @@ namespace DungeonCrawler
         {
             HealthBehaviour = new HeroHealthHigh();
             HealthBehaviour.setHealth();
-            HealthBehaviour.name("");
+            HealthBehaviour.setName("");
         }
     }
 
