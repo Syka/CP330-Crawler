@@ -420,6 +420,7 @@ namespace DungeonCrawler
             {
                 case ConsoleKey.Y:
                     fleed = false;
+                    
                     while (monster.HealthBehaviour.getHealth() > 0 || hero.HealthBehaviour.getHealth() > 0)
                     {
                         fightMenu(monster, r, c);
@@ -427,8 +428,7 @@ namespace DungeonCrawler
                         {
                             break;
                         }
-
-                        
+                       
                     }
 
                     if (events[r, c].Equals(enemy))
@@ -467,8 +467,15 @@ namespace DungeonCrawler
                     fightMenu(monster, r, c);
                     break;
                 case ConsoleKey.D2:
+                    int blockedDamage;
+                    int blockedAmount;
                     prog.WriteTextBox("You brace yourself aganst the " + monster.HealthBehaviour.getName() + "'s attack!" + 
                             Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    Console.ReadLine();
+                    blockedAmount = monster.WeaponBehaviour.damage() / 2; 
+                    blockedDamage = monster.WeaponBehaviour.damage() - (blockedAmount);
+                    prog.WriteTextBox("Damage Taken: "+ blockedDamage + Environment.NewLine + "Damage Blocked: " + blockedAmount);
+          
                     Console.ReadLine();
                     fightMenu(monster, r, c);
                     break;
