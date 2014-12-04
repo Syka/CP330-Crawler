@@ -75,7 +75,7 @@ namespace DungeonCrawler
         public int useWeapon()
         {
             ///Random Generator for AXe
-            if (random.Next(0, 6) != 0) //Axe has 
+            if (random.Next(0, 6) == 0) //Axe has 
             {
                 int dmg = random.Next(1, damage()) + 1;
                 prog.WriteTextBox("You swing with your " + getName() + "! {" + dmg + " DMG}" +
@@ -107,7 +107,7 @@ namespace DungeonCrawler
         public int useWeapon()
         {
             ///Random Generator for Knife
-            if (random.Next(0, 2) != 0) //Knife has a 50/50 chance of hitting.
+            if (random.Next(0, 2) == 0) //Knife has a 50/50 chance of hitting.
             {
                 int dmg = random.Next(1, damage()) + 1;
                 prog.WriteTextBox("You stab with your " + getName() + "! {" + dmg + " DMG}" +
@@ -139,7 +139,7 @@ namespace DungeonCrawler
         public int useWeapon()
         {
             ///Random Generator for Mace
-            if (random.Next(0, 3) != 0) //Mace has a 33.33% chance of hititng.
+            if (random.Next(0, 3) == 0) //Mace has a 33.33% chance of hititng.
             {
                 int dmg = random.Next(1, damage()) + 1;
                 prog.WriteTextBox("You swing with your " + getName() + "! {" + dmg + " DMG}" +
@@ -171,7 +171,7 @@ namespace DungeonCrawler
         public int useWeapon()
         {
             ///Random Generator for FIsh
-            if (random.Next(0, 2) != 0) //FIsh has a 50/50 chance of hitting
+            if (random.Next(0, 2) == 0) //FIsh has a 50/50 chance of hitting
             {
                 int dmg = random.Next(1, damage()) + 1;
                 prog.WriteTextBox("You slap with your " + getName() + "! {" + dmg + " DMG}" +
@@ -203,7 +203,7 @@ namespace DungeonCrawler
         public int useWeapon()
         {
             ///Random Generator for Bowstaff
-            if (random.Next(0, 5) != 0) //Bowstaff has a 20% chance of hitting the enemy
+            if (random.Next(0, 5) == 0) //Bowstaff has a 20% chance of hitting the enemy
             {
                 int dmg = random.Next(1, damage() + 1);
                 prog.WriteTextBox("You swing with your " + getName() + "! {" + dmg + " DMG}" +
@@ -261,7 +261,7 @@ namespace DungeonCrawler
         public int useWeapon()
         {
             ///Random Generator for Sword
-            if (random.Next(0, 5) != 0) // Quarterstaff has a 20% chance of hitting.
+            if (random.Next(0, 5) == 0) // Quarterstaff has a 20% chance of hitting.
             {
                 int dmg = random.Next(1, damage() + 1);
                 prog.WriteTextBox("You stab with your " + getName() + "! {" + dmg + " DMG}" +
