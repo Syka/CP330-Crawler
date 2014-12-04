@@ -17,7 +17,7 @@ namespace DungeonCrawler
         ConsoleKeyInfo input;
         static string[,]    mask, events, unknown;
         static int          pRow = 0, pCol = 0, _pRow, _pCol;
-        static bool onLvl_1 = true, onLvl_2 = false, onLvl_3 = false, canFlee = true, fleed = false, gameOver = false;
+        static bool onLvl_1 = true, onLvl_2 = false, onLvl_3 = false, fleed = false, gameOver = false;
         static string       player =    " YOU ", unexplored =   " [ ] ", explored =     "     ", bound =        "▓▓▓▓▓",
                             enemy =     " {E} ", onEnemy =      "{ E }", enemyDef =     "-{E}-", onEnemyDef =   "{-E-}",
                             boss =      " {B} ", onBoss =       "{ B }", bossDef =      "-{B}-", onBossDef =    "{-B-}",
@@ -59,9 +59,9 @@ namespace DungeonCrawler
         {   ///Updates player progress when switching levels
             switch(l)
             {
-                case 1: onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; lvl_1(); canFlee = true; break;
-                case 2: onLvl_1 = false; onLvl_2 = true; onLvl_3 = false; lvl_2(); canFlee = true; break;
-                case 3: onLvl_3 = false; onLvl_2 = false; onLvl_3 = true; lvl_3(); canFlee = true; break;
+                case 1: onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; lvl_1();  break;
+                case 2: onLvl_1 = false; onLvl_2 = true; onLvl_3 = false; lvl_2();  break;
+                case 3: onLvl_3 = false; onLvl_2 = false; onLvl_3 = true; lvl_3();  break;
             }   refresh();
         }
         public void movement()
@@ -314,7 +314,7 @@ namespace DungeonCrawler
         }
         public void resetLevels()
         {   ///Resets player progress
-            onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; gameOver = false; canFlee = true;
+            onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; gameOver = false;
         }
         static void put(int r, int c, string type)
         {   ///Adds specific Event types on a specific coordinate on the Events array
@@ -393,26 +393,22 @@ namespace DungeonCrawler
         {     ///is called when going over an enemy on the map and randomly picked one of 3 monsters to fight.
             if (rand.Next(0, 3) == 0)
             {
-                canFlee = true;
                 Ogre enemy1 = new Ogre();
                 return enemy1;
             }
             else if (rand.Next(0, 3) == 1)
             {
-                canFlee = true;
                 Troll enemy2 = new Troll();
                 return enemy2;
             }
             else
             {
-                canFlee = true;
                 Spirit enemy3 = new Spirit();
                 return enemy3;
             }
         }
         public Monsters getBoss()
         {   //is triggered when standing on a boss on the map
-            canFlee = false;
             Swamphag enemyBoss = new Swamphag();
             return enemyBoss;
         }
@@ -483,7 +479,7 @@ namespace DungeonCrawler
                     fightMenu(monster, r, c);
                     break;
                 case ConsoleKey.D4:
-                    if (canFlee)
+                    if (monster.HealthBehaviour.getFlee())
                     {
                         fleed = true;
                         prog.WriteTextBox("You flee from the " + monster.HealthBehaviour.getName() + "!" + 

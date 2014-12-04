@@ -14,8 +14,8 @@ namespace DungeonCrawler
         int getHealth();
         void setName(string s);
         string getName();
-        void setFlee(bool f) {  }
-        bool getFLee { }
+        void setFlee(bool f);
+        bool getFlee();
     }
     public class HighHealth : IHealthBehaviour
     {
