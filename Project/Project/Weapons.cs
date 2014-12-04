@@ -21,9 +21,9 @@ namespace DungeonCrawler
     ///Quarterstaff----damage = 7
     public interface WeaponBehaviour
     {
-        string name();
+        string getName();
         int damage();
-        void useWeapon();
+        int useWeapon();
     }
     ///Sword
     ///Sword will set damage to 5, this will then be used in the future when attacking an enemy.
@@ -35,22 +35,25 @@ namespace DungeonCrawler
         {
             return 5;
         }
-        public string name()
+        public string getName()
         {
             return "Sword";
         }
-        public void useWeapon()
+        public int useWeapon()
         {
             ///Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                prog.WriteTextBox("You swing with your " + name() + "! {" + damage() + " DMG}" +
-                    Environment.NewLine + "Press Enter to continue");
+                int dmg = random.Next(1, damage()) + 1;
+                prog.WriteTextBox("You swing with your " + getName() + "! {" + dmg + " DMG}" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return dmg;
             }
             else
             {
-                prog.WriteTextBox("Your " + name() + " misses!" +
-                    Environment.NewLine + "Press Enter to continue");
+                prog.WriteTextBox("Your " + getName() + " misses!" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return 0;
             }
         }
     }
@@ -65,22 +68,25 @@ namespace DungeonCrawler
         {
             return 8;
         }
-        public string name()
+        public string getName()
         {
             return "Axe";
         }
-        public void useWeapon()
+        public int useWeapon()
         {
             ///Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                prog.WriteTextBox("You swing with your " + name() + "! {" + damage() + " DMG}" +
-                    Environment.NewLine + "Press Enter to continue");
+                int dmg = random.Next(1, damage()) + 1;
+                prog.WriteTextBox("You swing with your " + getName() + "! {" + dmg + " DMG}" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return dmg;
             }
             else
             {
-                prog.WriteTextBox("Your " + name() + " misses!" +
-                    Environment.NewLine + "Press Enter to continue");
+                prog.WriteTextBox("Your " + getName() + " misses!" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return 0;
             }
         }
     }
@@ -94,22 +100,25 @@ namespace DungeonCrawler
         {
             return 2;
         }
-        public string name()
+        public string getName()
         {
             return "Knife";
         }
-        public void useWeapon()
+        public int useWeapon()
         {
             ///Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                prog.WriteTextBox("You stab with your " + name() + "! {" + damage() + " DMG}" +
-                    Environment.NewLine + "Press Enter to continue");
+                int dmg = random.Next(1, damage()) + 1;
+                prog.WriteTextBox("You stab with your " + getName() + "! {" + dmg + " DMG}" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return dmg;
             }
             else
             {
-                prog.WriteTextBox("Your " + name() + " misses!" +
-                    Environment.NewLine + "Press Enter to continue");
+                prog.WriteTextBox("Your " + getName() + " misses!" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return 0;
             }
         }
     }
@@ -123,22 +132,25 @@ namespace DungeonCrawler
         {
             return 4;
         }
-        public string name()
+        public string getName()
         {
             return "Mace";
         }
-        public void useWeapon()
+        public int useWeapon()
         {
             ///Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                prog.WriteTextBox("You swing with your " + name() + "! {" + damage() + " DMG}" +
-                    Environment.NewLine + "Press Enter to continue");
+                int dmg = random.Next(1, damage()) + 1;
+                prog.WriteTextBox("You swing with your " + getName() + "! {" + dmg + " DMG}" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return dmg;
             }
             else
             {
-                prog.WriteTextBox("Your " + name() + " misses!" +
-                    Environment.NewLine + "Press Enter to continue");
+                prog.WriteTextBox("Your " + getName() + " misses!" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return 0;
             }
         }
     }
@@ -152,22 +164,25 @@ namespace DungeonCrawler
         {
             return 3;
         }
-        public string name()
+        public string getName()
         {
             return "Fish";
         }
-        public void useWeapon()
+        public int useWeapon()
         {
             ///Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                prog.WriteTextBox("You slap with your " + name() + "! {" + damage() + " DMG}" +
-                    Environment.NewLine + "Press Enter to continue");
+                int dmg = random.Next(1, damage()) + 1;
+                prog.WriteTextBox("You slap with your " + getName() + "! {" + dmg + " DMG}" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return dmg;
             }
             else
             {
-                prog.WriteTextBox("Your " + name() + " misses!" +
-                    Environment.NewLine + "Press Enter to continue");
+                prog.WriteTextBox("Your " + getName() + " misses!" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return 0;
             }
         }
     }
@@ -181,22 +196,25 @@ namespace DungeonCrawler
         {
             return 6;
         }
-        public string name()
+        public string getName()
         {
             return "Bowstaff";
         }
-        public void useWeapon()
+        public int useWeapon()
         {
             ///Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                prog.WriteTextBox("You swing with your " + name() + "! {" + damage() + " DMG}" +
-                    Environment.NewLine + "Press Enter to continue");
+                int dmg = random.Next(1, damage() + 1);
+                prog.WriteTextBox("You swing with your " + getName() + "! {" + dmg + " DMG}" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return dmg;
             }
             else
             {
-                prog.WriteTextBox("Your " + name() + " misses!" +
-                    Environment.NewLine + "Press Enter to continue");
+                prog.WriteTextBox("Your " + getName() + " misses!" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return 0;
             }
         }
     }
@@ -210,22 +228,25 @@ namespace DungeonCrawler
         {
             return 1;
         }
-        public string name()
+        public string getName()
         {
             return "Caestus";
         }
-        public void useWeapon()
+        public int useWeapon()
         {
             ///Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                prog.WriteTextBox("You punch with your " + name() + "! {" + damage() + " DMG}" +
-                    Environment.NewLine + "Press Enter to continue");
+                int dmg = random.Next(1, damage() + 1);
+                prog.WriteTextBox("You punch with your " + getName() + "! {" + dmg + " DMG}" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return dmg;
             }
             else
             {
-                prog.WriteTextBox("Your " + name() + " misses!" +
-                    Environment.NewLine + "Press Enter to continue");
+                prog.WriteTextBox("Your " + getName() + " misses!" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return 0;
             }
         }
     }
@@ -239,22 +260,25 @@ namespace DungeonCrawler
         {
             return 7;
         }
-        public string name()
+        public string getName()
         {
             return "Quarterstaff";
         }
-        public void useWeapon()
+        public int useWeapon()
         {
             ///Random Generator for Sword
             if (random.Next(0, 2) == 0)
             {
-                prog.WriteTextBox("You stab with your " + name() + "! {" + damage() + " DMG}" +
-                    Environment.NewLine + "Press Enter to continue");
+                int dmg = random.Next(1, damage() + 1);
+                prog.WriteTextBox("You stab with your " + getName() + "! {" + dmg + " DMG}" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return dmg;
             }
             else
             {
-                prog.WriteTextBox("Your " + name() + " misses!" +
-                    Environment.NewLine + "Press Enter to continue");
+                prog.WriteTextBox("Your " + getName() + " misses!" +
+                    Environment.NewLine + Environment.NewLine + "Press Enter to continue");
+                return 0;
             }
         }
     }
