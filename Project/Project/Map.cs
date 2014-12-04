@@ -428,6 +428,7 @@ namespace DungeonCrawler
         public void triggerFight(Monsters monster, int r, int c)
         {
             prog.WriteTextBox("You have encountered a " + monster.HealthBehaviour.getName() + " armed with a " + monster.WeaponBehaviour.getName() + ". Will you fight?? (Y/N)");
+            MonsterPane(monster);
             input = Console.ReadKey();
             switch (input.Key)
             {
@@ -438,12 +439,19 @@ namespace DungeonCrawler
                     {
 
                         MonsterPane(monster);
+                        InfoPane();
                         fightMenu(monster, r, c);
                         if (fleed)
                         {
                             break;
                         }
 
+                    }
+                    if (fleed)
+                    {
+                        setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
+                        InfoPane();
+                        break;
                     }
                     if (monster.HealthBehaviour.getHealth() < 1)
                     {
@@ -462,7 +470,6 @@ namespace DungeonCrawler
                         Console.ReadLine();
                         setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
                     }
-
                     InfoPane();
                     break;
                 case ConsoleKey.N:
@@ -470,6 +477,7 @@ namespace DungeonCrawler
                         Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                     Console.ReadLine();
                     setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
+                    InfoPane();
                     break;
                 default: triggerFight(monster, r, c); break;
             }
@@ -486,6 +494,7 @@ namespace DungeonCrawler
                     damage = hero.WeaponBehaviour.useWeapon();
                     monster.HealthBehaviour.subHealth(damage);
                     Console.ReadLine();
+                    hero.HealthBehaviour.subHealth(damage);
                     break;
                 case ConsoleKey.D2:
                     int blockedDamage;
@@ -495,14 +504,18 @@ namespace DungeonCrawler
                     Console.ReadLine();
                     blockedAmount = monster.WeaponBehaviour.damage() / 2;
                     blockedDamage = monster.WeaponBehaviour.damage() - (blockedAmount);
-                    prog.WriteTextBox("Damage Taken: " + blockedDamage + Environment.NewLine + "Damage Blocked: " + blockedAmount);
+                    hero.HealthBehaviour.subHealth(blockedDamage);
+                    prog.WriteTextBox("Damage Blocked: " + blockedAmount);
 
                     Console.ReadLine();
                     break;
                 case ConsoleKey.D3:
                     prog.WriteTextBox("You use a health potion!" +
                             Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    hero.HealthBehaviour.addHealth(rand.Next(3, 8));
                     Console.ReadLine();
+                    hero.HealthBehaviour.subHealth(monster.WeaponBehaviour.useWeapon());
+
                     break;
                 case ConsoleKey.D4:
                     if (monster.HealthBehaviour.getFlee())
