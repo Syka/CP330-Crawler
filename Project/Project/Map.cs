@@ -456,6 +456,7 @@ namespace DungeonCrawler
                         {
                             events[r, c] = bossDef;
                         }
+                        prog.MonsterHealthBox(monster.HealthBehaviour.getName() + " Health: " + monster.HealthBehaviour.getHealth());
                         prog.WriteTextBox("You have defeated the " + monster.HealthBehaviour.getName() + "!" +
                         Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                         Console.ReadLine();
