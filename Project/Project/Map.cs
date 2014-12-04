@@ -437,6 +437,7 @@ namespace DungeonCrawler
                     while (monster.HealthBehaviour.getHealth() > 0 && hero.HealthBehaviour.getHealth() > 0)
                     {
 
+                        prog.MonsterHealthBox(monster.HealthBehaviour.getName() + " Health: " + monster.HealthBehaviour.getHealth());
 
                         fightMenu(monster, r, c);
                         if (fleed)
