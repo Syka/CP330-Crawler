@@ -22,7 +22,7 @@ namespace DungeonCrawler
         public Ogre()
         {
             HealthBehaviour = new HighHealth();
-            monsterName = HealthBehaviour.name("Ogre");
+            monsterName = HealthBehaviour.name("Dungeon Ogre");
             ranWep = rngWep.Next(0, 8);
             if (ranWep==0)
             { WeaponBehaviour = new Sword(); }
@@ -40,7 +40,6 @@ namespace DungeonCrawler
             { WeaponBehaviour = new Caestus();}
             else if (ranWep == 7)
             { WeaponBehaviour = new Quarterstaff(); }
-                
         }
     }
     public class Troll : Monsters
