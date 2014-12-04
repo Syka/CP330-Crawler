@@ -428,6 +428,7 @@ namespace DungeonCrawler
         public void triggerFight(Monsters monster, int r, int c)
         {
             prog.WriteTextBox("You have encountered a " + monster.HealthBehaviour.getName() + " armed with a " + monster.WeaponBehaviour.getName() + ". Will you fight?? (Y/N)");
+            MonsterPane(monster);
             input = Console.ReadKey();
             switch (input.Key)
             {
@@ -444,6 +445,12 @@ namespace DungeonCrawler
                             break;
                         }
 
+                    }
+                    if (fleed)
+                    {
+                        setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
+                        InfoPane();
+                        break;
                     }
                     if (monster.HealthBehaviour.getHealth() < 1)
                     {
@@ -462,7 +469,6 @@ namespace DungeonCrawler
                         Console.ReadLine();
                         setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
                     }
-
                     InfoPane();
                     break;
                 case ConsoleKey.N:
@@ -470,6 +476,7 @@ namespace DungeonCrawler
                         Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                     Console.ReadLine();
                     setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
+                    InfoPane();
                     break;
                 default: triggerFight(monster, r, c); break;
             }
