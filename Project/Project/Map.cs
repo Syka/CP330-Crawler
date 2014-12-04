@@ -425,13 +425,14 @@ namespace DungeonCrawler
                 case ConsoleKey.Y:
                     fleed = false;
                     while (monster.HealthBehaviour.getHealth() > 0 || hero.HealthBehaviour.getHealth() > 0)
-                    {   
+                    {
+                        fightMenu(monster, r, c);
                         if (fleed)
                         {
                             break;
                         }
 
-                        fightMenu(monster,r, c);
+                        
                     }
 
                     if (events[r, c].Equals(enemy))
