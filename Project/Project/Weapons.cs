@@ -171,7 +171,7 @@ namespace DungeonCrawler
         public int useWeapon()
         {
             ///Random Generator for Sword
-            if (random.Next(0, 2) == 0)
+            if (random.Next(0, 4) == 0)
             {
                 int dmg = random.Next(1, damage()) + 1;
                 prog.WriteTextBox("You slap with your " + getName() + "! {" + dmg + " DMG}" +
