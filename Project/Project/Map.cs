@@ -414,7 +414,7 @@ namespace DungeonCrawler
         }
         public void triggerFight(Monsters monster, int r, int c)
         {
-            prog.WriteTextBox("You have encountered a " + monster.HealthBehaviour.getName() + " armed with a " + monster.WeaponBehaviour.name() + ". Will you fight?? (Y/N)");
+            prog.WriteTextBox("You have encountered a " + monster.HealthBehaviour.getName() + " armed with a " + monster.WeaponBehaviour.getName() + ". Will you fight?? (Y/N)");
             input = Console.ReadKey();
             switch(input.Key)
             {
@@ -461,8 +461,7 @@ namespace DungeonCrawler
             switch(input.Key)
             {
                 case ConsoleKey.D1:
-                    prog.WriteTextBox("You swing your " + hero.WeaponBehaviour.name() + " at the " + monster.HealthBehaviour.getName() + "!" + 
-                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    hero.WeaponBehaviour.useWeapon();
                     Console.ReadLine();
                     fightMenu(monster, r, c);
                     break;
@@ -546,7 +545,7 @@ namespace DungeonCrawler
             Console.SetCursorPosition(59, 7);
             Console.WriteLine("Health: {0}", hero.HealthBehaviour.getHealth());
             Console.SetCursorPosition(59, 8);
-            Console.WriteLine("Current Weapon: {0}", hero.WeaponBehaviour.name().ToUpper());
+            Console.WriteLine("Current Weapon: {0}", hero.WeaponBehaviour.getName().ToUpper());
             Console.SetCursorPosition(59, 9);
             Console.WriteLine("Current Damage: {0}", hero.WeaponBehaviour.damage());
         }
@@ -615,7 +614,7 @@ namespace DungeonCrawler
                     weaponSelect();
                     break;
             }
-            prog.WriteTextBox("You have selected: " + hero.WeaponBehaviour.name().ToUpper());
+            prog.WriteTextBox("You have selected: " + hero.WeaponBehaviour.getName().ToUpper());
         }
 #endregion
     }
