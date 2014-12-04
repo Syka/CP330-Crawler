@@ -36,6 +36,9 @@ namespace DungeonCrawler
             reveal(pRow, pCol);             ///reveals the map around the player in a 1-block radius
             weaponSelect();
             InfoPane();                     ///sets info pane to display player information
+            prog.GameInfoBox("[F]: Fountains which replenish health");  ///shows gameinfo
+            prog.GameInfoBox2("[E]: Enemies of varying strength");      ///shows more gameinfo
+            prog.GameInfoBox3("[B]: Boss, Try to run.");                ///shows even more gameinfo
             refresh();                      ///displays arrays to reflect the player's current progress
         }
         public void setPlayer(int r, int c)
