@@ -438,8 +438,9 @@ namespace DungeonCrawler
                     while (monster.HealthBehaviour.getHealth() > 0 && hero.HealthBehaviour.getHealth() > 0)
                     {
 
-                        MonsterPane(monster);
                         InfoPane();
+                        MonsterPane(monster);
+                        
                         fightMenu(monster, r, c);
                         if (fleed)
                         {
