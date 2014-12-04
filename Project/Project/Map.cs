@@ -583,6 +583,30 @@ namespace DungeonCrawler
                 case ConsoleKey.D8:
                     hero.WeaponBehaviour = new Quarterstaff();
                     break;
+                case ConsoleKey.NumPad1:
+                    hero.WeaponBehaviour = new Sword();
+                    break;
+                case ConsoleKey.NumPad2:
+                    hero.WeaponBehaviour = new Axe();
+                    break;
+                case ConsoleKey.NumPad3:
+                    hero.WeaponBehaviour = new Knife();
+                    break;
+                case ConsoleKey.NumPad4:
+                    hero.WeaponBehaviour = new Mace();
+                    break;
+                case ConsoleKey.NumPad5:
+                    hero.WeaponBehaviour = new Fish();
+                    break;
+                case ConsoleKey.NumPad6:
+                    hero.WeaponBehaviour = new Bowstaff();
+                    break;
+                case ConsoleKey.NumPad7:
+                    hero.WeaponBehaviour = new Caestus();
+                    break;
+                case ConsoleKey.NumPad8:
+                    hero.WeaponBehaviour = new Quarterstaff();
+                    break;
                 default:
                     weaponSelect();
                     break;
