@@ -493,6 +493,7 @@ namespace DungeonCrawler
                     damage = hero.WeaponBehaviour.useWeapon();
                     monster.HealthBehaviour.subHealth(damage);
                     Console.ReadLine();
+                    hero.HealthBehaviour.subHealth(damage);
                     break;
                 case ConsoleKey.D2:
                     int blockedDamage;
@@ -502,14 +503,18 @@ namespace DungeonCrawler
                     Console.ReadLine();
                     blockedAmount = monster.WeaponBehaviour.damage() / 2;
                     blockedDamage = monster.WeaponBehaviour.damage() - (blockedAmount);
-                    prog.WriteTextBox("Damage Taken: " + blockedDamage + Environment.NewLine + "Damage Blocked: " + blockedAmount);
+                    hero.HealthBehaviour.subHealth(blockedDamage);
+                    prog.WriteTextBox("Damage Blocked: " + blockedAmount);
 
                     Console.ReadLine();
                     break;
                 case ConsoleKey.D3:
                     prog.WriteTextBox("You use a health potion!" +
                             Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                    hero.HealthBehaviour.addHealth(rand.Next(3, 8));
                     Console.ReadLine();
+                    hero.HealthBehaviour.subHealth(monster.WeaponBehaviour.useWeapon());
+
                     break;
                 case ConsoleKey.D4:
                     if (monster.HealthBehaviour.getFlee())
