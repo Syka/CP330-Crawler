@@ -14,8 +14,10 @@ namespace DungeonCrawler
     {
         public void Died()
         {
+            Program prog = new Program();
+            prog.ClearTextbox();
             ClearMapBox();
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.SetCursorPosition(7, 20);
             
             Console.WriteLine("  _____                 ____      ");
@@ -26,15 +28,17 @@ namespace DungeonCrawler
             Console.SetCursorPosition(7, 23);
             Console.WriteLine("\\___/\\_,_/_/_/_/\\__/  \\____/|___/\\__/_/  ");
             Console.SetCursorPosition(7, 24);
-            Console.Write(Environment.NewLine+"           Would You Like to Continue?(Y/N)");
-            Console.BackgroundColor = ConsoleColor.Cyan;
+            Console.Write(Environment.NewLine+"                 Better luck next time!");
 
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Death.wav");
             player.Play();
-
+            Console.ReadLine();
+            Environment.Exit(1);
         }
         public void Victory()
         {
+            Program prog = new Program();
+            prog.ClearTextbox();
             ClearMapBox();
             Console.SetCursorPosition(3, 20);
             Console.WriteLine("            _        _                       ");
@@ -50,9 +54,11 @@ namespace DungeonCrawler
             Console.WriteLine("                                       |___/ ");
             Console.SetCursorPosition(3, 26);
 
-            Console.Write(Environment.NewLine + "           Would You Like to Continue?(Y/N)");
+            Console.Write(Environment.NewLine + "         YOU ARE WINNER! CONGRATULATIONS!");
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/VictoryFanfare.wav");
             player.Play();
+            Console.ReadLine();
+            Environment.Exit(1);
         }
         public void ClearMapBox()
         {

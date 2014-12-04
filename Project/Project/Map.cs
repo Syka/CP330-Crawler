@@ -36,9 +36,6 @@ namespace DungeonCrawler
             reveal(pRow, pCol);             ///reveals the map around the player in a 1-block radius
             weaponSelect();
             InfoPane();                     ///sets info pane to display player information
-            prog.GameInfoBox("[F]: Fountains which replenish health");  ///shows gameinfo
-            prog.GameInfoBox2("[E]: Enemies of varying strength");      ///shows more gameinfo
-            prog.GameInfoBox3("[B]: Boss, Try to run.");                ///shows even more gameinfo
             refresh();                      ///displays arrays to reflect the player's current progress
         }
         public void setPlayer(int r, int c)
@@ -283,7 +280,7 @@ namespace DungeonCrawler
                         GameOver end = new GameOver();
                         gameOver = true;
                         end.Victory();
-                        continueDialog();
+                        //continueDialog();
                     }
                     break;
                 case ConsoleKey.N:
@@ -307,27 +304,28 @@ namespace DungeonCrawler
             else if (rand.Next(0, 6) == 2) { return "funnybone"; }
             else if (rand.Next(0, 6) == 3) { return "knee"; }
             else if (rand.Next(0, 6) == 4) { return "shin"; }
-            else { return "head"; }
+            else                           { return "head"; }
         }
-        public void continueDialog()
-        {
-            prog.ClearTextbox();
-            input = Console.ReadKey();
-            switch (input.Key)
-            {
-                case ConsoleKey.Y:
-                    resetLevels();
-                    end.ClearMapBox();
-                    Map map = new Map();
-                    break;
-                case ConsoleKey.N:
-                    Environment.Exit(1);
-                    break;
-                default:
-                    continueDialog();
-                    break;
-            }
-        }
+        //public void continueDialog()
+        //{
+        //    prog.ClearTextbox();
+        //    input = Console.ReadKey();
+        //    switch (input.Key)
+        //    {
+        //        case ConsoleKey.Y:
+        //            resetLevels();
+        //            end.ClearMapBox();
+        //            hero = new Player();
+        //            Map map = new Map();
+        //            break;
+        //        case ConsoleKey.N:
+        //            Environment.Exit(1);
+        //            break;
+        //        default:
+        //            continueDialog();
+        //            break;
+        //    }
+        //}
         public void resetLevels()
         {   ///Resets player progress
             onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; gameOver = false;
@@ -583,7 +581,7 @@ namespace DungeonCrawler
                 GameOver end = new GameOver();
                 gameOver = true;
                 end.Died();
-                continueDialog();
+                //continueDialog();
             }
             Console.SetCursorPosition(59, 7);
             Console.WriteLine("Health: {0}", hero.HealthBehaviour.getHealth());
