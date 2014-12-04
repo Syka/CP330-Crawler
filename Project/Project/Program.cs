@@ -68,5 +68,83 @@ namespace DungeonCrawler
             Console.WriteLine(newSentence.ToString());
             Console.SetCursorPosition(7, 59);
         }
+        public void MonsterHealthBox(string value)
+        {
+            Console.SetCursorPosition(59, 12);
+            int myLimit = 51;
+            string sentence = value;
+            string[] words = sentence.Split(' ');
+
+            StringBuilder newSentence = new StringBuilder();
+
+            string line = "";
+            foreach (string word in words)
+            {
+                if ((line + word).Length > myLimit)
+                {
+                    newSentence.AppendLine(line);
+                    line = "";
+                }
+
+                line += string.Format("{0} ", word);
+            }
+
+            if (line.Length > 0)
+                newSentence.AppendLine(line);
+            Console.WriteLine(newSentence.ToString());
+            Console.SetCursorPosition(7, 59);
+        }
+        public void MonsterWeaponBox(string value)
+        {
+            Console.SetCursorPosition(59, 13);
+            int myLimit = 51;
+            string sentence = value;
+            string[] words = sentence.Split(' ');
+
+            StringBuilder newSentence = new StringBuilder();
+
+            string line = "";
+            foreach (string word in words)
+            {
+                if ((line + word).Length > myLimit)
+                {
+                    newSentence.AppendLine(line);
+                    line = "";
+                }
+
+                line += string.Format("{0} ", word);
+            }
+
+            if (line.Length > 0)
+                newSentence.AppendLine(line);
+            Console.WriteLine(newSentence.ToString());
+            Console.SetCursorPosition(7, 59);
+        }
+        public void MonsterNameBox(string value)
+        {
+            Console.SetCursorPosition(59, 11);
+            int myLimit = 51;
+            string sentence = value;
+            string[] words = sentence.Split(' ');
+
+            StringBuilder newSentence = new StringBuilder();
+
+            string line = "";
+            foreach (string word in words)
+            {
+                if ((line + word).Length > myLimit)
+                {
+                    newSentence.AppendLine(line);
+                    line = "";
+                }
+
+                line += string.Format("{0} ", word);
+            }
+
+            if (line.Length > 0)
+                newSentence.AppendLine(line);
+            Console.WriteLine(newSentence.ToString());
+            Console.SetCursorPosition(7, 59);
+        }
     }
 }
