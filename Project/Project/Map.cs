@@ -439,6 +439,7 @@ namespace DungeonCrawler
                     {
 
                         MonsterPane(monster);
+                        InfoPane();
                         fightMenu(monster, r, c);
                         if (fleed)
                         {
