@@ -495,7 +495,7 @@ namespace DungeonCrawler
                     damage = hero.WeaponBehaviour.useWeapon();
                     monster.HealthBehaviour.subHealth(damage);
                     Console.ReadLine();
-                    hero.HealthBehaviour.subHealth(damage);
+                    hero.HealthBehaviour.subHealth(monster.WeaponBehaviour.useWeapon());
                     break;
                 case ConsoleKey.D2:
                     int blockedDamage;
