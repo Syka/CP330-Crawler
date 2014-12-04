@@ -226,17 +226,24 @@ namespace DungeonCrawler
                 case ConsoleKey.Y:              
                     if (onLvl_1)
                     {
-                        if (checkBoss(16, 7))
+                        if (checkBoss(16, 8))
+                        {
+                            prog.WriteTextBox("You continue deeper into the dungeon." +
+                                Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                            Console.ReadLine();
                             setLvl(2);
+                        }
                         else
-                            prog.WriteTextBox("You have not defeated the Boss yet.");
+                            prog.WriteTextBox("You have not defeated the Boss yet." +
+                                Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                     }
                     else if (onLvl_2)
                     {
                         if (checkBoss(3, 1))
                             setLvl(3);
                         else
-                            prog.WriteTextBox("You have not defeated the Boss yet.");
+                            prog.WriteTextBox("You have not defeated the Boss yet." +
+                                Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                     }
                     else if (onLvl_3)
                     {
@@ -245,7 +252,7 @@ namespace DungeonCrawler
                     }
                     break;
                 case ConsoleKey.N: 
-                    prog.WriteTextBox("You ignore your curiosity and move on." + 
+                    prog.WriteTextBox("You decide to explore the dungeon." + 
                         Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                     Console.ReadLine();
                     setPlayer(_pRow, _pCol); postEvent(r, c);
