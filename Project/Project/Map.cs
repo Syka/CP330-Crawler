@@ -549,12 +549,14 @@ namespace DungeonCrawler
             switch (input.Key)
             {                                       ///Takes values of inputs for what to apply for the combat, applies the action
                 case ConsoleKey.D1:
-                    int damage;                     ///Hero gives damage to monster, hero recieves damage from monster.
-                    damage = hero.WeaponBehaviour.useWeapon();
+                    ///Hero gives damage to monster, hero recieves damage from monster.
+                    int damage = hero.WeaponBehaviour.useWeapon();
+                    int monsterDamage = monster.WeaponBehaviour.useWeapon();
                     monster.HealthBehaviour.subHealth(damage);
                     Console.ReadLine();
                     //enemy attacks
-                    hero.HealthBehaviour.subHealth(monster.WeaponBehaviour.useWeapon());
+                    hero.HealthBehaviour.subHealth(monsterDamage);
+                    prog.WriteTextBox("The " + monster.WeaponBehaviour.getName() + " for " + monsterDamage);
                     break;
                 case ConsoleKey.D2:         
                     int blockedDamage;              ///Hero blocks 50% of the monsters damage.
@@ -566,12 +568,13 @@ namespace DungeonCrawler
                     blockedDamage = monster.WeaponBehaviour.damage() - (blockedAmount);
                     //enemy attacks
                     hero.HealthBehaviour.subHealth(blockedDamage);
-                    prog.WriteTextBox("Damage Blocked: " + blockedAmount);
+                    prog.WriteTextBox("The "+ monster.WeaponBehaviour.getName() +"attacked, you blocked " + blockedAmount +"damage.");
                     Console.ReadLine();
                     break;
                 case ConsoleKey.D3:                 ///Hero restores some HP, hero recieves damage from monster.
                     if (numFount != 0)
                     {
+                        int monsterDamage2 = monster.WeaponBehaviour.useWeapon();
                         numFount--;
                         prog.WriteTextBox("You use a health potion. (+15 HP)" +
                             Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
@@ -580,6 +583,7 @@ namespace DungeonCrawler
                         Console.ReadLine();
                         //enemy attacks
                         hero.HealthBehaviour.subHealth(monster.WeaponBehaviour.useWeapon());
+                        prog.WriteTextBox("The " + monster.WeaponBehaviour.getName() + " for " + monsterDamage2);
                     }
                     else
                     {
