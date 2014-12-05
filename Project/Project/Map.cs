@@ -666,7 +666,7 @@ namespace DungeonCrawler
         public void weaponSelect()
         {
             ///Select weapon 
-            prog.WriteTextBox(" Please Select a Weapon: \n 1-Sword \n 2-Axe \n 3-Knife 4-Mace \n 5-Fish \n 6-Bowstaff \n 7-Caestus 8-Quarterstaff");
+            prog.WriteTextBox(" Please Select a Weapon: \n 1-Sword \n 2-Axe \n 3-Knife \n 4-Mace \n 5-Fish \n 6-Bowstaff \n 7-Caestus \n 8-Quarterstaff");
 
             ///Takes key input and assigns to weapon
             input = Console.ReadKey();

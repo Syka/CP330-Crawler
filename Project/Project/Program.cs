@@ -19,7 +19,7 @@ namespace DungeonCrawler
             player.Play();
 
             ///Waiting to start game
-            prog.WriteTextBox("Press Any Key To Start");
+            prog.WriteTextBox("Press Any Key To Start Press Any Key To Start Press Any Key To Start Press Any Key To Start");
             Console.ReadKey();
 
             ///Starts the map
@@ -43,29 +43,40 @@ namespace DungeonCrawler
         }
         public void WriteTextBox(string value)
         {
-            ClearTextbox();
-            Console.SetCursorPosition(0, 41);
-            int myLimit = 54;
+            StringBuilder newSentence = new StringBuilder();
+            ClearTextbox(); ///Clears the area
+            Console.SetCursorPosition(0, 41);///Sets the Cursor to the Top of the TextBox
+            int MaxLength = 47; ///Horizontal Width of the Textbox
             string sentence = value;
             string[] words = sentence.Split(' ');
-
-            StringBuilder newSentence = new StringBuilder();
-
             string line = "";
+
             foreach (string word in words)
             {
-                if ((line + word).Length > myLimit)
+                //if ((line + word).Length > myLimit)
+                //{
+                //    newSentence.AppendLine(line);
+                //    line = " ";
+                //}               
+                if(Console.CursorLeft >= MaxLength)
                 {
-                    newSentence.AppendLine(line);
-                    line = " ";
+                    Console.WriteLine();
+                    Console.Write(" ");
                 }
-
-                line += string.Format("{0} ", word);
+                foreach(char c in word)
+                {
+                    System.Threading.Thread.Sleep(25);
+                    line += c;                    
+                    Console.Write(c);
+                }
+                //line += string.Format(" ");
+                //line += string.Format("{0} ", word);
+                Console.Write(" ");
             }
 
             if (line.Length > 0)
                 newSentence.AppendLine(line);
-            Console.WriteLine(newSentence.ToString());
+            //Console.WriteLine(newSentence.ToString());
             Console.SetCursorPosition(7, 59);
         }
         public void MonsterHealthBox(string value)
