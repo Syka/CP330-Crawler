@@ -298,38 +298,12 @@ namespace DungeonCrawler
             { WeaponBehaviour = new Quarterstaff(); }
         }
     }
-    public class Swamphag : Monsters
+    public class Demon : Monsters
     {
-        ///Swamphag's Specific traits    -- Boss
-        public Swamphag()
+        public Demon()
         {
             HealthBehaviour = new HighHealth();
-            HealthBehaviour.setName("Swamghag");
-            HealthBehaviour.setHealth();
-            HealthBehaviour.setFlee(false);
-            ranWep = rngWep.Next(0, 500);
-            if (ranWep >= 0 && ranWep < 100)
-            { WeaponBehaviour = new Sword(); }
-            else if (ranWep >= 100 && ranWep < 150)
-            { WeaponBehaviour = new Axe(); }
-            else if (ranWep >= 150 && ranWep < 175)
-            { WeaponBehaviour = new Knife(); }
-            else if (ranWep >= 175 && ranWep < 300)
-            { WeaponBehaviour = new Mace(); }
-            else if (ranWep >= 300 && ranWep < 430)
-            { WeaponBehaviour = new Bowstaff(); }
-            else if (ranWep >= 430 && ranWep < 431)
-            { WeaponBehaviour = new Caestus(); }
-            else if (ranWep >= 431 && ranWep <= 499)
-            { WeaponBehaviour = new Quarterstaff(); }
-        }
-    }
-    public class UndeadKing : Monsters
-    {
-        public UndeadKing()
-        {
-            HealthBehaviour = new HighHealth();
-            HealthBehaviour.setName("Undead King");
+            HealthBehaviour.setName("Demon");
             HealthBehaviour.setHealth();
             HealthBehaviour.setFlee(false);
             ranWep = rngWep.Next(0, 500);
@@ -402,12 +376,12 @@ namespace DungeonCrawler
         }
 
     }
-    public class OgreKing : Monsters
+    public class BloodOgre : Monsters
     {
-        OgreKing()
+        BloodOgre()
         {
             HealthBehaviour = new HighHealth();
-            HealthBehaviour.setName("Ogre King");
+            HealthBehaviour.setName("Blood Ogre");
             HealthBehaviour.setHealth();
             HealthBehaviour.setFlee(false);
             ranWep = rngWep.Next(0, 500);
