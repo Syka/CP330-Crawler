@@ -101,7 +101,7 @@ namespace DungeonCrawler
             ///Random Generator for Sword
             if (random.Next(0, 4) != 0) //Sword has a 75% chance of hitting, with a 25% chance of missing
             {
-                int dmg = random.Next(1, damage()) + 1;
+                int dmg = random.Next(6, damage()) + 1;
                 return dmg;
             }
             else
@@ -317,7 +317,7 @@ namespace DungeonCrawler
             ///Random Generator for Sword
             if (random.Next(0, 4) != 0) //Sword has a 75% chance of hitting, with a 25% chance of missing
             {
-                int dmg = random.Next(1, damage()) + 1;
+                int dmg = random.Next(4, damage()) + 1;
                 return dmg;
             }
             else
@@ -425,7 +425,7 @@ namespace DungeonCrawler
             ///Random Generator for Sword
             if (random.Next(0, 4) != 0) //Sword has a 75% chance of hitting, with a 25% chance of missing
             {
-                int dmg = random.Next(1, damage()) + 1;
+                int dmg = random.Next(5, damage()) + 1;
                 return dmg;
             }
             else
