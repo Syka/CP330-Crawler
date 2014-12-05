@@ -16,9 +16,11 @@ namespace DungeonCrawler
         public int ranWep;
         public Monsters(){}
     }
+    /// <summary>
+    /// High toughness
+    /// </summary>
     public class Ogre : Monsters
     {
-        ///Ogre's Specific traits
         public Ogre()
         {
             HealthBehaviour = new HighHealth();
@@ -44,9 +46,65 @@ namespace DungeonCrawler
             { WeaponBehaviour = new Quarterstaff(); }
         }
     }
+    public class Mercenary : Monsters
+    {
+        public Mercenary()
+        {
+            HealthBehaviour = new HighHealth();
+            HealthBehaviour.setName("Mercenary");
+            HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(true);
+            ranWep = rngWep.Next(0, 8);
+            if (ranWep == 0)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep == 1)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep == 2)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep == 3)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep == 4)
+            { WeaponBehaviour = new Fish(); }
+            else if (ranWep == 5)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep == 6)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep == 7)
+            { WeaponBehaviour = new Quarterstaff(); }
+        }
+    }
+    public class Wraith : Monsters
+    {
+        public Wraith()
+        {
+            HealthBehaviour = new HighHealth();
+            HealthBehaviour.setName("Wraith");
+            HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(true);
+            ranWep = rngWep.Next(0, 8);
+            if (ranWep == 0)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep == 1)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep == 2)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep == 3)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep == 4)
+            { WeaponBehaviour = new Fish(); }
+            else if (ranWep == 5)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep == 6)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep == 7)
+            { WeaponBehaviour = new Quarterstaff(); }
+        }
+    }
+    /// <summary>
+    /// Medium toughness 
+    /// </summary>
     public class Troll : Monsters
     {
-        ///Troll's Specific traits
         public Troll()
         {
             HealthBehaviour = new MedHealth();
@@ -72,9 +130,65 @@ namespace DungeonCrawler
             { WeaponBehaviour = new Quarterstaff(); }
         }
     }
+    public class Skeleton : Monsters
+    {
+        public Skeleton()
+        {
+            HealthBehaviour = new MedHealth();
+            HealthBehaviour.setName("Skeleton");
+            HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(true);
+            ranWep = rngWep.Next(0, 8);
+            if (ranWep == 0)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep == 1)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep == 2)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep == 3)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep == 4)
+            { WeaponBehaviour = new Fish(); }
+            else if (ranWep == 5)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep == 6)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep == 7)
+            { WeaponBehaviour = new Quarterstaff(); }
+        }
+    }
+    public class Bandit : Monsters
+    {
+        public Bandit()
+        {
+            HealthBehaviour = new MedHealth();
+            HealthBehaviour.setName("Bandit");
+            HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(true);
+            ranWep = rngWep.Next(0, 8);
+            if (ranWep == 0)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep == 1)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep == 2)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep == 3)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep == 4)
+            { WeaponBehaviour = new Fish(); }
+            else if (ranWep == 5)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep == 6)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep == 7)
+            { WeaponBehaviour = new Quarterstaff(); }
+        }
+    }
+    /// <summary>
+    /// Low toughness
+    /// </summary>
     public class Spirit : Monsters
     {
-        ///Spirit's Specific traits
         public Spirit()
         {
             HealthBehaviour = new LowHealth();
@@ -100,9 +214,65 @@ namespace DungeonCrawler
             { WeaponBehaviour = new Quarterstaff(); }
         }
     }
+    public class Goblin : Monsters
+    {
+        public Goblin()
+        {
+            HealthBehaviour = new LowHealth();
+            HealthBehaviour.setName("Goblin");
+            HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(true);
+            ranWep = rngWep.Next(0, 8);
+            if (ranWep == 0)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep == 1)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep == 2)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep == 3)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep == 4)
+            { WeaponBehaviour = new Fish(); }
+            else if (ranWep == 5)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep == 6)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep == 7)
+            { WeaponBehaviour = new Quarterstaff(); }
+        }
+    }
+    public class Zombie : Monsters
+    {
+        public Zombie()
+        {
+            HealthBehaviour = new LowHealth();
+            HealthBehaviour.setName("Zombie");
+            HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(true);
+            ranWep = rngWep.Next(0, 8);
+            if (ranWep == 0)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep == 1)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep == 2)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep == 3)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep == 4)
+            { WeaponBehaviour = new Fish(); }
+            else if (ranWep == 5)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep == 6)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep == 7)
+            { WeaponBehaviour = new Quarterstaff(); }
+        }
+    }
+    /// <summary>
+    /// Bosses differ from regular monsters as they cannot be fled from
+    /// </summary>
     public class Swamphag : Monsters 
     {
-        ///Swamphag's Specific traits    -- Boss
         public Swamphag()
         {
             HealthBehaviour = new HighHealth();
