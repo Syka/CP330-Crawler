@@ -184,10 +184,11 @@ namespace DungeonCrawler
                     case " {T} ":
                         mask[r, c] = onTrap;
                         refresh();
-                        prog.WriteTextBox("You fall in a trapdoor and hurt your " + randomInjury() + "! (-2 HP)" +
+                        int trapDmg = rand.Next(4, 11);
+                        prog.WriteTextBox("You fall in a trapdoor and hurt your " + randomInjury() + "! (-" + trapDmg + "DMG)" +
                             Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                         Console.ReadLine();
-                        hero.HealthBehaviour.subHealth(2);
+                        hero.HealthBehaviour.subHealth(trapDmg);
                         InfoPane();
                         events[r, c] = trapDef; setPlayer(_pRow, _pCol);
                         postEvent(r, c);
