@@ -15,11 +15,9 @@ namespace DungeonCrawler
             Program prog = new Program();
             Intro Start = new Intro();
             Start.ScreenRender();
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Music.wav");
-            player.Play();
 
             ///Waiting to start game
-            prog.WriteTextBox("Press Any Key To Start Press Any Key To Start Press Any Key To Start Press Any Key To Start");
+            prog.WriteTextBox("Press Any Key To Start");
             Console.ReadKey();
 
             ///Starts the map

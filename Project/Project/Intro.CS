@@ -14,6 +14,8 @@ namespace DungeonCrawler
             ///Header starts at 0,0
             ///Header ends at 7,97
             Console.SetWindowSize(97, 60);
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Music.wav");
+            player.Play();
             ///Width 95, Height 60
             ///59 is the max lines up/down 
             Console.ForegroundColor = ConsoleColor.Cyan;
