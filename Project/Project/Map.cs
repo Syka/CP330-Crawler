@@ -16,7 +16,7 @@ namespace DungeonCrawler
         #region David's code
         ConsoleKeyInfo input;
         static string[,] mask, events, unknown;
-        static int pRow = 0, pCol = 0, _pRow, _pCol;
+        static int pRow = 0, pCol = 0, _pRow, _pCol, numFount = 5;
         static bool onLvl_1 = true, onLvl_2 = false, onLvl_3 = false, fleed = false, gameOver = false;
         static string player = " YOU ", unexplored = " [ ] ", explored = "     ", bound = "▓▓▓▓▓",
                             enemy = " {E} ", onEnemy = "{ E }", enemyDef = "-{E}-", onEnemyDef = "{-E-}",
@@ -200,8 +200,11 @@ namespace DungeonCrawler
                         mask[r, c] = onFount;
                         refresh();
                         int fount = rand.Next(3, 8);
-                        prog.WriteTextBox("You drink the fountain's water, which has luckily been filtered. (+" + fount + " HP)" +
+                        int randFount = rand.Next(1, 5);
+                        numFount += randFount;
+                        prog.WriteTextBox("You drink the fountain's water, and store enough water to flll " + randFount + " flasks! (+" + fount + " HP)" +
                             Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                        
                         Console.ReadLine();
                         hero.HealthBehaviour.addHealth(fount);
                         InfoPane();
@@ -345,7 +348,7 @@ namespace DungeonCrawler
             put(4, 0, bound); put(4, 1, bound); put(4, 2, enemy); put(4, 3, bound); put(4, 4, bound); put(4, 5, unexplored); put(4, 6, unexplored); put(4, 7, bound); put(4, 8, bound); put(4, 9, unexplored); put(4, 10, bound);
             put(5, 0, trapdoor); put(5, 1, bound); put(5, 2, unexplored); put(5, 3, bound); put(5, 4, unexplored); put(5, 5, unexplored); put(5, 6, unexplored); put(5, 7, bound); put(5, 8, unexplored); put(5, 9, unexplored); put(5, 10, bound);
             put(6, 0, unexplored); put(6, 1, bound); put(6, 2, unexplored); put(6, 3, unexplored); put(6, 4, unexplored); put(6, 5, bound); put(6, 6, bound); put(6, 7, bound); put(0, 8, unexplored); put(6, 9, unexplored); put(6, 10, fountain);
-            put(7, 0, enemy); put(7, 1, unexplored); put(7, 2, unexplored); put(7, 3, bound); put(7, 4, unexplored); put(7, 5, bound); put(7, 6, fountain); put(7, 7, bound); put(7, 8, enemy); put(7, 9, bound); put(7, 10, bound);
+            put(7, 0, enemy); put(7, 1, unexplored); put(7, 2, unexplored); put(7, 3, bound); put(7, 4, unexplored); put(7, 5, bound); put(7, 6, fountain); put(7, 7, unexplored); put(7, 8, enemy); put(7, 9, bound); put(7, 10, bound);
             put(8, 0, unexplored); put(8, 1, bound); put(8, 2, unexplored); put(8, 3, bound); put(8, 4, unexplored); put(8, 5, bound); put(8, 6, bound); put(8, 7, bound); put(8, 8, unexplored); put(8, 9, bound); put(8, 10, bound);
             put(9, 0, fountain); put(9, 1, bound); put(9, 2, unexplored); put(9, 3, bound); put(9, 4, unexplored); put(9, 5, unexplored); put(9, 6, unexplored); put(9, 7, unexplored); put(9, 8, unexplored); put(9, 9, unexplored); put(9, 10, unexplored);
             put(10, 0, bound); put(10, 1, bound); put(10, 2, unexplored); put(10, 3, bound); put(10, 4, bound); put(10, 5, unexplored); put(10, 6, bound); put(10, 7, bound); put(10, 8, bound); put(10, 9, bound); put(10, 10, trapdoor);
@@ -474,7 +477,7 @@ namespace DungeonCrawler
                     }
                     InfoPane();
                     break;
-                case ConsoleKey.N:      ///resets character position and leaves the monster avle to be fought.
+                case ConsoleKey.N:      ///resets character position and leaves the monster able to be fought.
                     prog.WriteTextBox("You decide to fight the " + monster.HealthBehaviour.getName() + " later..." +
                         Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                     Console.ReadLine();
@@ -496,6 +499,7 @@ namespace DungeonCrawler
                     damage = hero.WeaponBehaviour.useWeapon();
                     monster.HealthBehaviour.subHealth(damage);
                     Console.ReadLine();
+                    //enemy attacks
                     hero.HealthBehaviour.subHealth(monster.WeaponBehaviour.useWeapon());
                     break;
                 case ConsoleKey.D2:         
@@ -506,18 +510,29 @@ namespace DungeonCrawler
                     Console.ReadLine();
                     blockedAmount = monster.WeaponBehaviour.damage() / 2;
                     blockedDamage = monster.WeaponBehaviour.damage() - (blockedAmount);
+                    //enemy attacks
                     hero.HealthBehaviour.subHealth(blockedDamage);
                     prog.WriteTextBox("Damage Blocked: " + blockedAmount);
-
                     Console.ReadLine();
                     break;
                 case ConsoleKey.D3:                 ///Hero restores some HP, hero recieves damage from monster.
-                    prog.WriteTextBox("You use a health potion!" +
+                    if (numFount != 0)
+                    {
+                        numFount--;
+                        prog.WriteTextBox("You use a health potion. (+15 HP)" +
                             Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
-                    hero.HealthBehaviour.addHealth(rand.Next(3, 8));
-                    Console.ReadLine();
-                    hero.HealthBehaviour.subHealth(monster.WeaponBehaviour.useWeapon());
-
+                        hero.HealthBehaviour.addHealth(15);
+                        InfoPane();
+                        Console.ReadLine();
+                        //enemy attacks
+                        hero.HealthBehaviour.subHealth(monster.WeaponBehaviour.useWeapon());
+                    }
+                    else
+                    {
+                        prog.WriteTextBox("You do not have any potions left!" +
+                            Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
+                        Console.ReadLine();
+                    }
                     break;  
                 case ConsoleKey.D4:                 ///hero attempts to flee, if flee = false, cannot flee, restarts choice.
                     if (monster.HealthBehaviour.getFlee())
@@ -586,8 +601,10 @@ namespace DungeonCrawler
             Console.SetCursorPosition(59, 7);
             Console.WriteLine("Health: {0}", hero.HealthBehaviour.getHealth());
             Console.SetCursorPosition(59, 8);
-            Console.WriteLine("Current Weapon: {0}", hero.WeaponBehaviour.getName().ToUpper());
+            Console.WriteLine("HP Potions: {0}", numFount);
             Console.SetCursorPosition(59, 9);
+            Console.WriteLine("Current Weapon: {0}", hero.WeaponBehaviour.getName().ToUpper());
+            Console.SetCursorPosition(59, 10);
             Console.WriteLine("Current Damage: {0}", hero.WeaponBehaviour.damage());
         }
         #endregion
