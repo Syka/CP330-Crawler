@@ -298,4 +298,133 @@ namespace DungeonCrawler
             { WeaponBehaviour = new Quarterstaff(); }
         }
     }
+    public class Swamphag : Monsters
+    {
+        ///Swamphag's Specific traits    -- Boss
+        public Swamphag()
+        {
+            HealthBehaviour = new HighHealth();
+            HealthBehaviour.setName("Swamghag");
+            HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(false);
+            ranWep = rngWep.Next(0, 500);
+            if (ranWep >= 0 && ranWep < 100)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep >= 100 && ranWep < 150)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep >= 150 && ranWep < 175)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep >= 175 && ranWep < 300)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep >= 300 && ranWep < 430)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep >= 430 && ranWep < 431)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep >= 431 && ranWep <= 499)
+            { WeaponBehaviour = new Quarterstaff(); }
+        }
+    }
+    public class UndeadKing : Monsters
+    {
+        public UndeadKing()
+        {
+            HealthBehaviour = new HighHealth();
+            HealthBehaviour.setName("Undead King");
+            HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(false);
+            ranWep = rngWep.Next(0, 500);
+            if (ranWep >= 0 && ranWep < 100)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep >= 100 && ranWep < 160)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep >= 160 && ranWep < 175)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep >= 175 && ranWep < 300)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep >= 300 && ranWep < 430)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep >= 430 && ranWep < 471)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep >= 471 && ranWep <= 499)
+            { WeaponBehaviour = new Quarterstaff(); }
+
+        }
+    }
+    public class SpiderQueen : Monsters
+    {
+        public SpiderQueen()
+        {
+            HealthBehaviour = new HighHealth();
+            HealthBehaviour.setName("Spider Queen");
+            HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(false);
+            ranWep = rngWep.Next(0, 500);
+            if (ranWep >= 0 && ranWep < 100)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep >= 100 && ranWep < 160)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep >= 160 && ranWep < 175)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep >= 175 && ranWep < 300)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep >= 300 && ranWep < 430)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep >= 430 && ranWep < 471)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep >= 471 && ranWep <= 499)
+            { WeaponBehaviour = new Quarterstaff(); }
+        }
+    }
+    public class SkeletonKing : Monsters
+    {
+        SkeletonKing()
+        {
+            HealthBehaviour = new HighHealth();
+            HealthBehaviour.setName("Skeleton King");
+            HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(false);
+            ranWep = rngWep.Next(0, 500);
+            if (ranWep >= 0 && ranWep < 100)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep >= 100 && ranWep < 160)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep >= 160 && ranWep < 175)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep >= 175 && ranWep < 300)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep >= 300 && ranWep < 430)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep >= 430 && ranWep < 471)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep >= 471 && ranWep <= 499)
+            { WeaponBehaviour = new Quarterstaff(); }
+
+        }
+
+    }
+    public class OgreKing : Monsters
+    {
+        OgreKing()
+        {
+            HealthBehaviour = new HighHealth();
+            HealthBehaviour.setName("Ogre King");
+            HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(false);
+            ranWep = rngWep.Next(0, 500);
+            if (ranWep >= 0 && ranWep < 100)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep >= 100 && ranWep < 160)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep >= 160 && ranWep < 175)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep >= 175 && ranWep < 300)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep >= 300 && ranWep < 430)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep >= 430 && ranWep < 471)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep >= 471 && ranWep <= 499)
+            { WeaponBehaviour = new Quarterstaff(); }
+        }
+    }
 }
