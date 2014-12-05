@@ -408,20 +408,51 @@ namespace DungeonCrawler
         #region Nolan's code
         public Monsters getEnemy()
         {     ///is called when going over an enemy on the map and randomly picked one of 3 monsters to fight.
-            if (rand.Next(0, 3) == 0)
+            int randMonster = rand.Next(0, 9);
+            if (randMonster == 0)
             {
                 Ogre enemy1 = new Ogre();
                 return enemy1;
             }
-            else if (rand.Next(0, 3) == 1)
+            else if (randMonster == 1)
             {
                 Troll enemy2 = new Troll();
                 return enemy2;
             }
-            else
+            else if (randMonster == 2)
             {
                 Spirit enemy3 = new Spirit();
                 return enemy3;
+            }
+            else if (randMonster == 3)
+            {
+                Mercenary enemy4 = new Mercenary();
+                return enemy4;
+            }
+            else if (randMonster == 4)
+            {
+                Wraith enemy5 = new Wraith();
+                return enemy5;
+            }
+            else if (randMonster == 5)
+            {
+                Skeleton enemy6 = new Skeleton();
+                return enemy6;
+            }
+            else if (randMonster == 6)
+            {
+                Bandit enemy7 = new Bandit();
+                return enemy7;
+            }
+            else if (randMonster == 7)
+            {
+                Goblin enemy8 = new Goblin();
+                return enemy8;
+            }
+            else
+            {
+                Zombie enemy9 = new Zombie();
+                return enemy9;
             }
         }
         public Monsters getBoss()
