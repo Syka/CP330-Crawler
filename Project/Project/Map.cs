@@ -432,41 +432,41 @@ namespace DungeonCrawler
             MonsterPane(monster);
             input = Console.ReadKey();
             switch (input.Key)
-            {
+            {                                       ///Determines actions based of of the fight trigger
                 case ConsoleKey.Y:
                     fleed = false;
 
                     while (monster.HealthBehaviour.getHealth() > 0 && hero.HealthBehaviour.getHealth() > 0)
                     {
 
-                        InfoPane();
-                        MonsterPane(monster);
+                        InfoPane();                 ///refreshes the infopane with updated values
+                        MonsterPane(monster);       ///refreshes the monsterpane with updated values
                         
-                        fightMenu(monster, r, c);
+                        fightMenu(monster, r, c);   ///initiates the fight.
                         if (fleed)
                         {
-                            break;
+                            break;                  ///If the flee option is chosen ends the combat loop.
                         }
 
                     }
                     if (fleed)
                     {
-                        setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
+                        setPlayer(_pRow, _pCol); postEvent(r, c); refresh();    ///resets the character position after fleeing.
                         InfoPane();
                         break;
                     }
-                    if (monster.HealthBehaviour.getHealth() < 1)
+                    if (monster.HealthBehaviour.getHealth() < 1)                ///checks to see if the monster was slain when the loop parameters werent met
                     {
                         if (events[r, c].Equals(enemy))
                         {
-                            events[r, c] = enemyDef;
+                            events[r, c] = enemyDef;                            ///updates the maps display value
                         }
                         else if (events[r, c].Equals(boss))
                         {
-                            events[r, c] = bossDef;
+                            events[r, c] = bossDef;                             ///updates the maps display value
                         }
 
-                        MonsterPane(monster);
+                        MonsterPane(monster);                                   ///updates the monsterpane with correct values (without it monster death will not show monster health at or below 0)
                         prog.WriteTextBox("You have defeated the " + monster.HealthBehaviour.getName() + "!" +
                         Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                         Console.ReadLine();
@@ -474,7 +474,7 @@ namespace DungeonCrawler
                     }
                     InfoPane();
                     break;
-                case ConsoleKey.N:
+                case ConsoleKey.N:      ///resets character position and leaves the monster avle to be fought.
                     prog.WriteTextBox("You decide to fight the " + monster.HealthBehaviour.getName() + " later..." +
                         Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                     Console.ReadLine();
@@ -490,17 +490,17 @@ namespace DungeonCrawler
                 Environment.NewLine + "3-Use Health Potion" + Environment.NewLine + "4-Flee");
             input = Console.ReadKey();
             switch (input.Key)
-            {
+            {                                       ///Takes values of inputs for what to apply for the combat, applies the action
                 case ConsoleKey.D1:
-                    int damage;
+                    int damage;                     ///Hero gives damage to monster, hero recieves damage from monster.
                     damage = hero.WeaponBehaviour.useWeapon();
                     monster.HealthBehaviour.subHealth(damage);
                     Console.ReadLine();
                     hero.HealthBehaviour.subHealth(monster.WeaponBehaviour.useWeapon());
                     break;
-                case ConsoleKey.D2:
-                    int blockedDamage;
-                    int blockedAmount;
+                case ConsoleKey.D2:         
+                    int blockedDamage;              ///Hero blocks 50% of the monsters damage.
+                    int blockedAmount;  
                     prog.WriteTextBox("You brace yourself aganst the " + monster.HealthBehaviour.getName() + "'s attack!" +
                             Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                     Console.ReadLine();
@@ -511,15 +511,15 @@ namespace DungeonCrawler
 
                     Console.ReadLine();
                     break;
-                case ConsoleKey.D3:
+                case ConsoleKey.D3:                 ///Hero restores some HP, hero recieves damage from monster.
                     prog.WriteTextBox("You use a health potion!" +
                             Environment.NewLine + Environment.NewLine + "Press Enter to Continue");
                     hero.HealthBehaviour.addHealth(rand.Next(3, 8));
                     Console.ReadLine();
                     hero.HealthBehaviour.subHealth(monster.WeaponBehaviour.useWeapon());
 
-                    break;
-                case ConsoleKey.D4:
+                    break;  
+                case ConsoleKey.D4:                 ///hero attempts to flee, if flee = false, cannot flee, restarts choice.
                     if (monster.HealthBehaviour.getFlee())
                     {
                         fleed = true;
@@ -540,7 +540,7 @@ namespace DungeonCrawler
                     break;
             }
         }
-        public void MonsterPane(Monsters monster)
+        public void MonsterPane(Monsters monster)               ///displays the information about the monsters.
         {
             prog.MonsterHealthBox("Health: " + monster.HealthBehaviour.getHealth());
             prog.MonsterNameBox("Enemy: " + monster.HealthBehaviour.getName());
