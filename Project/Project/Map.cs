@@ -170,7 +170,8 @@ namespace DungeonCrawler
                         break;
                     case "-{E}-":
                         mask[r, c] = onEnemyDef;
-                        prog.WriteTextBox(" You suddenly have the urge to flex your muscles as you pass your foe's corpse.");
+                        refresh();
+                        prog.WriteTextBox(" You look at your foe's corpse and laugh.");
                         break;
                     case " {B} ":
                         mask[r, c] = onBoss;
@@ -179,13 +180,14 @@ namespace DungeonCrawler
                         break;
                     case "-{B}-":
                         mask[r, c] = onBossDef;
+                        refresh();
                         prog.WriteTextBox(" It was a tough battle, but then you compare injuries with the Boss and laugh.");
                         break;
                     case " {T} ":
                         mask[r, c] = onTrap;
                         refresh();
                         int trapDmg = rand.Next(4, 11);
-                        prog.WriteTextBox(" You fall in a trapdoor and hurt your " + randomInjury() + "! (-" + trapDmg + "DMG) \n \n Press Any Key to Continue");
+                        prog.WriteTextBox(" As you hear a clicking sound, you immediately fall down a trapdoor and " + randomInjury() + "! (-" + trapDmg + " DMG) \n \n Press Any Key to Continue");
                         Console.ReadKey();
                         hero.HealthBehaviour.subHealth(trapDmg);
                         InfoPane();
@@ -202,8 +204,8 @@ namespace DungeonCrawler
                         int fount = rand.Next(3, 8);
                         int randFount = rand.Next(1, 5);
                         numFount += randFount;
-                        prog.WriteTextBox(" You drink the fountain's water, and store enough water to flll " + randFount + " flasks! (+" + fount + " HP) \n \n Press Any Key to Continue");
-                        
+                        prog.WriteTextBox(" You take a sip of the fountain's water. The filtered taste is so good that it restores (" + fount + " HP), and so you use the remaining water to fill up " + randFount + 
+                            " empty flask(s)! \n \n Press Any Key to Continue");
                         Console.ReadKey();
                         hero.HealthBehaviour.addHealth(fount);
                         InfoPane();
@@ -214,6 +216,7 @@ namespace DungeonCrawler
                         break;
                     case "-{F}-":
                         mask[r, c] = onFountUsed;
+                        refresh();
                         prog.WriteTextBox(" Looking at the empty fountain makes you thirsty.");
                         break;
                     case " {D} ":
@@ -236,8 +239,7 @@ namespace DungeonCrawler
         public void atDoor(int r, int c)
         {   ///Event triggered when the player discovers a door
             refresh();
-            prog.WriteTextBox(" Will you open the ominous door?" + 
-                Environment.NewLine + Environment.NewLine + "1-Yes" + Environment.NewLine + "2-No");
+            prog.WriteTextBox(" You discover a large metal door that you hope leads to the next floor. \n Will you open it? \n \n 1-Yes \n 2-No");
             input = Console.ReadKey();
             switch (input.Key)
             {
@@ -247,13 +249,16 @@ namespace DungeonCrawler
                         if (checkBoss(16, 8))
                         {
                             setLvl(2);
-                            prog.WriteTextBox(" You continue deeper into the dungeon, complaining at their lack of elevators. \n \n Press Any Key to Continue");
+                            prog.WriteTextBox(" You continue deeper into the dungeon, complaining at their lack of elevators. \n" +
+                                " The staircase takes you to an even darker and dirtier floor, ripe with the smell of mold, rotting flesh and a Troll's gym bag. \n" +
+                                " As you reach for your nose plug, you notice an enemy with its back turned... \n \n Press Any Key to Continue");
                             Console.ReadKey();
                             prog.ClearTextbox();
                         }
                         else
                         {
-                            prog.WriteTextBox(" You have not defeated the Boss yet. \n \n Press Any Key to Continue");
+                            prog.WriteTextBox(" The door glows as you attempt to open it with all your might. \n" +
+                                " You deduce that the floor's Boss must have cast a Lock spell on the door, so defeating it should disarm the spell. \n \n Press Any Key to Continue");
                             Console.ReadKey();
                             setPlayer(_pRow, _pCol);
                         }
@@ -263,13 +268,16 @@ namespace DungeonCrawler
                         if (checkBoss(3, 1))
                         {
                             setLvl(3);
-                            prog.WriteTextBox(" You finally reach the Final Boss' lair, which is actually kind of cozy compared to the rest of the dungeon.  \n \n Press Any Key to Continue");
+                            prog.WriteTextBox(" You finally reach the Final Boss' lair, which is actually kind of cozy compared to the rest of the dungeon. \n" + 
+                                " With the couches and water coolers lining the hall, you deduce this floor serves as the Lounge for the Dungeon's Bosses and henchmen. \n" +
+                                " Before you decide to take a break yourself, however, you hear the Boss taunting you further down the hall... \n \n Press Any Key to Continue");
                             Console.ReadKey();
                             prog.ClearTextbox();
                         }
                         else
                         {
-                            prog.WriteTextBox(" You have not defeated the Boss yet. \n \n Press Any Key to Continue");
+                            prog.WriteTextBox(" The door glows as you attempt to open it with all your might. \n" +
+                                " With your ego hurt, you deduce that the floor's Boss must have cast a Lock spell on the door, so defeating it will disarm it. \n \n Press Any Key to Continue");
                             Console.ReadKey();
                             setPlayer(_pRow, _pCol);
                         }
@@ -279,11 +287,10 @@ namespace DungeonCrawler
                         GameOver end = new GameOver();
                         gameOver = true;
                         end.Victory();
-                        //continueDialog();
                     }
                     break;
                 case ConsoleKey.N:
-                    prog.WriteTextBox(" You decide to explore the dungeon. \n \n Press Any Key to Continue");
+                    prog.WriteTextBox(" Despite your burning curiosity, you decide to explore the dungeon floor before moving on. \n \n Press Any Key to Continue");
                     Console.ReadKey();
                     setPlayer(_pRow, _pCol); postEvent(r, c);
                     break;
@@ -297,33 +304,15 @@ namespace DungeonCrawler
         }
         public string randomInjury()
         {   ///returns a random body part that is injured during the Trapdoor event... because why not?
-            if (rand.Next(0, 6) == 0) { return "elbow"; }
-            else if (rand.Next(0, 6) == 1) { return "shoulder"; }
-            else if (rand.Next(0, 6) == 2) { return "funnybone"; }
-            else if (rand.Next(0, 6) == 3) { return "knee"; }
-            else if (rand.Next(0, 6) == 4) { return "shin"; }
-            else                           { return "head"; }
+            if (rand.Next(0, 8) == 0) { return "scrape your elbow"; }
+            else if (rand.Next(0, 6) == 1) { return "bruise your shoulder"; }
+            else if (rand.Next(0, 6) == 2) { return "hit your funnybone"; }
+            else if (rand.Next(0, 6) == 3) { return "scrape knee"; }
+            else if (rand.Next(0, 6) == 4) { return "bruise your shin"; }
+            else if (rand.Next(0, 6) == 5) { return "pull a muscle"; }
+            else if (rand.Next(0, 7) == 6) { return "break a fingernail"; }
+            else                           { return "cut your beautiful face"; }
         }
-        //public void continueDialog()
-        //{
-        //    prog.ClearTextbox();
-        //    input = Console.ReadKey();
-        //    switch (input.Key)
-        //    {
-        //        case ConsoleKey.D1:
-        //            resetLevels();
-        //            end.ClearMapBox();
-        //            hero = new Player();
-        //            Map map = new Map();
-        //            break;
-        //        case ConsoleKey.N:
-        //            Environment.Exit(1);
-        //            break;
-        //        default:
-        //            continueDialog();
-        //            break;
-        //    }
-        //}
         public void resetLevels()
         {   ///Resets player progress
             onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; gameOver = false;
@@ -480,17 +469,15 @@ namespace DungeonCrawler
         }
         public void triggerFight(Monsters monster, int r, int c)
         {
-            prog.WriteTextBox(" You have encountered a " + monster.HealthBehaviour.getName() + " armed with a " + monster.WeaponBehaviour.getName() + ". Will you fight? \n \n 1-Yes \n 2-No");
+            prog.WriteTextBox(" You have encountered a " + monster.HealthBehaviour.getName() + " armed with a " + monster.WeaponBehaviour.getName() + ". Will you fight? \n \n [1] Yes \n [2] No");
             MonsterPane(monster);
             input = Console.ReadKey();
             switch (input.Key)
             {                                       ///Determines actions based of of the fight trigger
                 case ConsoleKey.D1:
                     fleed = false;
-
                     while (monster.HealthBehaviour.getHealth() > 0 && hero.HealthBehaviour.getHealth() > 0)
                     {
-
                         InfoPane();                 ///refreshes the infopane with updated values
                         MonsterPane(monster);       ///refreshes the monsterpane with updated values
                         
@@ -499,7 +486,6 @@ namespace DungeonCrawler
                         {
                             break;                  ///If the flee option is chosen ends the combat loop.
                         }
-
                     }
                     if (fleed)
                     {
@@ -517,7 +503,6 @@ namespace DungeonCrawler
                         {
                             events[r, c] = bossDef;                             ///updates the maps display value
                         }
-
                         MonsterPane(monster);                                   ///updates the monsterpane with correct values (without it monster death will not show monster health at or below 0)
                         prog.WriteTextBox(" You have defeated the " + monster.HealthBehaviour.getName() + "! \n \n Press Any Key to Continue");
                         Console.ReadKey();
@@ -526,7 +511,7 @@ namespace DungeonCrawler
                     InfoPane();
                     break;
                 case ConsoleKey.D2:      ///resets character position and leaves the monster able to be fought.
-                    prog.WriteTextBox(" You decide to fight the " + monster.HealthBehaviour.getName() + " later... \n \n Press Any Key to Continue");
+                    prog.WriteTextBox(" Out of the goodness of your heart, you decide to prolonge the " + monster.HealthBehaviour.getName() + "'s demise ... \n \n Press Any Key to Continue");
                     Console.ReadKey();
                     setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
                     InfoPane();
@@ -536,7 +521,7 @@ namespace DungeonCrawler
         }
         public void fightMenu(Monsters monster, int r, int c)
         {
-            prog.WriteTextBox(" What will you do? \n \n 1-Use Weapon \n 2-Defend \n 3-Use Health Potion \n 4-Flee");
+            prog.WriteTextBox(" What will you do? \n \n [1] Use Weapon \n [2] Defend \n [3] Use Health Potion \n [4] Flee");
             input = Console.ReadKey();
             switch (input.Key)
             {                                       ///Takes values of inputs for what to apply for the combat, applies the action
@@ -547,21 +532,26 @@ namespace DungeonCrawler
                     prog.WriteTextBox(hero.WeaponBehaviour.heroMessage(damage, damage));
                     monster.HealthBehaviour.subHealth(damage);
                     Console.ReadKey();
-                    //enemy attacks
-                    prog.WriteTextBox(monster.WeaponBehaviour.monsterMessage(monster.HealthBehaviour.getName(), monsterDamage, monsterDamage));
-                    hero.HealthBehaviour.subHealth(monsterDamage);
-                    Console.ReadKey();
+                    if (monster.HealthBehaviour.getHealth() < 1)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        prog.WriteTextBox(monster.WeaponBehaviour.monsterMessage(monster.HealthBehaviour.getName(), monsterDamage, monsterDamage));
+                        hero.HealthBehaviour.subHealth(monsterDamage);
+                        Console.ReadKey();
+                    }
                     break;
                 case ConsoleKey.D2:         
                     int blockedDamage;              ///Hero blocks 50% of the monsters damage.
                     int blockedAmount;  
-                    prog.WriteTextBox(" You brace yourself aganst the " + monster.HealthBehaviour.getName() + "'s attack! \n \n Press Any Key to Continue");
+                    prog.WriteTextBox(" You brace yourself against the " + monster.HealthBehaviour.getName() + "'s attack! \n \n Press Any Key to Continue");
                     Console.ReadKey();
                     blockedAmount = monster.WeaponBehaviour.damage() / 2;
                     blockedDamage = monster.WeaponBehaviour.damage() - (blockedAmount);
-                    //enemy attacks
                     hero.HealthBehaviour.subHealth(blockedDamage);
-                    prog.WriteTextBox(" The "+ monster.WeaponBehaviour.getName() +" hits you hard, you soften the blow, you take (" + blockedDamage +") DMG");
+                    prog.WriteTextBox(" You soften the " + monster.HealthBehaviour.getName() + "'s attack! (-" + blockedDamage +" DMG)");
                     Console.ReadKey();
                     break;
                 case ConsoleKey.D3:                 ///Hero restores some HP, hero recieves damage from monster.
@@ -572,10 +562,11 @@ namespace DungeonCrawler
                         prog.WriteTextBox(" You use a health potion. (+15 HP) \n \n Press Any Key to Continue");
                         hero.HealthBehaviour.addHealth(15);
                         InfoPane();
+                        MonsterPane(monster);
                         Console.ReadKey();
-                        //enemy attacks
-                        hero.HealthBehaviour.subHealth(monster.WeaponBehaviour.useWeapon());
-                        prog.WriteTextBox(" The " + monster.WeaponBehaviour.getName() + " for " + monsterDamage2);
+                        hero.HealthBehaviour.subHealth(monsterDamage2);
+                        prog.WriteTextBox(monster.WeaponBehaviour.monsterMessage(monster.HealthBehaviour.getName(), monsterDamage2, monsterDamage2));
+                        Console.ReadKey();
                     }
                     else
                     {
@@ -589,7 +580,6 @@ namespace DungeonCrawler
                         fleed = true;
                         prog.WriteTextBox(" You flee from the " + monster.HealthBehaviour.getName() + "! \n \n Press Any Key to Continue");
                         Console.ReadKey();
-                        //fight over
                     }
                     else
                     {
@@ -659,7 +649,7 @@ namespace DungeonCrawler
         public void weaponSelect()
         {
             ///Select weapon 
-            prog.WriteTextBox(" Please Select a Weapon: \n 1-Sword \n 2-Axe \n 3-Knife \n 4-Mace \n 5-Fish \n 6-Bowstaff \n 7-Caestus \n 8-Quarterstaff");
+            prog.WriteTextBox(" Please Select a Weapon: \n \n [1] Sword \n [2] Axe \n [3] Knife \n [4] Mace \n [5] Fish \n [6] Bowstaff \n [7] Caestus \n [8] Halberd");
 
             ///Takes key input and assigns to weapon
             input = Console.ReadKey();
@@ -718,7 +708,7 @@ namespace DungeonCrawler
                     weaponSelect();
                     break;
             }
-            prog.WriteTextBox(" You have selected: " + hero.WeaponBehaviour.getName().ToUpper());
+            prog.WriteTextBox(" You have selected: " + hero.WeaponBehaviour.getName().ToUpper() + " \n \n Press the Arrow Keys to Move");
         }
         #endregion
     }

@@ -17,7 +17,7 @@ namespace DungeonCrawler
             Start.ScreenRender();
 
             ///Waiting to start game
-            prog.WriteTextBox("Press Any Key To Start");
+            prog.WriteTextBox(" Welcome to Dungeon C#rawler! \n \n Press Any Key To Start");
             Console.ReadKey();
 
             ///Starts the map

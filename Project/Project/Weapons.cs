@@ -58,26 +58,22 @@ namespace DungeonCrawler
         {
             if (mode != 0)
             {
-                return "You attack with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "You miss with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
         public string monsterMessage(string mName, int mode, int dmg)
         {
             if (mode != 0)
             {
-                return "The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
     }
@@ -113,26 +109,22 @@ namespace DungeonCrawler
         {
             if (mode != 0)
             {
-                return "You attack with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "You miss with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
         public string monsterMessage(string mName, int mode, int dmg)
         {
             if (mode != 0)
             {
-                return "The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
     }
@@ -167,26 +159,22 @@ namespace DungeonCrawler
         {
             if (mode != 0)
             {
-                return "You attack with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "You miss with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
         public string monsterMessage(string mName, int mode, int dmg)
         {
             if (mode != 0)
             {
-                return "The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)!" + 
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
     }
@@ -221,26 +209,22 @@ namespace DungeonCrawler
         {
             if (mode != 0)
             {
-                return "You attack with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "You miss with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
         public string monsterMessage(string mName, int mode, int dmg)
         {
             if (mode != 0)
             {
-                return "The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
     }
@@ -275,26 +259,22 @@ namespace DungeonCrawler
         {
             if (mode != 0)
             {
-                return "You attack with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "You miss with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
         public string monsterMessage(string mName, int mode, int dmg)
         {
             if (mode != 0)
             {
-                return "The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
     }
@@ -329,26 +309,22 @@ namespace DungeonCrawler
         {
             if (mode != 0)
             {
-                return "You attack with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "You miss with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
         public string monsterMessage(string mName, int mode, int dmg)
         {
             if (mode != 0)
             {
-                return "The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
     }
@@ -383,26 +359,22 @@ namespace DungeonCrawler
         {
             if (mode != 0)
             {
-                return "You attack with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "You miss with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
         public string monsterMessage(string mName, int mode, int dmg)
         {
             if (mode != 0)
             {
-                return "The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
     }
@@ -418,7 +390,7 @@ namespace DungeonCrawler
         }
         public string getName()
         {
-            return "Quarterstaff";
+            return "Halberd";
         }
         public int useWeapon()
         {
@@ -437,26 +409,22 @@ namespace DungeonCrawler
         {
             if (mode != 0)
             {
-                return "You attack with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "You miss with your " + getName() + " and deal (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
         public string monsterMessage(string mName, int mode, int dmg)
         {
             if (mode != 0)
             {
-                return "The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
             else
             {
-                return "The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)!" +
-                    Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
+                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
             }
         }
     }
