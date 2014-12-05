@@ -185,8 +185,7 @@ namespace DungeonCrawler
                         mask[r, c] = onTrap;
                         refresh();
                         int trapDmg = rand.Next(4, 11);
-                        prog.WriteTextBox(" You fall in a trapdoor and hurt your " + randomInjury() + "! (-" + trapDmg + "DMG)" +
-                            Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                        prog.WriteTextBox(" You fall in a trapdoor and hurt your " + randomInjury() + "! (-" + trapDmg + "DMG) \n \n Press Any Key to Continue");
                         Console.ReadKey();
                         hero.HealthBehaviour.subHealth(trapDmg);
                         InfoPane();
@@ -203,8 +202,7 @@ namespace DungeonCrawler
                         int fount = rand.Next(3, 8);
                         int randFount = rand.Next(1, 5);
                         numFount += randFount;
-                        prog.WriteTextBox(" You drink the fountain's water, and store enough water to flll " + randFount + " flasks! (+" + fount + " HP)" +
-                            Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                        prog.WriteTextBox(" You drink the fountain's water, and store enough water to flll " + randFount + " flasks! (+" + fount + " HP) \n \n Press Any Key to Continue");
                         
                         Console.ReadKey();
                         hero.HealthBehaviour.addHealth(fount);
@@ -249,15 +247,13 @@ namespace DungeonCrawler
                         if (checkBoss(16, 8))
                         {
                             setLvl(2);
-                            prog.WriteTextBox(" You continue deeper into the dungeon, complaining at their lack of elevators." +
-                                Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                            prog.WriteTextBox(" You continue deeper into the dungeon, complaining at their lack of elevators. \n \n Press Any Key to Continue");
                             Console.ReadKey();
                             prog.ClearTextbox();
                         }
                         else
                         {
-                            prog.WriteTextBox(" You have not defeated the Boss yet." +
-                                Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                            prog.WriteTextBox(" You have not defeated the Boss yet. \n \n Press Any Key to Continue");
                             Console.ReadKey();
                             setPlayer(_pRow, _pCol);
                         }
@@ -267,15 +263,13 @@ namespace DungeonCrawler
                         if (checkBoss(3, 1))
                         {
                             setLvl(3);
-                            prog.WriteTextBox(" You finally reach the Final Boss' lair, which is actually kind of cozy compared to the rest of the dungeon. " +
-                                   Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                            prog.WriteTextBox(" You finally reach the Final Boss' lair, which is actually kind of cozy compared to the rest of the dungeon.  \n \n Press Any Key to Continue");
                             Console.ReadKey();
                             prog.ClearTextbox();
                         }
                         else
                         {
-                            prog.WriteTextBox(" You have not defeated the Boss yet." +
-                                Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                            prog.WriteTextBox(" You have not defeated the Boss yet. \n \n Press Any Key to Continue");
                             Console.ReadKey();
                             setPlayer(_pRow, _pCol);
                         }
@@ -289,8 +283,7 @@ namespace DungeonCrawler
                     }
                     break;
                 case ConsoleKey.N:
-                    prog.WriteTextBox(" You decide to explore the dungeon." +
-                        Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                    prog.WriteTextBox(" You decide to explore the dungeon. \n \n Press Any Key to Continue");
                     Console.ReadKey();
                     setPlayer(_pRow, _pCol); postEvent(r, c);
                     break;
