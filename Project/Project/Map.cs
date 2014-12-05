@@ -570,7 +570,7 @@ namespace DungeonCrawler
                     blockedDamage = monster.WeaponBehaviour.damage() - (blockedAmount);
                     //enemy attacks
                     hero.HealthBehaviour.subHealth(blockedDamage);
-                    prog.WriteTextBox("The "+ monster.WeaponBehaviour.getName() +"attacked, you blocked " + blockedAmount +"damage.");
+                    prog.WriteTextBox("The "+ monster.WeaponBehaviour.getName() +" hits you hard, you blocked (" + blockedAmount +") DMG");
                     Console.ReadLine();
                     break;
                 case ConsoleKey.D3:                 ///Hero restores some HP, hero recieves damage from monster.
