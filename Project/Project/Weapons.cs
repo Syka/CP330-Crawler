@@ -185,7 +185,7 @@ namespace DungeonCrawler
             }
             else
             {
-                return "The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)!" +
+                return "The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)!" + 
                     Environment.NewLine + Environment.NewLine + "Press Any Key to Continue";
             }
         }
