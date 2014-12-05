@@ -54,7 +54,7 @@ namespace DungeonCrawler
             Console.WriteLine("                                       |___/ ");
             Console.SetCursorPosition(3, 26);
 
-            Console.Write(Environment.NewLine + "         YOU ARE WINNER! CONGRATULATIONS!");
+            Console.Write(Environment.NewLine + "             YOU ARE WINNER! CONGRATULATIONS!");
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/VictoryFanfare.wav");
             player.Play();
             Console.ReadLine();

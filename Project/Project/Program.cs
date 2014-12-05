@@ -70,7 +70,7 @@ namespace DungeonCrawler
         }
         public void MonsterHealthBox(string value)
         {
-            Console.SetCursorPosition(59, 12);
+            Console.SetCursorPosition(59, 13);
             int myLimit = 51;
             string sentence = value;
             string[] words = sentence.Split(' ');
@@ -96,7 +96,7 @@ namespace DungeonCrawler
         }
         public void MonsterWeaponBox(string value)
         {
-            Console.SetCursorPosition(59, 13);
+            Console.SetCursorPosition(59, 14);
             int myLimit = 51;
             string sentence = value;
             string[] words = sentence.Split(' ');
@@ -122,7 +122,7 @@ namespace DungeonCrawler
         }
         public void MonsterNameBox(string value)
         {
-            Console.SetCursorPosition(59, 11);
+            Console.SetCursorPosition(59, 12);
             int myLimit = 51;
             string sentence = value;
             string[] words = sentence.Split(' ');
