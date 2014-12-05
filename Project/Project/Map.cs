@@ -487,8 +487,7 @@ namespace DungeonCrawler
         }
         public void triggerFight(Monsters monster, int r, int c)
         {
-            prog.WriteTextBox("You have encountered a " + monster.HealthBehaviour.getName() + " armed with a " + monster.WeaponBehaviour.getName() + ". Will you fight?" +
-                Environment.NewLine + Environment.NewLine + "1-Yes" + Environment.NewLine + "2-No");
+            prog.WriteTextBox("You have encountered a " + monster.HealthBehaviour.getName() + " armed with a " + monster.WeaponBehaviour.getName() + ". Will you fight? \n \n 1-Yes \n 2-No");
             MonsterPane(monster);
             input = Console.ReadKey();
             switch (input.Key)
@@ -527,16 +526,14 @@ namespace DungeonCrawler
                         }
 
                         MonsterPane(monster);                                   ///updates the monsterpane with correct values (without it monster death will not show monster health at or below 0)
-                        prog.WriteTextBox("You have defeated the " + monster.HealthBehaviour.getName() + "!" +
-                        Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                        prog.WriteTextBox("You have defeated the " + monster.HealthBehaviour.getName() + "! \n \n Press Any Key to Continue");
                         Console.ReadKey();
                         setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
                     }
                     InfoPane();
                     break;
                 case ConsoleKey.D2:      ///resets character position and leaves the monster able to be fought.
-                    prog.WriteTextBox("You decide to fight the " + monster.HealthBehaviour.getName() + " later..." +
-                        Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                    prog.WriteTextBox("You decide to fight the " + monster.HealthBehaviour.getName() + " later... \n \n Press Any Key to Continue");
                     Console.ReadKey();
                     setPlayer(_pRow, _pCol); postEvent(r, c); refresh();
                     InfoPane();
@@ -546,8 +543,7 @@ namespace DungeonCrawler
         }
         public void fightMenu(Monsters monster, int r, int c)
         {
-            prog.WriteTextBox("What will you do?" + Environment.NewLine + Environment.NewLine + "1-Use Weapon" + Environment.NewLine + "2-Defend" +
-                Environment.NewLine + "3-Use Health Potion" + Environment.NewLine + "4-Flee");
+            prog.WriteTextBox("What will you do? \n \n 1-Use Weapon \n 2-Defend \n 3-Use Health Potion \n 4-Flee");
             input = Console.ReadKey();
             switch (input.Key)
             {                                       ///Takes values of inputs for what to apply for the combat, applies the action
@@ -566,8 +562,7 @@ namespace DungeonCrawler
                 case ConsoleKey.D2:         
                     int blockedDamage;              ///Hero blocks 50% of the monsters damage.
                     int blockedAmount;  
-                    prog.WriteTextBox("You brace yourself aganst the " + monster.HealthBehaviour.getName() + "'s attack!" +
-                            Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                    prog.WriteTextBox("You brace yourself aganst the " + monster.HealthBehaviour.getName() + "'s attack! \n \n Press Any Key to Continue");
                     Console.ReadKey();
                     blockedAmount = monster.WeaponBehaviour.damage() / 2;
                     blockedDamage = monster.WeaponBehaviour.damage() - (blockedAmount);
@@ -581,8 +576,7 @@ namespace DungeonCrawler
                     {
                         int monsterDamage2 = monster.WeaponBehaviour.useWeapon();
                         numFount--;
-                        prog.WriteTextBox("You use a health potion. (+15 HP)" +
-                            Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                        prog.WriteTextBox("You use a health potion. (+15 HP) \n \n Press Any Key to Continue");
                         hero.HealthBehaviour.addHealth(15);
                         InfoPane();
                         Console.ReadKey();
@@ -592,8 +586,7 @@ namespace DungeonCrawler
                     }
                     else
                     {
-                        prog.WriteTextBox("You do not have any potions left!" +
-                            Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                        prog.WriteTextBox("You do not have any potions left! \n \n Press Any Key to Continue");
                         Console.ReadKey();
                     }
                     break;  
@@ -601,15 +594,13 @@ namespace DungeonCrawler
                     if (monster.HealthBehaviour.getFlee())
                     {
                         fleed = true;
-                        prog.WriteTextBox("You flee from the " + monster.HealthBehaviour.getName() + "!" +
-                            Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                        prog.WriteTextBox("You flee from the " + monster.HealthBehaviour.getName() + "! \n \n Press Any Key to Continue");
                         Console.ReadKey();
                         //fight over
                     }
                     else
                     {
-                        prog.WriteTextBox("You cannot flee from the " + monster.HealthBehaviour.getName() + "!" +
-                            Environment.NewLine + Environment.NewLine + "Press Any Key to Continue");
+                        prog.WriteTextBox("You cannot flee from the " + monster.HealthBehaviour.getName() + "! \n \n Press Any Key to Continue");
                         Console.ReadKey();
                     }
                     break;
@@ -675,9 +666,7 @@ namespace DungeonCrawler
         public void weaponSelect()
         {
             ///Select weapon 
-            prog.WriteTextBox("Please Select a Weapon: " + Environment.NewLine + "1-Sword" + Environment.NewLine + "2-Axe"
-                + Environment.NewLine + "3-Knife" + Environment.NewLine + "4-Mace" + Environment.NewLine + "5-Fish"
-                + Environment.NewLine + "6-Bowstaff" + Environment.NewLine + "7-Caestus" + Environment.NewLine + "8-Quarterstaff");
+            prog.WriteTextBox("Please Select a Weapon: \n 1-Sword \n 2-Axe \n 3-Knife 4-Mace \n 5-Fish \n 6-Bowstaff \n 7-Caestus 8-Quarterstaff");
 
             ///Takes key input and assigns to weapon
             input = Console.ReadKey();
