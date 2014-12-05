@@ -378,10 +378,35 @@ namespace DungeonCrawler
     }
     public class BloodOgre : Monsters
     {
-        BloodOgre()
+        public BloodOgre()
         {
             HealthBehaviour = new HighHealth();
             HealthBehaviour.setName("Blood Ogre");
+            HealthBehaviour.setHealth();
+            HealthBehaviour.setFlee(false);
+            ranWep = rngWep.Next(0, 500);
+            if (ranWep >= 0 && ranWep < 100)
+            { WeaponBehaviour = new Sword(); }
+            else if (ranWep >= 100 && ranWep < 160)
+            { WeaponBehaviour = new Axe(); }
+            else if (ranWep >= 160 && ranWep < 175)
+            { WeaponBehaviour = new Knife(); }
+            else if (ranWep >= 175 && ranWep < 300)
+            { WeaponBehaviour = new Mace(); }
+            else if (ranWep >= 300 && ranWep < 430)
+            { WeaponBehaviour = new Bowstaff(); }
+            else if (ranWep >= 430 && ranWep < 471)
+            { WeaponBehaviour = new Caestus(); }
+            else if (ranWep >= 471 && ranWep <= 499)
+            { WeaponBehaviour = new Quarterstaff(); }
+        }
+    }
+    public class BlackKnight : Monsters
+    {
+        public BlackKnight()
+        {
+            HealthBehaviour = new HighHealth();
+            HealthBehaviour.setName("Black Knight");
             HealthBehaviour.setHealth();
             HealthBehaviour.setFlee(false);
             ranWep = rngWep.Next(0, 500);

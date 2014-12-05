@@ -426,8 +426,31 @@ namespace DungeonCrawler
         }
         public Monsters getBoss()
         {   //is triggered when standing on a boss on the map
-            Swamphag enemyBoss = new Swamphag();
-            return enemyBoss;
+            if (rand.Next(0, 5) == 0)
+            {
+                Swamphag enemyBoss = new Swamphag();
+                return enemyBoss;
+            }
+            else if (rand.Next(0, 5) == 1)
+            {
+                Demon enemyBoss = new Demon();
+                return enemyBoss;
+            }
+            else if (rand.Next(0, 5) == 2)
+            {
+                SpiderQueen enemyBoss = new SpiderQueen();
+                return enemyBoss;
+            }
+            else if (rand.Next(0, 5) == 3)
+            {
+                BloodOgre enemyBoss = new BloodOgre();
+                return enemyBoss;
+            }
+            else
+            {
+                BlackKnight enemyBoss = new BlackKnight();
+                return enemyBoss;
+            }
         }
         public void triggerFight(Monsters monster, int r, int c)
         {
