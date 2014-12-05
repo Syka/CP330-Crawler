@@ -19,7 +19,7 @@ namespace DungeonCrawler
             player.Play();
 
             ///Waiting to start game
-            prog.WriteTextBox("Press Enter To Start");
+            prog.WriteTextBox("Press Any Key To Start");
             Console.ReadKey();
 
             ///Starts the map
