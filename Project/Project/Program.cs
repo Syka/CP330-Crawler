@@ -57,7 +57,7 @@ namespace DungeonCrawler
                 if ((line + word).Length > myLimit)
                 {
                     newSentence.AppendLine(line);
-                    line = "";
+                    line = " ";
                 }
 
                 line += string.Format("{0} ", word);
@@ -83,7 +83,7 @@ namespace DungeonCrawler
                 if ((line + word).Length > myLimit)
                 {
                     newSentence.AppendLine(line);
-                    line = "";
+                    line = " ";
                 }
 
                 line += string.Format("{0} ", word);
@@ -109,7 +109,7 @@ namespace DungeonCrawler
                 if ((line + word).Length > myLimit)
                 {
                     newSentence.AppendLine(line);
-                    line = "";
+                    line = " ";
                 }
 
                 line += string.Format("{0} ", word);
@@ -135,7 +135,7 @@ namespace DungeonCrawler
                 if ((line + word).Length > myLimit)
                 {
                     newSentence.AppendLine(line);
-                    line = "";
+                    line = " ";
                 }
 
                 line += string.Format("{0} ", word);
