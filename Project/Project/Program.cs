@@ -19,7 +19,7 @@ namespace DungeonCrawler
             player.Play();
 
             ///Waiting to start game
-            prog.WriteTextBox(" Press Any Key to Begin");
+            prog.WriteTextBox("Press Any Key To Start");
             Console.ReadKey();
 
             ///Starts the map
@@ -43,22 +43,21 @@ namespace DungeonCrawler
         }
         public void WriteTextBox(string value)
         {
-            Console.BackgroundColor = ConsoleColor.DarkMagenta;
             ClearTextbox();
             Console.SetCursorPosition(0, 41);
-
-            StringBuilder newSentence = new StringBuilder();
             int myLimit = 54;
             string sentence = value;
-            string[] words = sentence.Split(' ');   
-            string line = "";
+            string[] words = sentence.Split(' ');
 
+            StringBuilder newSentence = new StringBuilder();
+
+            string line = "";
             foreach (string word in words)
             {
                 if ((line + word).Length > myLimit)
                 {
                     newSentence.AppendLine(line);
-                    line = " ";
+                    line = "";
                 }
 
                 line += string.Format("{0} ", word);
@@ -66,10 +65,7 @@ namespace DungeonCrawler
 
             if (line.Length > 0)
                 newSentence.AppendLine(line);
-            Console.Write(newSentence.ToString());
-
-            Console.BackgroundColor = ConsoleColor.Black;
-
+            Console.WriteLine(newSentence.ToString());
             Console.SetCursorPosition(7, 59);
         }
         public void MonsterHealthBox(string value)
@@ -87,7 +83,7 @@ namespace DungeonCrawler
                 if ((line + word).Length > myLimit)
                 {
                     newSentence.AppendLine(line);
-                    line = " ";
+                    line = "";
                 }
 
                 line += string.Format("{0} ", word);
@@ -113,7 +109,7 @@ namespace DungeonCrawler
                 if ((line + word).Length > myLimit)
                 {
                     newSentence.AppendLine(line);
-                    line = " ";
+                    line = "";
                 }
 
                 line += string.Format("{0} ", word);
@@ -139,7 +135,7 @@ namespace DungeonCrawler
                 if ((line + word).Length > myLimit)
                 {
                     newSentence.AppendLine(line);
-                    line = " ";
+                    line = "";
                 }
 
                 line += string.Format("{0} ", word);

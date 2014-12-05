@@ -16,6 +16,7 @@ namespace DungeonCrawler
         public int ranWep;
         public Monsters(){}
     }
+    #region Non-Bosses
     /// <summary>
     /// High toughness
     /// </summary>
@@ -268,6 +269,8 @@ namespace DungeonCrawler
             { WeaponBehaviour = new Quarterstaff(); }
         }
     }
+    #endregion
+    #region Bosses
     /// <summary>
     /// Bosses differ from regular monsters as they cannot be fled from
     /// </summary>
@@ -427,3 +430,4 @@ namespace DungeonCrawler
         }
     }
 }
+    #endregion

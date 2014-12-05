@@ -32,7 +32,7 @@ namespace DungeonCrawler
 
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Death.wav");
             player.Play();
-            Console.ReadLine();
+            Console.ReadKey();
             Environment.Exit(1);
         }
         public void Victory()
@@ -57,7 +57,7 @@ namespace DungeonCrawler
             Console.Write(Environment.NewLine + "             YOU ARE WINNER! CONGRATULATIONS!");
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/VictoryFanfare.wav");
             player.Play();
-            Console.ReadLine();
+            Console.ReadKey();
             Environment.Exit(1);
         }
         public void ClearMapBox()
