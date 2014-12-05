@@ -7,6 +7,9 @@ using System.Threading;
 
 namespace DungeonCrawler
 {
+    /// <summary>
+    /// This is a Dungeon Crawler Game, Created by Evan, Dave, Jordan, and Nolan
+    /// </summary>
     class Program
     {
         static void Main()
@@ -15,11 +18,29 @@ namespace DungeonCrawler
             Program prog = new Program();
             Intro Start = new Intro();
             Start.ScreenRender();
-
             ///Waiting to start game
-            prog.WriteTextBox(" Welcome to Dungeon C#rawler! \n \n Press Any Key To Start");
-            Console.ReadKey();
+            bool Timer = true; //True = a Timer, False = Key Press
+            #region Starting Mode
+            if(Timer==true)
+            {
+                Console.SetCursorPosition(19, 48);
+                Console.WriteLine("STARTING IN: ");
+                for (int k = 5; k != 0; k--)
+                {
+                    Console.SetCursorPosition(31, 48);
+                    Console.Write(k);
+                    System.Threading.Thread.Sleep(1000);
+                }
+                Console.SetCursorPosition(7, 59);
+            }
+            else
+            {
+                prog.WriteTextBox("Press Any Key To Start");
+                Console.ReadKey();
+            }
+            #endregion
 
+            #region Map Creation
             ///Starts the map
             Map map = new Map();
             
@@ -28,6 +49,7 @@ namespace DungeonCrawler
             {
                 map.movement();
             }
+            #endregion
         }
         public void ClearTextbox()
         {
