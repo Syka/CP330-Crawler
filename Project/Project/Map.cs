@@ -552,11 +552,13 @@ namespace DungeonCrawler
                     ///Hero gives damage to monster, hero recieves damage from monster.
                     int damage = hero.WeaponBehaviour.useWeapon();
                     int monsterDamage = monster.WeaponBehaviour.useWeapon();
+                    prog.WriteTextBox(hero.WeaponBehaviour.heroMessage(damage, damage));
                     monster.HealthBehaviour.subHealth(damage);
                     Console.ReadLine();
                     //enemy attacks
+                    prog.WriteTextBox(monster.WeaponBehaviour.monsterMessage(monster.HealthBehaviour.getName(), monsterDamage, monsterDamage));
                     hero.HealthBehaviour.subHealth(monsterDamage);
-                    prog.WriteTextBox("The " + monster.WeaponBehaviour.getName() + " for " + monsterDamage);
+                    Console.ReadLine();
                     break;
                 case ConsoleKey.D2:         
                     int blockedDamage;              ///Hero blocks 50% of the monsters damage.
