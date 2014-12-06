@@ -94,8 +94,8 @@ namespace DungeonCrawler
         }
         public int useWeapon()
         {
-            ///Random Generator for Sword
-            if (random.Next(0, 4) != 0) //Sword has a 75% chance of hitting, with a 25% chance of missing
+            ///Random Generator for Axe
+            if (random.Next(0, 3) == 0) //Axe has a 33.33% chance of hitting, with a 25% chance of missing
             {
                 int dmg = random.Next(6, damage()) + 1;
                 return dmg;
@@ -144,7 +144,7 @@ namespace DungeonCrawler
         }
         public int useWeapon()
         {
-            ///Random Generator for Sword
+            ///Random Generator for Knife
             if (random.Next(0, 4) != 0) //Sword has a 75% chance of hitting, with a 25% chance of missing
             {
                 int dmg = random.Next(1, damage()) + 1;
