@@ -27,7 +27,7 @@ namespace DungeonCrawler
                 Console.WriteLine("STARTING IN: ");
                 for (int k = 5; k != 0; k--)
                 {
-                    Console.SetCursorPosition(31, 48);
+                    Console.SetCursorPosition(32, 48);
                     Console.Write(k);
                     System.Threading.Thread.Sleep(1000);
                 }
@@ -36,7 +36,6 @@ namespace DungeonCrawler
             else
             {
                 prog.WriteTextBox("Press Any Key To Start");
-                Console.ReadKey();
             }
             #endregion
 
