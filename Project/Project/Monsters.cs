@@ -9,8 +9,8 @@ namespace DungeonCrawler
     ///Holds the traits all Monsters Have
     public abstract class Monsters
     {
-        public IHealthBehaviour HealthBehaviour;
-        public WeaponBehaviour WeaponBehaviour;
+        public IHealthBehaviour HealthBehaviour;        ///allows reference to the Health interface
+        public WeaponBehaviour WeaponBehaviour;         ///allows reference to the Weapons interface
         public string monsterName;
         public Random rngWep = new Random();
         public int ranWep;
