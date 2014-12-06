@@ -381,7 +381,7 @@ namespace DungeonCrawler
         }
         public string getName()
         {
-            return "Halberd";
+            return "Quarterstaff";
         }
         public int useWeapon()
         {
