@@ -19,37 +19,43 @@ namespace DungeonCrawler
     ///Bowstaff--------damage = 6
     ///Caestus---------damage = 1
     ///Spear----damage = 7
-    public interface WeaponBehaviour ///Weapon interface
+
+
+    ///Weapon interface
+    public interface WeaponBehaviour 
     {
-        string getName(); ///get the Name of the weapon
-        int damage(); ///Create a damage int variable
-        int useWeapon(); ///create a useWeapon
-        string heroMessage(int mode, int dmg); ///string for hero Message
-        string monsterMessage(string mName, int mode, int dmg); ///string for monster Message
+        string getName(); //get the Name of the weapon
+        int damage(); //Create a damage int variable
+        int useWeapon(); //create a useWeapon
+        string heroMessage(int mode, int dmg); //string for hero Message
+        string monsterMessage(string mName, int mode, int dmg); //string for monster Message
     }
+
+
+
     ///Sword
     ///Sword will set damage to 5, this will then be used in the future when attacking an enemy.
     public class Sword : WeaponBehaviour
     {
-        Program prog = new Program();
-        Random random = new Random();
-        public int damage()
+        Program prog = new Program(); //new prog
+        Random random = new Random(); //new random
+        public int damage() //set damage method
         {
-            return 5;
+            return 5; //returning the swords damage of 5
         }
-        public string getName()
+        public string getName() //getName method
         {
-            return "Sword";
+            return "Sword"; //returning the name of the weapon
         }
-        public int useWeapon()
+        public int useWeapon() //UseWeapon Method
         {
             ///Random Generator for Sword
             if (random.Next(0, 4) != 0) //Sword has a 75% chance of hitting, with a 25% chance of missing
             {
-                int dmg = random.Next(1, damage()) + 1;
+                int dmg = random.Next(1, damage()) + 1; // if the sword is sucessful the samage will be returned
                 return dmg;
             }
-            else
+            else //if the sword is unsuccessful then damage will return nothing
             {
                 return 0;
             }
@@ -97,7 +103,7 @@ namespace DungeonCrawler
         public int useWeapon()
         {
             ///Random Generator for Axe
-            if (random.Next(0, 3) == 0) //Axe has a 33.33% chance of hitting, with a 25% chance of missing
+            if (random.Next(0, 3) == 0) //Axe has a 33.33% chance of hitting, with a 66% chance of missing
             {
                 int dmg = random.Next(6, damage()) + 1;
                 return dmg;
