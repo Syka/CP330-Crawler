@@ -44,7 +44,7 @@ namespace DungeonCrawler
             else if (ranWep == 6)
             { WeaponBehaviour = new Caestus();}
             else if (ranWep == 7)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
     public class Mercenary : Monsters
@@ -71,7 +71,7 @@ namespace DungeonCrawler
             else if (ranWep == 6)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep == 7)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
     public class Wraith : Monsters
@@ -98,7 +98,7 @@ namespace DungeonCrawler
             else if (ranWep == 6)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep == 7)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
     /// <summary>
@@ -128,7 +128,7 @@ namespace DungeonCrawler
             else if (ranWep == 6)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep == 7)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
     public class Skeleton : Monsters
@@ -155,7 +155,7 @@ namespace DungeonCrawler
             else if (ranWep == 6)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep == 7)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
     public class Bandit : Monsters
@@ -182,7 +182,7 @@ namespace DungeonCrawler
             else if (ranWep == 6)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep == 7)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
     /// <summary>
@@ -212,7 +212,7 @@ namespace DungeonCrawler
             else if (ranWep == 6)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep == 7)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
     public class Goblin : Monsters
@@ -239,7 +239,7 @@ namespace DungeonCrawler
             else if (ranWep == 6)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep == 7)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
     public class Zombie : Monsters
@@ -266,7 +266,7 @@ namespace DungeonCrawler
             else if (ranWep == 6)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep == 7)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
     #endregion
@@ -298,7 +298,7 @@ namespace DungeonCrawler
             else if (ranWep >= 430 && ranWep < 431)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep >=431 && ranWep <= 499)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
     public class Demon : Monsters
@@ -323,7 +323,7 @@ namespace DungeonCrawler
             else if (ranWep >= 430 && ranWep < 471)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep >= 471 && ranWep <= 499)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
 
         }
     }
@@ -349,7 +349,7 @@ namespace DungeonCrawler
             else if (ranWep >= 430 && ranWep < 471)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep >= 471 && ranWep <= 499)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
     public class SkeletonKing : Monsters
@@ -374,7 +374,7 @@ namespace DungeonCrawler
             else if (ranWep >= 430 && ranWep < 471)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep >= 471 && ranWep <= 499)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
 
         }
 
@@ -401,7 +401,7 @@ namespace DungeonCrawler
             else if (ranWep >= 430 && ranWep < 471)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep >= 471 && ranWep <= 499)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
     public class BlackKnight : Monsters
@@ -426,7 +426,7 @@ namespace DungeonCrawler
             else if (ranWep >= 430 && ranWep < 471)
             { WeaponBehaviour = new Caestus(); }
             else if (ranWep >= 471 && ranWep <= 499)
-            { WeaponBehaviour = new Quarterstaff(); }
+            { WeaponBehaviour = new Spear(); }
         }
     }
 }

@@ -145,7 +145,7 @@ namespace DungeonCrawler
         public int useWeapon()
         {
             ///Random Generator for Knife
-            if (random.Next(0, 4) != 0) //Sword has a 75% chance of hitting, with a 25% chance of missing
+            if (random.Next(0, 5) == 0) //knife has a 80% chance of hitting, with a 25% chance of missing
             {
                 int dmg = random.Next(1, damage()) + 1;
                 return dmg;
@@ -371,7 +371,7 @@ namespace DungeonCrawler
     }
     ///Quarterstaff
     ///Quarterstaff will set damage to 7, this will then be used in the future when attacking an enemy.
-    public class Quarterstaff : WeaponBehaviour
+    public class Spear : WeaponBehaviour
     {
         Program prog = new Program();
         Random random = new Random();
@@ -381,12 +381,12 @@ namespace DungeonCrawler
         }
         public string getName()
         {
-            return "Quarterstaff";
+            return "Spear";
         }
         public int useWeapon()
         {
-            ///Random Generator for Sword
-            if (random.Next(0, 4) != 0) //Sword has a 75% chance of hitting, with a 25% chance of missing
+            ///Random Generator for Spear
+            if (random.Next(0, 4) != 0) //Spear has a 50% chance of hitting, with a 50% chance of missing
             {
                 int dmg = random.Next(5, damage()) + 1;
                 return dmg;

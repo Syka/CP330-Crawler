@@ -643,8 +643,8 @@ namespace DungeonCrawler
         public void weaponSelect()
         {
             ///Select weapon 
-            prog.WriteTextBox(" Welcome to Dungeon C#rawler! \n \n Please Select a Weapon: \n \n [1] Sword \t DMG = 5 \t ACC = 75% \n [2] Axe \t DMG = 8 \t ACC = 33% \n [3] Knife \t 2 DMG " + 
-                " \n [4] Mace \t 4 DMG \n [5] Fish \t 3 DMG \n [6] Bowstaff \t 6 DMG \n [7] Caestus \t 1 DMG \n [8] Quarterstaff \t 8 DMG");
+            prog.WriteTextBox(" Welcome to Dungeon C#rawler! \n \n Please Select a Weapon: \n \n [1] Sword \t DMG = 5 \t ACC = 75% \n [2] Axe \t DMG = 8 \t ACC = 33% \n [3] Knife \t DMG = 2 \t ACC = 80% " + 
+                " \n [4] Mace \t 4 DMG \n [5] Fish \t 3 DMG \n [6] Bowstaff \t 6 DMG \n [7] Caestus \t 1 DMG \n [8] Spear \t DMG = 7 \t ACC = 50%");
 
             ///Takes key input and assigns to weapon
             input = Console.ReadKey();
@@ -672,7 +672,7 @@ namespace DungeonCrawler
                     hero.WeaponBehaviour = new Caestus();
                     break;
                 case ConsoleKey.D8:
-                    hero.WeaponBehaviour = new Quarterstaff();
+                    hero.WeaponBehaviour = new Spear();
                     break;
                     ///possible numpad support
                 //case ConsoleKey.NumPad1:
