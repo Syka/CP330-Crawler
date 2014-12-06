@@ -18,14 +18,14 @@ namespace DungeonCrawler
     ///Fish------------damage = 3
     ///Bowstaff--------damage = 6
     ///Caestus---------damage = 1
-    ///Quarterstaff----damage = 7
-    public interface WeaponBehaviour
+    ///Spear----damage = 7
+    public interface WeaponBehaviour ///Weapon interface
     {
-        string getName();
-        int damage();
-        int useWeapon();
-        string heroMessage(int mode, int dmg);
-        string monsterMessage(string mName, int mode, int dmg);
+        string getName(); ///get the Name of the weapon
+        int damage(); ///Create a damage int variable
+        int useWeapon(); ///create a useWeapon
+        string heroMessage(int mode, int dmg); ///string for hero Message
+        string monsterMessage(string mName, int mode, int dmg); ///string for monster Message
     }
     ///Sword
     ///Sword will set damage to 5, this will then be used in the future when attacking an enemy.
@@ -78,6 +78,8 @@ namespace DungeonCrawler
         }
     }
 
+
+
     ///Axe
     ///Axe will set damage to 8, this will then be used in the future when attacking an enemy.
     public class Axe : WeaponBehaviour
@@ -128,6 +130,9 @@ namespace DungeonCrawler
             }
         }
     }
+
+
+
     ///Knife
     ///Knife will set damage to 2, this will then be used in the future when attacking an enemy.
     public class Knife : WeaponBehaviour
@@ -178,6 +183,9 @@ namespace DungeonCrawler
             }
         }
     }
+
+
+
     ///Mace
     ///Mace will set damage to 4, this will then be used in the future when attacking an enemy.
     public class Mace : WeaponBehaviour
@@ -194,8 +202,8 @@ namespace DungeonCrawler
         }
         public int useWeapon()
         {
-            ///Random Generator for Sword
-            if (random.Next(0, 4) != 0) //Sword has a 75% chance of hitting, with a 25% chance of missing
+            ///Random Generator for Mace
+            if (random.Next(0, 4) != 0) //Mace has a 75% chance of hitting, with a 25% chance of missing
             {
                 int dmg = random.Next(1, damage()) + 1;
                 return dmg;
@@ -228,6 +236,9 @@ namespace DungeonCrawler
             }
         }
     }
+
+
+
     ///Fish
     ///Fish will set damage to 3, this will then be used in the future when attacking an enemy.
     public class Fish : WeaponBehaviour
@@ -244,8 +255,8 @@ namespace DungeonCrawler
         }
         public int useWeapon()
         {
-            ///Random Generator for Sword
-            if (random.Next(0, 4) != 0) //Sword has a 75% chance of hitting, with a 25% chance of missing
+            ///Random Generator for Fish
+            if (random.Next(0, 2) != 0) //Fish has a 50% chance of hitting, with a 50% chance of missing
             {
                 int dmg = random.Next(1, damage()) + 1;
                 return dmg;
@@ -294,8 +305,8 @@ namespace DungeonCrawler
         }
         public int useWeapon()
         {
-            ///Random Generator for Sword
-            if (random.Next(0, 4) != 0) //Sword has a 75% chance of hitting, with a 25% chance of missing
+            ///Random Generator for Bowstaff
+            if (random.Next(0, 4) != 0) //Bowstaff has a 75% chance of hitting, with a 25% chance of missing
             {
                 int dmg = random.Next(4, damage()) + 1;
                 return dmg;
