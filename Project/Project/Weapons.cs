@@ -60,26 +60,26 @@ namespace DungeonCrawler
                 return 0;
             }
         }
-        public string heroMessage(int mode, int dmg)
+        public string heroMessage(int mode, int dmg) //Hero message, takes mode and damage
         {
-            if (mode != 0)
+            if (mode != 0) //this is where we learn if a hero hits or not
             {
-                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)!";
+                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)!"; //this is where he will do damage
             }
             else
             {
-                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!";
+                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!"; //this is where he misses
             }
         }
-        public string monsterMessage(string mName, int mode, int dmg)
+        public string monsterMessage(string mName, int mode, int dmg) //Monster message, takes current arguments and mName
         {
             if (mode != 0)
             {
-                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
+                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; //this controls the monsters hit
             }
             else
             {
-                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
+                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; //this controls the monsters miss
             }
         }
     }
@@ -88,13 +88,13 @@ namespace DungeonCrawler
 
     ///Axe
     ///Axe will set damage to 8, this will then be used in the future when attacking an enemy.
-    public class Axe : WeaponBehaviour
+    public class Axe : WeaponBehaviour //the weapon is created and uses the interface of WeaponBehaviour
     {
-        Program prog = new Program();
-        Random random = new Random();
-        public int damage()
+        Program prog = new Program(); //new prog
+        Random random = new Random();//new random
+        public int damage() //set damage method
         {
-            return 8;
+            return 8; //returning the axe damage of 8
         }
         public string getName()
         {
@@ -141,13 +141,13 @@ namespace DungeonCrawler
 
     ///Knife
     ///Knife will set damage to 2, this will then be used in the future when attacking an enemy.
-    public class Knife : WeaponBehaviour
+    public class Knife : WeaponBehaviour //the weapon is created and uses the interface of WeaponBehaviour
     {
-        Program prog = new Program();
-        Random random = new Random();
-        public int damage()
+        Program prog = new Program();//new prog
+        Random random = new Random();//new random
+        public int damage() //set damage method
         {
-            return 2;
+            return 2; //returning the knife damage of 2
         }
         public string getName()
         {
@@ -194,13 +194,13 @@ namespace DungeonCrawler
 
     ///Mace
     ///Mace will set damage to 4, this will then be used in the future when attacking an enemy.
-    public class Mace : WeaponBehaviour
+    public class Mace : WeaponBehaviour //the weapon is created and uses the interface of WeaponBehaviour
     {
-        Program prog = new Program();
-        Random random = new Random();
-        public int damage()
+        Program prog = new Program(); //new prog
+        Random random = new Random();//new random
+        public int damage() //set damage method
         {
-            return 4;
+            return 4; //returning the mace damage of 4
         }
         public string getName()
         {
@@ -247,13 +247,13 @@ namespace DungeonCrawler
 
     ///Fish
     ///Fish will set damage to 3, this will then be used in the future when attacking an enemy.
-    public class Fish : WeaponBehaviour
+    public class Fish : WeaponBehaviour //the weapon is created and uses the interface of WeaponBehaviour
     {
-        Program prog = new Program();
-        Random random = new Random();
-        public int damage()
+        Program prog = new Program(); //new prog
+        Random random = new Random(); //new random
+        public int damage() //set damage method
         {
-            return 3;
+            return 3; //returning the fish damage of 3
         }
         public string getName()
         {
@@ -297,13 +297,13 @@ namespace DungeonCrawler
     }
     ///Bowstaff
     ///Bowstaff will set damage to 6, this will then be used in the future when attacking an enemy.
-    public class Bowstaff : WeaponBehaviour
+    public class Bowstaff : WeaponBehaviour //the weapon is created and uses the interface of WeaponBehaviour
     {
-        Program prog = new Program();
-        Random random = new Random();
-        public int damage()
+        Program prog = new Program(); //new prog
+        Random random = new Random(); //new random
+        public int damage() //set damage method
         {
-            return 6;
+            return 6; //returning the bowstaff damage of 6
         }
         public string getName()
         {
@@ -347,13 +347,13 @@ namespace DungeonCrawler
     }
     ///Caestus
     ///Caestus will set damage to 1, this will then be used in the future when attacking an enemy.
-    public class Caestus : WeaponBehaviour
+    public class Caestus : WeaponBehaviour //the weapon is created and uses the interface of WeaponBehaviour
     {
-        Program prog = new Program();
-        Random random = new Random();
-        public int damage()
+        Program prog = new Program(); //new prog
+        Random random = new Random();//new random
+        public int damage() //set damage method
         {
-            return 1;
+            return 1; //returning the caestus damage of 1
         }
         public string getName()
         {
@@ -386,15 +386,15 @@ namespace DungeonCrawler
             }
         }
     }
-    ///Quarterstaff
-    ///Quarterstaff will set damage to 7, this will then be used in the future when attacking an enemy.
-    public class Spear : WeaponBehaviour
+    ///Spear
+    ///Spear will set damage to 7, this will then be used in the future when attacking an enemy.
+    public class Spear : WeaponBehaviour //the weapon is created and uses the interface of WeaponBehaviour
     {
-        Program prog = new Program();
-        Random random = new Random();
-        public int damage()
+        Program prog = new Program(); //new prog
+        Random random = new Random(); //new random
+        public int damage() //set damage method
         {
-            return 7;
+            return 7; //returning the spear damage of 7
         }
         public string getName()
         {

@@ -643,62 +643,65 @@ namespace DungeonCrawler
         public void weaponSelect()
         {
             ///Select weapon 
+            ///Players will be asked to select a weapon.
             prog.WriteTextBox(" Welcome to Dungeon C#rawler! \n \n Please Select a Weapon: \n \n [1] Sword \t DMG = 5 \t ACC = 75% \n [2] Axe \t DMG = 8 \t ACC = 33% \n [3] Knife \t DMG = 2 \t ACC = 80% " + 
                 " \n [4] Mace \t DMG = 4 \t ACC = 75% \n [5] Fish \t DMG = 3 \t ACC = 50% \n [6] Bowstaff \t DMG = 6 \t ACC = 75% \n [7] Caestus \t DMG = 1 \t ACC = 100% \n [8] Spear \t DMG = 7 \t ACC = 50%");
 
             ///Takes key input and assigns to weapon
+            ///The console will read the input and assign the weapon belonging to it.
             input = Console.ReadKey();
             switch (input.Key)
             {
-                case ConsoleKey.D1:
+                case ConsoleKey.D1://1
                     hero.WeaponBehaviour = new Sword();
                     break;
-                case ConsoleKey.D2:
+                case ConsoleKey.D2://2
                     hero.WeaponBehaviour = new Axe();
                     break;
-                case ConsoleKey.D3:
+                case ConsoleKey.D3://3
                     hero.WeaponBehaviour = new Knife();
                     break;
-                case ConsoleKey.D4:
+                case ConsoleKey.D4://4
                     hero.WeaponBehaviour = new Mace();
                     break;
-                case ConsoleKey.D5:
+                case ConsoleKey.D5://5
                     hero.WeaponBehaviour = new Fish();
                     break;
-                case ConsoleKey.D6:
+                case ConsoleKey.D6://6
                     hero.WeaponBehaviour = new Bowstaff();
                     break;
-                case ConsoleKey.D7:
+                case ConsoleKey.D7://7
                     hero.WeaponBehaviour = new Caestus();
                     break;
-                case ConsoleKey.D8:
+                case ConsoleKey.D8://8
                     hero.WeaponBehaviour = new Spear();
                     break;
-                    ///possible numpad support
-                //case ConsoleKey.NumPad1:
-                //    hero.WeaponBehaviour = new Sword();
-                //    break;
-                //case ConsoleKey.NumPad2:
-                //    hero.WeaponBehaviour = new Axe();
-                //    break;
-                //case ConsoleKey.NumPad3:
-                //    hero.WeaponBehaviour = new Knife();
-                //    break;
-                //case ConsoleKey.NumPad4:
-                //    hero.WeaponBehaviour = new Mace();
-                //    break;
-                //case ConsoleKey.NumPad5:
-                //    hero.WeaponBehaviour = new Fish();
-                //    break;
-                //case ConsoleKey.NumPad6:
-                //    hero.WeaponBehaviour = new Bowstaff();
-                //    break;
-                //case ConsoleKey.NumPad7:
-                //    hero.WeaponBehaviour = new Caestus();
-                //    break;
-                //case ConsoleKey.NumPad8:
-                //    hero.WeaponBehaviour = new Quarterstaff();
-                //    break;
+                    ///numpad support
+                    ///
+                case ConsoleKey.NumPad1: //num1
+                    hero.WeaponBehaviour = new Sword();
+                    break;
+                case ConsoleKey.NumPad2: //num2
+                    hero.WeaponBehaviour = new Axe();
+                    break;
+                case ConsoleKey.NumPad3://num3
+                    hero.WeaponBehaviour = new Knife();
+                    break;
+                case ConsoleKey.NumPad4://num4
+                    hero.WeaponBehaviour = new Mace();
+                    break;
+                case ConsoleKey.NumPad5://num5
+                    hero.WeaponBehaviour = new Fish();
+                    break;
+                case ConsoleKey.NumPad6://num6
+                    hero.WeaponBehaviour = new Bowstaff();
+                    break;
+                case ConsoleKey.NumPad7://num7
+                    hero.WeaponBehaviour = new Caestus();
+                    break;
+                case ConsoleKey.NumPad8://num8
+                    hero.WeaponBehaviour = new Spear();
+                    break;
                 default:
                     weaponSelect();
                     break;
