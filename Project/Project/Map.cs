@@ -161,13 +161,13 @@ namespace DungeonCrawler
                         int trapDmg = rand.Next(4, 11);
                         hero.HealthBehaviour.subHealth(trapDmg);
                         InfoPane();
-                        prog.WriteTextBox(mapMessage(onTrap, mapMessage("randonInjury", "", ""), trapDmg.ToString()) + AnyKeyMove);
+                        prog.WriteTextBox(mapMessage(onTrap, randomInjury(), trapDmg.ToString()) + AnyKeyMove);
                         Console.ReadKey();
                         unknown[r, c] = events[r, c]; events[r, c] = trapDef;
                         setPlayer(_pRow, _pCol); postEvent(r, c);
                         break;
                     case "-{T}-": mask[r, c] = onTrapDef;
-                        prog.WriteTextBox(onTrapDef + AnyKeyMove);
+                        prog.WriteTextBox(mapMessage(onTrapDef, "", "") + AnyKeyCont);
                         break;
                     case " {F} ": mask[r, c] = onFount;
                         int fount = rand.Next(3, 8), randFount = rand.Next(1, 5);
@@ -275,16 +275,6 @@ namespace DungeonCrawler
             else if (mode.Equals(onTrap)) {         ///Trapdoor dialog
                 return " As you hear a clicking sound, you immediately fall down a trapdoor and " + var + "! (-" + var2 + " DMG)";
             }
-            else if (mode.Equals("randomInjury")) { ///Choose random body part for trapdoor dialog
-                if (rand.Next(0, 8) == 0)       { return "scrape your elbow"; }
-                else if (rand.Next(0, 6) == 1)  { return "bruise your shoulder"; }
-                else if (rand.Next(0, 6) == 2)  { return "hit your funnybone"; }
-                else if (rand.Next(0, 6) == 3)  { return "scrape your knee"; }
-                else if (rand.Next(0, 6) == 4)  { return "bruise your shin"; }
-                else if (rand.Next(0, 6) == 5)  { return "pull a muscle"; }
-                else if (rand.Next(0, 7) == 6)  { return "break a finger nail"; }
-                else                            { return "cut your beautiful face"; }
-            }
             else if (mode.Equals(onTrapDef)) {      ///When on a disarmed trapdoor
                 if (rand.Next(0, 5) == 0)       { return " Looking at the trapdoor makes you sweaty already. Mom's spaghetti."; }
                 else if (rand.Next(0, 6) == 1)  { return " You still can't believe you fell for the trap."; }
@@ -303,7 +293,7 @@ namespace DungeonCrawler
             }
             if (mode.Equals("weaponSelect")) {      ///Level 1 dialog
                 string intro = " Wielding your trusty ";
-                if (var.Equals("Fish")) { intro = " Wielding your not-so-trusty "; var += " (seriously-- what were you thinking?)"; }
+                if (var.Equals("Fish")) { intro = " Wielding your not-so-trusty "; var += " (seriously, what were you thinking?)"; }
                 return intro + var + ", you set out to conquer the Dungeon and vanquish all who oppose you.";
             }
             else if (mode.Equals("setLevel_2")) {   ///Level 2 dialog
@@ -317,6 +307,17 @@ namespace DungeonCrawler
                        " Before you decide to take a break yourself, however, you hear the Boss taunting you further down the hall...";
             }
             else { return ""; }
+        }
+        public string randomInjury()
+        {   ///Chooses random body part for trapdoor dialog
+            if (rand.Next(0, 8) == 0) { return "scrape your elbow"; }
+            else if (rand.Next(0, 6) == 1) { return "bruise your shoulder"; }
+            else if (rand.Next(0, 6) == 2) { return "hit your funnybone"; }
+            else if (rand.Next(0, 6) == 3) { return "scrape your knee"; }
+            else if (rand.Next(0, 6) == 4) { return "bruise your shin"; }
+            else if (rand.Next(0, 6) == 5) { return "pull a muscle"; }
+            else if (rand.Next(0, 7) == 6) { return "break a finger nail"; }
+            else { return "cut your beautiful face"; }
         }
         public bool checkBoss(int r, int c)
         {   ///returns true if the Boss has been defeated
