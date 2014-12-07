@@ -21,22 +21,22 @@ namespace DungeonCrawler
             ///Waiting to start game
             bool Timer = true; //True = a Timer, False = Key Press
             #region Starting Mode
-            if(Timer==true)
-            {
-                Console.SetCursorPosition(19, 48);
-                Console.WriteLine("STARTING IN: ");
-                for (int k = 5; k != 0; k--)
-                {
-                    Console.SetCursorPosition(32, 48);
-                    Console.Write(k);
-                    System.Threading.Thread.Sleep(1000);
-                }
-                Console.SetCursorPosition(7, 59);
-            }
-            else
-            {
-                prog.WriteTextBox("Press Any Key To Start");
-            }
+            ////if(Timer==true)
+            ////{
+            ////    Console.SetCursorPosition(19, 48);
+            ////    Console.WriteLine("STARTING IN: ");
+            ////    for (int k = 5; k != 0; k--)
+            ////    {
+            ////        Console.SetCursorPosition(32, 48);
+            ////        Console.Write(k);
+            ////        System.Threading.Thread.Sleep(1000);
+            ////    }
+            ////    Console.SetCursorPosition(7, 59);
+            ////}
+            ////else
+            ////{
+            ////    prog.WriteTextBox("Press Any Key To Start");
+            ////}
             #endregion
 
             #region Map Creation
