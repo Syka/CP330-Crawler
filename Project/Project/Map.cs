@@ -242,23 +242,23 @@ namespace DungeonCrawler
             }
             else if (mode.Equals("fightChoiceN")) { ///When declining the fight dialog
                 if (rand.Next(0, 5) == 0)       { return " You decide not to fight the " + var + "."; }
-                else if (rand.Next(0, 6) == 1)  { return " Fighting the " + var + " is tempting, but you decide against it."; }
-                else if (rand.Next(0, 6) == 2)  { return " Despite being in front of the " + var + ", you walk away knowing it cannot move. "; }
-                else if (rand.Next(0, 6) == 3)  { return " You find it in your heart to delay the " + var + "'s demise."; }
+                else if (rand.Next(0, 5) == 1)  { return " Fighting the " + var + " is tempting, but you decide against it."; }
+                else if (rand.Next(0, 5) == 2)  { return " Despite being in front of the " + var + ", you walk away knowing it cannot move. "; }
+                else if (rand.Next(0, 5) == 3)  { return " You find it in your heart to delay the " + var + "'s demise."; }
                 else                            { return " You hope the " + var + " doesn't respawn as something stronger next time."; }
             }
             else if (mode.Equals(onEnemyDef)) {     ///When on a defeated enemy
                 if (rand.Next(0, 5) == 0)       { return " It's a corpse. Nothing special."; }
-                else if (rand.Next(0, 6) == 1)  { return " You almost feel sorry for your foe. Almost."; }
-                else if (rand.Next(0, 6) == 2)  { return " You laugh at the funny pose your foe's corpse has fallen in."; }
-                else if (rand.Next(0, 6) == 3)  { return " Better Dead than Undead. Or Re-Dead."; }
+                else if (rand.Next(0, 5) == 1)  { return " You almost feel sorry for your foe. Almost."; }
+                else if (rand.Next(0, 5) == 2)  { return " You laugh at the funny pose your foe's corpse has fallen in."; }
+                else if (rand.Next(0, 5) == 3)  { return " Better Dead than Undead. Or Re-Dead."; }
                 else                            { return " You're lucky that enemies don't respawn."; }
             }
             else if (mode.Equals(onBossDef)) {      ///When on a defeated Boss
                 if (rand.Next(0, 5) == 0)       { return " It was a tough battle, but you compare injuries with the Boss and laugh."; }
-                else if (rand.Next(0, 6) == 1)  { return " You still have an adrenaline high from the battle."; }
-                else if (rand.Next(0, 6) == 2)  { return " You're one step closer to finishing the Dungeon. Keep going!"; }
-                else if (rand.Next(0, 6) == 3)  { return " No, the Boss didn't drop any loot."; }
+                else if (rand.Next(0, 5) == 1)  { return " You still have an adrenaline high from the battle."; }
+                else if (rand.Next(0, 5) == 2)  { return " You're one step closer to finishing the Dungeon. Keep going!"; }
+                else if (rand.Next(0, 5) == 3)  { return " No, the Boss didn't drop any loot."; }
                 else                            { return " It's a slightly larger corpse. Nothing special."; }
             }
             else if (mode.Equals(onFount)) {        ///Fountain dialog
@@ -267,9 +267,9 @@ namespace DungeonCrawler
             }
             else if (mode.Equals(onFountUsed)) {    ///When on a used fountain
                 if (rand.Next(0, 5) == 0)       { return " The fountain is empty, you greedy bastard."; }
-                else if (rand.Next(0, 6) == 1)  { return " You're sad that the fountain isn't a magically replenishing fountain."; }
-                else if (rand.Next(0, 6) == 2)  { return " You suddenly realize there are no bathrooms in the Dungeon."; }
-                else if (rand.Next(0, 6) == 3)  { return " The old fountain makes you wonder how old the water actually is."; }
+                else if (rand.Next(0, 5) == 1)  { return " You're sad that the fountain isn't a magically replenishing fountain."; }
+                else if (rand.Next(0, 5) == 2)  { return " You suddenly realize there are no bathrooms in the Dungeon."; }
+                else if (rand.Next(0, 5) == 3)  { return " The old fountain makes you wonder how old the water actually is."; }
                 else                            { return " There's a message at the bottom of the fountain. It reads: 'Remember to drink your Ovaltine.'"; }
             }
             else if (mode.Equals(onTrap)) {         ///Trapdoor dialog
@@ -277,9 +277,9 @@ namespace DungeonCrawler
             }
             else if (mode.Equals(onTrapDef)) {      ///When on a disarmed trapdoor
                 if (rand.Next(0, 5) == 0)       { return " Looking at the trapdoor makes you sweaty already. Mom's spaghetti."; }
-                else if (rand.Next(0, 6) == 1)  { return " You still can't believe you fell for the trap."; }
-                else if (rand.Next(0, 6) == 2)  { return " You wonder if all boobytraps in the dungeon are just trap doors."; }
-                else if (rand.Next(0, 6) == 3)  { return " As you hear a clicking sound, you immediat-- just kidding. It's disarmed."; }
+                else if (rand.Next(0, 5) == 1)  { return " You still can't believe you fell for the trap."; }
+                else if (rand.Next(0, 5) == 2)  { return " You wonder if all boobytraps in the dungeon are just trap doors."; }
+                else if (rand.Next(0, 5) == 3)  { return " As you hear a clicking sound, you immediat-- just kidding. It's disarmed."; }
                 else                            { return " To buffer the anxiety, you imagine the trap door as a ball pit."; }
             }
             else if (mode.Equals(onDoor)) {         ///Door dialog
