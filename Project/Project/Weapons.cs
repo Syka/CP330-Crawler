@@ -96,43 +96,43 @@ namespace DungeonCrawler
         {
             return 8; //returning the axe damage of 8
         }
-        public string getName()
+        public string getName() // getName method
         {
-            return "Axe";
+            return "Axe"; // return the name Axe
         }
-        public int useWeapon()
+        public int useWeapon() //use weapon method
         {
             ///Random Generator for Axe
             if (random.Next(0, 3) == 0) //Axe has a 33.33% chance of hitting, with a 66% chance of missing
             {
-                int dmg = random.Next(6, damage()) + 1;
+                int dmg = random.Next(6, damage()) + 1; //return the damage of 6
                 return dmg;
             }
             else
             {
-                return 0;
+                return 0; //returns damage of 0
             }
         }
-        public string heroMessage(int mode, int dmg)
+        public string heroMessage(int mode, int dmg) //Hero message
         {
             if (mode != 0)
             {
-                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)!";
+                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)!"; // if gets hit option
             }
             else
             {
-                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!";
+                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!"; //if not hit  option
             }
         }
-        public string monsterMessage(string mName, int mode, int dmg)
+        public string monsterMessage(string mName, int mode, int dmg) // Monster Message
         {
             if (mode != 0)
             {
-                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
+                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; //if the monster hits
             }
             else
             {
-                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
+                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; //if the monster misses
             }
         }
     }
@@ -149,43 +149,43 @@ namespace DungeonCrawler
         {
             return 2; //returning the knife damage of 2
         }
-        public string getName()
+        public string getName() //getName message
         {
-            return "Knife";
+            return "Knife"; //return name Knife
         }
-        public int useWeapon()
+        public int useWeapon() //useWeapon method
         {
             ///Random Generator for Knife
             if (random.Next(0, 5) == 0) //knife has a 80% chance of hitting, with a 25% chance of missing
             {
-                int dmg = random.Next(1, damage()) + 1;
+                int dmg = random.Next(1, damage()) + 1; //return damage
                 return dmg;
             }
             else
             {
-                return 0;
+                return 0; //if misses return 0
             }
         }
-        public string heroMessage(int mode, int dmg)
+        public string heroMessage(int mode, int dmg) //hero message
         {
             if (mode != 0)
             {
-                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)!";
+                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)!"; //return if hit
             }
             else
             {
-                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!";
+                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!"; // return if missed
             }
         }
-        public string monsterMessage(string mName, int mode, int dmg)
+        public string monsterMessage(string mName, int mode, int dmg) //Monster message
         {
             if (mode != 0)
             {
-                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
+                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; //return if hit
             }
             else
             {
-                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
+                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; //return if misses
             }
         }
     }
@@ -202,43 +202,43 @@ namespace DungeonCrawler
         {
             return 4; //returning the mace damage of 4
         }
-        public string getName()
+        public string getName() //getName method
         {
-            return "Mace";
+            return "Mace"; //return name as mace
         }
-        public int useWeapon()
+        public int useWeapon() //useWeapon method
         {
             ///Random Generator for Mace
             if (random.Next(0, 4) != 0) //Mace has a 75% chance of hitting, with a 25% chance of missing
             {
-                int dmg = random.Next(1, damage()) + 1;
+                int dmg = random.Next(1, damage()) + 1; //return the damage
                 return dmg;
             }
             else
             {
-                return 0;
+                return 0;//return 0
             }
         }
-        public string heroMessage(int mode, int dmg)
+        public string heroMessage(int mode, int dmg) //Hero Message
         {
             if (mode != 0)
             {
-                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)!";
+                return " You attack with your " + getName() + " and deal (" + dmg + " DMG)!"; //return if hit
             }
             else
             {
-                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!";
+                return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!"; //return if missed
             }
         }
-        public string monsterMessage(string mName, int mode, int dmg)
+        public string monsterMessage(string mName, int mode, int dmg) //Monster Message
         {
             if (mode != 0)
             {
-                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
+                return " The " + mName + " attacks with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; // return if hit
             }
             else
             {
-                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue";
+                return " The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; //return if missed
             }
         }
     }
