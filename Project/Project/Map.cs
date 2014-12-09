@@ -25,8 +25,11 @@ namespace DungeonCrawler
                             fountain = " {F} ", onFount = "{ F }", fountUsed = "-{F}-", onFountUsed = "{-F-}",
                             door = " {D} ", onDoor = "{ D }", undiscovered = " ??? ", 
                             AnyKeyMove = " \n \n Press the Arrow Keys to Move", AnyKeyCont = " \n \n Press Any Key to Continue";
+        /// <summary>
+        /// Creates new instances of Map arrays and sets player position, weapon and health
+        /// </summary>
         public Map()
-        {   ///Creates new instances of Map arrays and sets player position, weapon and health
+        {   
             mask = new string[17, 11];      ///"masks" the contents of the level until explored by the player
             events = new string[17, 11];    ///the contents of the level
             unknown = new string[17, 11];   ///"masks" any chests, doors and trapdoors until explored by the player
@@ -39,13 +42,21 @@ namespace DungeonCrawler
             InfoPane();                     ///sets info pane to display player information
             refresh();                      ///displays arrays to reflect the player's current progress
         }
+        /// <summary>
+        /// Sets player coordinates and displays it on the Mask array
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
         public void setPlayer(int r, int c)
-        {   ///Sets player coordinates and displays it on the Mask array
+        {   
             pRow = r; pCol = c; mask[r, c] = player;
             prog.ClearTextbox();                        ///clears textbox area
         }
+        /// <summary>
+        /// Fills null arrays with "blank" spaces
+        /// </summary>
         static void generate()
-        {   ///Fills null arrays with "blank" spaces
+        {  
             for (int i = 0; i < 17; i++) {
                 for (int j = 0; j < 11; j++) {
                     mask[i, j] = unexplored;
@@ -54,16 +65,23 @@ namespace DungeonCrawler
                 }
             }
         }
+        /// <summary>
+        /// Updates player progress when switching levels
+        /// </summary>
+        /// <param name="l"></param>
         public void setLvl(int l)
-        {   ///Updates player progress when switching levels
+        {   
             switch (l) {
                 case 1: onLvl_1 = true; onLvl_2 = false; onLvl_3 = false; lvl_1(); break;
                 case 2: onLvl_1 = false; onLvl_2 = true; onLvl_3 = false; lvl_2(); break;
                 case 3: onLvl_3 = false; onLvl_2 = false; onLvl_3 = true; lvl_3(); break;
             } refresh();
         }
+        /// <summary>
+        /// Reads user input for player movement
+        /// </summary>
         public void movement()
-        {   ///Reads user input for player movement
+        {   
             _pRow = pRow; _pCol = pCol;                                                     ///saves previous player coordinates
             mask[pRow, pCol] = explored;                                                    ///sets players previous coordinates as "explored" in Mask array
             reveal(pRow, pCol);                                                             ///reveals Events content on the Mask array in a one block radius of the player
@@ -101,13 +119,24 @@ namespace DungeonCrawler
             } reveal(pRow, pCol);
             onEvent(pRow, pCol);                                                            ///checks if the player matches coordinates with Events content
         }
+        /// <summary>
+        /// Returns true if the player is on the same coordinates as the "boundary"
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
         static bool checkBound(int r, int c)
-        {   ///returns true if the player is on the same coordinates as the "boundary"
+        {   
             if (mask[r, c].Equals(bound))   { return true; }
             else                            { return false; }
         }
+        /// <summary>
+        /// Keeps all discovered Event content on the Mask array
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
         static void postEvent(int r, int c)
-        {   ///keeps all discovered Events content on the Mask array
+        {   
             try {
                 switch (events[r, c]) {
                     case "▓▓▓▓▓": mask[r, c] = bound; break;
@@ -130,8 +159,13 @@ namespace DungeonCrawler
                 }
             }   catch { }
         }
+        /// <summary>
+        /// Reveals all Event content in a one block radius of the player
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
         static void reveal(int r, int c)
-        {   ///reveals all Event content in a one block radius of the player
+        {   
             postEvent(r - 1, c);
             postEvent(r - 1, c + 1);
             postEvent(r, c + 1);
@@ -141,8 +175,13 @@ namespace DungeonCrawler
             postEvent(r, c - 1);
             postEvent(r - 1, c - 1);
         }
+        /// <summary>
+        /// Evecute appropriate code to the respective Events
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
         public void onEvent(int r, int c)
-        {   ///execute appropriate code to their respective Events
+        {  
             try {
                 switch (events[r, c]) {
                     case " {E} ": mask[r, c] = onEnemy;
@@ -188,18 +227,33 @@ namespace DungeonCrawler
                 }   refresh();
             }   catch { }
         }
+        /// <summary>
+        /// Event triggered when the player encounters an enemy
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
         public void atEnemy(int r, int c)
-        {   ///Event triggered when the player encounters an enemy
+        {   
             refresh();
             triggerFight(getEnemy(), r, c);
         }
+        /// <summary>
+        /// Event triggered when the player encounters a Boss
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
         public void atBoss(int r, int c)
-        {   ///Event triggered when the player encounters the boss
+        {  
             refresh();
             triggerFight(getBoss(), r, c);
         }
+        /// <summary>
+        /// Event triggered when the player discovers a door
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
         public void atDoor(int r, int c)
-        {   ///Event triggered when the player discovers a door
+        {   
             refresh();
             prog.WriteTextBox(mapMessage(onDoor, "", ""));
             input = Console.ReadKey();
@@ -234,8 +288,15 @@ namespace DungeonCrawler
                 default: atDoor(r, c); break;
             }
         }
+        /// <summary>
+        /// A collection of possible messages to be displayed in the game (minus fight menu messages)
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <param name="var"></param>
+        /// <param name="var2"></param>
+        /// <returns></returns>
         public string mapMessage(string mode, string var, string var2)
-        {   ///A collection of possible messages to be dispalyed in the game (minus fight menu messages)
+        {   
             refresh();
             if (mode.Equals("fightMenu")) {    ///Fight menu dialog
                 return " What will you do? \n \n [1] Use Weapon \n [2] Defend \n [3] Use HP Potion \n [4] Flee";
@@ -308,8 +369,12 @@ namespace DungeonCrawler
             }
             else { return ""; }
         }
+        /// <summary>
+        /// Chooses random body part for trapdoor dialog... because why not
+        /// </summary>
+        /// <returns></returns>
         public string randomInjury()
-        {   ///Chooses random body part for trapdoor dialog
+        {   
             if (rand.Next(0, 8) == 0) { return "scrape your elbow"; }
             else if (rand.Next(0, 6) == 1) { return "bruise your shoulder"; }
             else if (rand.Next(0, 6) == 2) { return "hit your funnybone"; }
@@ -319,18 +384,33 @@ namespace DungeonCrawler
             else if (rand.Next(0, 7) == 6) { return "break a finger nail"; }
             else { return "cut your beautiful face"; }
         }
+        /// <summary>
+        /// Returns true if the Boss has been defeated
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
         public bool checkBoss(int r, int c)
-        {   ///returns true if the Boss has been defeated
+        {   
             if (events[r, c].Equals(bossDef))   return true; 
             else                                return false; 
         }
+        /// <summary>
+        /// Adds specific Event types on specific coordinates on the Events array
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
+        /// <param name="type"></param>
         public void put(int r, int c, string type)
-        {   ///Adds specific Event types on a specific coordinate on the Events array
+        {   
             events[r, c] = type;
             if (type.Equals(fountain) || type.Equals(trapdoor) || type.Equals(door)) unknown[r, c] = undiscovered;   ///Chests, doors and trapdoors will also be recorded in the Unknown array
         }
+        /// <summary>
+        /// Hand-placing every Event on the Events array... the stupidest bit of code ever
+        /// </summary>
         public void lvl_1()
-        {   ///The stupidest bit of code ever
+        {   
             put(0, 0, unexplored); put(0, 1, unexplored); put(0, 2, unexplored); put(0, 3, unexplored); put(0, 4, unexplored); put(0, 5, bound); put(0, 6, bound); put(0, 7, unexplored); put(0, 8, enemy); put(0, 9, unexplored); put(0, 10, bound);
             put(1, 0, bound); put(1, 1, unexplored); put(1, 2, unexplored); put(1, 3, bound); put(1, 4, unexplored); put(1, 5, unexplored); put(1, 6, bound); put(1, 7, unexplored); put(1, 8, bound); put(1, 9, bound); put(1, 10, bound);
             put(2, 0, bound); put(2, 1, unexplored); put(2, 2, unexplored); put(2, 3, bound); put(2, 4, bound); put(2, 5, unexplored); put(2, 6, unexplored); put(2, 7, enemy); put(2, 8, unexplored); put(2, 9, unexplored); put(2, 10, fountain);
@@ -394,25 +474,33 @@ namespace DungeonCrawler
         }
         #endregion
         #region Nolan's code
+        /// <summary>
+        /// Called when going over an enemy on the map and random picks one of nine monsters to fight.
+        /// </summary>
+        /// <returns>Returns one of the 9 monster types.</returns>
         public Monsters getEnemy()
-        {   ///is called when going over an enemy on the map and randomly picked one of 3 monsters to fight.
-            if (rand.Next(0, 8) == 0)       { Ogre enemy1 = new Ogre(); return enemy1; }
-            else if (rand.Next(0, 8) == 1)  { Troll enemy2 = new Troll(); return enemy2; }
-            else if (rand.Next(0, 8) == 2)  { Spirit enemy3 = new Spirit(); return enemy3; }
-            else if (rand.Next(0, 8) == 3)  { Mercenary enemy4 = new Mercenary(); return enemy4; }
-            else if (rand.Next(0, 8) == 4)  { Wraith enemy5 = new Wraith(); return enemy5; }
-            else if (rand.Next(0, 8) == 5)  { Skeleton enemy6 = new Skeleton(); return enemy6; }
-            else if (rand.Next(0, 8) == 6)  { Bandit enemy7 = new Bandit(); return enemy7; }
-            else if (rand.Next(0, 8) == 7)  { Goblin enemy8 = new Goblin(); return enemy8; }
-            else                            { Zombie enemy9 = new Zombie(); return enemy9; }
+        {
+            if (rand.Next(0, 8) == 0) { Ogre enemy1 = new Ogre(); return enemy1; }
+            else if (rand.Next(0, 8) == 1) { Troll enemy2 = new Troll(); return enemy2; }
+            else if (rand.Next(0, 8) == 2) { Spirit enemy3 = new Spirit(); return enemy3; }
+            else if (rand.Next(0, 8) == 3) { Mercenary enemy4 = new Mercenary(); return enemy4; }
+            else if (rand.Next(0, 8) == 4) { Wraith enemy5 = new Wraith(); return enemy5; }
+            else if (rand.Next(0, 8) == 5) { Skeleton enemy6 = new Skeleton(); return enemy6; }
+            else if (rand.Next(0, 8) == 6) { Bandit enemy7 = new Bandit(); return enemy7; }
+            else if (rand.Next(0, 8) == 7) { Goblin enemy8 = new Goblin(); return enemy8; }
+            else { Zombie enemy9 = new Zombie(); return enemy9; }
         }
+        /// <summary>
+        /// Called when going over a boss on the map an randomly picks 1 of 5 bosses.
+        /// </summary>
+        /// <returns>Returns one of the 9 bosses.</returns>
         public Monsters getBoss()
         {   //is triggered when standing on a boss on the map
-            if (rand.Next(0, 5) == 0)       { Swamphag enemyBoss = new Swamphag(); return enemyBoss; }
-            else if (rand.Next(0, 5) == 1)  { Demon enemyBoss = new Demon(); return enemyBoss; }
-            else if (rand.Next(0, 5) == 2)  { SpiderQueen enemyBoss = new SpiderQueen(); return enemyBoss; }
-            else if (rand.Next(0, 5) == 3)  { BloodOgre enemyBoss = new BloodOgre(); return enemyBoss; }
-            else                            { BlackKnight enemyBoss = new BlackKnight(); return enemyBoss; }
+            if (rand.Next(0, 5) == 0) { Swamphag enemyBoss = new Swamphag(); return enemyBoss; }
+            else if (rand.Next(0, 5) == 1) { Demon enemyBoss = new Demon(); return enemyBoss; }
+            else if (rand.Next(0, 5) == 2) { SpiderQueen enemyBoss = new SpiderQueen(); return enemyBoss; }
+            else if (rand.Next(0, 5) == 3) { BloodOgre enemyBoss = new BloodOgre(); return enemyBoss; }
+            else { BlackKnight enemyBoss = new BlackKnight(); return enemyBoss; }
         }
 #endregion
         #region David and Nolan's code

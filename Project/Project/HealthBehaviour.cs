@@ -53,7 +53,6 @@ namespace DungeonCrawler
         /// <summary>
         /// Returns the current health value of the assign monster 
         /// </summary>
-        /// <param name="hp"></param>
         public int getHealth()
         {
             return valueHealth;
@@ -116,7 +115,6 @@ namespace DungeonCrawler
         /// <summary>
         /// Returns the current health value of the assign monster or hero
         /// </summary>
-        /// <param name="hp"></param>
         public int getHealth()
         {
             return valueHealth;
@@ -179,7 +177,6 @@ namespace DungeonCrawler
         /// <summary>
         /// Returns the current health value of the assign monster or hero
         /// </summary>
-        /// <param name="hp"></param>
         public int getHealth()
         {
             return valueHealth;
@@ -242,7 +239,6 @@ namespace DungeonCrawler
         /// <summary>
         /// Returns the current health value of the assign hero
         /// </summary>
-        /// <param name="hp"></param>
         public int getHealth()
         {
             return valueHealth;
