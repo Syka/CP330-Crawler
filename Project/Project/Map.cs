@@ -474,25 +474,33 @@ namespace DungeonCrawler
         }
         #endregion
         #region Nolan's code
+        /// <summary>
+        /// Called when going over an enemy on the map and random picks one of nine monsters to fight.
+        /// </summary>
+        /// <returns>Returns one of the 9 monster types.</returns>
         public Monsters getEnemy()
-        {   ///is called when going over an enemy on the map and randomly picked one of 3 monsters to fight.
-            if (rand.Next(0, 8) == 0)       { Ogre enemy1 = new Ogre(); return enemy1; }
-            else if (rand.Next(0, 8) == 1)  { Troll enemy2 = new Troll(); return enemy2; }
-            else if (rand.Next(0, 8) == 2)  { Spirit enemy3 = new Spirit(); return enemy3; }
-            else if (rand.Next(0, 8) == 3)  { Mercenary enemy4 = new Mercenary(); return enemy4; }
-            else if (rand.Next(0, 8) == 4)  { Wraith enemy5 = new Wraith(); return enemy5; }
-            else if (rand.Next(0, 8) == 5)  { Skeleton enemy6 = new Skeleton(); return enemy6; }
-            else if (rand.Next(0, 8) == 6)  { Bandit enemy7 = new Bandit(); return enemy7; }
-            else if (rand.Next(0, 8) == 7)  { Goblin enemy8 = new Goblin(); return enemy8; }
-            else                            { Zombie enemy9 = new Zombie(); return enemy9; }
+        {
+            if (rand.Next(0, 8) == 0) { Ogre enemy1 = new Ogre(); return enemy1; }
+            else if (rand.Next(0, 8) == 1) { Troll enemy2 = new Troll(); return enemy2; }
+            else if (rand.Next(0, 8) == 2) { Spirit enemy3 = new Spirit(); return enemy3; }
+            else if (rand.Next(0, 8) == 3) { Mercenary enemy4 = new Mercenary(); return enemy4; }
+            else if (rand.Next(0, 8) == 4) { Wraith enemy5 = new Wraith(); return enemy5; }
+            else if (rand.Next(0, 8) == 5) { Skeleton enemy6 = new Skeleton(); return enemy6; }
+            else if (rand.Next(0, 8) == 6) { Bandit enemy7 = new Bandit(); return enemy7; }
+            else if (rand.Next(0, 8) == 7) { Goblin enemy8 = new Goblin(); return enemy8; }
+            else { Zombie enemy9 = new Zombie(); return enemy9; }
         }
+        /// <summary>
+        /// Called when going over a boss on the map an randomly picks 1 of 5 bosses.
+        /// </summary>
+        /// <returns>Returns one of the 9 bosses.</returns>
         public Monsters getBoss()
         {   //is triggered when standing on a boss on the map
-            if (rand.Next(0, 5) == 0)       { Swamphag enemyBoss = new Swamphag(); return enemyBoss; }
-            else if (rand.Next(0, 5) == 1)  { Demon enemyBoss = new Demon(); return enemyBoss; }
-            else if (rand.Next(0, 5) == 2)  { SpiderQueen enemyBoss = new SpiderQueen(); return enemyBoss; }
-            else if (rand.Next(0, 5) == 3)  { BloodOgre enemyBoss = new BloodOgre(); return enemyBoss; }
-            else                            { BlackKnight enemyBoss = new BlackKnight(); return enemyBoss; }
+            if (rand.Next(0, 5) == 0) { Swamphag enemyBoss = new Swamphag(); return enemyBoss; }
+            else if (rand.Next(0, 5) == 1) { Demon enemyBoss = new Demon(); return enemyBoss; }
+            else if (rand.Next(0, 5) == 2) { SpiderQueen enemyBoss = new SpiderQueen(); return enemyBoss; }
+            else if (rand.Next(0, 5) == 3) { BloodOgre enemyBoss = new BloodOgre(); return enemyBoss; }
+            else { BlackKnight enemyBoss = new BlackKnight(); return enemyBoss; }
         }
 #endregion
         #region David and Nolan's code
