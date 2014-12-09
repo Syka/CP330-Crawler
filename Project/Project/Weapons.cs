@@ -8,27 +8,24 @@ using System.Threading.Tasks;
 ///This is the weapons section of the Dungeon C#rawler, included are the list of weapons to be used in the game. 
 ///Each weapon has it's damage counter included inside each weapons. The system takes the weapon which then sets 
 ///the damage to a current value.
+///
+///List of Weapons to use
+///Sword-----------damage = 5
+///Axe-------------damage = 8
+///Knife-----------damage = 2
+///Mace------------damage = 4
+///Fish------------damage = 3
+///Bowstaff--------damage = 6
+///Caestus---------damage = 1
+///Spear----damage = 7
 namespace DungeonCrawler
 {
-    ///List of Weapons to use
-    ///Sword-----------damage = 5
-    ///Axe-------------damage = 8
-    ///Knife-----------damage = 2
-    ///Mace------------damage = 4
-    ///Fish------------damage = 3
-    ///Bowstaff--------damage = 6
-    ///Caestus---------damage = 1
-    ///Spear----damage = 7
+   
 
 
 
     /// <summary>
     ///Weapons Interface
-    ///<param name="getName"></param>
-    ///<param name="damage"></param>
-    ///<param name="useWeapon"></param>
-    ///<param name="heroMessage"></param>
-    ///<param name="monsterMessage"></param>
     /// </summary>
     public interface WeaponBehaviour 
     {
