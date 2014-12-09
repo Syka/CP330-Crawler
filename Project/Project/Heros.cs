@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DungeonCrawler
 {
-       ///Holds all the traits all heros will have
+     /// <summary>
+     /// Hold the traits for the Hero, allowing for multiple in the future.
+     /// </summary>
     public abstract class Heros
     {
         ///implements the Health interface
@@ -18,7 +20,10 @@ namespace DungeonCrawler
  
         }
     }
-
+    /// <summary>
+    /// Sets the Heros Name and Health
+    /// Room for multiple heros
+    /// </summary>
     public class Player : Heros
     {
         ///hero1's Specific traits.
