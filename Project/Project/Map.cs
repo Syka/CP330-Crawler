@@ -324,7 +324,7 @@ namespace DungeonCrawler
             if (events[r, c].Equals(bossDef))   return true; 
             else                                return false; 
         }
-        static void put(int r, int c, string type)
+        public void put(int r, int c, string type)
         {   ///Adds specific Event types on a specific coordinate on the Events array
             events[r, c] = type;
             if (type.Equals(fountain) || type.Equals(trapdoor) || type.Equals(door)) unknown[r, c] = undiscovered;   ///Chests, doors and trapdoors will also be recorded in the Unknown array
@@ -416,6 +416,12 @@ namespace DungeonCrawler
         }
 #endregion
         #region David and Nolan's code
+        /// <summary>
+        /// Loops while after the combat is triggered, loops until flee is chosen or Monster/Hero is dead
+        /// </summary>
+        /// <param name="monster"></param>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
         public void triggerFight(Monsters monster, int r, int c)
         {
             prog.WriteTextBox(" You have encountered a " + monster.HealthBehaviour.getName() + " armed with a " + monster.WeaponBehaviour.getName() + ". Will you fight? \n \n [1] Yes \n [2] No");
@@ -456,6 +462,12 @@ namespace DungeonCrawler
                 default: triggerFight(monster, r, c); break;
             }
         }
+        /// <summary>
+        /// Manages the input recieved by the user and responds with the correct set of instructions made.
+        /// </summary>
+        /// <param name="monster"></param>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
         public void fightMenu(Monsters monster, int r, int c)
         {   ///Takes values of inputs for what to apply for the combat, applies the action
             prog.WriteTextBox(mapMessage("fightMenu", "", ""));
