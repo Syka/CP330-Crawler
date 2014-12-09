@@ -19,9 +19,14 @@ namespace DungeonCrawler
     #region Non-Bosses
     /// <summary>
     /// High toughness
+    /// Equal weapon weighting
+    /// Fleeable
     /// </summary>
     public class Ogre : Monsters
     {
+        /// <summary>
+        /// Ogre
+        /// </summary>
         public Ogre()
         {
             HealthBehaviour = new HighHealth();
@@ -49,6 +54,9 @@ namespace DungeonCrawler
     }
     public class Mercenary : Monsters
     {
+        /// <summary>
+        /// Merc.
+        /// </summary>
         public Mercenary()
         {
             HealthBehaviour = new HighHealth();
@@ -76,6 +84,9 @@ namespace DungeonCrawler
     }
     public class Wraith : Monsters
     {
+        /// <summary>
+        /// Wraith
+        /// </summary>
         public Wraith()
         {
             HealthBehaviour = new HighHealth();
@@ -103,9 +114,13 @@ namespace DungeonCrawler
     }
     /// <summary>
     /// Medium toughness 
+    /// Equal weapon weighting
     /// </summary>
     public class Troll : Monsters
     {
+        /// <summary>
+        /// Troll
+        /// </summary>
         public Troll()
         {
             HealthBehaviour = new MedHealth();
@@ -133,6 +148,9 @@ namespace DungeonCrawler
     }
     public class Skeleton : Monsters
     {
+        /// <summary>
+        /// Skeleton
+        /// </summary>
         public Skeleton()
         {
             HealthBehaviour = new MedHealth();
@@ -160,6 +178,9 @@ namespace DungeonCrawler
     }
     public class Bandit : Monsters
     {
+        /// <summary>
+        /// Bandit
+        /// </summary>
         public Bandit()
         {
             HealthBehaviour = new MedHealth();
@@ -187,9 +208,13 @@ namespace DungeonCrawler
     }
     /// <summary>
     /// Low toughness
+    /// Equal weapon weighting
     /// </summary>
     public class Spirit : Monsters
     {
+        /// <summary>
+        /// Spirit
+        /// </summary>
         public Spirit()
         {
             HealthBehaviour = new LowHealth();
@@ -217,6 +242,9 @@ namespace DungeonCrawler
     }
     public class Goblin : Monsters
     {
+        /// <summary>
+        /// Goblin
+        /// </summary>
         public Goblin()
         {
             HealthBehaviour = new LowHealth();
@@ -244,6 +272,9 @@ namespace DungeonCrawler
     }
     public class Zombie : Monsters
     {
+        /// <summary>
+        /// Zombie
+        /// </summary>
         public Zombie()
         {
             HealthBehaviour = new LowHealth();
@@ -273,9 +304,15 @@ namespace DungeonCrawler
     #region Bosses
     /// <summary>
     /// Bosses differ from regular monsters as they cannot be fled from
+    /// un-equal weapon weighting
+    /// Cannot be fleed
     /// </summary>
     public class Swamphag : Monsters 
     {
+        /// <summary>
+        /// Swamphag
+        /// </summary>
+
         public Swamphag()
         {
             HealthBehaviour = new HighHealth();
@@ -303,6 +340,9 @@ namespace DungeonCrawler
     }
     public class Demon : Monsters
     {
+        /// <summary>
+        /// Demon
+        /// </summary>
         public Demon()
         {
             HealthBehaviour = new HighHealth();
@@ -329,6 +369,9 @@ namespace DungeonCrawler
     }
     public class SpiderQueen : Monsters
     {
+        /// <summary>
+        /// Spider Queen
+        /// </summary>
         public SpiderQueen()
         {
             HealthBehaviour = new HighHealth();
@@ -354,6 +397,9 @@ namespace DungeonCrawler
     }
     public class SkeletonKing : Monsters
     {
+        /// <summary>
+        /// Skeleton King
+        /// </summary>
         SkeletonKing()
         {
             HealthBehaviour = new HighHealth();
@@ -381,6 +427,9 @@ namespace DungeonCrawler
     }
     public class BloodOgre : Monsters
     {
+        /// <summary>
+        /// Blood Ogre
+        /// </summary>
         public BloodOgre()
         {
             HealthBehaviour = new HighHealth();
@@ -406,6 +455,9 @@ namespace DungeonCrawler
     }
     public class BlackKnight : Monsters
     {
+        /// <summary>
+        /// Black Knight
+        /// </summary>
         public BlackKnight()
         {
             HealthBehaviour = new HighHealth();
