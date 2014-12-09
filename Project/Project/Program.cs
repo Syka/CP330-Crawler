@@ -63,7 +63,7 @@ namespace DungeonCrawler
                 }
                 foreach(char c in word)
                 {
-                    System.Threading.Thread.Sleep(25);
+                    System.Threading.Thread.Sleep(3);
                     line += c;                    
                     Console.Write(c);
                 }

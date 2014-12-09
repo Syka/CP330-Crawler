@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Media;
 using System.IO;
 using System.Resources;
-
+using System.Threading;
 ///The standard class from when the character has died in the game and must start over.
 namespace DungeonCrawler
 {
@@ -32,6 +32,7 @@ namespace DungeonCrawler
 
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Death.wav");
             player.Play();
+            System.Threading.Thread.Sleep(5000);
             Console.ReadKey();
             Environment.Exit(1);
         }
@@ -57,6 +58,7 @@ namespace DungeonCrawler
             Console.Write(Environment.NewLine + "             YOU ARE WINNER! CONGRATULATIONS!");
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/VictoryFanfare.wav");
             player.Play();
+            System.Threading.Thread.Sleep(5000);
             Console.ReadKey();
             Environment.Exit(1);
         }

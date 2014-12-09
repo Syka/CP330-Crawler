@@ -14,8 +14,8 @@ namespace DungeonCrawler
             ///Header starts at 0,0
             ///Header ends at 7,97
             Console.SetWindowSize(97, 60);
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Music.wav");
-            player.Play();
+            //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../../Sound/Music.wav");
+            //player.Play();
             ///Width 95, Height 60
             ///59 is the max lines up/down 
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -23,11 +23,11 @@ namespace DungeonCrawler
             Console.Clear();
             Console.SetCursorPosition(0, 0);
             Console.WriteLine(" ┌─────────────────────────────────────────────────────────────────────────────────────────────┐");
-            Console.WriteLine(" │   ___                                 _____  ____                  __                       │");
-            Console.WriteLine(" │  / _ \\__ _____  ___ ____ ___  ___    / ___/_/ / /________ __    __/ /__ ____                │");
-            Console.WriteLine(" │ / // / // / _ \\/ _ `/ -_) _ \\/ _ \\  / /__/_  . __/ __/ _ `/ |/|/ / / -_) __/                │");
-            Console.WriteLine(" │/____/\\_,_/_//_/\\_, /\\__/\\___/_//_/  \\___/_    __/_/  \\_,_/|__,__/_/\\__/_/                   │");
-            Console.WriteLine(" │               /___/                      /_/_/                                              │");
+            Console.WriteLine(" │           ___                                 _____  ____                  __               │");
+            Console.WriteLine(" │          / _ \\__ _____  ___ ____ ___  ___    / ___/_/ / /________ __    __/ /__ ____        │");
+            Console.WriteLine(" │         / // / // / _ \\/ _ `/ -_) _ \\/ _ \\  / /__/_  . __/ __/ _ `/ |/|/ / / -_) __/        │");
+            Console.WriteLine(" │        /____/\\_,_/_//_/\\_, /\\__/\\___/_//_/  \\___/_    __/_/  \\_,_/|__,__/_/\\__/_/           │");
+            Console.WriteLine(" │                       /___/                      /_/_/                                      │");
             Console.WriteLine(" └─────────────────────────────────────────────────────────────────────────────────────────────┘");
 
              ///Creating Vertical Bar
