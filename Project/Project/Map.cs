@@ -584,7 +584,7 @@ namespace DungeonCrawler
                     blockedDamage = monster.WeaponBehaviour.damage() - (blockedAmount);
                     hero.HealthBehaviour.subHealth(blockedDamage);
                     InfoPane(); MonsterPane(monster);
-                    prog.WriteTextBox(" You soften the " + monster.HealthBehaviour.getName() + "'s attack! (-" + blockedDamage +" DMG)");
+                    prog.WriteTextBox(" You soften the " + monster.HealthBehaviour.getName() + "'s attack! (-" + blockedDamage + " DMG)" + "! \n \n Press Any Key to Continue");
                     Console.ReadKey();
                     break;
                 case ConsoleKey.D3:                                     ///Hero restores some HP then recieves damage from monster.
