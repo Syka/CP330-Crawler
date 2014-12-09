@@ -324,7 +324,7 @@ namespace DungeonCrawler
             if (events[r, c].Equals(bossDef))   return true; 
             else                                return false; 
         }
-        static void put(int r, int c, string type)
+        public void put(int r, int c, string type)
         {   ///Adds specific Event types on a specific coordinate on the Events array
             events[r, c] = type;
             if (type.Equals(fountain) || type.Equals(trapdoor) || type.Equals(door)) unknown[r, c] = undiscovered;   ///Chests, doors and trapdoors will also be recorded in the Unknown array
