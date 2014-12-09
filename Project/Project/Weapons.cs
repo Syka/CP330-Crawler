@@ -125,6 +125,13 @@ namespace DungeonCrawler
                 return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!"; ///if not hit  option
             }
         }
+        /// <summary>
+        /// This is the message returned for monsters
+        /// </summary>
+        /// <param name="mName"></param>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; ///if the monster misses</returns>
         public string monsterMessage(string mName, int mode, int dmg) /// Monster Message
         {
             if (mode != 0)
