@@ -21,7 +21,15 @@ namespace DungeonCrawler
     ///Spear----damage = 7
 
 
-    ///Weapon interface
+
+    /// <summary>
+    ///Weapons Interface
+    ///<param name="getName"></param>
+    ///<param name="damage"></param>
+    ///<param name="useWeapon"></param>
+    ///<param name="heroMessage"></param>
+    ///<param name="monsterMessage"></param>
+    /// </summary>
     public interface WeaponBehaviour 
     {
         string getName(); ///get the Name of the weapon
@@ -33,8 +41,11 @@ namespace DungeonCrawler
 
 
 
+
+    /// <summary>
     ///Sword
     ///Sword will set damage to 5, this will then be used in the future when attacking an enemy.
+    /// </summary>
     public class Sword : WeaponBehaviour
     {
         Program prog = new Program(); ///new prog
@@ -60,6 +71,12 @@ namespace DungeonCrawler
                 return 0;
             }
         }
+        /// <summary>
+        /// This is the message returned for hero
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" You attack with your " + getName() + " and deal (" + dmg + " DMG)!" ///if hero misses</returns>
         public string heroMessage(int mode, int dmg) /// Hero message, takes mode and damage
         {
             if (mode != 0) ///this is where we learn if a hero hits or not
@@ -71,6 +88,13 @@ namespace DungeonCrawler
                 return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!"; ///this is where he misses
             }
         }
+        /// <summary>
+        /// This is the message returned for monsters
+        /// </summary>
+        /// <param name="mName"></param>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; ///if the monster misses</returns>
         public string monsterMessage(string mName, int mode, int dmg) ///Monster message, takes current arguments and mName
         {
             if (mode != 0)
@@ -83,11 +107,14 @@ namespace DungeonCrawler
             }
         }
     }
+    
 
 
-
+    
+    /// <summary>
     ///Axe
     ///Axe will set damage to 8, this will then be used in the future when attacking an enemy.
+    /// </summary>
     public class Axe : WeaponBehaviour ///the weapon is created and uses the interface of WeaponBehaviour
     {
         Program prog = new Program(); ///new prog
@@ -113,6 +140,12 @@ namespace DungeonCrawler
                 return 0; ///returns damage of 0
             }
         }
+        /// <summary>
+        /// This is the message returned for hero
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" You attack with your " + getName() + " and deal (" + dmg + " DMG)!" ///if hero misses</returns>
         public string heroMessage(int mode, int dmg) ///Hero message
         {
             if (mode != 0)
@@ -146,8 +179,10 @@ namespace DungeonCrawler
 
 
 
+    /// <summary>
     ///Knife
     ///Knife will set damage to 2, this will then be used in the future when attacking an enemy.
+    /// </summary>
     public class Knife : WeaponBehaviour ///the weapon is created and uses the interface of WeaponBehaviour
     {
         Program prog = new Program();///new prog
@@ -173,6 +208,12 @@ namespace DungeonCrawler
                 return 0; ///if misses return 0
             }
         }
+        /// <summary>
+        /// This is the message returned for hero
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" You attack with your " + getName() + " and deal (" + dmg + " DMG)!" ///if hero misses</returns>
         public string heroMessage(int mode, int dmg) ///hero message
         {
             if (mode != 0)
@@ -184,6 +225,13 @@ namespace DungeonCrawler
                 return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!"; /// return if missed
             }
         }
+        /// <summary>
+        /// This is the message returned for monsters
+        /// </summary>
+        /// <param name="mName"></param>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; ///if the monster misses</returns>
         public string monsterMessage(string mName, int mode, int dmg) ///Monster message
         {
             if (mode != 0)
@@ -199,8 +247,10 @@ namespace DungeonCrawler
 
 
 
+    /// <summary>
     ///Mace
     ///Mace will set damage to 4, this will then be used in the future when attacking an enemy.
+    /// </summary>
     public class Mace : WeaponBehaviour ///the weapon is created and uses the interface of WeaponBehaviour
     {
         Program prog = new Program(); ///new prog
@@ -226,6 +276,12 @@ namespace DungeonCrawler
                 return 0;///return 0
             }
         }
+        /// <summary>
+        /// This is the message returned for hero
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" You attack with your " + getName() + " and deal (" + dmg + " DMG)!" ///if hero misses</returns>
         public string heroMessage(int mode, int dmg) ///Hero Message
         {
             if (mode != 0)
@@ -237,6 +293,13 @@ namespace DungeonCrawler
                 return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!"; ///return if missed
             }
         }
+        /// <summary>
+        /// This is the message returned for monsters
+        /// </summary>
+        /// <param name="mName"></param>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; ///if the monster misses</returns>
         public string monsterMessage(string mName, int mode, int dmg) ///Monster Message
         {
             if (mode != 0)
@@ -252,8 +315,10 @@ namespace DungeonCrawler
 
 
 
+    /// <summary>
     ///Fish
     ///Fish will set damage to 3, this will then be used in the future when attacking an enemy.
+    /// </summary>
     public class Fish : WeaponBehaviour ///the weapon is created and uses the interface of WeaponBehaviour
     {
         Program prog = new Program(); ///new prog
@@ -279,6 +344,12 @@ namespace DungeonCrawler
                 return 0; ///return 0
             }
         }
+        /// <summary>
+        /// This is the message returned for hero
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" You attack with your " + getName() + " and deal (" + dmg + " DMG)!" ///if hero misses</returns>
         public string heroMessage(int mode, int dmg) ///Hero message
         {
             if (mode != 0)
@@ -290,6 +361,13 @@ namespace DungeonCrawler
                 return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!"; ///return if missed
             }
         }
+        /// <summary>
+        /// This is the message returned for monsters
+        /// </summary>
+        /// <param name="mName"></param>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; ///if the monster misses</returns>
         public string monsterMessage(string mName, int mode, int dmg) ///Monster message
         {
             if (mode != 0)
@@ -302,8 +380,11 @@ namespace DungeonCrawler
             } 
         }
     }
+    /// <summary>
     ///Bowstaff
     ///Bowstaff will set damage to 6, this will then be used in the future when attacking an enemy.
+    /// </summary>
+    
     public class Bowstaff : WeaponBehaviour ///the weapon is created and uses the interface of WeaponBehaviour
     {
         Program prog = new Program(); ///new prog
@@ -329,6 +410,12 @@ namespace DungeonCrawler
                 return 0; ///return 0
             }
         }
+        /// <summary>
+        /// This is the message returned for hero
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" You attack with your " + getName() + " and deal (" + dmg + " DMG)!" ///if hero misses</returns>
         public string heroMessage(int mode, int dmg) ///hero message
         {
             if (mode != 0)
@@ -340,6 +427,13 @@ namespace DungeonCrawler
                 return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!"; ///returned if missed
             }
         }
+        /// <summary>
+        /// This is the message returned for monsters
+        /// </summary>
+        /// <param name="mName"></param>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; ///if the monster misses</returns>
         public string monsterMessage(string mName, int mode, int dmg) ///Monster message
         {
             if (mode != 0)
@@ -352,8 +446,12 @@ namespace DungeonCrawler
             }
         }
     }
+
+
+    /// <summary>
     ///Caestus
     ///Caestus will set damage to 1, this will then be used in the future when attacking an enemy.
+    /// </summary>
     public class Caestus : WeaponBehaviour ///the weapon is created and uses the interface of WeaponBehaviour
     {
         Program prog = new Program(); ///new prog
@@ -370,12 +468,25 @@ namespace DungeonCrawler
         {
             return 1; ///always return 1
         }
+        /// <summary>
+        /// This is the message returned for hero
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" You attack with your " + getName() + " and deal (" + dmg + " DMG)!" ///if hero misses</returns>
         public string heroMessage(int mode, int dmg) ///Hero Message
         {
             
                 return " You attack with your " + getName() + " and deal (" + dmg + " DMG)!"; ///Always returns the attack, never misses
             
         }
+        /// <summary>
+        /// This is the message returned for monsters
+        /// </summary>
+        /// <param name="mName"></param>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; ///if the monster misses</returns>
         public string monsterMessage(string mName, int mode, int dmg) ///Monster message
         {
             if (mode != 0)
@@ -388,8 +499,13 @@ namespace DungeonCrawler
             }
         }
     }
+
+
+
+    /// <summary>
     ///Spear
     ///Spear will set damage to 7, this will then be used in the future when attacking an enemy.
+    /// </summary>
     public class Spear : WeaponBehaviour ///the weapon is created and uses the interface of WeaponBehaviour
     {
         Program prog = new Program(); ///new prog
@@ -415,6 +531,12 @@ namespace DungeonCrawler
                 return 0; ///return 0
             }
         }
+        /// <summary>
+        /// This is the message returned for hero
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" You attack with your " + getName() + " and deal (" + dmg + " DMG)!" ///if hero misses</returns>
         public string heroMessage(int mode, int dmg) ///Hero message
         {
             if (mode != 0)
@@ -426,6 +548,13 @@ namespace DungeonCrawler
                 return " You miss with your " + getName() + " and deal (" + dmg + " DMG)!"; ///return if missed
             }
         }
+        /// <summary>
+        /// This is the message returned for monsters
+        /// </summary>
+        /// <param name="mName"></param>
+        /// <param name="mode"></param>
+        /// <param name="dmg"></param>
+        /// <returns>" The " + mName + " misses with their " + getName() + " and deals (" + dmg + " DMG)! \n \n Press Any Key to Continue"; ///if the monster misses</returns>
         public string monsterMessage(string mName, int mode, int dmg) ///monster message
         {
             if (mode != 0)
